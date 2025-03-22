@@ -19,3 +19,4 @@ Funcionalidades del proyecto:
 -Pagina de cada juego con su informacion (Foro de cada juego)
 -pagina principal de ofertas destacadas
 
+Ya llegaron las pipshash
