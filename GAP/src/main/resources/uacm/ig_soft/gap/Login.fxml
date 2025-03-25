@@ -14,9 +14,9 @@
      
    </stylesheets>
    <children>
-      <Pane fx:id="pn_login" layoutX="100.0" layoutY="68.0" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: 3B2A5E; -fx-border-color: 3B2A5E; -fx-background-radius: 15;">
+      <Pane fx:id="pn_login" layoutX="4.0" layoutY="61.0" prefHeight="300.0" prefWidth="597.0">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="175.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="269.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../imagenes/Logo-final.jpg" />
                </image>
@@ -24,11 +24,11 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <Label layoutX="185.0" layoutY="14.0" text="Login" textFill="#ffadf4" />
-            <TextField fx:id="txf_correo" alignment="CENTER" layoutX="126.0" layoutY="100.0" prefHeight="25.0" prefWidth="176.0" promptText="Correo elctronico o usuario" style="-fx-background-color: A057B4;" />
-            <TextField fx:id="txf_Contraseña" alignment="CENTER" layoutX="126.0" layoutY="131.0" prefHeight="25.0" prefWidth="176.0" promptText="Contrseña" style="-fx-background-color: A057B4;" />
-            <Button fx:id="btn_Olvido_Contra" alignment="CENTER" layoutX="143.0" layoutY="163.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Olvidaste tu contraseña" textAlignment="CENTER" textFill="#ffadf4" />
-            <Button fx:id="bt_Registrate" alignment="CENTER" layoutX="165.0" layoutY="195.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Registrate" textFill="#ffadf4" />
+            <Label layoutX="279.0" layoutY="23.0" text="Login" textFill="#ffadf4" />
+            <TextField fx:id="txf_correo" alignment="CENTER" layoutX="206.0" layoutY="97.0" prefHeight="25.0" prefWidth="176.0" promptText="Correo elctronico o usuario" style="-fx-background-color: A057B4;" />
+            <TextField fx:id="txf_Contraseña" alignment="CENTER" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Contrseña" style="-fx-background-color: A057B4;" />
+            <Button fx:id="btn_Olvido_Contra" alignment="CENTER" layoutX="209.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Olvidaste tu contraseña" textAlignment="CENTER" textFill="#ffadf4" />
+            <Button fx:id="bt_Registrate" alignment="CENTER" layoutX="356.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Registrate" textFill="#ffadf4" />
          </children>
       </Pane>
    </children>
