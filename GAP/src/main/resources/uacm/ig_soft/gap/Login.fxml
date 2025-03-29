@@ -3,18 +3,20 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: 3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.ig_soft.gap.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.ig_soft.gap.LoginController">
    <stylesheets>
      
    </stylesheets>
    <children>
-      <Pane fx:id="pn_login" layoutX="4.0" layoutY="61.0" prefHeight="300.0" prefWidth="597.0">
+      <Pane fx:id="pn_login" layoutX="4.0" layoutY="61.0" prefHeight="300.0" prefWidth="600.0">
          <children>
             <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="269.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,9 +28,11 @@
             </ImageView>
             <Label layoutX="279.0" layoutY="23.0" text="Login" textFill="#ffadf4" />
             <TextField fx:id="txf_correo" alignment="CENTER" layoutX="206.0" layoutY="97.0" prefHeight="25.0" prefWidth="176.0" promptText="Correo elctronico o usuario" style="-fx-background-color: A057B4;" />
-            <TextField fx:id="txf_Contraseña" alignment="CENTER" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Contrseña" style="-fx-background-color: A057B4;" />
             <Button fx:id="btn_Olvido_Contra" alignment="CENTER" layoutX="209.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Olvidaste tu contraseña" textAlignment="CENTER" textFill="#ffadf4" />
             <Button fx:id="bt_Registrate" alignment="CENTER" layoutX="356.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Registrate" textFill="#ffadf4" />
+            <PasswordField fx:id="paswor_fileUno" alignment="CENTER" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Contraseña" style="-fx-background-color: A057B4;" />
+            <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="149.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
+            <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="649.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
          </children>
       </Pane>
    </children>
