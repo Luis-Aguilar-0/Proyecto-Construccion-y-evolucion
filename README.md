@@ -2,10 +2,10 @@
 Nombre del proyecto GAP (Gaming programing axolotl)
 
 ## Descripcion general:
-El proyecto consiste en la venda de videojuegos y la gestion de mods de los mismos juegos 
+El proyecto consiste en la venta de videojuegos y la gestion de mods de los mismos juegos 
 
 ## Funcionalidades del proyecto:
-- Loging
+- Login
 - Registro de nuevos usuarios
 - Perfil del usuario
 - Personalizar perfil del usuario
