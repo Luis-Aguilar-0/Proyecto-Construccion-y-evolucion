@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+   <children>
+      <ImageView fitHeight="1121.0" fitWidth="1963.0" layoutX="-17.0" layoutY="-45.0" pickOnBounds="true" AnchorPane.bottomAnchor="44.33333333333326" AnchorPane.leftAnchor="-17.0" AnchorPane.rightAnchor="14.333333333333258" AnchorPane.topAnchor="-45.0">
+         <image>
+            <Image url="@../../../imagenes/Fondo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="114.0" fitWidth="107.0" layoutX="29.0" layoutY="22.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../imagenes/Logo-final.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="panPrincipalPerfil" layoutX="168.0" layoutY="145.0" prefHeight="483.0" prefWidth="1069.0" style="-fx-background-color: #3B2A5E;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="45.0" prefWidth="225.0" text="Personalizar perfil" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="27.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtIngresaNombre" layoutX="20.0" layoutY="121.0" prefHeight="27.0" prefWidth="250.0" promptText="  Ingresa nombre" style="-fx-background-color: #F87BF0;">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <Label fx:id="lbNombre" layoutX="20.0" layoutY="85.0" prefHeight="27.0" prefWidth="157.0" text="Cambiar nombre" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbCambiarNombre" layoutX="20.0" layoutY="169.0" prefHeight="27.0" prefWidth="157.0" text="Cambiar usuario" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtIngresaUsuario" layoutX="20.0" layoutY="205.0" prefHeight="27.0" prefWidth="250.0" promptText=" Ingresa usuario" style="-fx-background-color: #F87BF0;">
+               <font>
+                  <Font size="17.0" />
+               </font></TextField>
+            <Label fx:id="lbCambiarCorreo" layoutX="20.0" layoutY="242.0" prefHeight="27.0" prefWidth="225.0" text="Cambiar correo electronico" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCambiarCorreo" layoutX="20.0" layoutY="279.0" prefHeight="27.0" prefWidth="250.0" promptText=" Ingresa correo electronico" style="-fx-background-color: #F87BF0;">
+               <font>
+                  <Font size="17.0" />
+               </font></TextField>
+            <Label fx:id="lbCambiarContrasenha" layoutX="20.0" layoutY="324.0" prefHeight="27.0" prefWidth="187.0" text="Cambiar contrasenha" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtCambiarContrasenha" layoutX="20.0" layoutY="358.0" prefHeight="27.0" prefWidth="250.0" promptText="  Ingresa contrasenha" style="-fx-background-color: #F87BF0;">
+               <font>
+                  <Font size="17.0" />
+               </font></TextField>
+            <ImageView fx:id="imgCambiarImagen" fitHeight="230.0" fitWidth="225.0" layoutX="712.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/Logo-final.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnEdit1" layoutX="317.0" layoutY="122.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" style="-fx-background-color: #A057B4;" text="Editar" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEdit2" layoutX="317.0" layoutY="207.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" style="-fx-background-color: #A057B4;" text="Editar" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEdit3" layoutX="317.0" layoutY="281.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" style="-fx-background-color: #A057B4;" text="Editar" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEdit4" layoutX="317.0" layoutY="360.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="54.0" style="-fx-background-color: #A057B4;" text="Editar" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnElegirImagen" layoutX="692.0" layoutY="87.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="257.0" style="-fx-background-color: #A057B4;" text="Elegir nueva imagen de perfil" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnAceptarCambiarImagen" layoutX="785.0" layoutY="385.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" style="-fx-background-color: #A057B4;" text="Aceptar" textFill="#ffadf4">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="panIconosBibliotecaPerfil" layoutX="32.0" layoutY="211.0" prefHeight="403.0" prefWidth="79.0" style="-fx-background-color: #3B2A5E;">
+         <children>
+            <ImageView fx:id="imgBiblioteca" fitHeight="45.0" fitWidth="48.0" layoutX="13.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/Biblioteca.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgPerfil" fitHeight="48.0" fitWidth="48.0" layoutX="13.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/perfil4.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgBilletera" fitHeight="54.0" fitWidth="48.0" layoutX="13.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/wallet1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgSalir" fitHeight="54.0" fitWidth="48.0" layoutX="16.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/salida.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane fx:id="panBusquedaPerfil" layoutX="621.0" layoutY="32.0" prefHeight="45.0" prefWidth="617.0" style="-fx-background-color: #3B2A5E;">
+         <children>
+            <ImageView fx:id="imgBusqueda" fitHeight="48.0" fitWidth="39.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/busqueda.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgCarrito" fitHeight="39.0" fitWidth="39.0" layoutX="566.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/carrito.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgInicio" fitHeight="39.0" fitWidth="39.0" layoutX="505.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../imagenes/home2.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Label fx:id="lbTextoPerfil2" layoutX="32.0" layoutY="174.0" prefHeight="27.0" prefWidth="54.0" text="Perfil" textFill="#ffadf4">
+         <font>
+            <Font name="Yu Gothic UI Semibold" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
