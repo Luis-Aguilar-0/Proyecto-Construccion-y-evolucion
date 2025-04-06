@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.ig_soft.gap.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.LoginController">
    <stylesheets>
      
    </stylesheets>
@@ -20,7 +20,7 @@
          <children>
             <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="269.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../imagenes/Logo-final.jpg" />
+                  <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>
                <viewport>
                   <Rectangle2D />

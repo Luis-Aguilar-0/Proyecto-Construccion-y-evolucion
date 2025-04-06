@@ -1,8 +1,11 @@
-module uacm.ig_soft.gap {
+module uacm {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.base;
 
-    opens uacm.ig_soft.gap to javafx.fxml;
-    exports uacm.ig_soft.gap;
+    opens uacm to javafx.fxml;
+    opens uacm.utilities to javafx.fxml;
+    
+    exports uacm;
+    exports uacm.utilities;
 }

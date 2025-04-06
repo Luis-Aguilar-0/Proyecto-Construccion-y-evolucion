@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.ig_soft.gap.OlvidoContrasenaController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.OlvidoContrasenaController">
     <stylesheets>
-        <URL value="@/styles/olvidocontrasena.css" />
+        <URL value="@../styles/olvidocontrasena.css" />
     </stylesheets>
    <children>
       <Pane fx:id="pane_OlviContrasena" layoutY="50.0" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;">
          <children>
             <ImageView fitHeight="68.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true" x="42.0" y="10.0">
                <image>
-                  <Image url="@../../../imagenes/Logo-final.jpg" />
+                  <Image url="@../../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>
             </ImageView>
             <Label layoutX="142.0" layoutY="36.0" text="Ingrese los siguientes datos" textFill="#ffadf4" />
