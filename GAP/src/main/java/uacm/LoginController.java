@@ -32,6 +32,8 @@ public class LoginController implements Initializable {
     private Button bt_Registrate;
     @FXML
     private PasswordField paswor_fileUno;
+    @FXML
+    private TextField tx_vistaContra;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
