@@ -15,7 +15,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Perfil.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Login.fxml"));
         Parent root = loader.load();
         scene = new Scene(root, 600, 400);
         stage.setScene(scene);
@@ -25,7 +25,7 @@ public class App extends Application {
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-
+//evento tareas temporizador
     private static Parent loadFXML(String fxml) throws IOException {
         String fxmlPath;
 
@@ -47,7 +47,10 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         launch();
+        
+
+        scene = new Scene(loadFXML("OlvidoContrasena"),600,400);
     }
 }
