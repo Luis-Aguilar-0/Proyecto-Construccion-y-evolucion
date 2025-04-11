@@ -32,6 +32,10 @@ public class LoginController implements Initializable {
     private Button bt_Registrate;
     @FXML
     private PasswordField paswor_fileUno;
+    @FXML
+    private TextField tx_vistaContra;
+    @FXML
+    private Button btn_verContra;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,6 +49,7 @@ public class LoginController implements Initializable {
         paswor_fileUno.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         paswor_fileUno.setOnAction(event -> {
+            //a qui va el codigo para que carge la pantalla principal
             String correo = txf_correo.getText();
             String contraseña = paswor_fileUno.getText();
             System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
@@ -63,6 +68,24 @@ public class LoginController implements Initializable {
             } catch (IOException exe) {
                 exe.printStackTrace();
             }
+        });
+
+        
+        //oculta el tx_vistaContra
+        if(paswor_fileUno.getText() != null || paswor_fileUno == null){
+            tx_vistaContra.setVisible(false);
+        }
+
+        //funcionalidad del boton mostrar contraseña
+        btn_verContra.setOnMouseClicked(event ->{
+            
+            //obtenemos lo que esta en el paswor file
+            tx_vistaContra.setText(paswor_fileUno.getText());
+            //ocultamos el paswor file
+            paswor_fileUno.setVisible(false);
+            //mostramos la contraseña
+            tx_vistaContra.setVisible(true);
+
         });
     }
 }

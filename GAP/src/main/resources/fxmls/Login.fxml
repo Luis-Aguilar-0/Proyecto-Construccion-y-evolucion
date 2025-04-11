@@ -33,6 +33,8 @@
             <PasswordField fx:id="paswor_fileUno" alignment="CENTER" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Contraseña" style="-fx-background-color: A057B4;" />
             <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="149.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
             <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="649.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
+            <TextField fx:id="tx_vistaContra" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" />
+            <Button fx:id="btn_verContra" layoutX="391.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="c" />
          </children>
       </Pane>
    </children>
