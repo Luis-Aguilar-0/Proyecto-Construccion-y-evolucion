@@ -78,8 +78,8 @@ public class PerfilController {
             dialogStage.setTitle("Confirmar salida");
             
             // Obtener referencia al controlador del diálogo
-            CerrarSesionController controller = loader.getController();
-            controller.setDialogStage(dialogStage);
+            //CerrarSesionController controller = loader.getController();
+            //controller.setDialogStage(dialogStage);
             
             dialogStage.showAndWait(); // Muestra y espera hasta que se cierre
             
