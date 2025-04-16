@@ -1,7 +1,24 @@
-/*
- * Empty Stylesheet file.
- */
+/*se cambia el color de toda la scene*/
+.root{
+    -fx-background-color: #3B2A5E;
+}
 
-.mainFxmlClass {
+.pane-olvido{
+
+    -fx-background-color: #3B2A5E;
+    -fx-background-radius: 15;
+}
+
+.tex-color{
+
+    -fx-background-color: #3B2A5E;
+    -fx-text-fill: #ffadf4;
+
+}
+
+.boton-actulaizar{
+
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
 
 }

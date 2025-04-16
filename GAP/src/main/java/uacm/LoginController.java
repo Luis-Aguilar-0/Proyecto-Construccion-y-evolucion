@@ -3,6 +3,8 @@ package uacm;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,13 +45,17 @@ public class LoginController implements Initializable {
         pn_login.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), new CornerRadii(15), Insets.EMPTY)));
 
         txf_correo.setStyle("-fx-text-fill: #ffadf4");
-        txf_correo.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
+        txf_correo.setBackground(
+                new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         paswor_fileUno.setStyle("-fx-text-fill: #ffadf4");
         paswor_fileUno.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
 
+        tx_vistaContra.setStyle("-fx-text-fill: #ffadf4");
+        tx_vistaContra.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
+
         paswor_fileUno.setOnAction(event -> {
-            //a qui va el codigo para que carge la pantalla principal
+            // a qui va el codigo para que carge la pantalla principal
             String correo = txf_correo.getText();
             String contraseña = paswor_fileUno.getText();
             System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
@@ -70,22 +76,34 @@ public class LoginController implements Initializable {
             }
         });
 
-        
-        //oculta el tx_vistaContra
-        if(paswor_fileUno.getText() != null || paswor_fileUno == null){
+        // oculta el tx_vistaContra
+        if (paswor_fileUno.getText() != null || paswor_fileUno == null) {
             tx_vistaContra.setVisible(false);
         }
 
-        //funcionalidad del boton mostrar contraseña
-        btn_verContra.setOnMouseClicked(event ->{
-            
-            //obtenemos lo que esta en el paswor file
+        // funcionalidad del boton mostrar contraseña
+        btn_verContra.setOnMouseClicked(event -> {
+
+            Timer timer = new Timer();
+            TimerTask tareaUno = new TimerTask() {
+                public void run() {
+                    // oculta la contraaseña
+                    tx_vistaContra.setVisible(false);
+                    // mostramos la contraseña en formato pasword
+                    paswor_fileUno.setVisible(true);
+                }
+            };
+
+            // obtenemos lo que esta en el paswor file
             tx_vistaContra.setText(paswor_fileUno.getText());
-            //ocultamos el paswor file
+            // ocultamos el paswor file
             paswor_fileUno.setVisible(false);
-            //mostramos la contraseña
+            // mostramos la contraseña
             tx_vistaContra.setVisible(true);
+            System.out.println("la tarea esta echa");
+            timer.schedule(tareaUno, 5000);
 
         });
+
     }
 }

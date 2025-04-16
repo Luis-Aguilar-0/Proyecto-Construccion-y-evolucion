@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchoPane_paginaJuego" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.Pagina_juegoController">
+   <children>
+      <Text fx:id="txt_tituloJuego" layoutX="30.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo del juego" />
+      <BorderPane fx:id="borderPane" layoutX="30.0" layoutY="53.0" prefHeight="132.0" prefWidth="430.0" style="-fx-background-color: #643B81;" />
+      <Text fill="#ffadf4" layoutX="470.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requisitos del juego" />
+      <Text fill="#ffadf4" layoutX="470.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minimos" />
+      <Text fill="#ffadf4" layoutX="470.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recomendados" />
+      <Button fx:id="btn_agregaraAlCarrito" contentDisplay="CENTER" layoutX="478.0" layoutY="185.0" mnemonicParsing="false" text="Agregar al carrito" />
+      <Button fx:id="btn_Comprar" contentDisplay="CENTER" layoutX="478.0" layoutY="219.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" text="Comprar" textAlignment="CENTER" />
+   </children>
+</AnchorPane>

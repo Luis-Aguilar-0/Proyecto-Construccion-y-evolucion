@@ -9,14 +9,9 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 
 /**
  * FXML Controller class
@@ -40,7 +35,7 @@ public class OlvidoContrasenaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
       
-        
+       /*
         //cambio de color al Pane                                          //cambio de color      //se redondean las esquinas
         pane_OlviContrasena.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), new CornerRadii(15), Insets.EMPTY)));
         
@@ -51,6 +46,8 @@ public class OlvidoContrasenaController implements Initializable {
         //cambio de color a el texto que se ingresa en el textFile
         txt_correoOlviConta.setStyle("-fx-text-fill: #ffadf4");
         txt_nuevaContra.setStyle("-fx-text-fill: #ffadf4");
+       */ 
+       
         
         //obtencion de los datos
         btn_actualizaContra.setOnMouseClicked(e ->{
@@ -61,6 +58,15 @@ public class OlvidoContrasenaController implements Initializable {
             System.out.println(correo + "\n" + contrasena);
             
         });
+
+       /* 
+    
+         pane_OlviContrasena.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                newScene.getStylesheets().add(getClass().getResource("/styles/olvidocontrasena.css").toExternalForm());
+            }
+        });
+       */
         
         
         
