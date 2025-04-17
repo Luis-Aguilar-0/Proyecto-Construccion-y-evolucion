@@ -2,36 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #3B2A5E;" stylesheets="@../styles/BibliotecaPerfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Pane fx:id="panBusquedaPerfil" layoutX="269.0" layoutY="50.0" prefHeight="43.0" prefWidth="727.0" styleClass="textfield-perfil" />
-      <Label layoutX="57.0" layoutY="156.0" prefHeight="62.0" prefWidth="191.0" styleClass="label-subtitulo-perfil" text="Favoritos" textFill="#a15151">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="37.0" />
-         </font>
-      </Label>
-      <Label layoutX="542.0" layoutY="159.0" prefHeight="66.0" prefWidth="235.0" styleClass="label-subtitulo-perfil" text="Cambiar vista" textFill="#a15151">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="35.0" />
-         </font>
-      </Label>
-      <Button layoutX="779.0" layoutY="167.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="79.0" text="Button" />
-      <ImageView fitHeight="189.0" fitWidth="248.0" layoutX="1053.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="70.0" layoutY="376.0" prefHeight="62.0" prefWidth="191.0" styleClass="label-subtitulo-perfil" text="Todos" textFill="#a15151">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="37.0" />
-         </font>
-      </Label>
-      <Label fx:id="lbBiblioteca" layoutX="70.0" layoutY="63.0" prefHeight="52.0" prefWidth="134.0" styleClass="label-titulo-perfil" stylesheets="@../styles/Perfil.css" text="Biblioteca" />
-   </children>
-</AnchorPane>
+<ScrollPane fx:id="scrolPanel" prefHeight="400.0" prefWidth="600.0" styleClass="scrollPane" stylesheets="@../styles/general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.BilbliotecaPerfilController">
+  <content>
+
+    <AnchorPane fx:id="anchoPaneB" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" styleClass="root">
+         <children>
+            <Label fx:id="lb_biblioteca" layoutX="53.0" layoutY="38.0" text="Biblioteca" textFill="#ffadf4" />
+            <TextField fx:id="texFil_busqueda" layoutX="151.0" layoutY="34.0" promptText="Busqueda" styleClass="tex" />
+            <Label fx:id="lb_Favoritos" layoutX="53.0" layoutY="82.0" text="Favoritos" textFill="#ffadf4" />
+            <ImageView fx:id="img_logo" fitHeight="55.0" fitWidth="50.0" layoutX="523.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+             </image>
+            </ImageView>
+            <Button fx:id="btn_cambioVista" layoutX="425.0" layoutY="78.0" mnemonicParsing="false" styleClass="buttons" text="Cambio de vista" />
+            <Label fx:id="lb_Todos" layoutX="53.0" layoutY="230.0" text="Todos" textFill="#ffadf4" />
+            <Button fx:id="btn_perfil" layoutX="450.0" layoutY="32.0" mnemonicParsing="false" text="Perfil" />
+            <HBox layoutX="50.0" layoutY="107.0" prefHeight="108.0" prefWidth="366.0">
+               <children>
+                  <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox layoutX="53.0" layoutY="254.0" prefHeight="108.0" prefWidth="474.0" />
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

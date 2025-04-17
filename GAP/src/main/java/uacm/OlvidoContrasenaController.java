@@ -34,20 +34,6 @@ public class OlvidoContrasenaController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-      
-       /*
-        //cambio de color al Pane                                          //cambio de color      //se redondean las esquinas
-        pane_OlviContrasena.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), new CornerRadii(15), Insets.EMPTY)));
-        
-        //cambio de color al backgroun de los textFile de correo y contraseña nueva
-        txt_nuevaContra.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), CornerRadii.EMPTY, Insets.EMPTY)));
-        txt_correoOlviConta.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), CornerRadii.EMPTY, Insets.EMPTY)));
-        
-        //cambio de color a el texto que se ingresa en el textFile
-        txt_correoOlviConta.setStyle("-fx-text-fill: #ffadf4");
-        txt_nuevaContra.setStyle("-fx-text-fill: #ffadf4");
-       */ 
-       
         
         //obtencion de los datos
         btn_actualizaContra.setOnMouseClicked(e ->{
@@ -59,17 +45,6 @@ public class OlvidoContrasenaController implements Initializable {
             
         });
 
-       /* 
-    
-         pane_OlviContrasena.sceneProperty().addListener((obs, oldScene, newScene) -> {
-            if (newScene != null) {
-                newScene.getStylesheets().add(getClass().getResource("/styles/olvidocontrasena.css").toExternalForm());
-            }
-        });
-       */
-        
-        
-        
     }    
     
 }
