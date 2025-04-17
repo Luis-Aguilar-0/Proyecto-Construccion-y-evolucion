@@ -1,0 +1,59 @@
+/* 
+    Created on : 14 abr 2025, 7:10:38 p.m.
+    Author     : Frncs.Fox
+*/
+
+.root{
+    -fx-background-color: #3B2A5E; /*Fondo de color morado oscuro*/
+    /*-fx-border-radius: 25; /*Bordes redondeados
+    -fx-background-radius: 25; /*Bordes del fondo también redondeados*/
+    -fx-font-family: "Arial"; /*Tipo de letra para los textos dentro del contenedor*/
+}
+
+.label {
+    -fx-text-fill: #ffadf4 /*Texto color rosa claro*/;
+    -fx-font-size: 14px; /*Tamaño del texto*/
+}
+
+.text-field, .password-field {
+    -fx-background-color: transparent; /*Fondo transparente*/
+    -fx-border-color: #643B81; /*Borde inferior morado claro*/
+    -fx-border-width: 0 0 2 0; /*Tamaño de la linea inferior*/
+    -fx-text-fill: #ffffff; /*Texto blanco*/
+    -fx-font-size: 14px; /*Tamaño del texto*/
+}
+
+.combo-box {
+    -fx-background-color: #cc74f9; /*Fondo Lila claro*/
+    -fx-text-fill: white; /*Texto blanco*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    /*-fx-effect: dropshadow(gaussian, #FFC0CB, 5, 0.2, 3, 5); /*Sombra suave*/
+    -fx-effect: dropshadow(gaussian, #ffb6d9, 5, 0.2, 3, 2);
+}
+
+.button {
+    -fx-background-color: #F87BF0; /*Fondo rosa fuerte*/
+    -fx-text-fill: #2c1459; /*Texto morado oscuro*/
+    -fx-font-size: 16px; /*Tamaño del texto*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    -fx-background-radius: 20; /*Bordes redondeados*/
+    -fx-effect: dropshadow(gaussian, #00000099, 5, 0.5, 0, 2); /*Sombra suave*/
+    /*dropshadow(gaussian, color, radius, spread, offsetX, offsetY)*/
+}
+
+.text-field:hover, /* hover es un pseudoselector para cuando el cursor esta en el campo del contenedor o elemento de la interfaz*/
+.password-field:hover {
+    -fx-background-color: #00ffd5; /* verde menta */
+    -fx-text-fill: black;
+}
+
+.combo-box:hover {
+    -fx-background-color: #00ffd5;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #00ffd5;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}

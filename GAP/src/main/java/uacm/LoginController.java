@@ -64,5 +64,20 @@ public class LoginController implements Initializable {
                 exe.printStackTrace();
             }
         });
+        
+        bt_Registrate.setOnMouseClicked(e -> {
+            Stage stageOlvidoContra = new Stage();
+            Parent root;
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Registro.fxml"));
+                root = loader.load();
+                Scene scene = new Scene(root);
+                stageOlvidoContra.setScene(scene);
+                stageOlvidoContra.show();
+            } catch (IOException exe) {
+                exe.printStackTrace();
+            }
+        });
     }
 }

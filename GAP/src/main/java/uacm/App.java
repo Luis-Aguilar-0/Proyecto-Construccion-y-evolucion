@@ -15,18 +15,18 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Registro.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Login.fxml"));
         Parent root = loader.load();
         scene = new Scene(root, 600, 400);
         stage.setScene(scene);
         stage.show();
     }
 
-    static void setRoot(String fxml) throws IOException {
+    /*static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
-    }
+    }*/
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    /*private static Parent loadFXML(String fxml) throws IOException {
         String fxmlPath;
 
         switch (fxml) {
@@ -45,7 +45,7 @@ public class App extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxmlPath));
         return fxmlLoader.load();
-    }
+    }*/
 
     public static void main(String[] args) {
         launch();
