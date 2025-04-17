@@ -1,8 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="uacm.RegistroController">
-    
+<AnchorPane id="AnchorPane" fx:id="main_anchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/registro.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.RegistroController">
+   <children>
+      <VBox fx:id="Vbox_controller" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="569.0" stylesheets="@../styles/registro.css">
+               <children>
+                  <ImageView fitHeight="57.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="25.0" stylesheets="@../styles/registro.css" text="Hola bienvenido. Porfavor ingresa los siguientes datos">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" right="100.0" top="30.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="fecha_box" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0" stylesheets="@../styles/registro.css">
+               <children>
+                  <ComboBox fx:id="anio_box" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="115.0" promptText="Año" stylesheets="@../styles/registro.css">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="mes_box" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="115.0" promptText="Mes">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </ComboBox>
+                  <ComboBox fx:id="dia_box" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="115.0" promptText="Día">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="usuario_box" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="221.0" stylesheets="@../styles/registro.css" text="Ingrese un nombre de usuario:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="usuario_Tfield" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="224.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="correo_box" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="221.0" text="Ingrese un correo electronico:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="correo_Tfield" maxWidth="1.7976931348623157E308" prefHeight="31.0" prefWidth="224.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="contra_box" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="455.0">
+               <children>
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="221.0" text="Ingrese una contraseña:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="contrasena_Tfield" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="224.0" />
+               </children>
+            </HBox>
+            <Button fx:id="registrar_bttn" mnemonicParsing="false" prefHeight="43.0" prefWidth="213.0" text="Registrar">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets top="-30.0" />
+         </padding>
+      </VBox>
+   </children>
 </AnchorPane>
