@@ -5,25 +5,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 
+    @FXML
+    private AnchorPane anchoPane;
     @FXML
     private Pane pn_login;
     @FXML
@@ -42,18 +39,6 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        pn_login.setBackground(new Background(new BackgroundFill(Color.web("#3B2A5E"), new CornerRadii(15), Insets.EMPTY)));
-
-        txf_correo.setStyle("-fx-text-fill: #ffadf4");
-        txf_correo.setBackground(
-                new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
-
-        paswor_fileUno.setStyle("-fx-text-fill: #ffadf4");
-        paswor_fileUno.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
-
-        tx_vistaContra.setStyle("-fx-text-fill: #ffadf4");
-        tx_vistaContra.setBackground(new Background(new BackgroundFill(Color.web("#A057B4"), CornerRadii.EMPTY, Insets.EMPTY)));
-
         paswor_fileUno.setOnAction(event -> {
             // a qui va el codigo para que carge la pantalla principal
             String correo = txf_correo.getText();
@@ -61,14 +46,17 @@ public class LoginController implements Initializable {
             System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
         });
 
+        //carga de la pantalla olvido contaseña
         btn_Olvido_Contra.setOnMouseClicked(e -> {
-            Stage stageOlvidoContra = new Stage();
-            Parent root;
 
+            Stage stageOlvidoContra = new Stage();
+            //stageOlvidoContra.initStyle(StageStyle.UNDECORATED);//se elimina la barra  por defecto
+            Parent root;
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
                 root = loader.load();
                 Scene scene = new Scene(root);
+                
                 stageOlvidoContra.setScene(scene);
                 stageOlvidoContra.show();
             } catch (IOException exe) {
@@ -77,23 +65,23 @@ public class LoginController implements Initializable {
         });
 
         // oculta el tx_vistaContra
-        if (paswor_fileUno.getText() != null || paswor_fileUno == null) {
+        if (paswor_fileUno.getText() != null || paswor_fileUno == null) {//se oculta en cualquier caso
             tx_vistaContra.setVisible(false);
         }
 
         // funcionalidad del boton mostrar contraseña
         btn_verContra.setOnMouseClicked(event -> {
 
-            Timer timer = new Timer();
-            TimerTask tareaUno = new TimerTask() {
-                public void run() {
+            Timer timer = new Timer(); //se crea el objeto timer 
+            TimerTask tareaUno = new TimerTask() {//se crea una nueva tarea cada vez que se pulsa el boton
+                public void run() { //la tarea a realizar
                     // oculta la contraaseña
                     tx_vistaContra.setVisible(false);
                     // mostramos la contraseña en formato pasword
                     paswor_fileUno.setVisible(true);
                 }
             };
-
+            
             // obtenemos lo que esta en el paswor file
             tx_vistaContra.setText(paswor_fileUno.getText());
             // ocultamos el paswor file
@@ -101,9 +89,22 @@ public class LoginController implements Initializable {
             // mostramos la contraseña
             tx_vistaContra.setVisible(true);
             System.out.println("la tarea esta echa");
-            timer.schedule(tareaUno, 5000);
+            
+            timer.schedule(tareaUno, 5000);//cuando se pulsa el boton el timer espera cinco segundo y ejecuta la tarea
 
         });
 
+         
+        //ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
+        //ajuste en el eje x                 estos parametros representan en ancho del pane 
+       anchoPane.widthProperty().addListener((anchoPane,anchoAnterior,nuevoAncho)->{
+                                //se resta el nuevo ancho con el ancho del pane que yo define 
+            pn_login.setLayoutX((nuevoAncho.doubleValue()- pn_login.getPrefWidth())/2);//se divide entre dos para que este centrado  
+       } );
+       //se ajusta en el eje y
+       anchoPane.heightProperty().addListener((anchoPane,anchoAnterior,nuevoAncho)->{
+            pn_login.setLayoutY((nuevoAncho.doubleValue()-pn_login.getPrefHeight()) /2);
+       });
+       
     }
 }

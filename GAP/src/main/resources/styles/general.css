@@ -1,0 +1,45 @@
+/*Clase general para color de fondo, botones, y texto*/
+.root{
+    -fx-background-color: #3B2A5E; /*color del fondo*/
+}
+
+.pane{
+
+    -fx-background-color: #3B2A5E ;
+    -fx-background-radius: 15;
+}
+
+.tex{
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
+    -fx-background-radius: 5;
+}
+
+.pasworFile{
+
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
+}
+
+.buttons{
+
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
+    -fx-background-radius: 5;
+    
+}
+
+.buttons:hover{
+    -fx-background-color: #ffadf4;
+    -fx-text-fill: #A057B4;
+    -fx-scale-x: 0.97;/*se reduce su tamaño 0.97 px*/
+    -fx-scale-y: 0.97;
+
+}
+
+.scrollPane{
+
+    -fx-background-color: #3B2A5E;
+    -fx-background-radius: 15;
+
+}

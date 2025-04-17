@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3B2A5E;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.LoginController">
+<AnchorPane fx:id="anchoPane" prefHeight="400.0" prefWidth="600.0" styleClass="root" stylesheets="@../styles/general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.LoginController">
    <stylesheets>
-     
+     <!--URL value = "@../styles/login.css"/-->
    </stylesheets>
    <children>
-      <Pane fx:id="pn_login" layoutX="4.0" layoutY="61.0" prefHeight="300.0" prefWidth="600.0">
+      <Pane fx:id="pn_login" layoutY="-3.0" prefHeight="400.0" prefWidth="600.0" styleClass="pane">
          <children>
-            <ImageView fitHeight="50.0" fitWidth="58.0" layoutX="269.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="99.0" fitWidth="105.0" layoutX="234.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>
@@ -26,15 +26,15 @@
                   <Rectangle2D />
                </viewport>
             </ImageView>
-            <Label layoutX="279.0" layoutY="23.0" text="Login" textFill="#ffadf4" />
-            <TextField fx:id="txf_correo" alignment="CENTER" layoutX="206.0" layoutY="97.0" prefHeight="25.0" prefWidth="176.0" promptText="Correo elctronico o usuario" style="-fx-background-color: A057B4;" />
-            <Button fx:id="btn_Olvido_Contra" alignment="CENTER" layoutX="209.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Olvidaste tu contraseña" textAlignment="CENTER" textFill="#ffadf4" />
-            <Button fx:id="bt_Registrate" alignment="CENTER" layoutX="356.0" layoutY="157.0" mnemonicParsing="false" style="-fx-background-color: A057B4;" text="Registrate" textFill="#ffadf4" />
-            <PasswordField fx:id="paswor_fileUno" alignment="CENTER" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" promptText="Contraseña" style="-fx-background-color: A057B4;" />
-            <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="149.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
-            <Line endX="-100.0" endY="209.0" fill="#643b81" layoutX="649.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
-            <TextField fx:id="tx_vistaContra" layoutX="206.0" layoutY="125.0" prefHeight="25.0" prefWidth="176.0" />
-            <Button fx:id="btn_verContra" layoutX="391.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="c" />
+            <Label layoutX="268.0" layoutY="56.0" text="Login" textFill="#ffadf4" />
+            <TextField fx:id="txf_correo" alignment="CENTER" layoutX="195.0" layoutY="194.0" prefHeight="25.0" prefWidth="176.0" promptText="Correo elctronico o usuario" styleClass="tex" />
+            <Button fx:id="btn_Olvido_Contra" alignment="CENTER" layoutX="195.0" layoutY="265.0" mnemonicParsing="false" styleClass="buttons" text="Olvidaste tu contraseña" textAlignment="CENTER" />
+            <Button fx:id="bt_Registrate" alignment="CENTER" layoutX="350.0" layoutY="265.0" mnemonicParsing="false" styleClass="buttons" text="Registrate" />
+            <PasswordField fx:id="paswor_fileUno" alignment="CENTER" layoutX="195.0" layoutY="226.0" prefHeight="25.0" prefWidth="176.0" promptText="Contraseña" styleClass="pasworFile" />
+            <Line endX="-100.0" endY="300.0" fill="#643b81" layoutX="149.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
+            <Line endX="-100.0" endY="300.0" fill="#643b81" layoutX="649.0" layoutY="62.0" smooth="false" startX="-100.0" startY="-33.0" stroke="#643b81" strokeWidth="5.0" />
+            <TextField fx:id="tx_vistaContra" layoutX="195.0" layoutY="226.0" prefHeight="25.0" prefWidth="176.0" styleClass="tex" stylesheets="@../styles/general.css" />
+            <Button fx:id="btn_verContra" layoutX="385.0" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" styleClass="buttons" text="c" />
          </children>
       </Pane>
    </children>
