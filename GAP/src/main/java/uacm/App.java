@@ -26,7 +26,7 @@ public class App extends Application {
         //scene = new Scene(root, tamPantalla.getWidth(), tamPantalla.getHeight());
 
         //scene = new Scene(barraPersonalizada.cargaBarra(stage, root) ,600,400); //carga la barra personalizada
-        scene = new Scene(root,600,400);
+        scene = new Scene(root,900,600);
         stage.setResizable(true);//permite ajustar el tamaño de la interfaz con le mause
         stage.setTitle("AjoloTienda");//añade un titulo a la barra de titulo
 

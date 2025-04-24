@@ -35,6 +35,8 @@ public class LoginController implements Initializable {
     private TextField tx_vistaContra;
     @FXML
     private Button btn_verContra;
+    @FXML
+    private Button btn_iniciarSecion;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
