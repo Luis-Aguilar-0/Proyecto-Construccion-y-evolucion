@@ -1,5 +1,29 @@
+.root {
+
+    -fx-background-color: #3B2A5E;
+
+}
+
+.pane {
+
+    -fx-background-color: #3B2A5E;
 
 
+}
+
+.tex {
+
+    -fx-text-fill: #ffadf4;
+    -fx-font-size: 15px;
+}
+
+
+.scrollPane {
+
+    -fx-background-color: #3B2A5E;
+    -fx-background-radius: 15;
+
+}
 
 
 
@@ -12,60 +36,81 @@
 /* === Botón con Afterglow Permanente (Mismo estilo que TextField) === */
 .boton-perfil {
     /* --- Estado Normal --- */
-    -fx-background-color: #9000ff;       /* Fondo púrpura principal */
-    -fx-text-fill: #ffffff;             /* Texto magenta neón */
+    -fx-background-color: #9000ff;
+    /* Fondo púrpura principal */
+    -fx-text-fill: #ffffff;
+    /* Texto magenta neón */
     -fx-font-family: "Yu Gothic UI Semibold", monospace;
     -fx-font-size: 18px;
-    -fx-border-color: #bf8ce5;          /* Borde magenta oscuro */
+    -fx-border-color: #bf8ce5;
+    /* Borde magenta oscuro */
     -fx-border-width: 4px;
-    -fx-border-radius: 0;               /* Bordes rectos */
+    -fx-border-radius: 0;
+    /* Bordes rectos */
     -fx-background-radius: 0;
     -fx-padding: 10px 30px;
 
     /* Afterglow permanente (mismo efecto que el TextField pero en magenta) */
-    -fx-effect: dropshadow(
-        gaussian, 
-        rgba(230, 38, 255, 1),  /* Magenta neón con transparencia */
-        20,                       /* Radio de difuminado */
-        0.2,                      /* Spread */
-        0,                        /* Offset X */
-        0                         /* Offset Y */
-    );
-}  .boton-perfil:hover {
-    -fx-background-color: linear-gradient(to bottom, #4A148C, #d05eef); /* Degradado dramático */
+    -fx-effect: dropshadow(gaussian,
+            rgba(230, 38, 255, 1),
+            /* Magenta neón con transparencia */
+            20,
+            /* Radio de difuminado */
+            0.2,
+            /* Spread */
+            0,
+            /* Offset X */
+            0
+            /* Offset Y */
+        );
+}
+
+.boton-perfil:hover {
+    -fx-background-color: linear-gradient(to bottom, #4A148C, #d05eef);
+    /* Degradado dramático */
     -fx-text-fill: #FFFFFF;
-    -fx-border-color: #1acaff;          /* Borde rojo neón */
+    -fx-border-color: #1acaff;
+    /* Borde rojo neón */
     -fx-effect: dropshadow(gaussian, rgba(177, 82, 236, 0.6), 15, 0.5, 0, 0);
 }
 
 .boton-perfil:pressed {
-    -fx-background-color: #1a0030;      /* Fondo: púrpura casi negro (simula profundidad al presionar) */
-    -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1); /* Sombra interna ajustada */
+    -fx-background-color: #1a0030;
+    /* Fondo: púrpura casi negro (simula profundidad al presionar) */
+    -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1);
+    /* Sombra interna ajustada */
 }
 
 
 .label-titulo-perfil {
-    -fx-text-fill: #e626ff; /* Púrpura base vibrante */
+    -fx-text-fill: #e626ff;
+    /* Púrpura base vibrante */
     -fx-font-family: "Yu Gothic UI Semibold", Arial, sans-serif;
-    -fx-font-size: 26px; /* Grande, pero quizás no tanto como los títulos principales */
+    -fx-font-size: 26px;
+    /* Grande, pero quizás no tanto como los títulos principales */
     -fx-font-weight: normal;
     -fx-background-color: transparent;
     /* La clave es la sombra: mismo color, desenfoque suave, sin desplazamiento */
     /* Ajusta la opacidad (cuarto valor en rgba) y el radio (tercer valor) */
     -fx-effect: dropshadow(gaussian, rgba(209, 97, 229, 0.6), 8, 0, 0, 0);
-    -fx-padding: 5px; /* Padding para dar espacio al resplandor */
+    -fx-padding: 5px;
+    /* Padding para dar espacio al resplandor */
 }
+
 .label-subtitulo-perfil {
-    -fx-text-fill: #e626ff; /* Púrpura base vibrante */
+    -fx-text-fill: #e626ff;
+    /* Púrpura base vibrante */
     -fx-font-family: "Yu Gothic UI Semibold", Arial, sans-serif;
-    -fx-font-size: 18px; /* Grande, pero quizás no tanto como los títulos principales */
+    -fx-font-size: 18px;
+    /* Grande, pero quizás no tanto como los títulos principales */
     -fx-font-weight: normal;
     -fx-background-color: transparent;
     /* La clave es la sombra: mismo color, desenfoque suave, sin desplazamiento */
     /* Ajusta la opacidad (cuarto valor en rgba) y el radio (tercer valor) */
-      /* Afterglow permanente (más suave que en focused) */
+    /* Afterglow permanente (más suave que en focused) */
     -fx-effect: dropshadow(gaussian, rgba(162, 122, 235, 1), 10, 0.3, 0, 0);
-    -fx-padding: 5px; /* Padding para dar espacio al resplandor */
+    -fx-padding: 5px;
+    /* Padding para dar espacio al resplandor */
 }
 
 
@@ -74,9 +119,12 @@
     /* --- Estado Normal (Afterglow por defecto) --- */
     -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
     -fx-font-size: 14px;
-    -fx-prompt-text-fill: #9575cd;        /* Púrpura medio para placeholder */
-    -fx-text-fill: #512da8;              /* Texto púrpura oscuro */
-    -fx-background-color: #8e48f7;       /* Color base lila */
+    -fx-prompt-text-fill: #9575cd;
+    /* Púrpura medio para placeholder */
+    -fx-text-fill: #512da8;
+    /* Texto púrpura oscuro */
+    -fx-background-color: #8e48f7;
+    /* Color base lila */
     -fx-border-color: transparent;
     -fx-border-width: 0;
     -fx-border-radius: 8px;
@@ -94,7 +142,8 @@
 /* --- Estado Enfocado (Afterglow intenso + Cambio de color) --- */
 .textfield-perfil:focused {
     -fx-prompt-text-fill: #d882e5;
-    -fx-background-color: #ca3ded;       /* Color vibrante al enfocar */
+    -fx-background-color: #ca3ded;
+    /* Color vibrante al enfocar */
     -fx-border-color: #5e1bd8;
     -fx-border-width: 1px;
 
@@ -104,6 +153,7 @@
 
 /* --- Estado Hover (Afterglow intermedio) --- */
 .textfield-perfil:hover {
-    -fx-background-color: #ac05ff;       /* Color intermedio entre normal y focused */
+    -fx-background-color: #ac05ff;
+    /* Color intermedio entre normal y focused */
     -fx-effect: dropshadow(gaussian, rgba(162, 122, 235, 0.45), 12, 0.4, 0, 0);
 }

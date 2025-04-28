@@ -8,28 +8,60 @@ package logic;
  *
  * @author arman
  */
-public class Cliente {
+public class Usuario {
     
     //En esta clase ira todo lo relacionado con el cliente
     //atributos
+    private int id;
     private String usuario;
     private String email;
     private String pasword;
     private double saldo; //cuanto dinero se ha gastado en comprar juegos 
     private int ajoloCoins;//sirve para comprar juegos en la plataforma
     private String imagenPerfil;
+    private int idBiblioteca;
+    private int idTarjetaCredito;
 
+    //contructores
+    public Usuario(){}
 
-    public Cliente(){}
-
-    public Cliente(String usuario_,String email_,String pasword_, double saldo_, int ajoloCoins_ ,String imagenPerfil_){
+    public Usuario(int id_,String usuario_,String email_,String pasword_, double saldo_, int ajoloCoins_ ,String imagenPerfil_,int idBiblioteca_,int idTarjetaCredito_){
+        
+        this.id = id_;
         this.usuario = usuario_;
         this.email = email_;
         this.pasword = pasword_;
         this.saldo = saldo_;
         this.ajoloCoins = ajoloCoins_;
         this.imagenPerfil = imagenPerfil_;
+        this.idBiblioteca = idBiblioteca_;
+        this.idTarjetaCredito = idTarjetaCredito_;
 
+    }
+
+    //getter y setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdBiblioteca() {
+        return idBiblioteca;
+    }
+
+    public void setIdBiblioteca(int idBiblioteca) {
+        this.idBiblioteca = idBiblioteca;
+    }
+
+    public int getIdTarjetaCredito() {
+        return idTarjetaCredito;
+    }
+
+    public void setIdTarjetaCredito(int idTarjetaCredito) {
+        this.idTarjetaCredito = idTarjetaCredito;
     }
 
     public String getUsuario() {

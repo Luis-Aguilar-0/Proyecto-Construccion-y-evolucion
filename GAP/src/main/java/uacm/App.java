@@ -1,7 +1,6 @@
+
 package uacm;
-
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +17,7 @@ public class App extends Application {
         //stage.initStyle(StageStyle.UNDECORATED); //elimina la barra de titulo del sitema
         
         //carga del fxml                                                  
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/BibliotecaPerfil.fxml"));
         Parent root = loader.load();
         
         //ajuste automatico para cada pantalla, solo funciona si pones el tu fxml en la linea de arriba

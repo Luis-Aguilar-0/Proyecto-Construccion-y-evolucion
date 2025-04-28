@@ -7,29 +7,60 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
+import uacm.utilities.PathsImages;
 
 public class BilbliotecaPerfilController implements Initializable {
+    @FXML
+    private Button bt_pagSiguiente;
+    @FXML
+    private Button bt_pagAnterior;
+    @FXML
+    private ImageView im_gameTres;
+    @FXML
+    private ImageView im_gemeCuatro;
+    @FXML
+    private ImageView im_gameCinco;
+    @FXML
+    private ImageView im_gameSeis;
+    @FXML
+    private ImageView im_gameSiete;
+    @FXML
+    private ImageView im_gameOcho;
+    @FXML
+    private ImageView im_gameNueve;
+    @FXML
+    private ImageView im_gameDies;
+    @FXML
+    private ImageView im_gameOnce;
+    @FXML
+    private ImageView im_gameDoce;
+    @FXML
+    private ImageView im_gameUno;
+    @FXML
+    private ImageView im_gameDos;
+    @FXML
+    private ScrollPane sC_panel;
+    @FXML
+    private AnchorPane aC_panelJuegos;
+    @FXML
+    private AnchorPane apane_principal;
+    @FXML
+    private ImageView img_logo;
 
-    @FXML
-    private ScrollPane scrolPanel;
-    @FXML 
-    private AnchorPane anchoPaneB;
-    @FXML
-    private TextField texFil_busqueda;
-    @FXML
-    private Button btn_cambioVista;
+    public PathsImages images;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        
-      
+        Image imagen = new Image(getClass().getResourceAsStream(PathsImages.listaImagenes.getFirst()));
+
+        im_gameUno.setImage(imagen);
+
     }
 
-
-
     
+
 }

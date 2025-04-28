@@ -2,6 +2,7 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,8 +17,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import persistencia.JuegoDAO;
+import persistencia.UsuarioDAO;
 
 public class LoginController implements Initializable {
+
+    private UsuarioDAO usuarioDAO;
+    private JuegoDAO juegoDAO;
 
     @FXML
     private AnchorPane anchoPane;
@@ -40,6 +46,17 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+
+        //conexion a la base de datos
+        try{
+            usuarioDAO = new UsuarioDAO(); //ceacion del objeto para la conexion a la base de datos
+
+            System.out.println("conexion a la tabla juego");
+            juegoDAO = new  JuegoDAO();
+        }catch(SQLException e){
+            throw new RuntimeException();
+        }
 
         paswor_fileUno.setOnAction(event -> {
             // a qui va el codigo para que carge la pantalla principal
@@ -122,6 +139,9 @@ public class LoginController implements Initializable {
        anchoPane.heightProperty().addListener((anchoPane,anchoAnterior,nuevoAncho)->{
             pn_login.setLayoutY((nuevoAncho.doubleValue()-pn_login.getPrefHeight()) /2);
        });
+
+
+       
        
     }
 }
