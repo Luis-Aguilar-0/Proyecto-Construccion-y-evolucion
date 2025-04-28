@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="698.0" stylesheets="@../styles/iniciogap.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.InicioGapController">
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/iniciogap.css" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="680.0" prefWidth="574.0">
+               <children>
+                  <BorderPane layoutX="26.0" layoutY="22.0" prefHeight="200.0" prefWidth="521.0" style="-fx-background-color: #643B81;">
+                     <top>
+                        <Label prefHeight="25.0" prefWidth="521.0" styleClass="textfield-format" text="   Playstation" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Book Antiqua Bold Italic" size="12.0" />
+                           </font></Label>
+                     </top>
+                     <center>
+                        <StackPane prefHeight="201.0" prefWidth="521.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ScrollPane fx:id="carrucel_scPn_play" hbarPolicy="ALWAYS" hvalue="0.35" prefHeight="171.0" prefWidth="521.0" style="-fx-background-color: #F87BF0;" vbarPolicy="NEVER" StackPane.alignment="CENTER">
+                                 <content>
+                                    <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/TheLastOfUs.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/GodOfWar.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Uncharted.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Horizon.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/SpiderMan.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Returnal.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="btnDerecha_play" mnemonicParsing="false" onAction="#moverDerechaPlay" prefHeight="20.0" prefWidth="15.0" styleClass="triangle-right-play" stylesheets="@../styles/iniciogap.css" StackPane.alignment="CENTER_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets right="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                              <Button fx:id="btnIzquierda_play" minWidth="17.0" mnemonicParsing="false" onAction="#moverIzquierdaPlay" prefHeight="22.0" prefWidth="17.0" styleClass="triangle-left-play" StackPane.alignment="CENTER_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </center>
+                  </BorderPane>
+                  <BorderPane layoutX="26.0" layoutY="239.0" prefHeight="200.0" prefWidth="521.0" style="-fx-background-color: #643B81;">
+                     <top>
+                        <Label prefHeight="25.0" prefWidth="521.0" styleClass="textfield-format" text="   X-Box" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Book Antiqua Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <StackPane prefHeight="201.0" prefWidth="521.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ScrollPane fx:id="carrucel_scPn_box" hbarPolicy="ALWAYS" hvalue="0.35" prefHeight="171.0" prefWidth="521.0" style="-fx-background-color: #F87BF0;" vbarPolicy="NEVER" StackPane.alignment="CENTER">
+                                 <content>
+                                    <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/MortalKombat.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/GrandTheft.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/EldenRing.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Cyberpunk.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Howarts.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/Battlefield.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="btnDerecha_box" mnemonicParsing="false" onAction="#moverDerechaBox" prefHeight="20.0" prefWidth="15.0" styleClass="triangle-right-box" StackPane.alignment="CENTER_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets right="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                              <Button fx:id="btnIzquierda_box" mnemonicParsing="false" onAction="#moverIzquierdaBox" prefHeight="20.0" prefWidth="15.0" styleClass="triangle-left-box" StackPane.alignment="CENTER_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </center>
+                  </BorderPane>
+                  <BorderPane layoutX="26.0" layoutY="456.0" prefHeight="200.0" prefWidth="521.0" style="-fx-background-color: #643B81;">
+                     <top>
+                        <Label prefHeight="25.0" prefWidth="521.0" styleClass="textfield-format" text="   Nintendo" BorderPane.alignment="CENTER">
+                           <font>
+                              <Font name="Book Antiqua Bold Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </top>
+                     <center>
+                        <StackPane prefHeight="201.0" prefWidth="521.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ScrollPane fx:id="carrucel_scPn_nin" hbarPolicy="ALWAYS" hvalue="0.35" prefHeight="171.0" prefWidth="521.0" style="-fx-background-color: #F87BF0;" vbarPolicy="NEVER" StackPane.alignment="CENTER">
+                                 <content>
+                                    <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/MarioParty.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/ZeldaTK.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/PokemonViolet.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/MarioOdyssey.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/SuperSmash.jpg" />
+                                             </image>
+                                          </ImageView>
+                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                             <image>
+                                                <Image url="@../imagenes/imagesJuegos/MarioKart.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" right="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </content>
+                              </ScrollPane>
+                              <Button fx:id="btnDerecha_nin" mnemonicParsing="false" onAction="#moverDerechaNin" prefHeight="20.0" prefWidth="15.0" styleClass="triangle-right-nin" StackPane.alignment="CENTER_RIGHT">
+                                 <StackPane.margin>
+                                    <Insets right="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                              <Button fx:id="btnIzquierda_nin" mnemonicParsing="false" onAction="#moverIzquierdaNin" prefHeight="20.0" prefWidth="15.0" styleClass="triangle-left-nin" StackPane.alignment="CENTER_LEFT">
+                                 <StackPane.margin>
+                                    <Insets left="5.0" />
+                                 </StackPane.margin>
+                              </Button>
+                           </children>
+                        </StackPane>
+                     </center>
+                  </BorderPane>
+               </children></AnchorPane>
+        </content>
+      </ScrollPane>
+   </center>
+   <left>
+      <AnchorPane prefHeight="374.0" prefWidth="105.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox fx:id="lateral_vbox" alignment="TOP_CENTER" layoutX="16.0" layoutY="21.0" prefHeight="317.0" prefWidth="89.0" spacing="5.0" stylesheets="@../styles/iniciogap.css">
+               <children>
+                  <Button fx:id="botonBiblioteca" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" styleClass="boton-biblioteca" stylesheets="@../styles/iniciogap.css">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Label text="Bliblioteca" />
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="boton-categoria">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></Button>
+                  <Label text="Categorias" />
+               </children>
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="vbox" />
+                  <String fx:value="neon-box" />
+               </styleClass>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <top>
+      <AnchorPane prefHeight="102.0" prefWidth="698.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <ImageView fitHeight="110.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+               </image>
+            </ImageView>
+            <HBox fx:id="top_hbox" alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="20.0" stylesheets="@../styles/iniciogap.css">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Recarga">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Ofertas">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Carrito">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="neon-box" />
+                  <String fx:value="hbox" />
+               </styleClass>
+            </HBox>
+            <MenuButton layoutX="590.0" layoutY="9.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
+                <MenuItem mnemonicParsing="false" text="Cerrar Sesion" />
+              </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

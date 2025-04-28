@@ -13,10 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="AnchorPane" fx:id="main_anchor" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/registro.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.RegistroController">
    <children>
-      <VBox fx:id="Vbox_controller" alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="Vbox_controller" alignment="CENTER" layoutY="23.0" AnchorPane.bottomAnchor="-22.33333333333337" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
          <children>
             <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="569.0" stylesheets="@../styles/registro.css">
                <children>
@@ -28,7 +27,7 @@
                         <Insets right="25.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Label maxWidth="1.7976931348623157E308" prefHeight="25.0" stylesheets="@../styles/registro.css" text="Hola bienvenido. Porfavor ingresa los siguientes datos">
+                  <Label maxWidth="1.7976931348623157E308" prefHeight="25.0" stylesheets="@../styles/registro.css" text="Hola bienvenido. Por favor ingresa los siguientes datos">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -107,6 +106,14 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </Button>
+            <Label fx:id="mensaje_label" alignment="CENTER" prefHeight="16.0" prefWidth="405.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="9.0" />
+               </font>
+            </Label>
          </children>
          <padding>
             <Insets top="-30.0" />

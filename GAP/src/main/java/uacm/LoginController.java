@@ -59,7 +59,6 @@ public class LoginController implements Initializable {
         }
 
         paswor_fileUno.setOnAction(event -> {
-            // a qui va el codigo para que carge la pantalla principal
             String correo = txf_correo.getText();
             String contraseña = paswor_fileUno.getText();
             System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
@@ -127,6 +126,10 @@ public class LoginController implements Initializable {
                 exe.printStackTrace();
             }
         });
+        
+        bt_Registrate.setOnMouseClicked(e -> {
+            Stage stageOlvidoContra = new Stage();
+            Parent root;
 
          
         //ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
