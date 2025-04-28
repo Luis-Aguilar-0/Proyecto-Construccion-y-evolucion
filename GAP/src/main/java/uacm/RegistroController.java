@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -35,17 +36,7 @@ public class RegistroController implements Initializable {
     @FXML
     private Button registrar_bttn;
     @FXML
-    private AnchorPane main_anchor;
-    @FXML
-    private VBox Vbox_controller;
-    @FXML
-    private HBox fecha_box;
-    @FXML
-    private HBox usuario_box;
-    @FXML
-    private HBox correo_box;
-    @FXML
-    private HBox contra_box;
+    private Label mensaje_label;
 
     private int DiasDelMes(int mes, int anio) {
         switch (mes) {
@@ -78,16 +69,11 @@ public class RegistroController implements Initializable {
         }
     }
 
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-<<<<<<< HEAD
-       
-    }    
-=======
         
         dia_box.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", 
                 "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31");
@@ -117,16 +103,49 @@ public class RegistroController implements Initializable {
             String nombre = usuario_Tfield.getText();
             String correo = correo_Tfield.getText();
             String contrasena = contrasena_Tfield.getText();
-            System.out.println(dia + "/" + mes + "/" + anio);
-            System.out.println("Nombre de usuario: " + nombre);
-            System.out.println("Correo: " + correo);
-            System.out.println("Contrasena: " + contrasena);
+            
+            if(nombre.isBlank() || correo.isBlank() || contrasena.isBlank()||
+                    dia.isBlank() || mes.isBlank() || anio.isBlank()){
+                
+                mensaje_label.setText("Por favor llena todos los campos.");
+                mensaje_label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+            } else {
+                mensaje_label.setText("Registro exitoso.");
+                mensaje_label.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                
+                System.out.println(dia + "/" + mes + "/" + anio);
+                System.out.println("Nombre de usuario: " + nombre);
+                System.out.println("Correo: " + correo);
+                System.out.println("Contrasena: " + contrasena);
+            }
         });
         
+        //usando listeners son mecanismos que permiten reaccionar a cambios en las propiedades de los componentes de JavaFX
+        // Limpiar el mensaje si el usuario escribe algo
+        usuario_Tfield.textProperty().addListener((obs, oldText, newText) -> {
+            mensaje_label.setText("");
+        });
+        correo_Tfield.textProperty().addListener((obs, oldText, newText) -> {
+            mensaje_label.setText("");
+        });
+        contrasena_Tfield.textProperty().addListener((obs, oldText, newText) -> {
+            mensaje_label.setText("");
+        });
+
+        // Limpiar si cambia la fecha
+        dia_box.valueProperty().addListener((obs, oldVal, newVal) -> {
+            mensaje_label.setText("");
+        });
+        mes_box.valueProperty().addListener((obs, oldVal, newVal) -> {
+            mensaje_label.setText("");
+        });
+        anio_box.valueProperty().addListener((obs, oldVal, newVal) -> {
+            mensaje_label.setText("");
+        });
+
         // Configuración responsive adicional
         //configurarTam();
     }
->>>>>>> francis-rama
     
     /*private void configurarTam() {
         // Hacer que los campos de texto crezcan
