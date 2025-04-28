@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.Perfil2Controller">
+      <left>
+         <VBox alignment="CENTER_LEFT" fillWidth="false" prefHeight="515.0" prefWidth="139.0" BorderPane.alignment="CENTER_LEFT">
+            <children>
+               <HBox alignment="CENTER_LEFT" fillHeight="false">
+                  <children>
+                     <Pane fx:id="panIconosBibliotecaPerfil" pickOnBounds="false" prefHeight="423.0" prefWidth="56.0" style="-fx-background-color: #3B2A5E;" styleClass="boton-perfil" stylesheets="@../styles/Perfil.css">
+                        <children>
+                           <ImageView fx:id="imgBiblioteca" fitHeight="45.0" fitWidth="48.0" layoutX="12.0" layoutY="98.0" nodeOrientation="INHERIT" onMouseClicked="#mostrarBiblioteca" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/Biblioteca.png" />
+                              </image>
+                           </ImageView>
+                           <ImageView fx:id="imgPerfil" fitHeight="48.0" fitWidth="48.0" layoutX="10.0" layoutY="22.0" nodeOrientation="INHERIT" onMouseClicked="#mostrarPerfil" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/perfil4.png" />
+                              </image>
+                           </ImageView>
+                           <ImageView fx:id="imgBilletera" fitHeight="54.0" fitWidth="48.0" layoutX="10.0" layoutY="177.0" nodeOrientation="INHERIT" onMouseClicked="#mostrarBilletera" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/wallet1.png" />
+                              </image>
+                           </ImageView>
+                           <ImageView fx:id="imgSalir" fitHeight="48.0" fitWidth="63.0" layoutX="11.0" layoutY="359.0" nodeOrientation="INHERIT" onMouseClicked="#mostrarCerrarSesion" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/salida.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <HBox.margin>
+                           <Insets />
+                        </HBox.margin>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </HBox>
+            </children>
+            <BorderPane.margin>
+               <Insets />
+            </BorderPane.margin>
+            <opaqueInsets>
+               <Insets />
+            </opaqueInsets>
+         </VBox>
+      </left>
+      <top>
+         <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" prefHeight="83.0" prefWidth="900.0" styleClass="panedeArriba" stylesheets="@../styles/Perfil.css" BorderPane.alignment="CENTER">
+            <children>
+               <Pane fx:id="panBusquedaPerfil" prefHeight="0.0" prefWidth="832.0" style="-fx-background-color: #3B2A5E;">
+                  <children>
+                     <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+                        </image>
+                     </ImageView>
+                  </children></Pane>
+               <HBox alignment="CENTER" prefHeight="211.0" prefWidth="832.0">
+                  <children>
+                     <Pane fx:id="panBusquedaPerfil1" prefHeight="130.0" prefWidth="546.0" style="-fx-background-color: #3B2A5E;" stylesheets="@../styles/Perfil.css">
+                        <children>
+                           <ImageView fx:id="imgCarrito" fitHeight="38.0" fitWidth="44.0" layoutX="459.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/carrito.png" />
+                              </image>
+                           </ImageView>
+                           <ImageView fx:id="imgInicio" fitHeight="33.0" fitWidth="36.0" layoutX="410.0" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                              <image>
+                                 <Image url="@../imagenes/imagesPerfil/home2.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                        <opaqueInsets>
+                           <Insets />
+                        </opaqueInsets>
+                        <HBox.margin>
+                           <Insets bottom="20.0" left="200.0" />
+                        </HBox.margin>
+                        <padding>
+                           <Insets right="200.0" />
+                        </padding>
+                        <cursor>
+                           <Cursor fx:constant="HAND" />
+                        </cursor>
+                        <styleClass>
+                           <String fx:value="pane" />
+                           <String fx:value="boton-perfil" />
+                        </styleClass>
+                     </Pane>
+                  </children>
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+               </HBox>
+            </children>
+         </VBox>
+      </top>
+      <stylesheets>
+         <URL value="@../styles/general.css" />
+         <URL value="@../styles/Perfil.css" />
+      </stylesheets>
+      <center>
+         <StackPane fx:id="panPrincipalPerfil" prefHeight="517.0" prefWidth="867.0" stylesheets="@../styles/Perfil.css" BorderPane.alignment="CENTER">
+            <children>
+               <ImageView fx:id="imgFondoPerfil" fitHeight="506.0" fitWidth="1024.0" pickOnBounds="true" preserveRatio="true" styleClass="boton-perfil">
+                  <image>
+                     <Image url="@../imagenes/imagesPerfil/Fondo.jpg" />
+                  </image>
+               </ImageView>
+               <VBox fx:id="vboxPerfil" alignment="CENTER" prefHeight="515.0" prefWidth="808.0" stylesheets="@../styles/Perfil.css">
+                  <children>
+                     <VBox alignment="CENTER" fillWidth="false" prefHeight="487.0" prefWidth="773.0">
+                        <children>
+                           <VBox alignment="CENTER_LEFT" fillWidth="false" nodeOrientation="INHERIT" prefHeight="187.0" prefWidth="870.0" stylesheets="@../styles/Perfil.css">
+                              <VBox.margin>
+                                 <Insets left="30.0" />
+                              </VBox.margin>
+                              <children>
+                                 <VBox prefHeight="52.0" prefWidth="870.0">
+                                    <children>
+                                       <Label contentDisplay="CENTER" styleClass="label-titulo-perfil" text="Personalizar perfil">
+                                          <VBox.margin>
+                                             <Insets top="20.0" />
+                                          </VBox.margin>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="201.0">
+                                    <children>
+                                       <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="178.0" styleClass="label-subtitulo-perfil" text="Cambiar nombre">
+                                          <VBox.margin>
+                                             <Insets left="10.0" />
+                                          </VBox.margin>
+                                          <opaqueInsets>
+                                             <Insets />
+                                          </opaqueInsets>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="49.0" prefWidth="837.0" stylesheets="@../styles/Perfil.css">
+                                    <children>
+                                       <HBox alignment="CENTER_LEFT" prefHeight="101.0" prefWidth="837.0" spacing="100.0" stylesheets="@../styles/Perfil.css" StackPane.alignment="CENTER_LEFT">
+                                          <children>
+                                             <TextField prefHeight="39.0" prefWidth="211.0" styleClass="textfield-perfil">
+                                                <HBox.margin>
+                                                   <Insets left="15.0" />
+                                                </HBox.margin>
+                                             </TextField>
+                                             <Button fx:id="btnEditar1" alignment="CENTER" mnemonicParsing="false" prefHeight="136.0" prefWidth="131.0" styleClass="boton-perfil" stylesheets="@../styles/Perfil.css" text="Editar">
+                                                <HBox.margin>
+                                                   <Insets left="-30.0" />
+                                                </HBox.margin></Button>
+                                             <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="268.0" styleClass="boton-perfil" text="Nueva imagen de perfil">
+                                                <HBox.margin>
+                                                   <Insets left="-50.0" top="-140.0" />
+                                                </HBox.margin>
+                                                <opaqueInsets>
+                                                   <Insets />
+                                                </opaqueInsets></Button>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets />
+                                          </VBox.margin>
+                                       </HBox>
+                                    </children>
+                                    <VBox.margin>
+                                       <Insets />
+                                    </VBox.margin>
+                                 </VBox>
+                              </children>
+                              <StackPane.margin>
+                                 <Insets />
+                              </StackPane.margin>
+                           </VBox>
+                           <VBox alignment="CENTER" fillWidth="false" layoutX="40.0" layoutY="139.0" prefHeight="91.0" prefWidth="853.0">
+                              <children>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="849.0">
+                                    <children>
+                                       <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="147.0" styleClass="label-subtitulo-perfil" text="Cambiar usuario">
+                                          <VBox.margin>
+                                             <Insets left="10.0" />
+                                          </VBox.margin>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="850.0" stylesheets="@../styles/Perfil.css">
+                                    <children>
+                                       <HBox alignment="CENTER_LEFT" prefHeight="86.0" prefWidth="866.0" spacing="100.0">
+                                          <children>
+                                             <TextField nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="215.0" styleClass="textfield-perfil">
+                                                <HBox.margin>
+                                                   <Insets left="15.0" />
+                                                </HBox.margin>
+                                             </TextField>
+                                             <Button fx:id="btnEditar2" mnemonicParsing="false" prefHeight="48.0" prefWidth="129.0" styleClass="boton-perfil" text="Editar">
+                                                <HBox.margin>
+                                                   <Insets left="-30.0" />
+                                                </HBox.margin></Button>
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </VBox>
+                           <VBox alignment="CENTER" fillWidth="false" layoutX="10.0" layoutY="261.0" prefHeight="96.0" prefWidth="900.0">
+                              <children>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="826.0">
+                                    <children>
+                                    <HBox prefHeight="0.0" prefWidth="826.0">
+                                       <children>
+                                          <Pane prefHeight="22.0" prefWidth="279.0">
+                                             <children>
+                                                <ImageView fx:id="imgPerfil2" fitHeight="220.0" fitWidth="289.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="500.0" top="-100.0" />
+                                             </HBox.margin>
+                                          </Pane>
+                                       </children>
+                                    </HBox>
+                                       <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="250.0" styleClass="label-subtitulo-perfil" text="Cambiar correo electronico">
+                                          <VBox.margin>
+                                             <Insets />
+                                          </VBox.margin>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="110.0" prefWidth="900.0">
+                                    <children>
+                                       <HBox alignment="CENTER_LEFT" prefHeight="89.0" prefWidth="900.0" spacing="100.0">
+                                          <children>
+                                             <TextField nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="221.0" styleClass="textfield-perfil">
+                                                <HBox.margin>
+                                                   <Insets left="40.0" top="10.0" />
+                                                </HBox.margin>
+                                             </TextField>
+                                             <Button fx:id="btnEditar3" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="128.0" styleClass="boton-perfil" text="Editar">
+                                                <HBox.margin>
+                                                   <Insets left="-30.0" />
+                                                </HBox.margin></Button>
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                           </VBox>
+                           <VBox fillWidth="false" prefHeight="99.0" prefWidth="900.0">
+                              <children>
+                                 <VBox alignment="CENTER" prefHeight="37.0" prefWidth="475.0">
+                                    <children>
+                                       <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="407.0" styleClass="label-subtitulo-perfil" text="Cambiar contrasenha">
+                                          <VBox.margin>
+                                             <Insets />
+                                          </VBox.margin>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER" prefHeight="83.0" prefWidth="1295.0">
+                                    <children>
+                                       <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="900.0" spacing="100.0">
+                                          <children>
+                                             <TextField nodeOrientation="LEFT_TO_RIGHT" prefHeight="39.0" prefWidth="232.0" styleClass="textfield-perfil">
+                                                <HBox.margin>
+                                                   <Insets left="40.0" />
+                                                </HBox.margin>
+                                             </TextField>
+                                             <Button fx:id="btnEditar4" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="47.0" prefWidth="128.0" styleClass="boton-perfil" text="Editar">
+                                                <HBox.margin>
+                                                   <Insets left="-40.0" />
+                                                </HBox.margin></Button>
+                                             <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="211.0" styleClass="boton-perfil" text="Aceptar">
+                                                <opaqueInsets>
+                                                   <Insets left="500.0" />
+                                                </opaqueInsets>
+                                                <HBox.margin>
+                                                   <Insets left="-25.0" top="-50.0" />
+                                                </HBox.margin>
+                                             </Button>
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <VBox.margin>
+                                 <Insets />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                     </VBox>
+                  </children></VBox>
+            </children>
+            <BorderPane.margin>
+               <Insets />
+            </BorderPane.margin>
+         </StackPane>
+      </center>
+   </BorderPane>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="391.0" prefWidth="577.0" style="-fx-background-color: #5B276A;" styleClass="boton-CerrarSesion" stylesheets="@../styles/Exito.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.ExitoController">
+   <children>
+      <ImageView fitHeight="149.0" fitWidth="126.0" layoutX="224.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imagenes/imagesPerfil/Success.gif" />
+         </image>
+      </ImageView>
+      <HBox layoutX="16.0" layoutY="22.0" prefHeight="352.0" prefWidth="546.0">
+         <children>
+            <VBox prefHeight="352.0" prefWidth="586.0">
+               <children>
+                  <Label prefHeight="98.0" prefWidth="134.0" styleClass="label-Exito" stylesheets="@../styles/AgregarTarjeta.css" text="Éxito">
+                     <VBox.margin>
+                        <Insets left="220.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="360.0" prefWidth="609.0" styleClass="pane-agregarTarjeta" stylesheets="@../styles/Perfil.css">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

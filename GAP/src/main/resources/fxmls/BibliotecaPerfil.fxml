@@ -24,7 +24,6 @@
             </ImageView>
             <Button fx:id="btn_cambioVista" layoutX="425.0" layoutY="78.0" mnemonicParsing="false" styleClass="buttons" text="Cambio de vista" />
             <Label fx:id="lb_Todos" layoutX="53.0" layoutY="230.0" text="Todos" textFill="#ffadf4" />
-            <Button fx:id="btn_perfil" layoutX="450.0" layoutY="32.0" mnemonicParsing="false" text="Perfil" />
             <HBox layoutX="50.0" layoutY="107.0" prefHeight="108.0" prefWidth="366.0">
                <children>
                   <ImageView fitHeight="116.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" />

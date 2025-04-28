@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="515.0" prefWidth="691.0" style="-fx-background-color: #5B276A;" styleClass="boton-perfil" stylesheets="@../styles/AgregarTarjeta.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.AgregarTarjetaController">
+   <children>
+      <Pane layoutX="19.0" layoutY="14.0" prefHeight="487.0" prefWidth="653.0" style="-fx-background-color: #7A4C87;">
+         <children>
+            <Button fx:id="btnGuardarTarjeta" layoutX="75.0" layoutY="357.0" mnemonicParsing="false" onAction="#GuardarTarjeta" prefHeight="55.0" prefWidth="330.0" styleClass="boton-perfil" text="Guardar Tarjeta" />
+            <Button fx:id="btnSalir" layoutX="493.0" layoutY="400.0" mnemonicParsing="false" onAction="#Salir" styleClass="boton-perfil" text="Salir" />
+            <Label fx:id="lbTitulo" layoutX="71.0" layoutY="23.0" prefHeight="49.0" prefWidth="430.0" styleClass="label-titulo-perfil" text="Agregar tarjeta de credito o debito" textFill="#ff8afb">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtNumeroTarjeta" layoutX="106.0" layoutY="213.0" prefHeight="39.0" prefWidth="261.0" styleClass="textfield-perfil" />
+            <ImageView fx:id="imgTarjeta" fitHeight="55.0" fitWidth="52.0" layoutX="39.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/imagesPerfil/credit-card.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="106.0" layoutY="174.0" styleClass="label-subtitulo-perfil" text="Numero de tarjeta de credito" />
+            <TextField fx:id="txtNombreTarjeta" layoutX="106.0" layoutY="135.0" prefHeight="39.0" prefWidth="261.0" styleClass="textfield-perfil" />
+            <Label layoutX="106.0" layoutY="96.0" styleClass="label-subtitulo-perfil" text="Nombre en la tarjeta de credito" />
+            <TextField fx:id="txtExpiracion" layoutX="101.0" layoutY="290.0" prefHeight="39.0" prefWidth="95.0" promptText="MM/AA" styleClass="textfield-perfil" />
+            <Label layoutX="101.0" layoutY="251.0" styleClass="label-subtitulo-perfil" text="Expiracion" />
+            <TextField fx:id="txtCVV" layoutX="272.0" layoutY="290.0" prefHeight="39.0" prefWidth="95.0" promptText="      ***" styleClass="textfield-perfil" />
+            <Label layoutX="286.0" layoutY="251.0" styleClass="label-subtitulo-perfil" text="CVV" />
+         </children></Pane>
+   </children>
+</AnchorPane>

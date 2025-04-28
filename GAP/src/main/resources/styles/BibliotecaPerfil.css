@@ -21,7 +21,7 @@
     -fx-border-radius: 0;               /* Bordes rectos */
     -fx-background-radius: 0;
     -fx-padding: 10px 30px;
-
+    -fx-cursor: hand;
     /* Afterglow permanente (mismo efecto que el TextField pero en magenta) */
     -fx-effect: dropshadow(
         gaussian, 
@@ -36,11 +36,13 @@
     -fx-text-fill: #FFFFFF;
     -fx-border-color: #1acaff;          /* Borde rojo neón */
     -fx-effect: dropshadow(gaussian, rgba(177, 82, 236, 0.6), 15, 0.5, 0, 0);
+    -fx-cursor: hand;
 }
 
 .boton-perfil:pressed {
     -fx-background-color: #1a0030;      /* Fondo: púrpura casi negro (simula profundidad al presionar) */
     -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1); /* Sombra interna ajustada */
+    -fx-cursor: hand;
 }
 
 
