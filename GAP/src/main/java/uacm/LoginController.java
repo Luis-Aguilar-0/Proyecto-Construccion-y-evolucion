@@ -47,14 +47,13 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-
         //conexion a la base de datos
-        try{
+        try {
             usuarioDAO = new UsuarioDAO(); //ceacion del objeto para la conexion a la base de datos
 
             System.out.println("conexion a la tabla juego");
-            juegoDAO = new  JuegoDAO();
-        }catch(SQLException e){
+            juegoDAO = new JuegoDAO();
+        } catch (SQLException e) {
             throw new RuntimeException();
         }
 
@@ -74,7 +73,7 @@ public class LoginController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
                 root = loader.load();
                 Scene scene = new Scene(root);
-                
+
                 stageOlvidoContra.setScene(scene);
                 stageOlvidoContra.show();
             } catch (IOException exe) {
@@ -99,7 +98,7 @@ public class LoginController implements Initializable {
                     paswor_fileUno.setVisible(true);
                 }
             };
-            
+
             // obtenemos lo que esta en el paswor file
             tx_vistaContra.setText(paswor_fileUno.getText());
             // ocultamos el paswor file
@@ -107,7 +106,7 @@ public class LoginController implements Initializable {
             // mostramos la contraseña
             tx_vistaContra.setVisible(true);
             System.out.println("la tarea esta echa");
-            
+
             timer.schedule(tareaUno, 5000);//cuando se pulsa el boton el timer espera cinco segundo y ejecuta la tarea
 
         });
@@ -126,25 +125,17 @@ public class LoginController implements Initializable {
                 exe.printStackTrace();
             }
         });
-        
-        bt_Registrate.setOnMouseClicked(e -> {
-            Stage stageOlvidoContra = new Stage();
-            Parent root;
 
-         
         //ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
         //ajuste en el eje x                 estos parametros representan en ancho del pane 
-       anchoPane.widthProperty().addListener((anchoPane,anchoAnterior,nuevoAncho)->{
-                                //se resta el nuevo ancho con el ancho del pane que yo define 
-            pn_login.setLayoutX((nuevoAncho.doubleValue()- pn_login.getPrefWidth())/2);//se divide entre dos para que este centrado  
-       } );
-       //se ajusta en el eje y
-       anchoPane.heightProperty().addListener((anchoPane,anchoAnterior,nuevoAncho)->{
-            pn_login.setLayoutY((nuevoAncho.doubleValue()-pn_login.getPrefHeight()) /2);
-       });
+        anchoPane.widthProperty().addListener((anchoPane, anchoAnterior, nuevoAncho) -> {
+            //se resta el nuevo ancho con el ancho del pane que yo define 
+            pn_login.setLayoutX((nuevoAncho.doubleValue() - pn_login.getPrefWidth()) / 2);//se divide entre dos para que este centrado  
+        });
+        //se ajusta en el eje y
+        anchoPane.heightProperty().addListener((anchoPane, anchoAnterior, nuevoAncho) -> {
+            pn_login.setLayoutY((nuevoAncho.doubleValue() - pn_login.getPrefHeight()) / 2);
+        });
 
-
-       
-       
     }
 }
