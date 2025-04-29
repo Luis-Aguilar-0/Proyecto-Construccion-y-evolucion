@@ -1,7 +1,6 @@
+
 package uacm;
-
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,7 +17,7 @@ public class App extends Application {
         //stage.initStyle(StageStyle.UNDECORATED); //elimina la barra de titulo del sitema
         
         //carga del fxml                                                  
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Perfil2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/BibliotecaPerfil.fxml"));
         Parent root = loader.load();
         
         //ajuste automatico para cada pantalla, solo funciona si pones el tu fxml en la linea de arriba
@@ -35,7 +34,37 @@ public class App extends Application {
 
     }
 
-    public static void main(String[] args) throws IOException {
+/* 
+
+    static void setRoot(String fxml) throws IOException {
+        scene.setRoot(loadFXML(fxml));
+    }
+
+//evento tareas temporizador
+    private static Parent loadFXML(String fxml) throws IOException {
+        String fxmlPath;
+
+        switch (fxml) {
+            case "Login":
+                fxmlPath = PathsFXMLS.LOGIN;
+                break;
+            case "Perfil":
+                fxmlPath = PathsFXMLS.PERFIL;
+                break;
+            case "OlvidoContrasena":
+                fxmlPath = PathsFXMLS.OLVIDO_CONTRASENA;
+                break;
+            default:
+                throw new IOException("Archivo FXML no encontrado: " + fxml);
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxmlPath));
+        return fxmlLoader.load();
+    }
+ 
+*/
+
+    public static void main(String[] args) {
         launch();
 
         

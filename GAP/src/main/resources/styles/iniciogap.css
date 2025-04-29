@@ -1,0 +1,209 @@
+/*
+ * Author     : Frncs.Fox
+ */
+
+.root{
+    -fx-background-color: #3B2A5E;
+}
+
+.label{
+    -fx-font-size: 10px; /*Tamaño del texto*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+}
+
+.hbox{
+    -fx-background-color: #643B81;
+}
+
+.vbox{
+    -fx-background-color: #A057B4;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #3B2A5E; /* Fondo del área visible */
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: #6A1B9A; /* Fondo de las barras */
+    -fx-padding: 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #D1C4E9; /* "Thumb", el botón que se arrastra */
+    -fx-background-insets: 2;
+    -fx-background-radius: 8;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #AB47BC; /* Botones con flechas */
+    -fx-font-size: 13px;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.boton_menu {
+    -fx-background-color: #F87BF0; /*Fondo rosa fuerte*/
+    -fx-text-fill: #2c1459; /*Texto morado oscuro*/
+    -fx-font-size: 16px; /*Tamaño del texto*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    /*-fx-background-radius: 20; /*Bordes redondeados*/
+    -fx-effect: dropshadow(gaussian, #00000099, 5, 0.5, 0, 2); /*Sombra suave*/
+    /*dropshadow(gaussian, color, radius, spread, offsetX, offsetY)*/
+}
+
+.boton_menu:hover {
+    -fx-background-color: #00ffd5;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
+.boton-biblioteca {
+    -fx-background-color: black; /* Para quitar el color gris del botón */
+    -fx-background-image: url("/Imagenes/ImagesPerfil/bibliotecainicio.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain; /* O usa 'cover' si quieres que llene todo */
+    -fx-background-position: center;
+    -fx-pref-width: 50px;  /* Ajusta a tu gusto */
+    -fx-pref-height: 50px;
+    
+}
+
+.boton-biblioteca:hover{
+    -fx-border-color: #7666f7;              /* Color del borde (neón cian) */
+    -fx-border-width: 3px;                  /* Grosor del borde */
+    -fx-effect: dropshadow(gaussian, #7666f7, 20, 0.5, 0, 0); /* Efecto neón */
+    -fx-background-insets: 0; /* Esto hace que el fondo no se extienda más allá del borde */
+    -fx-border-insets: 0; /* Asegura que el borde se dibuje correctamente */
+}
+
+.boton-categoria {
+    -fx-background-color: black; /* Para quitar el color gris del botón */
+    -fx-background-image: url("/Imagenes/ImagesPerfil/biblioteca.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: contain; /* O usa 'cover' si quieres que llene todo */
+    -fx-background-position: center;
+    -fx-pref-width: 50px;  /* Ajusta a tu gusto */
+    -fx-pref-height: 50px;
+    
+}
+
+.boton-categoria:hover{
+    -fx-border-color: #7666f7;              /* Color del borde (neón cian) */
+   -fx-border-width: 3px;                  /* Grosor del borde */
+    -fx-effect: dropshadow(gaussian, #7666f7, 20, 0.5, 0, 0); /* Efecto neón */
+    -fx-background-insets: 0; /* Esto hace que el fondo no se extienda más allá del borde */
+    -fx-border-insets: 0; /* Asegura que el borde se dibuje correctamente */
+}
+
+.neon-box {
+    -fx-border-color: #00ffff;              /* Color del borde (neón cian) */
+    -fx-border-width: 3px;                  /* Grosor del borde */
+    /*-fx-border-radius: 10px;                /* Bordes redondeados 
+    -fx-background-radius: 10px;*/
+    -fx-effect: dropshadow(gaussian, #00ffff, 20, 0.5, 0, 0); /* Efecto neón */
+}
+
+.ImageView:hover{
+    -fx-opacity: 0.7; /* Más transparente al pasar el cursor */
+    -fx-effect: innershadow(gaussian, gray, 10, 0.5, 0, 0); /* Efecto gris leve */
+    -fx-cursor: hand;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:horizontal{
+    -fx-opacity: 0;
+    -fx-pref-height: 0;
+    -fx-pref-width: 0;
+}
+
+.triangle-right-play {
+    -fx-shape: "M 0 0 L 20 10 L 0 20 Z"; /* SVG path para un triángulo */
+    -fx-background-color: #887674; /* Color del botón */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #006FCD, 20, 0.5, 0, 0);
+}
+
+.triangle-left-play {
+    -fx-shape: "M 20 0 L 0 10 L 20 20 Z";
+    -fx-background-color: #887674;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #006FCD, 20, 0.5, 0, 0);
+}
+
+.triangle-right-box {
+    -fx-shape: "M 0 0 L 20 10 L 0 20 Z"; /* SVG path para un triángulo */
+    -fx-background-color: #887674; /* Color del botón */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #107c10, 20, 0.5, 0, 0);
+}
+
+.triangle-left-box {
+    -fx-shape: "M 20 0 L 0 10 L 20 20 Z";
+    -fx-background-color: #887674;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #107c10, 20, 0.5, 0, 0);
+}
+
+.triangle-right-nin {
+    -fx-shape: "M 0 0 L 20 10 L 0 20 Z"; /* SVG path para un triángulo */
+    -fx-background-color: #887674; /* Color del botón */
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #ff0000, 20, 0.5, 0, 0);
+}
+
+.triangle-left-nin {
+    -fx-shape: "M 20 0 L 0 10 L 20 20 Z";
+    -fx-background-color: #887674;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(gaussian, #01ffe9, 20, 0.5, 0, 0);
+}
+
+.triangle-right-play:hover {
+    -fx-background-color: #006FCD; /* Cambiar color al pasar el mouse */
+}
+
+.triangle-left-play:hover {
+    -fx-background-color: #006FCD; /* Cambiar color al pasar el mouse */
+}
+
+.triangle-right-box:hover {
+    -fx-background-color: #107c10; /* Cambiar color al pasar el mouse */
+}
+
+.triangle-left-box:hover {
+    -fx-background-color: #107c10; /* Cambiar color al pasar el mouse */
+}
+
+.triangle-right-nin:hover {
+    -fx-background-color: #ff0000; /* Cambiar color al pasar el mouse */
+}
+
+.triangle-left-nin:hover {
+    -fx-background-color: #01ffe9; /* Cambiar color al pasar el mouse */
+}
+
+.textfield-format {
+    -fx-font-family: "Times New Roman";  /* Nombre exacto de la fuente */
+    -fx-font-size: 14px;                /* Tamaño de fuente */
+    -fx-text-fill: white;               /* Color del texto (blanco) */
+    -fx-border-color: white;           /* Borde blanco (opcional) */
+}

@@ -11,7 +11,7 @@
 }
 
 .label {
-    -fx-text-fill: #ffadf4 /*Texto color rosa claro*/;
+    -fx-text-fill: #ffadf4; /*Texto color rosa claro*/
     -fx-font-size: 14px; /*Tamaño del texto*/
 }
 

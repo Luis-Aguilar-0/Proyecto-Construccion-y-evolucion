@@ -1,43 +1,57 @@
 /*Clase general para color de fondo, botones, y texto*/
-.root{
-    -fx-background-color: #3B2A5E; /*color del fondo*/
+.root {
+    -fx-background-color: #3B2A5E;
+    /*color del fondo*/
 }
 
-.pane{
+.pane {
 
-    -fx-background-color: #3B2A5E ;
+    -fx-background-color: #3B2A5E;
     -fx-background-radius: 15;
 }
 
-.tex{
+.tex {
+
+    -fx-text-fill: #ffadf4;
+    -fx-fill: #ffadf4;
+    -fx-font-size: 14px;
+
+
+}
+
+.texFile {
+
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
+
+
+}
+
+
+.pasworFile {
+
+    -fx-background-color: #A057B4;
+    -fx-text-fill: #ffadf4;
+}
+
+.buttons {
+
     -fx-background-color: #A057B4;
     -fx-text-fill: #ffadf4;
     -fx-background-radius: 5;
+
 }
 
-.pasworFile{
-
-    -fx-background-color: #A057B4;
-    -fx-text-fill: #ffadf4;
-}
-
-.buttons{
-
-    -fx-background-color: #A057B4;
-    -fx-text-fill: #ffadf4;
-    -fx-background-radius: 5;
-    
-}
-
-.buttons:hover{
+.buttons:hover {
     -fx-background-color: #ffadf4;
     -fx-text-fill: #A057B4;
-    -fx-scale-x: 0.97;/*se reduce su tamaño 0.97 px*/
+    -fx-scale-x: 0.97;
+    /*se reduce su tamaño 0.97 px*/
     -fx-scale-y: 0.97;
 
 }
 
-.scrollPane{
+.scrollPane {
 
     -fx-background-color: #3B2A5E;
     -fx-background-radius: 15;

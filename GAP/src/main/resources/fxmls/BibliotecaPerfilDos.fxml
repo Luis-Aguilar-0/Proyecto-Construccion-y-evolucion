@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane fx:id="sC_panel" prefHeight="600.0" prefWidth="900.0" styleClass="scrollPane" stylesheets="@../styles/BibliotecaPerfil.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <AnchorPane fx:id="aC_panelJuegos" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="900.0" styleClass="pane">
+         <children>
+            <ImageView fx:id="im_gameUno" fitHeight="210.0" fitWidth="150.0" layoutX="28.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameDos" fitHeight="210.0" fitWidth="150.0" layoutX="197.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameTres" fitHeight="210.0" fitWidth="150.0" layoutX="363.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gemeCuatro" fitHeight="210.0" fitWidth="150.0" layoutX="538.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameCinco" fitHeight="210.0" fitWidth="150.0" layoutX="28.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameSeis" fitHeight="210.0" fitWidth="150.0" layoutX="197.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameSiete" fitHeight="210.0" fitWidth="150.0" layoutX="363.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameOcho" fitHeight="210.0" fitWidth="150.0" layoutX="538.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameNueve" fitHeight="210.0" fitWidth="150.0" layoutX="21.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameDies" fitHeight="210.0" fitWidth="150.0" layoutX="190.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameOnce" fitHeight="210.0" fitWidth="150.0" layoutX="356.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="im_gameDoce" fitHeight="210.0" fitWidth="150.0" layoutX="531.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
