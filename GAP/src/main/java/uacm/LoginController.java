@@ -3,6 +3,7 @@ package uacm;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,13 +18,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import logic.Juego;
 import persistencia.JuegoDAO;
 import persistencia.UsuarioDAO;
+import uacm.utilities.PathsImages;
 
 public class LoginController implements Initializable {
 
     private UsuarioDAO usuarioDAO;
     private JuegoDAO juegoDAO;
+    public static List<Juego> juegos;
 
     @FXML
     private AnchorPane anchoPane;
@@ -47,12 +51,16 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        //conexion a la base de datos
+        // conexion a la base de datos
         try {
-            usuarioDAO = new UsuarioDAO(); //ceacion del objeto para la conexion a la base de datos
+            usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
 
             System.out.println("conexion a la tabla juego");
             juegoDAO = new JuegoDAO();
+
+            // obtencion de los juegos
+            PathsImages.games = juegoDAO.cargaJuegos(); // carga todos los juegos de la base de datos
+
         } catch (SQLException e) {
             throw new RuntimeException();
         }
@@ -63,11 +71,12 @@ public class LoginController implements Initializable {
             System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
         });
 
-        //carga de la pantalla olvido contaseña
+        // carga de la pantalla olvido contaseña
         btn_Olvido_Contra.setOnMouseClicked(e -> {
 
             Stage stageOlvidoContra = new Stage();
-            //stageOlvidoContra.initStyle(StageStyle.UNDECORATED);//se elimina la barra  por defecto
+            // stageOlvidoContra.initStyle(StageStyle.UNDECORATED);//se elimina la barra por
+            // defecto
             Parent root;
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
@@ -82,16 +91,16 @@ public class LoginController implements Initializable {
         });
 
         // oculta el tx_vistaContra
-        if (paswor_fileUno.getText() != null || paswor_fileUno == null) {//se oculta en cualquier caso
+        if (paswor_fileUno.getText() != null || paswor_fileUno == null) {// se oculta en cualquier caso
             tx_vistaContra.setVisible(false);
         }
 
         // funcionalidad del boton mostrar contraseña
         btn_verContra.setOnMouseClicked(event -> {
 
-            Timer timer = new Timer(); //se crea el objeto timer 
-            TimerTask tareaUno = new TimerTask() {//se crea una nueva tarea cada vez que se pulsa el boton
-                public void run() { //la tarea a realizar
+            Timer timer = new Timer(); // se crea el objeto timer
+            TimerTask tareaUno = new TimerTask() {// se crea una nueva tarea cada vez que se pulsa el boton
+                public void run() { // la tarea a realizar
                     // oculta la contraaseña
                     tx_vistaContra.setVisible(false);
                     // mostramos la contraseña en formato pasword
@@ -107,7 +116,7 @@ public class LoginController implements Initializable {
             tx_vistaContra.setVisible(true);
             System.out.println("la tarea esta echa");
 
-            timer.schedule(tareaUno, 5000);//cuando se pulsa el boton el timer espera cinco segundo y ejecuta la tarea
+            timer.schedule(tareaUno, 5000);// cuando se pulsa el boton el timer espera cinco segundo y ejecuta la tarea
 
         });
 

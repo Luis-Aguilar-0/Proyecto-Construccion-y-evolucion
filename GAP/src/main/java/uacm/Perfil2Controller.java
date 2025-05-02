@@ -19,25 +19,41 @@ import javafx.stage.Stage;
 public class Perfil2Controller implements Initializable {
     @FXML
     private ImageView imgPerfil2;
-    @FXML private Button btnEditar1;
-    @FXML private Button btnEditar2;
-    @FXML private Button btnEditar3;
-    @FXML private Button btnEditar4;
-    @FXML private ImageView imgFondoPerfil;
+    @FXML
+    private Button btnEditar1;
+    @FXML
+    private Button btnEditar2;
+    @FXML
+    private Button btnEditar3;
+    @FXML
+    private Button btnEditar4;
+    @FXML
+    private ImageView imgFondoPerfil;
 
-    @FXML private ImageView imgPerfil;
-    @FXML private ImageView imgBiblioteca;
-    @FXML private ImageView imgBilletera;
-    @FXML private ImageView imgSalir;
-    @FXML private ImageView imgBusqueda;
-    @FXML private ImageView imgCarrito;
-    @FXML private ImageView imgInicio;
+    @FXML
+    private ImageView imgPerfil;
+    @FXML
+    private ImageView imgBiblioteca;
+    @FXML
+    private ImageView imgBilletera;
+    @FXML
+    private ImageView imgSalir;
+   
+    @FXML
+    private ImageView imgCarrito;
+    @FXML
+    private ImageView imgInicio;
 
-    @FXML private VBox vboxPerfil;
-    @FXML private StackPane panPrincipalPerfil;
-    @FXML private javafx.scene.layout.Pane panBusquedaPerfil;
-    @FXML private javafx.scene.layout.Pane panBusquedaPerfil1;
-    @FXML private javafx.scene.layout.Pane panIconosBibliotecaPerfil;
+    @FXML
+    private VBox vboxPerfil;
+    @FXML
+    private StackPane panPrincipalPerfil;
+    @FXML
+    private javafx.scene.layout.Pane panBusquedaPerfil;
+    @FXML
+    private javafx.scene.layout.Pane panBusquedaPerfil1;
+    @FXML
+    private javafx.scene.layout.Pane panIconosBibliotecaPerfil;
 
     private Parent panBiblioteca;
     private Parent panBilletera;

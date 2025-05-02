@@ -9,11 +9,16 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import logic.Usuario;
 import uacm.utilities.PathsImages;
 import javafx.scene.control.Button;
 
-
 public class BilbliotecaPerfilController implements Initializable {
+
+    @FXML
+    private ImageView img_logo;
+    @FXML
+    private Button bt_inicio;
     @FXML
     private Button bt_pagSiguiente;
     @FXML
@@ -55,25 +60,30 @@ public class BilbliotecaPerfilController implements Initializable {
             perfil2Controller.muestraPerfil();
         }
     }
+
     private Perfil2Controller perfil2Controller;
 
     // Método para recibir la referencia al controlador principal
     public void setPerfil2Controller(Perfil2Controller controller) {
         this.perfil2Controller = controller;
     }
-    private ImageView img_logo;
 
     public PathsImages images;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Image imagen = new Image(getClass().getResourceAsStream(PathsImages.listaImagenes.getFirst()));
+        Usuario usuario = new Usuario();
+
+        usuario.setJuegos(PathsImages.games);
+        String[] imagenes = usuario.getJuegos().get(0).getImagenes();
+
+        Image imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());
+
+        System.out.println(imagenes[0]);
 
         im_gameUno.setImage(imagen);
 
     }
-
-    
 
 }
