@@ -10,6 +10,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import logic.Usuario;
 import uacm.utilities.PathsImages;
 
 public class BilbliotecaPerfilController implements Initializable {
@@ -55,10 +56,20 @@ public class BilbliotecaPerfilController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Image imagen = new Image(getClass().getResourceAsStream(PathsImages.listaImagenes.getFirst()));
+
+        Usuario usuario = new Usuario();
+
+        usuario.setJuegos(PathsImages.games);
+        String[] imagenes = usuario.getJuegos().get(0).getImagenes();
+
+        Image imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());
+
+        System.out.println(imagenes[0]);
 
         im_gameUno.setImage(imagen);
 
+
+      
     }
 
     
