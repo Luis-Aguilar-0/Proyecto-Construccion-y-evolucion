@@ -10,40 +10,44 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Perfil2Controller implements Initializable {
-    @FXML
-    private ImageView imgPerfil2;
+    
     @FXML private Button btnEditar1;
     @FXML private Button btnEditar2;
     @FXML private Button btnEditar3;
     @FXML private Button btnEditar4;
-    @FXML private ImageView imgFondoPerfil;
-
-    @FXML private ImageView imgPerfil;
+    @FXML private Button btnElegirImagen;
     @FXML private ImageView imgBiblioteca;
     @FXML private ImageView imgBilletera;
-    @FXML private ImageView imgSalir;
-    @FXML private ImageView imgBusqueda;
     @FXML private ImageView imgCarrito;
+    @FXML private ImageView imgFondoPerfil;
     @FXML private ImageView imgInicio;
-
-    @FXML private VBox vboxPerfil;
-    @FXML private StackPane panPrincipalPerfil;
-    @FXML private javafx.scene.layout.Pane panBusquedaPerfil;
-    @FXML private javafx.scene.layout.Pane panBusquedaPerfil1;
-    @FXML private javafx.scene.layout.Pane panIconosBibliotecaPerfil;
+    @FXML private ImageView imgPerfil;
+    @FXML private ImageView imgPerfil2;
+    @FXML private ImageView imgSalir;
+    @FXML private Pane panBusquedaPerfil;
+    @FXML private Pane panBusquedaPerfil1;
+    @FXML private Pane panIconosBibliotecaPerfil;
+    @FXML private AnchorPane panPrincipalPerfil;
+    @FXML private TextField txtContrasenha;
+    @FXML private TextField txtCorreo;
+    @FXML private TextField txtNombre;
+    @FXML private TextField txtUsuario;
 
     private Parent panBiblioteca;
     private Parent panBilletera;
+    private java.util.List<javafx.scene.Node> nodosOriginalesPerfil;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        nodosOriginalesPerfil = new java.util.ArrayList<>(panPrincipalPerfil.getChildren());
         cargarPanes();
         muestraPerfil();
     }
@@ -66,7 +70,7 @@ public class Perfil2Controller implements Initializable {
     }
 
     public void muestraPerfil() {
-        panPrincipalPerfil.getChildren().setAll(imgFondoPerfil, vboxPerfil);
+        panPrincipalPerfil.getChildren().setAll(nodosOriginalesPerfil);
     }
 
     public void muestraPanBiblioteca() {

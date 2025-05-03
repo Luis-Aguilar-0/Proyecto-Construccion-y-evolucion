@@ -20,7 +20,9 @@
         0,                        /* Offset X */
         0                         /* Offset Y */
     );
-}  .boton-perfil:hover {
+}
+
+.boton-perfil:hover {
     -fx-background-color: linear-gradient(to bottom, #4A148C, #d05eef); /* Degradado dramático */
     -fx-text-fill: #FFFFFF;
     -fx-border-color: #1acaff;          /* Borde rojo neón */
