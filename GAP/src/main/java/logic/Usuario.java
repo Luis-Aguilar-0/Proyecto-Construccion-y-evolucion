@@ -4,29 +4,36 @@
  */
 package logic;
 
+import java.sql.Date;
+import java.util.List;
+
 /**
  *
  * @author arman
  */
 public class Usuario {
-    
-    //En esta clase ira todo lo relacionado con el cliente
-    //atributos
+
+    // En esta clase ira todo lo relacionado con el cliente
+    // atributos
     private int id;
     private String usuario;
     private String email;
     private String pasword;
-    private double saldo; //cuanto dinero se ha gastado en comprar juegos 
-    private int ajoloCoins;//sirve para comprar juegos en la plataforma
-    private String imagenPerfil;
-    private int idBiblioteca;
-    private int idTarjetaCredito;
+    private double saldo; // cuanto dinero se ha gastado en comprar juegos
+    private Integer ajoloCoins;// sirve para comprar juegos en la plataforma
+    private byte[] imagenPerfil;
+    private Integer idTarjetaCredito;
+    private List<Juego> juegos;
+    private Tarjeta tarjetaUser;
+    private Date fechaNacimiento;
 
-    //contructores
-    public Usuario(){}
+    // contructores
+    public Usuario() {
+    }
 
-    public Usuario(int id_,String usuario_,String email_,String pasword_, double saldo_, int ajoloCoins_ ,String imagenPerfil_,int idBiblioteca_,int idTarjetaCredito_){
-        
+    public Usuario(int id_, String usuario_, String email_, String pasword_, double saldo_, Integer ajoloCoins_,
+            byte[] imagenPerfil_, Integer idTarjetaCredito_) {
+
         this.id = id_;
         this.usuario = usuario_;
         this.email = email_;
@@ -34,12 +41,20 @@ public class Usuario {
         this.saldo = saldo_;
         this.ajoloCoins = ajoloCoins_;
         this.imagenPerfil = imagenPerfil_;
-        this.idBiblioteca = idBiblioteca_;
         this.idTarjetaCredito = idTarjetaCredito_;
 
     }
 
-    //getter y setters
+    
+
+    public Usuario(String usuario, String email, String pasword, Date fechaNacimiento) {
+        this.usuario = usuario;
+        this.email = email;
+        this.pasword = pasword;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    // getter y setters
     public int getId() {
         return id;
     }
@@ -48,19 +63,11 @@ public class Usuario {
         this.id = id;
     }
 
-    public int getIdBiblioteca() {
-        return idBiblioteca;
-    }
-
-    public void setIdBiblioteca(int idBiblioteca) {
-        this.idBiblioteca = idBiblioteca;
-    }
-
-    public int getIdTarjetaCredito() {
+    public Integer getIdTarjetaCredito() {
         return idTarjetaCredito;
     }
 
-    public void setIdTarjetaCredito(int idTarjetaCredito) {
+    public void setIdTarjetaCredito(Integer idTarjetaCredito) {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
@@ -96,19 +103,19 @@ public class Usuario {
         this.saldo = saldo;
     }
 
-    public int getAjoloCoins(){
+    public Integer getAjoloCoins() {
         return ajoloCoins;
     }
 
-    public void setAjoloCoins(int coins){
+    public void setAjoloCoins(Integer coins) {
         this.ajoloCoins = coins;
     }
 
-    public String getImagenPerfil() {
+    public byte[] getImagenPerfil() {
         return imagenPerfil;
     }
 
-    public void setImagenPerfil(String imagenPerfil) {
+    public void setImagenPerfil(byte[] imagenPerfil) {
         this.imagenPerfil = imagenPerfil;
     }
 
@@ -117,5 +124,31 @@ public class Usuario {
         return "Cliente [usuario=" + usuario + ", email=" + email + ", pasword=" + pasword + ", saldo=" + saldo
                 + ", imagenPerfil=" + imagenPerfil + "]";
     }
+
+    public List<Juego> getJuegos() {
+        return juegos;
+    }
+
+    public void setJuegos(List<Juego> juegos) {
+        this.juegos = juegos;
+    }
+
+    public Tarjeta getTarjetaUser() {
+        return tarjetaUser;
+    }
+
+    public void setTarjetaUser(Tarjeta tarjetaUser) {
+        this.tarjetaUser = tarjetaUser;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
     
+
 }

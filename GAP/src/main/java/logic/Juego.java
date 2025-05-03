@@ -1,22 +1,23 @@
 package logic;
 
+import java.sql.Date;
+
 public class Juego {
 
     private int idJuego;
     private String nombreJuego;
     private String rMininos; // requisitos minimos del juego
     private String rRecomendados; // requisitos recomendados
-    private double precion;
-    private int precioAjoloCoins;// moneda recargable
+    private double precio;
+    private Integer precioAjoloCoins;// moneda recargable
     private String desarrollador;
-    private String fechaLanzamiento;
+    private Date fechaLanzamiento;
     private String[] imagenes = new String[4]; // se almacenan solo las direccines en forma de string
 
     public Juego() {
     }
 
-    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,
-            String fechaLanzamiento_, String[] imagenes_, double precio_, int precionAjoloCoins_) {
+    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,Date fechaLanzamiento_, String[] imagenes_, double precio_, Integer precionAjoloCoins_) {
         this.idJuego = id_;
         this.nombreJuego = nombre;
         this.rMininos = rMinimos_;
@@ -27,7 +28,7 @@ public class Juego {
         this.imagenes[1] = imagenes_[1];
         this.imagenes[2] = imagenes_[2];
         this.imagenes[3] = imagenes_[3];
-        this.precion = precio_;
+        this.precio = precio_;
         this.precioAjoloCoins = precionAjoloCoins_;
     }
 
@@ -63,19 +64,19 @@ public class Juego {
         this.rRecomendados = rRecomendados;
     }
 
-    public double getPrecion() {
-        return precion;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecion(double precion) {
-        this.precion = precion;
+    public void setPrecio(double precion) {
+        this.precio = precion;
     }
 
-    public int getPrecioAjoloCoins() {
+    public Integer getPrecioAjoloCoins() {
         return precioAjoloCoins;
     }
 
-    public void setPrecioAjoloCoins(int precioAjoloCoins) {
+    public void setPrecioAjoloCoins(Integer precioAjoloCoins) {
         this.precioAjoloCoins = precioAjoloCoins;
     }
 
@@ -87,11 +88,11 @@ public class Juego {
         this.desarrollador = desarrollador;
     }
 
-    public String getFechaLanzamiento() {
+    public Date getFechaLanzamiento() {
         return fechaLanzamiento;
     }
 
-    public void setFechaLanzamiento(String fechaLanzamiento) {
+    public void setFechaLanzamiento(Date fechaLanzamiento) {
         this.fechaLanzamiento = fechaLanzamiento;
     }
 

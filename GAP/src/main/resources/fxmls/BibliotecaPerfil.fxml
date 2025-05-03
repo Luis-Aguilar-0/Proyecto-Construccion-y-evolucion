@@ -31,12 +31,12 @@
                   <ImageView fx:id="im_gameDies" fitHeight="210.0" fitWidth="150.0" layoutX="190.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="im_gameOnce" fitHeight="210.0" fitWidth="150.0" layoutX="356.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
                   <ImageView fx:id="im_gameDoce" fitHeight="210.0" fitWidth="150.0" layoutX="531.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="bt_pagSiguiente" layoutX="468.0" layoutY="800.0" mnemonicParsing="false" text="Pagina siguiente" />
+                  <Button fx:id="bt_pagAnterior" layoutX="585.0" layoutY="800.0" mnemonicParsing="false" text="Pagina Anterior" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <Button layoutX="241.0" layoutY="43.0" mnemonicParsing="false" text="Inicio" />
-      <Button fx:id="bt_pagSiguiente" layoutX="306.0" layoutY="43.0" mnemonicParsing="false" text="Pagina siguiente" />
-      <Button fx:id="bt_pagAnterior" layoutX="428.0" layoutY="43.0" mnemonicParsing="false" text="Pagina Anterior" />
+      <Button fx:id="bt_inicio" layoutX="241.0" layoutY="43.0" mnemonicParsing="false" text="Inicio" />
    </children>
 </AnchorPane>

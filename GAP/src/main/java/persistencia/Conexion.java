@@ -7,13 +7,12 @@ import java.util.Properties;
 
 public class Conexion {
 
-    /*conexion con la base de datos GAPBD
-    uando MariaDb y HeidiSQL
+    /*conexion con la base de datos en SQL Server
     nombre de la base de datos: gapdb
-    libreria : libmariadb.dll
-    usuario : root
+    Driver jdbc: mssql-jdbc.jar
+    usuario : laac
     contraseña : slt-
-    puerto : 3306
+    puerto : 1433
     */
 
     public static Connection connexion = null; //usada para hacer la conexion a la base
@@ -25,9 +24,9 @@ public class Conexion {
      * como el usuario, la contraseña y la url
      */
     private static void configura(){
-        propiedades.put("user","root");
+        propiedades.put("user","laac");
         propiedades.put("password","slt-");
-        propiedades.put("url","jdbc:mariadb://localhost:3306/gapbd");
+        propiedades.put("url","jdbc:sqlserver://localhost:1433;databaseName=gapbd;encrypt=false;trustServerCertificate=true;");
 
     }
 
@@ -35,7 +34,7 @@ public class Conexion {
 
         if(connexion == null){//si es null aun no se establese la conexion a la base
             try{              
-                Class.forName("org.mariadb.jdbc.Driver");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             }catch(ClassNotFoundException e){
                 throw new RuntimeException();
             }
@@ -43,7 +42,9 @@ public class Conexion {
             configura(); //se cargan las configuraciones a la variable propiedades
 
             try{//se asignan las configuraciones a la variable conexion
-                connexion = DriverManager.getConnection(propiedades.getProperty("url"), propiedades.getProperty("user"), propiedades.getProperty("password"));
+                connexion = DriverManager.getConnection(propiedades.getProperty("url"),  
+                                                        propiedades.getProperty("user"), 
+                                                        propiedades.getProperty("password"));
             }catch(SQLException e){
             
                 throw new RuntimeException();
