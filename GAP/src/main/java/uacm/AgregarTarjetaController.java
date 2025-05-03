@@ -18,30 +18,14 @@ import javafx.util.Duration;
 
 public class AgregarTarjetaController {
 
-    @FXML
-    private Button btnGuardarTarjeta;
-
-    @FXML
-    private Button btnSalir;
-
-    @FXML
-    private ImageView imgTarjeta;
-
-    @FXML
-    private Label lbTitulo;
-
-    @FXML
-    private TextField txtCVV;
-
-    @FXML
-    private TextField txtExpiracion;
-
-    @FXML
-    private TextField txtNombreTarjeta;
-
-    @FXML
-    private TextField txtNumeroTarjeta;
-
+    @FXML private Button btnGuardarTarjeta;
+    @FXML private Button btnSalir;
+    @FXML private ImageView imgTarjeta;
+    @FXML private Label lbTitulo;
+    @FXML private TextField txtCVV;
+    @FXML private TextField txtExpiracion;
+    @FXML private TextField txtNombreTarjeta;
+    @FXML private TextField txtNumeroTarjeta;
     @FXML
     void GuardarTarjeta(ActionEvent event) {
         try {
