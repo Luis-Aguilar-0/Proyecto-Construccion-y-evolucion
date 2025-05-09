@@ -2,6 +2,8 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -18,53 +20,59 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Perfil2Controller implements Initializable {
-    
-    @FXML private Button btnEditar1;
-    @FXML private Button btnEditar2;
-    @FXML private Button btnEditar3;
-    @FXML private Button btnEditar4;
-    @FXML private Button btnElegirImagen;
-    @FXML private ImageView imgBiblioteca;
-    @FXML private ImageView imgBilletera;
-    @FXML private ImageView imgCarrito;
-    @FXML private ImageView imgFondoPerfil;
-    @FXML private ImageView imgInicio;
-    @FXML private ImageView imgPerfil;
-    @FXML private ImageView imgPerfil2;
-    @FXML private ImageView imgSalir;
-    @FXML private Pane panBusquedaPerfil;
-    @FXML private Pane panBusquedaPerfil1;
-    @FXML private Pane panIconosBibliotecaPerfil;
-    @FXML private AnchorPane panPrincipalPerfil;
-    @FXML private TextField txtContrasenha;
-    @FXML private TextField txtCorreo;
-    @FXML private TextField txtNombre;
-    @FXML private TextField txtUsuario;
+   // Botones
+@FXML private Button btnEditar1, btnEditar2, btnEditar3, btnElegirImagen;
 
-    private Parent panBiblioteca;
+// ImageViews
+@FXML private ImageView imgBiblioteca, imgBilletera, imgCarrito, imgFondoPerfil, 
+                        imgPerfil, imgPerfil2, imgSalir, irInicio;
+
+// Panes
+@FXML private Pane panBusquedaPerfil, panBusquedaPerfil1, panIconosBibliotecaPerfil;
+@FXML private AnchorPane panPrincipalPerfil;
+
+// TextFields
+@FXML private TextField txtContrasenha, txtCorreo, txtUsuario;
+
+    private Parent sC_panelBiblioDos;
     private Parent panBilletera;
-    private java.util.List<javafx.scene.Node> nodosOriginalesPerfil;
+    private List<javafx.scene.Node> nodosOriginalesPerfil;
+    private Stage perfilStage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        nodosOriginalesPerfil = new java.util.ArrayList<>(panPrincipalPerfil.getChildren());
+        // Guardamos la vista original
+        nodosOriginalesPerfil = new ArrayList<>(panPrincipalPerfil.getChildren());
         cargarPanes();
         muestraPerfil();
     }
 
     private void cargarPanes() {
         try {
-            FXMLLoader loaderBiblio = new FXMLLoader(getClass().getResource("/fxmls/BibliotecaPerfil.fxml"));
-            panBiblioteca = loaderBiblio.load();
-            BilbliotecaPerfilController ctrlBiblio = loaderBiblio.getController();
-            ctrlBiblio.setPerfil2Controller(this);
+            // Cargar panel Biblioteca
+            FXMLLoader loaderBiblio = new FXMLLoader(getClass().getResource("/fxmls/BibliotecaPerfilDos.fxml"));
+            Parent biblioRoot = loaderBiblio.load();
+            Object ctrlBiblio = loaderBiblio.getController();
+            System.out.println("[DEBUG] Biblioteca controller: " + ctrlBiblio);
+            if (ctrlBiblio instanceof BibliotecaPerfilDosController) {
+                ((BibliotecaPerfilDosController)ctrlBiblio).setPerfil2Controller(this);
+                sC_panelBiblioDos = biblioRoot;
+            } else {
+                System.err.println("[ERROR] Controlador Biblioteca inválido");
+            }
 
+            // Cargar pan Billetera
             FXMLLoader loaderBill = new FXMLLoader(getClass().getResource("/fxmls/BilleteraPerfil.fxml"));
-            panBilletera = loaderBill.load();
-            BilleteraPerfilController ctrlBill = loaderBill.getController();
-            ctrlBill.setPerfil2Controller(this);
-
-        } catch (IOException e) {
+            Parent billRoot = loaderBill.load();
+            Object ctrlBill = loaderBill.getController();
+            System.out.println("[DEBUG] Billetera controller: " + ctrlBill);
+            if (ctrlBill instanceof BilleteraPerfilController) {
+                ((BilleteraPerfilController)ctrlBill).setPerfil2Controller(this);
+                panBilletera = billRoot;
+            } else {
+                System.err.println("[ERROR] Controlador Billetera inválido");
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -74,11 +82,15 @@ public class Perfil2Controller implements Initializable {
     }
 
     public void muestraPanBiblioteca() {
-        panPrincipalPerfil.getChildren().setAll(panBiblioteca);
+        if (sC_panelBiblioDos != null) {
+            panPrincipalPerfil.getChildren().setAll(sC_panelBiblioDos);
+        }
     }
 
     public void muestraPanBilletera() {
-        panPrincipalPerfil.getChildren().setAll(panBilletera);
+        if (panBilletera != null) {
+            panPrincipalPerfil.getChildren().setAll(panBilletera);
+        }
     }
 
     @FXML
@@ -108,12 +120,40 @@ public class Perfil2Controller implements Initializable {
             cerrarSesionStage.setResizable(false);
             cerrarSesionStage.show();
 
-            CerrarSesionController cerrarSesionController = loader.getController();
-            cerrarSesionController.setPerfil2Controller(this);
-            cerrarSesionController.setPerfilStage((Stage) imgSalir.getScene().getWindow());
-
+            CerrarSesionController cerrarCtrl = loader.getController();
+            cerrarCtrl.setPerfil2Controller(this);
+            cerrarCtrl.setPerfilStage((Stage) imgSalir.getScene().getWindow());
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setPerfilStage(Stage perfilStage) {
+        this.perfilStage = perfilStage;
+    }
+
+    @FXML
+    void irInicio(MouseEvent event) {
+        // Cerrar vista actual
+       // Stage stageActual = (Stage) irInicio.getScene().getWindow();
+        //stageActual.close();
+
+        // Cerrar perfil previo si existe
+        if (perfilStage != null) {
+            perfilStage.close();
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/InicioGap.fxml"));
+            Parent root = loader.load();
+            Stage inicioStage = new Stage();
+            inicioStage.setTitle("Inicio GAP");
+            inicioStage.setScene(new Scene(root));
+            inicioStage.show();
+
+              Stage stageActual = (Stage) irInicio.getScene().getWindow();
+        stageActual.close();
+        } catch (IOException exe) {
+            exe.printStackTrace();
         }
     }
 }

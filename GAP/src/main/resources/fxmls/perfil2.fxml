@@ -87,16 +87,16 @@
       <top>
          <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" prefHeight="83.0" prefWidth="900.0" styleClass="panedeArriba" stylesheets="@../styles/Perfil.css" BorderPane.alignment="CENTER">
             <children>
-               <Pane fx:id="panBusquedaPerfil" prefHeight="0.0" prefWidth="832.0" style="-fx-background-color: #3B2A5E;">
+               <HBox alignment="CENTER" prefHeight="211.0" prefWidth="832.0">
                   <children>
                      <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                         </image>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
                      </ImageView>
-                  </children></Pane>
-               <HBox alignment="CENTER" prefHeight="211.0" prefWidth="832.0">
-                  <children>
                      <Pane fx:id="panBusquedaPerfil1" prefHeight="130.0" prefWidth="546.0" style="-fx-background-color: #3B2A5E;" stylesheets="@../styles/Perfil.css">
                         <children>
                            <ImageView fx:id="imgCarrito" fitHeight="38.0" fitWidth="44.0" layoutX="459.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
@@ -108,7 +108,7 @@
                               <String fx:value="quantum-purple-btn" />
                            </styleClass>
                            </ImageView>
-                           <ImageView fx:id="imgInicio" fitHeight="33.0" fitWidth="36.0" layoutX="410.0" pickOnBounds="true" preserveRatio="true">
+                           <ImageView fx:id="irInicio" fitHeight="33.0" fitWidth="36.0" layoutX="410.0" onMouseClicked="#irInicio" pickOnBounds="true" preserveRatio="true">
                               <image>
                                  <Image url="@../imagenes/imagesPerfil/home2.png" />
                               </image>
@@ -140,6 +140,7 @@
                      <Insets />
                   </VBox.margin>
                </HBox>
+               <Pane fx:id="panBusquedaPerfil" prefHeight="0.0" prefWidth="832.0" style="-fx-background-color: #3B2A5E;" />
             </children>
          </VBox>
       </top>
@@ -163,31 +164,15 @@
                   <Label styleClass="label-titulo-perfil" stylesheets="@../styles/Perfil.css" text="Perfil" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="132.0" prefHeight="20.0" prefWidth="149.0">
-               <children>
-                  <Label prefHeight="38.0" prefWidth="154.0" styleClass="label-subtitulo-perfil" text="Cambiar nombre" />
-               </children>
-            </VBox>
-            <VBox layoutX="61.0" layoutY="176.0" prefHeight="23.0" prefWidth="199.0">
-               <children>
-                  <TextField fx:id="txtNombre">
-                     <styleClass>
-                        <String fx:value="textfield-perfil" />
-                        <String fx:value="quantum-purple-btn" />
-                     </styleClass></TextField>
-               </children>
-            </VBox>
-            <VBox layoutX="286.0" layoutY="172.0" prefHeight="43.0" prefWidth="73.0">
-               <children>
-                  <Button fx:id="btnEditar1" mnemonicParsing="false" prefHeight="37.0" prefWidth="69.0" styleClass="quantum-purple-btn" stylesheets="@../styles/Perfil.css" text="Editar" />
-               </children>
-            </VBox>
-            <VBox layoutX="61.0" layoutY="215.0" prefHeight="26.0" prefWidth="149.0">
+            <VBox layoutX="61.0" layoutY="132.0" prefHeight="20.0" prefWidth="149.0" />
+            <VBox layoutX="61.0" layoutY="176.0" prefHeight="23.0" prefWidth="199.0" />
+            <VBox layoutX="286.0" layoutY="172.0" prefHeight="43.0" prefWidth="73.0" />
+            <VBox layoutX="61.0" layoutY="113.0" prefHeight="26.0" prefWidth="149.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="154.0" styleClass="label-subtitulo-perfil" text="Cambiar usuario" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="264.0" prefHeight="23.0" prefWidth="199.0">
+            <VBox layoutX="61.0" layoutY="155.0" prefHeight="23.0" prefWidth="199.0">
                <children>
                   <TextField fx:id="txtUsuario">
                      <styleClass>
@@ -196,17 +181,17 @@
                      </styleClass></TextField>
                </children>
             </VBox>
-            <VBox layoutX="286.0" layoutY="262.0" prefHeight="41.0" prefWidth="66.0">
+            <VBox layoutX="277.0" layoutY="151.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar2" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditar1" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="303.0" prefHeight="38.0" prefWidth="239.0">
+            <VBox layoutX="60.0" layoutY="208.0" prefHeight="38.0" prefWidth="239.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="255.0" styleClass="label-subtitulo-perfil" text="Cambiar correo electronico" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="341.0" prefHeight="23.0" prefWidth="199.0">
+            <VBox layoutX="61.0" layoutY="247.0" prefHeight="23.0" prefWidth="199.0">
                <children>
                   <TextField fx:id="txtCorreo">
                      <styleClass>
@@ -215,28 +200,29 @@
                      </styleClass></TextField>
                </children>
             </VBox>
-            <VBox layoutX="286.0" layoutY="339.0" prefHeight="41.0" prefWidth="66.0">
+            <VBox layoutX="277.0" layoutY="240.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar3" mnemonicParsing="false" prefHeight="41.0" prefWidth="69.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditar2" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="380.0" prefHeight="38.0" prefWidth="216.0">
+            <VBox layoutX="61.0" layoutY="305.0" prefHeight="38.0" prefWidth="216.0">
                <children>
                   <Label prefHeight="38.0" prefWidth="213.0" styleClass="label-subtitulo-perfil" text="Cambiar contrasenha" />
                </children>
             </VBox>
-            <VBox layoutX="61.0" layoutY="418.0" prefHeight="23.0" prefWidth="199.0">
+            <VBox layoutX="61.0" layoutY="347.0" prefHeight="23.0" prefWidth="199.0">
                <children>
                   <TextField fx:id="txtContrasenha">
                      <styleClass>
                         <String fx:value="textfield-perfil" />
                         <String fx:value="quantum-purple-btn" />
-                     </styleClass></TextField>
+                     </styleClass>
+                  </TextField>
                </children>
             </VBox>
-            <VBox layoutX="286.0" layoutY="409.0" prefHeight="41.0" prefWidth="66.0">
+            <VBox layoutX="277.0" layoutY="343.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar4" mnemonicParsing="false" prefHeight="41.0" prefWidth="69.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditar3" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="484.0" layoutY="153.0" prefHeight="386.0" prefWidth="361.0" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

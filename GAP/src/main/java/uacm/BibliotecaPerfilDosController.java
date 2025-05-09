@@ -3,11 +3,10 @@ package uacm;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.text.html.ImageView;
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 public class BibliotecaPerfilDosController implements Initializable {
@@ -27,7 +26,7 @@ public class BibliotecaPerfilDosController implements Initializable {
     private ImageView im_gameTres;
 
     @FXML
-    private ImageView im_gemeCuatro;
+    private ImageView im_gameCuatro;
 
     @FXML
     private ImageView im_gameCinco;
@@ -56,6 +55,22 @@ public class BibliotecaPerfilDosController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+
+    
+    @FXML
+    private void mostrarPerfil() {
+        if (perfil2Controller != null) {
+            perfil2Controller.muestraPerfil();
+        }
+    }
+
+    private Perfil2Controller perfil2Controller;
+
+    // Método para recibir la referencia al controlador principal
+    public void setPerfil2Controller(Perfil2Controller controller) {
+        this.perfil2Controller = controller;
     }
 
 }
