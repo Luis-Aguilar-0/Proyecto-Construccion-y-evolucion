@@ -17,7 +17,7 @@ public class App extends Application {
         //stage.initStyle(StageStyle.UNDECORATED); //elimina la barra de titulo del sitema
         
         //carga del fxml                                                  
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/perfil2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Login.fxml"));
         Parent root = loader.load();
         //scene = new Scene(barraPersonalizada.cargaBarra(stage, root) ,600,400); //carga la barra personalizada
         scene = new Scene(root,900,600);
