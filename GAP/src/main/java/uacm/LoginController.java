@@ -79,7 +79,7 @@ public class LoginController implements Initializable {
             // defecto
             Parent root;
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/BibliotecaPerfil.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
                 root = loader.load();
                 Scene scene = new Scene(root);
 
