@@ -22,7 +22,7 @@
                <image>
                   <Image url="@../imagenes/imagenesJuegos/descarga.jpeg" />
                </image></ImageView>
-            <ImageView fx:id="im_gemeCuatro" fitHeight="210.0" fitWidth="150.0" layoutX="606.0" layoutY="24.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="im_gameCuatro" fitHeight="210.0" fitWidth="150.0" layoutX="606.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/imagenesJuegos/PortadaDoom.jpg" />
                </image></ImageView>

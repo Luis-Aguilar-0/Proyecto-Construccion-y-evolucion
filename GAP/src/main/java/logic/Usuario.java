@@ -71,6 +71,7 @@ public class Usuario {
         this.idTarjetaCredito = idTarjetaCredito;
     }
 
+
     public String getUsuario() {
         return usuario;
     }

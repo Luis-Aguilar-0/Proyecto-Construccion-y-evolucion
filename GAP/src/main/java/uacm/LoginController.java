@@ -2,11 +2,11 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +21,6 @@ import javafx.stage.Stage;
 import logic.Juego;
 import persistencia.JuegoDAO;
 import persistencia.UsuarioDAO;
-import uacm.utilities.PathsImages;
 
 public class LoginController implements Initializable {
 
@@ -52,18 +51,18 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         // conexion a la base de datos
-        try {
-            usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
+        // try {
+        //     usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
 
-            System.out.println("conexion a la tabla juego");
-            juegoDAO = new JuegoDAO();
+        //     System.out.println("conexion a la tabla juego");
+        //     juegoDAO = new JuegoDAO();
 
-            // obtencion de los juegos
-            PathsImages.games = juegoDAO.cargaJuegos(); // carga todos los juegos de la base de datos
+        //     // obtencion de los juegos
+        //     PathsImages.games = juegoDAO.cargaJuegos(); // carga todos los juegos de la base de datos
 
-        } catch (SQLException e) {
-            throw new RuntimeException();
-        }
+        // } catch (SQLException e) {
+        //     throw new RuntimeException();
+        // }
 
         paswor_fileUno.setOnAction(event -> {
             String correo = txf_correo.getText();
