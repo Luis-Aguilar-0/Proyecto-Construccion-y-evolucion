@@ -1,0 +1,23 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.root{
+    -fx-background-color: #3B2A5E;
+}
+
+.boton_menu {
+    -fx-background-color: #F87BF0; /*Fondo rosa fuerte*/
+    -fx-text-fill: #2c1459; /*Texto morado oscuro*/
+    -fx-font-size: 10px; /*Tamaño del texto*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    /*-fx-background-radius: 20; /*Bordes redondeados*/
+    -fx-effect: dropshadow(gaussian, #00000099, 5, 0.5, 0, 2); /*Sombra suave*/
+    /*dropshadow(gaussian, color, radius, spread, offsetX, offsetY)*/
+}
+
+.boton_menu:hover {
+    -fx-background-color: #00ffd5;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
