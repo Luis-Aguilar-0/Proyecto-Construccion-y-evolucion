@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5B276A;" styleClass="boton-CerrarSesion" stylesheets="@../styles/CerrarSesion.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #5B276A;" styleClass="boton-CerrarSesion" stylesheets="@../styles/CerrarSesion.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.CerrarSesionController">
    <children>
-      <Pane layoutX="81.0" layoutY="100.0" prefHeight="200.0" prefWidth="441.0" style="-fx-background-color: #7A4C87;" styleClass="boton-CerrarSesion">
+      <VBox prefHeight="400.0" prefWidth="600.0">
          <children>
-            <Label layoutX="61.0" layoutY="38.0" prefHeight="39.0" prefWidth="320.0" styleClass="label-titulo-CerrarSesion" text="Desea salir de la cuenta?" textFill="#ff8afb">
+            <Label prefHeight="45.0" prefWidth="194.0" styleClass="label-titulo-CerrarSesion" text="Cerrar Sesion" textFill="#ff8afb">
                <font>
-                  <Font name="Yu Gothic UI Semibold" size="24.0" />
+                  <Font name="Yu Gothic UI Semibold" size="30.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="200.0" top="40.0" />
+               </VBox.margin>
             </Label>
-            <Button fx:id="BtnSalirNo" layoutX="61.0" layoutY="128.0" mnemonicParsing="false" styleClass="boton-CerrarSesion" text="No" />
-            <Button fx:id="btnSalirSi" layoutX="257.0" layoutY="128.0" mnemonicParsing="false" styleClass="boton-CerrarSesion" text="No" />
-         </children></Pane>
-      <Label layoutX="203.0" layoutY="36.0" prefHeight="45.0" prefWidth="194.0" styleClass="label-titulo-CerrarSesion" text="Cerrar Sesion" textFill="#ff8afb">
-         <font>
-            <Font name="Yu Gothic UI Semibold" size="30.0" />
-         </font>
-      </Label>
+            <Pane prefHeight="423.0" prefWidth="696.0" style="-fx-background-color: #7A4C87;" styleClass="boton-CerrarSesion">
+               <children>
+                  <Label layoutX="60.0" prefHeight="73.0" prefWidth="321.0" styleClass="label-titulo-CerrarSesion" text="Desea salir de la cuenta?" textFill="#ff8afb">
+                     <font>
+                        <Font name="Yu Gothic UI Semibold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="BtnSalirNo" layoutX="242.0" layoutY="95.0" mnemonicParsing="false" styleClass="boton-CerrarSesion" text="No" />
+                  <Button fx:id="btnSalirSi" layoutX="74.0" layoutY="95.0" mnemonicParsing="false" styleClass="boton-CerrarSesion" text="Si" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="80.0" left="80.0" right="80.0" top="30.0" />
+               </VBox.margin>
+            </Pane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

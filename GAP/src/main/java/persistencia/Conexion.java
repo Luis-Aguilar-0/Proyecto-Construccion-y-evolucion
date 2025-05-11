@@ -7,13 +7,12 @@ import java.util.Properties;
 
 public class Conexion {
 
-    /*conexion con la base de datos GAPBD
-    uando MariaDb y HeidiSQL
+    /*conexion con la base de datos en SQL Server
     nombre de la base de datos: gapdb
-    libreria : libmariadb.dll
-    usuario : root
+    Driver jdbc: mssql-jdbc.jar
+    usuario : laac
     contraseña : slt-
-    puerto : 3306
+    puerto : 1433
     */
 
     public static Connection connexion = null; //usada para hacer la conexion a la base
@@ -43,7 +42,9 @@ public class Conexion {
             configura(); //se cargan las configuraciones a la variable propiedades
 
             try{//se asignan las configuraciones a la variable conexion
-                connexion = DriverManager.getConnection(propiedades.getProperty("url"), propiedades.getProperty("user"), propiedades.getProperty("password"));
+                connexion = DriverManager.getConnection(propiedades.getProperty("url"),  
+                                                        propiedades.getProperty("user"), 
+                                                        propiedades.getProperty("password"));
             }catch(SQLException e){
             
                 throw new RuntimeException();

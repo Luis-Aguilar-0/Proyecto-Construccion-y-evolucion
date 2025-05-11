@@ -1,7 +1,6 @@
-/* === Botón con Afterglow Permanente (Mismo estilo que TextField) === */
-.boton-perfil {
-    /* --- Estado Normal --- */
-    -fx-background-color: #9000ff;       /* Fondo púrpura principal */
+.panedeArriba{
+
+    -fx-background-color:  #3B2A5E;
     -fx-text-fill: #ffffff;             /* Texto magenta neón */
     -fx-font-family: "Yu Gothic UI Semibold", monospace;
     -fx-font-size: 18px;
@@ -10,6 +9,23 @@
     -fx-border-radius: 0;               /* Bordes rectos */
     -fx-background-radius: 0;
     -fx-padding: 10px 30px;
+    -fx-cursor: hand;
+}
+
+
+
+.boton-perfil {
+    /* --- Estado Normal --- */
+    -fx-background-color: #3B2A5E;       /* Fondo púrpura principal */
+    -fx-text-fill: #ffffff;             /* Texto magenta neón */
+    -fx-font-family: "Yu Gothic UI Semibold", monospace;
+    -fx-font-size: 18px;
+    -fx-border-color: #bf8ce5;          /* Borde magenta oscuro */
+    -fx-border-width: 4px;
+    -fx-border-radius: 0;               /* Bordes rectos */
+    -fx-background-radius: 0;
+    -fx-padding: 10px 30px;
+    -fx-cursor: hand;
 
     /* Afterglow permanente (mismo efecto que el TextField pero en magenta) */
     -fx-effect: dropshadow(
@@ -23,13 +39,15 @@
 }  .boton-perfil:hover {
     -fx-background-color: linear-gradient(to bottom, #4A148C, #d05eef); /* Degradado dramático */
     -fx-text-fill: #FFFFFF;
-    -fx-border-color: #1acaff;          /* Borde rojo neón */
+    -fx-border-color: #00ffd5;          /* Borde rojo neón */
     -fx-effect: dropshadow(gaussian, rgba(177, 82, 236, 0.6), 15, 0.5, 0, 0);
+    -fx-cursor: hand;
 }
 
 .boton-perfil:pressed {
     -fx-background-color: #1a0030;      /* Fondo: púrpura casi negro (simula profundidad al presionar) */
     -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1); /* Sombra interna ajustada */
+    -fx-cursor: hand;
 }
 
 
@@ -58,7 +76,6 @@
 }
 
 
-/* === TextField Estilo Lila con Afterglow Permanente === */
 .textfield-perfil {
     /* --- Estado Normal (Afterglow por defecto) --- */
     -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
@@ -91,8 +108,64 @@
     -fx-effect: dropshadow(gaussian, rgba(162, 122, 235, 0.6), 15, 0.5, 0, 0);
 }
 
-/* --- Estado Hover (Afterglow intermedio) --- */
+
 .textfield-perfil:hover {
     -fx-background-color: #ac05ff;       /* Color intermedio entre normal y focused */
     -fx-effect: dropshadow(gaussian, rgba(162, 122, 235, 0.45), 12, 0.4, 0, 0);
+}
+
+/* Efecto neon para imágenes seleccionadas */
+.imagen-seleccionada {
+    -fx-effect: dropshadow(gaussian, #9d00ff, 15, 0.7, 0, 0); /* Sombra púrpura neon */
+}
+
+/* Clase base para quitar el efecto cuando no está seleccionado */
+.imagen-no-seleccionada {
+    -fx-effect: none;
+}
+
+.quantum-purple-btn {
+    /* Fondo con gradiente vertical de púrpuras */
+    -fx-background-color: linear-gradient(to bottom, #6a00ff 0%, #8a2be2 100%);
+    /* Color del texto en blanco puro */
+    -fx-text-fill: #ffffff;
+    /* Fuente: Arial Black para un look bold */
+    -fx-font-family: "Yu Gothic UI Semibold", monospace;
+    /* Tamaño de fuente mediano */
+    -fx-font-size: 18px;
+    /* Espaciado interno: 10px arriba/abajo, 25px izquierda/derecha */
+    -fx-padding: 2 6;
+    /* Radio de las esquinas del fondo */
+    -fx-background-radius: 2px;
+    /* Color del borde neón magenta */
+    -fx-border-color: #ff00ff;
+    /* Grosor del borde */
+    -fx-border-width: 2px;
+    /* Radio de las esquinas del borde */
+    -fx-border-radius: 2px;
+    /* Cursor tipo "mano" al pasar sobre el botón */
+    -fx-cursor: hand;
+    /* Efecto de sombra base (crea el glow inicial) */
+    -fx-effect: dropshadow(gaussian, rgba(106,0,255,0.8), 30, 0.6, 0, 1);
+}
+
+.quantum-purple-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #6a00ff 0%, #8a2be2 100%);
+    /* Escala el botón un 2% (mínima expansión) */
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-border-color: #ff00ff;
+    /* Efecto de sombra mejorado (glow intenso) */
+    -fx-effect: dropshadow(gaussian, rgba(255,105,180,0.8), 25, 0.4, 0, 9);
+}
+
+.quantum-purple-btn:pressed {
+    /* Gradiente horizontal para efecto "holo" */
+    -fx-background-color: linear-gradient(to bottom, #6a00ff 20%, #2ba2e2 100%);
+    /* Sombra exterior magenta intensa */
+    -fx-effect: dropshadow(gaussian, rgba(255,0,255,0.9), 20, 0.8, 0, 4);
+    /* Grosor del borde aumentado al presionar */
+    -fx-border-width: 3px;
+    /* Efecto de hundimiento sutil (1px hacia abajo) */
+    -fx-translate-y: 1px;
 }

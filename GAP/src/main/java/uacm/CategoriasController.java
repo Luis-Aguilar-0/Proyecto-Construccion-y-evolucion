@@ -25,7 +25,7 @@ public class CategoriasController implements Initializable {
     @FXML
     private FlowPane contenedorJuegos;
 
-    public void mostrarJuegos(List<Juego> juegos) {
+    /*public void mostrarJuegos(List<Juego> juegos) {
         contenedorJuegos.getChildren().clear(); // Limpiamos el FlowPane
 
         for (Juego juego : juegos) {
@@ -51,7 +51,7 @@ public class CategoriasController implements Initializable {
             // Agregamos al FlowPane
             contenedorJuegos.getChildren().add(tarjeta);
         }
-    }
+    }*/
     
     /**
      * Initializes the controller class.

@@ -1,5 +1,11 @@
+.label-Exito{
+    -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
+    -fx-font-size: 50px;
+    -fx-text-fill: #b598f9; 
+}
+
 /* === Botón con Afterglow Permanente (Mismo estilo que TextField) === */
-.boton-CerrarSesion {
+.boton-perfil {
     /* --- Estado Normal --- */
     -fx-background-color: #9000ff;       /* Fondo púrpura principal */
     -fx-text-fill: #ffffff;             /* Texto magenta neón */
@@ -10,7 +16,7 @@
     -fx-border-radius: 0;               /* Bordes rectos */
     -fx-background-radius: 0;
     -fx-padding: 10px 30px;
-
+    -fx-cursor: hand;
     /* Afterglow permanente (mismo efecto que el TextField pero en magenta) */
     -fx-effect: dropshadow(
         gaussian, 
@@ -20,21 +26,24 @@
         0,                        /* Offset X */
         0                         /* Offset Y */
     );
-}  .boton-CerrarSesion:hover {
+
+}  .boton-perfil:hover {
     -fx-background-color: linear-gradient(to bottom, #4A148C, #d05eef); /* Degradado dramático */
     -fx-text-fill: #FFFFFF;
     -fx-border-color: #1acaff;          /* Borde rojo neón */
     -fx-effect: dropshadow(gaussian, rgba(177, 82, 236, 0.6), 15, 0.5, 0, 0);
+    -fx-cursor: hand;
 }
 
-.boton-CerrarSesion:pressed {
+.boton-perfil:pressed {
     -fx-background-color: #1a0030;      /* Fondo: púrpura casi negro (simula profundidad al presionar) */
-    -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1); /* Sombra interna ajustada */
+    -fx-effect: innershadow(two-pass-box, #FF00FF, 5, 0.8, 1, 1);
+    -fx-cursor: hand;
 }
 
 
-.label-titulo-CerrarSesion {
-    -fx-text-fill: #7626ff; /* Púrpura base vibrante */
+.label-titulo-perfil {
+    -fx-text-fill: #e7aeef; /* Púrpura base vibrante */
     -fx-font-family: "Yu Gothic UI Semibold", Arial, sans-serif;
     -fx-font-size: 26px; /* Grande, pero quizás no tanto como los títulos principales */
     -fx-font-weight: normal;
@@ -44,8 +53,9 @@
     -fx-effect: dropshadow(gaussian, rgba(209, 97, 229, 0.6), 8, 0, 0, 0);
     -fx-padding: 5px; /* Padding para dar espacio al resplandor */
 }
-.label-subtitulo-CerrarSesion {
-    -fx-text-fill: #7626ff; /* Púrpura base vibrante */
+
+.label-subtitulo-perfil {
+    -fx-text-fill: #e626ff; /* Púrpura base vibrante */
     -fx-font-family: "Yu Gothic UI Semibold", Arial, sans-serif;
     -fx-font-size: 18px; /* Grande, pero quizás no tanto como los títulos principales */
     -fx-font-weight: normal;
@@ -59,17 +69,17 @@
 
 
 /* === TextField Estilo Lila con Afterglow Permanente === */
-.textfield-CerrarSesion {
+.textfield-perfil {
     /* --- Estado Normal (Afterglow por defecto) --- */
     -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
     -fx-font-size: 14px;
     -fx-prompt-text-fill: #9575cd;        /* Púrpura medio para placeholder */
     -fx-text-fill: #512da8;              /* Texto púrpura oscuro */
-    -fx-background-color: #8e48f7;       /* Color base lila */
+    -fx-background-color: #2a4966;       /* Color base lila */
     -fx-border-color: transparent;
     -fx-border-width: 0;
-    -fx-border-radius: 8px;
-    -fx-background-radius: 8px;
+    -fx-border-radius: 0px;
+    -fx-background-radius: 0px;
     -fx-padding: 9px 13px;
 
     /* Afterglow permanente (más suave que en focused) */
@@ -81,7 +91,7 @@
 }
 
 /* --- Estado Enfocado (Afterglow intenso + Cambio de color) --- */
-.textfield-CerrarSesion:focused {
+.textfield-perfil:focused {
     -fx-prompt-text-fill: #d882e5;
     -fx-background-color: #ca3ded;       /* Color vibrante al enfocar */
     -fx-border-color: #5e1bd8;
@@ -92,7 +102,29 @@
 }
 
 /* --- Estado Hover (Afterglow intermedio) --- */
-.textfield-CerrarSesion:hover {
+.textfield-perfil:hover {
     -fx-background-color: #ac05ff;       /* Color intermedio entre normal y focused */
     -fx-effect: dropshadow(gaussian, rgba(162, 122, 235, 0.45), 12, 0.4, 0, 0);
+}
+
+/* Efecto neon para imágenes seleccionadas */
+.imagen-seleccionada {
+    -fx-effect: dropshadow(gaussian, #9d00ff, 15, 0.7, 0, 0); /* Sombra púrpura neon */
+}
+
+/* Clase base para quitar el efecto cuando no está seleccionado */
+.imagen-no-seleccionada {
+    -fx-effect: none;
+}
+
+.label-agregarTarjte{
+    -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
+    -fx-font-size: 30px;
+    -fx-text-fill: #a58ddc; 
+}
+
+.pane-agregarTarjeta{
+    -fx-border-color: #92a2f2;
+    -fx-border-width: 2px;
+    
 }
