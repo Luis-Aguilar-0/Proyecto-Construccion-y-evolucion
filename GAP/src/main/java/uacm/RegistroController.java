@@ -23,6 +23,9 @@ import persistencia.UsuarioDAO;
  * @author Frncs.Fox
  */
 public class RegistroController implements Initializable {
+
+    private UsuarioDAO usuarioDAO; // ceacion del objeto para la conexion a la base de datos
+
     @FXML
     private AnchorPane main_anchor;
     @FXML
@@ -116,7 +119,6 @@ public class RegistroController implements Initializable {
          * dia_box.setStyle("-fx-background-color: #cc74f9;");
          * });
          */
-
         registrar_bttn.setOnAction(event -> {
             String dia = dia_box.getValue();
             String mes = mes_box.getValue();
@@ -129,21 +131,33 @@ public class RegistroController implements Initializable {
                 mensaje_label.setText("Por favor llena todos los campos.");
                 mensaje_label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
             } else {
-                
-            int day = Integer.parseInt(dia_box.getValue());// se cambio a tipo int
-            int month = Integer.parseInt(mes_box.getValue());// se cambio a tipo int
-            int year = Integer.parseInt(anio_box.getValue());// se cambio a tipo int
-               
 
-                // prueba agergar nuevo usuario a la base
-                Date fecha = java.sql.Date.valueOf(LocalDate.of(year, month, day)); // dando formato a la fecha
-                Usuario userNew = new Usuario(usuario_Tfield.getText(), correo_Tfield.getText(),contrasena_Tfield.getText(), fecha);
-                // conexion a la base de datos
                 try {
-                    UsuarioDAO usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
-                    usuarioDAO.agregarUsuarioBD(userNew);// registro de un nuevo usuario en la base
-                    mensaje_label.setText("Registro exitoso.");
-                    mensaje_label.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                    // conexion a la base de datos
+                    usuarioDAO = new UsuarioDAO();
+                    //verificando si ya existe el usuario en la base de datos
+                    if (usuarioDAO.buscaUsuario(nombre) == null && usuarioDAO.buscaUsuario(correo) == null) {//el usuario no esta en la base de datos
+
+                        int day = Integer.parseInt(dia_box.getValue());// se cambio a tipo int
+                        int month = Integer.parseInt(mes_box.getValue());// se cambio a tipo int
+                        int year = Integer.parseInt(anio_box.getValue());// se cambio a tipo int
+
+                        // prueba agergar nuevo usuario a la base
+                        Date fecha = java.sql.Date.valueOf(LocalDate.of(year, month, day)); // dando formato a la fecha
+                        Usuario userNew = new Usuario(usuario_Tfield.getText(), correo_Tfield.getText(), contrasena_Tfield.getText(), fecha);
+                        usuarioDAO.agregarUsuarioBD(userNew);// registro de un nuevo usuario en la base
+                        mensaje_label.setText("Registro exitoso.");
+                        mensaje_label.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+                        
+                    } else {
+                        if (usuarioDAO.buscaUsuario(nombre) != null) {
+                            mensaje_label.setText("Ya existe un usuario con ese nombre, cambialo porfavor");
+                        } else if (usuarioDAO.buscaUsuario(correo) != null) {
+                            mensaje_label.setText("Ya existe un usuario con ese correo, cambialo porfavor");
+                        }
+
+                    }
+
                 } catch (SQLException e) {
                     throw new RuntimeException();
                 }

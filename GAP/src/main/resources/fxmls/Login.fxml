@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anchoPane" prefHeight="600.0" prefWidth="900.0" styleClass="root" stylesheets="@../styles/general.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.LoginController">
    <stylesheets>
@@ -34,7 +35,12 @@
             <Line endX="-92.199951171875" endY="400.0" fill="#643b81" layoutX="942.0" layoutY="124.0" smooth="false" startX="-92.199951171875" startY="-93.5999984741211" stroke="#643b81" strokeWidth="5.0" />
             <TextField fx:id="tx_vistaContra" layoutX="363.0" layoutY="270.0" prefHeight="25.0" prefWidth="176.0" styleClass="texFile" stylesheets="@../styles/general.css" />
             <Button fx:id="btn_verContra" layoutX="548.0" layoutY="270.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" styleClass="buttons" text="c" />
-            <Button fx:id="btn_iniciarSecion" layoutX="365.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" text="Inisiar Sesion"  styleClass="buttons"/>
+            <Button fx:id="btn_iniciarSecion" layoutX="365.0" layoutY="309.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="176.0" styleClass="buttons" text="Inisiar Sesion" />
+            <Label fx:id="lb_camposVacios" alignment="CENTER" layoutX="269.0" layoutY="399.0" prefHeight="30.0" prefWidth="412.0" text="Label" textFill="RED" visible="false">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

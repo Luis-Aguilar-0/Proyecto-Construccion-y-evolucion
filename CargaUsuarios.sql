@@ -7,7 +7,7 @@ values('laac_0','armandoLuisCas@gmail.com','slt-',100,100.0,'2000-06-20'),
 
 
 --se agregan 20 tarjetas nuevas
-select * from tarjetacredito
+--select * from tarjetacredito
 declare @contador int = 1;
 while @contador <= 20
 begin 
@@ -20,6 +20,7 @@ END
 select *  from usuario
 select * from juegos
 select * from usuario_juego
+
 --asiganacion de un juego a el primer usuario
 insert into usuario_juego(idUsuario,idJuego)
 values(1,1) --el primer 1 corresponde al id del usuario el segundo 1 corresponde al id del juego

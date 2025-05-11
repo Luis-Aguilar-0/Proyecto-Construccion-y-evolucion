@@ -44,14 +44,28 @@ public class Usuario {
         this.idTarjetaCredito = idTarjetaCredito_;
 
     }
-
     
-
+    /**
+     * Constructor usado cuando se crea registra un nuevo usuario en la base de datos
+     * @param usuario
+     * @param email
+     * @param pasword
+     * @param fechaNacimiento
+     */
     public Usuario(String usuario, String email, String pasword, Date fechaNacimiento) {
         this.usuario = usuario;
         this.email = email;
         this.pasword = pasword;
         this.fechaNacimiento = fechaNacimiento;
+        this.ajoloCoins = 0;
+        this.saldo = 0.0;
+    }
+    
+    
+    public Usuario(String usuario, String email, String pasword) {
+        this.usuario = usuario;
+        this.email = email;
+        this.pasword = pasword;
     }
 
     // getter y setters
@@ -70,7 +84,6 @@ public class Usuario {
     public void setIdTarjetaCredito(Integer idTarjetaCredito) {
         this.idTarjetaCredito = idTarjetaCredito;
     }
-
 
     public String getUsuario() {
         return usuario;
@@ -149,7 +162,5 @@ public class Usuario {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
-    
 
 }

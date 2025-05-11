@@ -16,20 +16,23 @@ public class UsuarioDAO {
 
     private Connection conexionBase; //establece la conexion activa con la base de datos
     private ResultSet res; //me permite acceder al resultado de una consulta en la base de datos
+    private Statement consulta;
 
     public UsuarioDAO() throws SQLException {
 
         conexionBase = Conexion.gConnection();// se hace la conexion a la base de datos
-                            // isValid me dice si la conxion es validada
+        // isValid me dice si la conxion es validada
         System.out.println(conexionBase.isValid(1000) ? "conexon exitosa" : "fallo en la conexion");
 
     }
 
     /**
-     * Metodo cargaUsuario hace una consulta a la base de datos y me regreda una lista con los usuarios que estan en la base
-     * los valores de id, nombre, email, password, ajoloCoins y saldo no puedes ser null, la tarjeta de credito y la foto de perfil si pueden ser null
-     * en especila si los usuarios son nuevos
-     * 
+     * Metodo cargaUsuario hace una consulta a la base de datos y me regresa una
+     * lista con los usuarios que estan en la base los valores de id, nombre,
+     * email, password, ajoloCoins y saldo no puedes ser null, la tarjeta de
+     * credito y la foto de perfil si pueden ser null en especila si los
+     * usuarios son nuevos
+     *
      * @return
      */
     public List<Usuario> cargaUsuarios() {
@@ -37,8 +40,8 @@ public class UsuarioDAO {
         List<Usuario> listaUsuarios = new ArrayList<>();
         try {
 
-            Statement usu = conexionBase.createStatement();//usu me permite realizar consultas a la base 
-            res = usu.executeQuery("SELECT * FROM usuario");//consuta que se realiza en la base
+            consulta = conexionBase.createStatement();//consulta me permite realizar consultas a la base 
+            res = consulta.executeQuery("SELECT * FROM usuario");//consuta que se realiza en la base
             while (res.next()) {
                 Usuario usuario = new Usuario();
                 //obteniendo los valores que guardan en la variable res
@@ -50,9 +53,9 @@ public class UsuarioDAO {
 
                 //manejo de valores null de la base de datos
                 byte[] imagenperfil = res.getBytes("fotoPerfil");//la foto se almacena como bytes
-                if(res.wasNull()){//res.wasNull me dice si el valor anterior es null
+                if (res.wasNull()) {//res.wasNull me dice si el valor anterior es null
                     usuario.setImagenPerfil(null);
-                }else{//si mi dato anterios de res no es null asigno la foto de perfil
+                } else {//si mi dato anterios de res no es null asigno la foto de perfil
                     usuario.setImagenPerfil(imagenperfil);
                 }
                 int idTarjeta = res.getInt("idTarjetaCredito");
@@ -75,9 +78,11 @@ public class UsuarioDAO {
     }
 
     /**
-     * Metodo agergarUsuarioBD raliza una consulta en la base de datos 
-     * solo carga en la base de datos el nombre del usuario, correo, password y su fecha de nacimiento
-     * por defecto los ajoloCois y el saldo se inicializan en cero
+     * Metodo agergarUsuarioBD raliza una consulta en la base de datos solo
+     * carga en la base de datos el nombre del usuario, correo, password y su
+     * fecha de nacimiento por defecto los ajoloCois y el saldo se inicializan
+     * en cero
+     *
      * @param usuario
      */
     public void agregarUsuarioBD(Usuario usuario) {
@@ -89,19 +94,70 @@ public class UsuarioDAO {
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); //formato de años-meses-dias
             String fechaNacimiento = formato.format(usuario.getFechaNacimiento()); //le da el formato adecuado a la variable
             s.executeUpdate("INSERT INTO usuario(nombre,email,password,ajoloCoins,saldo,fechaNacimiento) VALUES('"
-                    + usuario.getUsuario() + "','" + usuario.getEmail() + "','" + usuario.getPasword()+ "','" + 0 + "','" + 0.0 + "','" + fechaNacimiento
+                    + usuario.getUsuario() + "','" + usuario.getEmail() + "','" + usuario.getPasword() + "','" + 0 + "','" + 0.0 + "','" + fechaNacimiento
                     + "');");
             System.out.println("Usuario almacenado exitosamente en la base de datos!!!!!!!!!");
         } catch (SQLException e) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
         }
-            
-        
 
     }
 
+    public Usuario buscaUsuario(String cadena) {
+ 
+        try {
+            consulta = conexionBase.createStatement();
+            res = consulta.executeQuery(tipoConsulta(cadena));//busca en la tabla usuario el usuario
+            if (res.next()) {
+                Usuario buscado = new Usuario();
+                buscado.setId(res.getInt("id"));
+                buscado.setUsuario(res.getString("nombre"));
+                buscado.setEmail(res.getString("email"));
+                buscado.setPasword(res.getString("password"));
+                buscado.setAjoloCoins(res.getInt("ajoloCoins"));
 
+                //manejo de valores null de la base de datos
+                byte[] imagenperfil = res.getBytes("fotoPerfil");//la foto se almacena como bytes
+                if (res.wasNull()) {//res.wasNull me dice si el valor anterior es null
+                    buscado.setImagenPerfil(null);
+                } else {//si mi dato anterios de res no es null asigno la foto de perfil
+                    buscado.setImagenPerfil(imagenperfil);
+                }
+                int idTarjeta = res.getInt("idTarjetaCredito");
+                if (res.wasNull()) {
+                    buscado.setIdTarjetaCredito(null);
+                } else {
+                    buscado.setIdTarjetaCredito(idTarjeta);
+                }
+                buscado.setSaldo(res.getInt("saldo"));
+                return buscado;
 
-    
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
+
+        return null; //me regresa null si no existe el usuario en la base de datos
+    }
+
+    private boolean isEmail(String cadena) {
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) == '@') {
+                return true;
+            }
+        }
+        return false;//regresa
+
+    }
+
+    private String tipoConsulta(String cadena) {
+        if (isEmail(cadena)) {
+            return "Select * from usuario where email like '" + cadena + "'";
+        } else {
+            return "select * from usuario where nombre like '" + cadena + "'";
+        }
+
+    }
 
 }
