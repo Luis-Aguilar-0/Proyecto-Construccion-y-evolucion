@@ -2,6 +2,7 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -13,14 +14,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import logic.Juego;
+import logic.Usuario;
 import persistencia.JuegoDAO;
 import persistencia.UsuarioDAO;
+import uacm.utilities.PathsImages;
 
 public class LoginController implements Initializable {
 
@@ -46,47 +50,32 @@ public class LoginController implements Initializable {
     private Button btn_verContra;
     @FXML
     private Button btn_iniciarSecion;
+    @FXML
+    private Label lb_camposVacios;
+
+    //static Usuario usuarioPrueba = new Usuario("laac", "aguilarCas@gmail.com", "slt-");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         // conexion a la base de datos
-        // try {
-        //     usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
+        try {
+            usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
 
-        //     System.out.println("conexion a la tabla juego");
-        //     juegoDAO = new JuegoDAO();
+            System.out.println("conexion a la tabla juego");
+            juegoDAO = new JuegoDAO();
 
-        //     // obtencion de los juegos
-        //     PathsImages.games = juegoDAO.cargaJuegos(); // carga todos los juegos de la base de datos
+            // obtencion de los juegos
+            PathsImages.games = juegoDAO.cargaJuegos(); // carga todos los juegos de la base de datos
 
-        // } catch (SQLException e) {
-        //     throw new RuntimeException();
-        // }
-
-        paswor_fileUno.setOnAction(event -> {
-            String correo = txf_correo.getText();
-            String contraseña = paswor_fileUno.getText();
-            System.out.println("el correo es:" + correo + "\nla contraseña es: " + contraseña);
-        });
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        }
 
         // carga de la pantalla olvido contaseña
         btn_Olvido_Contra.setOnMouseClicked(e -> {
 
-            Stage stageOlvidoContra = new Stage();
-            // stageOlvidoContra.initStyle(StageStyle.UNDECORATED);//se elimina la barra por
-            // defecto
-            Parent root;
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
-                root = loader.load();
-                Scene scene = new Scene(root);
-
-                stageOlvidoContra.setScene(scene);
-                stageOlvidoContra.show();
-            } catch (IOException exe) {
-                exe.printStackTrace();
-            }
+            cargaIntrefaces("OlvidoContrasena");
         });
 
         // oculta el tx_vistaContra
@@ -104,6 +93,8 @@ public class LoginController implements Initializable {
                     tx_vistaContra.setVisible(false);
                     // mostramos la contraseña en formato pasword
                     paswor_fileUno.setVisible(true);
+                    //
+                    paswor_fileUno.setText(tx_vistaContra.getText());
                 }
             };
 
@@ -119,19 +110,9 @@ public class LoginController implements Initializable {
 
         });
 
+        //carga pantalla registro nuevos usuarios
         bt_Registrate.setOnMouseClicked(e -> {
-            Stage stageOlvidoContra = new Stage();
-            Parent root;
-
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Registro.fxml"));
-                root = loader.load();
-                Scene scene = new Scene(root);
-                stageOlvidoContra.setScene(scene);
-                stageOlvidoContra.show();
-            } catch (IOException exe) {
-                exe.printStackTrace();
-            }
+            cargaIntrefaces("Registro");
         });
 
         //ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
@@ -145,5 +126,128 @@ public class LoginController implements Initializable {
             pn_login.setLayoutY((nuevoAncho.doubleValue() - pn_login.getPrefHeight()) / 2);
         });
 
+        //funcionalidad boton iniciar sesion
+        btn_iniciarSecion.setOnMouseClicked(event -> {
+
+            //checamos si los campos estan vacios
+            if (txf_correo.getText().isEmpty() || paswor_fileUno.getText().isEmpty()) {
+
+                lb_camposVacios.setText("Llene los campos vacios");
+                lb_camposVacios.setVisible(true);
+
+            } else {
+                lb_camposVacios.setVisible(false);
+                Usuario usuarioLogin = usuarioDAO.buscaUsuario(txf_correo.getText()); //obtenemos el usuario de la base de datos
+                if (usuarioLogin == null) {//si es null el usuario no esta en la base de datos
+                    lb_camposVacios.setText("Usuario no registrado. Porfavor registrate....");
+                    lb_camposVacios.setVisible(true);
+                } else {//entra al else si el usuario si esta en la base de datos
+                    verificaLogin(usuarioLogin);
+                }
+            }
+
+        });
+
+    }
+
+    private void verificaLogin(Usuario us) {
+        //obtengo los valores del usuario
+        String contraseña = us.getPasword();
+        String correo = us.getEmail();
+        String usuario = us.getUsuario();
+
+        if (isEmail(txf_correo.getText())) {//verifica si ingresaste un email
+            //obtego los valores de los textFile
+            String email = txf_correo.getText();
+            String password = paswor_fileUno.getText();
+            if (email.equalsIgnoreCase(correo) && password.equalsIgnoreCase(contraseña)) {//verifica si el email y el password son correctos
+                //se carga la pagina primcipal
+                lb_camposVacios.setText("Bienbenido");
+                lb_camposVacios.setVisible(true);
+                cargaIntrefaces("InicioGap");//carga la pantalla principal
+
+            } else {
+                lb_camposVacios.setText("La contraseña o el correo son incorrectos");
+                lb_camposVacios.setVisible(true);
+            }
+
+        } else {//se ejecuta si se ingresa un usuario
+            String user = txf_correo.getText();
+            String password = paswor_fileUno.getText();
+            if (user.equalsIgnoreCase(usuario) && password.equalsIgnoreCase(contraseña)) {//verifica si el usuario y el password son correctos
+                lb_camposVacios.setText("Bienbenido");
+                lb_camposVacios.setVisible(true);
+                cargaIntrefaces("InicioGap");
+
+            } else {
+                lb_camposVacios.setText("La contraseña o el usuario son incorrectos");
+                lb_camposVacios.setVisible(true);
+            }
+
+        }
+
+    }
+
+    //itera sobre la cadena buscando el simbolo @
+    private boolean isEmail(String cadena) {
+
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) == '@') {
+                return true;
+            }
+        }
+        return false;//regresa
+    }
+
+    private void cargaIntrefaces(String stage) {
+
+        switch (stage) {
+            //interfaz pagina principal
+            case "InicioGap" -> {
+
+                Stage stagePP = new Stage();
+                Parent root;
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/InicioGap.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+                    stagePP.setScene(scene);
+                    stagePP.show();
+
+                } catch (IOException exe) {
+                    exe.printStackTrace();
+                }
+            }
+            case "Registro" -> {//interfaz registro nuevos usuarios
+                Stage stageOlvidoContra = new Stage();
+                Parent root;
+
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Registro.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+                    stageOlvidoContra.setScene(scene);
+                    stageOlvidoContra.show();
+                } catch (IOException exe) {
+                    exe.printStackTrace();
+                }
+            }
+            case "OlvidoContrasena" -> {//interfaz olbido contraseña
+                Stage stageOlvidoContra = new Stage();
+                Parent root;
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/OlvidoContrasena.fxml"));
+                    root = loader.load();
+                    Scene scene = new Scene(root);
+
+                    stageOlvidoContra.setScene(scene);
+                    stageOlvidoContra.show();
+                } catch (IOException exe) {
+                    exe.printStackTrace();
+                }
+
+            }
+        }
     }
 }
+

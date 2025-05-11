@@ -1,6 +1,3 @@
---create database gapbd;
-
-
 CREATE TABLE tarjetacredito (
 	idTarjetaCredito int IDENTITY(1,1)not null 
 	,numTarjeta BIGINT 
