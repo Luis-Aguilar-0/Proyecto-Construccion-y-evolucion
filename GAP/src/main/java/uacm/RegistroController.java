@@ -4,7 +4,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -37,6 +36,18 @@ public class RegistroController implements Initializable {
     private Button registrar_bttn;
     @FXML
     private Label mensaje_label;
+    @FXML
+    private AnchorPane main_anchor;
+    @FXML
+    private VBox Vbox_controller;
+    @FXML
+    private HBox fecha_box;
+    @FXML
+    private HBox usuario_box;
+    @FXML
+    private HBox correo_box;
+    @FXML
+    private HBox contra_box;
 
     private int DiasDelMes(int mes, int anio) {
         switch (mes) {

@@ -25,9 +25,9 @@ public class Conexion {
      * como el usuario, la contraseña y la url
      */
     private static void configura(){
-        propiedades.put("user","root");
+        propiedades.put("user","laac");
         propiedades.put("password","slt-");
-        propiedades.put("url","jdbc:mariadb://localhost:3306/gapbd");
+        propiedades.put("url","jdbc:sqlserver://localhost:1433;databaseName=gapbd;encrypt=false;trustServerCertificate=true;");
 
     }
 
@@ -35,7 +35,7 @@ public class Conexion {
 
         if(connexion == null){//si es null aun no se establese la conexion a la base
             try{              
-                Class.forName("org.mariadb.jdbc.Driver");
+                Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             }catch(ClassNotFoundException e){
                 throw new RuntimeException();
             }

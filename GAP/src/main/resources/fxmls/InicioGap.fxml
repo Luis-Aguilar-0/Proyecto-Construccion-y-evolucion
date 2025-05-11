@@ -36,34 +36,34 @@
                                  <content>
                                     <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img1Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/TheLastOfUs.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaTheLastOfUs.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img2Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/GodOfWar.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaGodOfWar.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img3Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Uncharted.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaUncharted.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img4Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Horizon.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaHorizon.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img5Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/SpiderMan.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaSpiderMan.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img6Play" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Returnal.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaReturnal.jpg" />
                                              </image>
                                           </ImageView>
                                        </children>
@@ -102,34 +102,34 @@
                                  <content>
                                     <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img1Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/MortalKombat.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaMortalKombat.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img2Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/GrandTheft.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaGrandTheft.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img3Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/EldenRing.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaEldenRing.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img4Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Cyberpunk.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaCyberpunk.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img5Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Howarts.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaHowarts.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img6Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/Battlefield.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaBattlefield.jpg" />
                                              </image>
                                           </ImageView>
                                        </children>
@@ -168,34 +168,34 @@
                                  <content>
                                     <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="165.0" prefWidth="937.0" spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img1Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/MarioParty.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaMarioParty.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img2Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/ZeldaTK.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaZeldaTK.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img3Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/PokemonViolet.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaPokemonViolet.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img4Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/MarioOdyssey.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaMarioOdyssey.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img5Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/SuperSmash.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaSuperSmash.jpg" />
                                              </image>
                                           </ImageView>
-                                          <ImageView fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
+                                          <ImageView fx:id="img6Nin" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/MarioKart.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaMarioKart.jpg" />
                                              </image>
                                           </ImageView>
                                        </children>
@@ -226,7 +226,7 @@
    <left>
       <AnchorPane prefHeight="374.0" prefWidth="105.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="lateral_vbox" alignment="TOP_CENTER" layoutX="16.0" layoutY="21.0" prefHeight="317.0" prefWidth="89.0" spacing="5.0" stylesheets="@../styles/iniciogap.css">
+            <VBox alignment="TOP_CENTER" layoutX="16.0" layoutY="21.0" prefHeight="317.0" prefWidth="89.0" spacing="5.0" stylesheets="@../styles/iniciogap.css">
                <children>
                   <Button fx:id="botonBiblioteca" mnemonicParsing="false" prefHeight="53.0" prefWidth="52.0" styleClass="boton-biblioteca" stylesheets="@../styles/iniciogap.css">
                      <VBox.margin>
@@ -234,7 +234,7 @@
                      </VBox.margin>
                   </Button>
                   <Label text="Bliblioteca" />
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="boton-categoria">
+                  <Button fx:id="categorias_btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="boton-categoria">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin></Button>
@@ -259,7 +259,7 @@
                   <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>
             </ImageView>
-            <HBox fx:id="top_hbox" alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="20.0" stylesheets="@../styles/iniciogap.css">
+            <HBox alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="20.0" stylesheets="@../styles/iniciogap.css">
                <children>
                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Recarga">
                      <HBox.margin>
@@ -282,10 +282,10 @@
                   <String fx:value="hbox" />
                </styleClass>
             </HBox>
-            <MenuButton layoutX="590.0" layoutY="9.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0">
+            <MenuButton fx:id="menuPerfil_btn" layoutX="590.0" layoutY="9.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" styleClass="boton_menu">
               <items>
-                <MenuItem mnemonicParsing="false" text="Ver Perfil" />
-                <MenuItem mnemonicParsing="false" text="Cerrar Sesion" />
+                <MenuItem fx:id="verPerfil_Item" mnemonicParsing="false" text="Ver Perfil" />
+                <MenuItem fx:id="cerrarSesion_Item" mnemonicParsing="false" text="Cerrar Sesion" />
               </items>
             </MenuButton>
          </children>
