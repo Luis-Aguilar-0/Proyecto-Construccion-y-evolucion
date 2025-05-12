@@ -8,12 +8,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import logic.Juego;
+import persistencia.JuegoDAO;
+import uacm.utilities.PathsImages;
 
 /**
  * FXML Controller class
@@ -24,40 +27,36 @@ public class CategoriasController implements Initializable {
 
     @FXML
     private FlowPane contenedorJuegos;
+    @FXML
+    private ImageView imagen1;
+    @FXML
+    private Button accion_btn;
 
-    /*public void mostrarJuegos(List<Juego> juegos) {
-        contenedorJuegos.getChildren().clear(); // Limpiamos el FlowPane
-
-        for (Juego juego : juegos) {
-            VBox tarjeta = new VBox(5); // VBox para cada juego
-            tarjeta.setAlignment(Pos.CENTER);
-            tarjeta.setPadding(new Insets(10));
-
-            // Cargar la imagen principal del juego
-            String ruta = juego.getImagenes()[0]; // Solo usaremos la imagen 0
-            Image imagen = new Image(getClass().getResourceAsStream("/imagenes/" + ruta));
-            ImageView imageView = new ImageView(imagen);
-            imageView.setFitWidth(120);
-            imageView.setFitHeight(120);
-            imageView.setPreserveRatio(true);
-
-            // Nombre y precio
-            Label nombre = new Label(juego.getNombreJuego());
-            Label precio = new Label("$" + juego.getPrecion());
-
-            // Agregamos a la tarjeta
-            tarjeta.getChildren().addAll(imageView, nombre, precio);
-
-            // Agregamos al FlowPane
-            contenedorJuegos.getChildren().add(tarjeta);
-        }
-    }*/
+    JuegoDAO juegoDAO;
+    
+    private PathsImages images;
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        try{
+            juegoDAO = new JuegoDAO();
+            List<Juego> juegos = juegoDAO.cargaJuegos();//recuperar la lista de juegos
+            
+            if(!juegos.isEmpty()){
+                String rutaImagen = juegos.get(0).getImagenes()[0];
+                accion_btn.setOnAction(event -> {
+                    Image imagen = new Image(rutaImagen);
+                    imagen1.setImage(imagen);
+
+                });
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         
     }    
 
