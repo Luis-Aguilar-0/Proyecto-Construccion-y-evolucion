@@ -22,6 +22,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import logic.Juego;
 import logic.Usuario;
+import logic.ValidadorCorreo;
 import persistencia.JuegoDAO;
 import persistencia.UsuarioDAO;
 import uacm.utilities.PathsImages;
@@ -53,7 +54,8 @@ public class LoginController implements Initializable {
     @FXML
     private Label lb_camposVacios;
 
-    //static Usuario usuarioPrueba = new Usuario("laac", "aguilarCas@gmail.com", "slt-");
+    // static Usuario usuarioPrueba = new Usuario("laac", "aguilarCas@gmail.com",
+    // "slt-");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -93,7 +95,7 @@ public class LoginController implements Initializable {
                     tx_vistaContra.setVisible(false);
                     // mostramos la contraseña en formato pasword
                     paswor_fileUno.setVisible(true);
-                    //
+                    //Actualizamos el passworFile
                     paswor_fileUno.setText(tx_vistaContra.getText());
                 }
             };
@@ -110,26 +112,27 @@ public class LoginController implements Initializable {
 
         });
 
-        //carga pantalla registro nuevos usuarios
+        // carga pantalla registro nuevos usuarios
         bt_Registrate.setOnMouseClicked(e -> {
             cargaIntrefaces("Registro");
         });
 
-        //ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
-        //ajuste en el eje x                 estos parametros representan en ancho del pane 
+        // ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
+        // ajuste en el eje x estos parametros representan en ancho del pane
         anchoPane.widthProperty().addListener((anchoPane, anchoAnterior, nuevoAncho) -> {
-            //se resta el nuevo ancho con el ancho del pane que yo define 
-            pn_login.setLayoutX((nuevoAncho.doubleValue() - pn_login.getPrefWidth()) / 2);//se divide entre dos para que este centrado  
+            // se resta el nuevo ancho con el ancho del pane que yo define
+            pn_login.setLayoutX((nuevoAncho.doubleValue() - pn_login.getPrefWidth()) / 2);// se divide entre dos para
+                                                                                          // que este centrado
         });
-        //se ajusta en el eje y
+        // se ajusta en el eje y
         anchoPane.heightProperty().addListener((anchoPane, anchoAnterior, nuevoAncho) -> {
             pn_login.setLayoutY((nuevoAncho.doubleValue() - pn_login.getPrefHeight()) / 2);
         });
 
-        //funcionalidad boton iniciar sesion
+        // funcionalidad boton iniciar sesion
         btn_iniciarSecion.setOnMouseClicked(event -> {
 
-            //checamos si los campos estan vacios
+            // checamos si los campos estan vacios
             if (txf_correo.getText().isEmpty() || paswor_fileUno.getText().isEmpty()) {
 
                 lb_camposVacios.setText("Llene los campos vacios");
@@ -137,11 +140,12 @@ public class LoginController implements Initializable {
 
             } else {
                 lb_camposVacios.setVisible(false);
-                Usuario usuarioLogin = usuarioDAO.buscaUsuario(txf_correo.getText()); //obtenemos el usuario de la base de datos
-                if (usuarioLogin == null) {//si es null el usuario no esta en la base de datos
-                    lb_camposVacios.setText("Usuario no registrado. Porfavor registrate....");
+                Usuario usuarioLogin = usuarioDAO.buscaUsuario(txf_correo.getText()); // obtenemos el usuario de la base
+                                                                                      // de datos
+                if (usuarioLogin == null) {// si es null el usuario no esta en la base de datos
+                    lb_camposVacios.setText("Usuario no registrado. Por favor registrate....");
                     lb_camposVacios.setVisible(true);
-                } else {//entra al else si el usuario si esta en la base de datos
+                } else {// entra al else si el usuario si esta en la base de datos
                     verificaLogin(usuarioLogin);
                 }
             }
@@ -151,32 +155,47 @@ public class LoginController implements Initializable {
     }
 
     private void verificaLogin(Usuario us) {
-        //obtengo los valores del usuario
-        String contraseña = us.getPasword();
-        String correo = us.getEmail();
-        String usuario = us.getUsuario();
 
-        if (isEmail(txf_correo.getText())) {//verifica si ingresaste un email
-            //obtego los valores de los textFile
-            String email = txf_correo.getText();
-            String password = paswor_fileUno.getText();
-            if (email.equalsIgnoreCase(correo) && password.equalsIgnoreCase(contraseña)) {//verifica si el email y el password son correctos
-                //se carga la pagina primcipal
-                lb_camposVacios.setText("Bienbenido");
+        // obtego los valores de los textFile
+        String email = txf_correo.getText();
+        String password = paswor_fileUno.getText();
+        String user = txf_correo.getText();
+
+        // verifica si ingresaste un email
+        if (ValidadorCorreo.validarCorreo(email)) {
+
+            // verifica si el email y el password son correctos
+            if (email.equalsIgnoreCase(us.getEmail()) && password.equals(us.getPasword())) {
+
+                lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
-                cargaIntrefaces("InicioGap");//carga la pantalla principal
+
+                // se cierra la bentana de login
+                // obtengo la ventana
+                Stage cerrarStage = (Stage) btn_iniciarSecion.getScene().getWindow();
+                cerrarStage.close();
+
+                // se carga la pagina principal
+                cargaIntrefaces("InicioGap");
 
             } else {
                 lb_camposVacios.setText("La contraseña o el correo son incorrectos");
                 lb_camposVacios.setVisible(true);
             }
+            // se ejecuta si se ingresa un usuario
+        } else {
+            // verifica si el usuario y el password son correctos
+            if (user.equalsIgnoreCase(us.getUsuario()) && password.equals(us.getPasword())) {
 
-        } else {//se ejecuta si se ingresa un usuario
-            String user = txf_correo.getText();
-            String password = paswor_fileUno.getText();
-            if (user.equalsIgnoreCase(usuario) && password.equalsIgnoreCase(contraseña)) {//verifica si el usuario y el password son correctos
-                lb_camposVacios.setText("Bienbenido");
+                lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
+
+                // se cierra la bentana de login
+                // obtengo la ventana
+                Stage cerrarStage = (Stage) btn_iniciarSecion.getScene().getWindow();
+                cerrarStage.close();
+
+                // se carga la pagina principal
                 cargaIntrefaces("InicioGap");
 
             } else {
@@ -188,21 +207,10 @@ public class LoginController implements Initializable {
 
     }
 
-    //itera sobre la cadena buscando el simbolo @
-    private boolean isEmail(String cadena) {
-
-        for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) == '@') {
-                return true;
-            }
-        }
-        return false;//regresa
-    }
-
     private void cargaIntrefaces(String stage) {
 
         switch (stage) {
-            //interfaz pagina principal
+            // interfaz pagina principal
             case "InicioGap" -> {
 
                 Stage stagePP = new Stage();
@@ -218,7 +226,7 @@ public class LoginController implements Initializable {
                     exe.printStackTrace();
                 }
             }
-            case "Registro" -> {//interfaz registro nuevos usuarios
+            case "Registro" -> {// interfaz registro nuevos usuarios
                 Stage stageOlvidoContra = new Stage();
                 Parent root;
 
@@ -232,7 +240,7 @@ public class LoginController implements Initializable {
                     exe.printStackTrace();
                 }
             }
-            case "OlvidoContrasena" -> {//interfaz olbido contraseña
+            case "OlvidoContrasena" -> {// interfaz olbido contraseña
                 Stage stageOlvidoContra = new Stage();
                 Parent root;
                 try {
@@ -250,4 +258,3 @@ public class LoginController implements Initializable {
         }
     }
 }
-

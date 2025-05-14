@@ -1,6 +1,7 @@
 package uacm;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import logic.Usuario;
+import persistencia.JuegoDAO;
 import uacm.utilities.PathsImages;
 import javafx.scene.control.Button;
 
@@ -78,7 +80,7 @@ public class BilbliotecaPerfilController implements Initializable {
         usuario.setJuegos(PathsImages.games);
 
             //obtienes los juegos del uusario  //primer juego  //la imagenes del juego
-        String[] imagenes = usuario.getJuegos().get(14).getImagenes();
+        String[] imagenes = usuario.getJuegos().get(0).getImagenes();
 
 
         Image imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());
@@ -86,7 +88,6 @@ public class BilbliotecaPerfilController implements Initializable {
         System.out.println(imagenes[0]);
 
         im_gameUno.setImage(imagen);
-
 
     }
 
