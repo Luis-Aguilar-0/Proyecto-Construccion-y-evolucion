@@ -210,8 +210,8 @@ public class InicioGapController implements Initializable{
         img6Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", "Mario Kart 8"));
         
         categorias_btn.setOnAction(eh -> abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml"));
-        botonBiblioteca.setOnAction(eh -> abrirVentana("/fxmls/BibliotecaPerfilDos.fxml", "Biblioteca"));
-        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil2.fxml", "Categorias"));
+        botonBiblioteca.setOnAction(eh -> abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"));
+        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil.fxml", "Categorias"));
         cerrarSesion_Item.setOnAction(eh -> abrirVentana("/fxmls/CerrarSesion.fxml", "Categorias"));
     }
 }

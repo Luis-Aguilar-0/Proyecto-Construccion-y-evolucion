@@ -12,12 +12,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logic.Usuario;
+import logic.ValidadorCorreo;
 
 public class UsuarioDAO {
 
     private Connection conexionBase; //establece la conexion activa con la base de datos
     private ResultSet res; //me permite acceder al resultado de una consulta en la base de datos
     private Statement consulta;
+    ValidadorCorreo validadorCorreo;
 
     public UsuarioDAO() throws SQLException {
 
@@ -142,20 +144,21 @@ public class UsuarioDAO {
         return null; //me regresa null si no existe el usuario en la base de datos
     }
 
-    private boolean isEmail(String cadena) {
-        for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) == '@') {
-                return true;
-            }
-        }
-        return false;//regresa
 
-    }
-
+    /**
+     * Tenemos dos tipos de consutas se ejecutara una u otra dependiendo de si se ingrese en la pantalla de login
+     * el correo electronico o el nombre del usuario
+     * Me regresa una cadena.
+     * Si se ingreso el correo electronico me regresa la cadena:
+     *  "Select * from usuario where email like '" + cadena + "'"
+     * Si se ingreso el nombre del usuario me regresa la cadena:
+     * "select * from usuario where nombre like '" + cadena + "'"
+     * 
+     */
     private String tipoConsulta(String cadena) {
-        if (isEmail(cadena)) {
+        if (ValidadorCorreo.validarCorreo(cadena)) { //si es un correo se busca en la base por el correo
             return "Select * from usuario where email like '" + cadena + "'";
-        } else {
+        } else {//se busca por el nombre en la base de datos
             return "select * from usuario where nombre like '" + cadena + "'";
         }
 

@@ -14,12 +14,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        //stage.initStyle(StageStyle.UNDECORATED); //elimina la barra de titulo del sitema
-        
         //carga del fxml                                                  
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Login.fxml"));
         Parent root = loader.load();
-        //scene = new Scene(barraPersonalizada.cargaBarra(stage, root) ,600,400); //carga la barra personalizada
+       
         scene = new Scene(root,900,600);
         stage.setResizable(true);//permite ajustar el tamaño de la interfaz con le mause
         stage.setTitle("AjoloTienda");//añade un titulo a la barra de titulo
