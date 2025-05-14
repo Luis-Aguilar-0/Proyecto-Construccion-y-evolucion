@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import logic.Juego;
 import logic.Usuario;
 import persistencia.JuegoDAO;
+import persistencia.Sesion;
 import persistencia.UsuarioDAO;
 import uacm.utilities.PathsImages;
 
@@ -155,12 +156,12 @@ public class LoginController implements Initializable {
         String contraseña = us.getPasword();
         String correo = us.getEmail();
         String usuario = us.getUsuario();
-
         if (isEmail(txf_correo.getText())) {//verifica si ingresaste un email
             //obtego los valores de los textFile
             String email = txf_correo.getText();
             String password = paswor_fileUno.getText();
             if (email.equalsIgnoreCase(correo) && password.equalsIgnoreCase(contraseña)) {//verifica si el email y el password son correctos
+                Sesion.setUsuario(us);// guardar el usario de la sesion tras comprobar que son correctos
                 //se carga la pagina primcipal
                 lb_camposVacios.setText("Bienbenido");
                 lb_camposVacios.setVisible(true);
@@ -177,6 +178,7 @@ public class LoginController implements Initializable {
             if (user.equalsIgnoreCase(usuario) && password.equalsIgnoreCase(contraseña)) {//verifica si el usuario y el password son correctos
                 lb_camposVacios.setText("Bienbenido");
                 lb_camposVacios.setVisible(true);
+                Sesion.setUsuario(us);
                 cargaIntrefaces("InicioGap");
 
             } else {

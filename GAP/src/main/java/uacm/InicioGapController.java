@@ -1,11 +1,13 @@
 package uacm;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,16 +16,17 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import logic.Usuario;
+import persistencia.Sesion;
 
 /**
  *
  * @author Frncs.Fox
  */
 public class InicioGapController implements Initializable{
-    
+    @FXML
+    private ImageView imgInicio;
     @FXML
     private Button botonBiblioteca;
     @FXML
@@ -148,8 +151,18 @@ public class InicioGapController implements Initializable{
         }
     }
     
+    private void cargarImagenPerfil() {
+        Usuario u = Sesion.getUsuario();
+        if (u != null && u.getImagenPerfil() != null) {
+            imgInicio.setImage(new Image(new ByteArrayInputStream(u.getImagenPerfil())));
+        } else {
+           
+        }
+    }
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
+        cargarImagenPerfil();
         
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
         
@@ -198,7 +211,7 @@ public class InicioGapController implements Initializable{
         
         categorias_btn.setOnAction(eh -> abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml"));
         botonBiblioteca.setOnAction(eh -> abrirVentana("/fxmls/BibliotecaPerfilDos.fxml", "Biblioteca"));
-        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil.fxml", "Categorias"));
+        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil2.fxml", "Categorias"));
         cerrarSesion_Item.setOnAction(eh -> abrirVentana("/fxmls/CerrarSesion.fxml", "Categorias"));
     }
 }

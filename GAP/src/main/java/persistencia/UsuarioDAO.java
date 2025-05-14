@@ -1,6 +1,7 @@
 package persistencia;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -159,5 +160,54 @@ public class UsuarioDAO {
         }
 
     }
+
+    public boolean updateEmail(int id, String nuevoEmail) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
+            stmt.setString(1, nuevoEmail);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updatePasword(int id, String nuevaContrasenha) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET password = ? WHERE id = ?")) {
+            stmt.setString(1, nuevaContrasenha);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateNombre(int id, String nuevoNombre) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nombre = ? WHERE id = ?")) {
+            stmt.setString(1, nuevoNombre);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateFotoPerfil(int id, byte[] imagenPerfil) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET fotoPerfil = ? WHERE id = ?")) {
+            stmt.setBytes(1, imagenPerfil);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
 
 }
