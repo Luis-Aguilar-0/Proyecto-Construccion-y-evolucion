@@ -211,7 +211,7 @@ public class InicioGapController implements Initializable{
         
         categorias_btn.setOnAction(eh -> abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml"));
         botonBiblioteca.setOnAction(eh -> abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"));
-        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil.fxml", "Categorias"));
+        verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil2.fxml", "Categorias"));
         cerrarSesion_Item.setOnAction(eh -> abrirVentana("/fxmls/CerrarSesion.fxml", "Categorias"));
     }
 }

@@ -1,6 +1,7 @@
 package uacm;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -12,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import logic.Usuario;
 import persistencia.JuegoDAO;
+import persistencia.Sesion;
 import uacm.utilities.PathsImages;
 import javafx.scene.control.Button;
 
@@ -56,6 +58,8 @@ public class BilbliotecaPerfilController implements Initializable {
     @FXML
     private AnchorPane apane_principal;
 
+    private int indice = 0;
+
     @FXML
     private void mostrarPerfil() {
         if (perfil2Controller != null) {
@@ -70,24 +74,72 @@ public class BilbliotecaPerfilController implements Initializable {
         this.perfil2Controller = controller;
     }
 
-    public PathsImages images;
-
+    // public PathsImages images;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        Usuario usuario = new Usuario();
+        // obtenemos el usuario que inicio secion
+        Usuario usuario = Sesion.getUsuario();
 
         usuario.setJuegos(PathsImages.games);
 
-            //obtienes los juegos del uusario  //primer juego  //la imagenes del juego
-        String[] imagenes = usuario.getJuegos().get(0).getImagenes();
+        String[] imagenes = null;
+        Image imagen = null;
+        List<Image> listImages = new ArrayList<Image>();
+        List<ImageView> listaImageViews = new ArrayList<ImageView>();
 
+        listaImageViews.add(im_gameUno);
+        listaImageViews.add(im_gameDos);
+        listaImageViews.add(im_gameTres);
+        listaImageViews.add(im_gemeCuatro);
+        listaImageViews.add(im_gameCinco);
+        listaImageViews.add(im_gameSeis);
+        listaImageViews.add(im_gameSiete);
+        listaImageViews.add(im_gameOcho);
+        listaImageViews.add(im_gameNueve);
+        listaImageViews.add(im_gameDies);
+        listaImageViews.add(im_gameOnce);
+        listaImageViews.add(im_gameDoce);
 
-        Image imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());
+        for (int i = 0; i < usuario.getJuegos().size(); i++) {
+            // obtienes los juegos del usario //primer juego //las imagenes del juego
+            imagenes = usuario.getJuegos().get(i).getImagenes();
+            // obtenemos solo la portada del juego
+            System.out.println(imagenes[0]);
+            imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());
+            // agregamos la imagen con la portada a una lista de imagenes
+            listImages.add(imagen);
+            // asignamos a cada una de las imagenView la portada
+            // listaImageViews.get(i).setImage(listImages.get(i));
+        }
 
-        System.out.println(imagenes[0]);
+        //Asignamos las imagenes a las imageViews
+        for (int i = 0; i < 12; i++) {
+            listaImageViews.get(i).setImage(listImages.get(i));
+            indice++;
+        }
 
-        im_gameUno.setImage(imagen);
+        System.out.println(indice);
+
+        bt_pagSiguiente.setOnMouseClicked(event -> {
+            int indexListaimageViews = 0;
+            for (int i = 12; i < 24; i++) {
+                listaImageViews.get(indexListaimageViews).setImage(listImages.get(i));
+                indexListaimageViews++;
+                indice++;
+            }
+            System.out.println(indice);
+        });
+
+        bt_pagAnterior.setOnMouseClicked(event -> {
+            int indexListaimageViews = 0;
+            for (int i = 23; i >= 12; i--) {
+                listaImageViews.get(indexListaimageViews).setImage(listImages.get(i));
+                indexListaimageViews++;
+                indice--;
+            }
+            System.out.println(indice);
+        });
 
     }
 

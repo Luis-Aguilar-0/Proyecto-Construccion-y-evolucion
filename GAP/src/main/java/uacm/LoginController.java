@@ -141,11 +141,14 @@ public class LoginController implements Initializable {
 
             } else {
                 lb_camposVacios.setVisible(false);
-                Usuario usuarioLogin = usuarioDAO.buscaUsuario(txf_correo.getText()); // obtenemos el usuario de la base
-                                                                                      // de datos
+                // obtenemos el usuario de la base de datos
+                Usuario usuarioLogin = usuarioDAO.buscaUsuario(txf_correo.getText()); 
+                                                                                     
                 if (usuarioLogin == null) {// si es null el usuario no esta en la base de datos
+                    
                     lb_camposVacios.setText("Usuario no registrado. Por favor registrate....");
                     lb_camposVacios.setVisible(true);
+
                 } else {// entra al else si el usuario si esta en la base de datos
                     verificaLogin(usuarioLogin);
                 }
@@ -165,9 +168,9 @@ public class LoginController implements Initializable {
         if (ValidadorCorreo.validarCorreo(email)) {
 
             // verifica si el email y el password son correctos
-                Sesion.setUsuario(us);// guardar el usario de la sesion tras comprobar que son correctos
             if (email.equalsIgnoreCase(us.getEmail()) && password.equals(us.getPasword())) {
 
+                Sesion.setUsuario(us);// guardar el usario de la sesion tras comprobar que son correctos
                 lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
 
@@ -188,6 +191,7 @@ public class LoginController implements Initializable {
             // verifica si el usuario y el password son correctos
             if (user.equalsIgnoreCase(us.getUsuario()) && password.equals(us.getPasword())) {
 
+                Sesion.setUsuario(us);
                 lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
 
@@ -197,7 +201,6 @@ public class LoginController implements Initializable {
                 cerrarStage.close();
 
                 // se carga la pagina principal
-                Sesion.setUsuario(us);
                 cargaIntrefaces("InicioGap");
 
             } else {
