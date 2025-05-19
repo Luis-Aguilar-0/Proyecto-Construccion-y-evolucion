@@ -1,0 +1,60 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.root {
+    -fx-background-color: #3B2A5E;
+}
+
+.boton_menu {
+    -fx-background-color: #F87BF0; /*Fondo rosa fuerte*/
+    -fx-text-fill: #2c1459; /*Texto morado oscuro*/
+    -fx-font-size: 10px; /*Tamaño del texto*/
+    -fx-font-weight: bold; /*Texto en negrita*/
+    /*-fx-background-radius: 20; /*Bordes redondeados*/
+    -fx-effect: dropshadow(gaussian, #00000099, 5, 0.5, 0, 2); /*Sombra suave*/
+    /*dropshadow(gaussian, color, radius, spread, offsetX, offsetY)*/
+}
+
+.boton_menu:hover {
+    -fx-background-color: #00ffd5;
+    -fx-text-fill: black;
+    -fx-cursor: hand;
+}
+
+.label_axolo {
+    -fx-background-color: #A057B4;
+    -fx-text-fill: white;            /* color del texto */
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";      /* o cualquier fuente elegante */
+    -fx-padding: 10 20 10 20;        /* espacio interno */
+    -fx-background-radius: 10px;     /* bordes redondeados */
+    -fx-effect: dropshadow(gaussian, #005eff, 6, 0.5, 0, 2);
+}
+
+.radio-button {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-background-radius: 10px;     /* bordes redondeados */
+    -fx-effect: dropshadow(gaussian, #005eff, 6, 0.5, 0, 2);
+}
+
+.radio-button .radio {
+    -fx-background-color: black, white;
+    -fx-background-insets: 0, 2;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+}
+
+.radio-button:hover {
+    -fx-background-color: #005eff;
+    -fx-effect: dropshadow(gaussian, black, 6, 0.5, 0, 2);
+}
+
+
+.mi-vbox {
+    -fx-background-color: #A057B4; 
+    -fx-background-radius: 10px;
+}

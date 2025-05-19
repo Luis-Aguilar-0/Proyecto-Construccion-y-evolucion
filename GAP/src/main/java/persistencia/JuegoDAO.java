@@ -40,6 +40,7 @@ public class JuegoDAO {
                 juego.setPrecio(resJuego.getFloat("precio"));
                 juego.setDesarrollador(resJuego.getString("desarrollador"));
                 juego.setFechaLanzamiento( resJuego.getDate("fechaLanzamiento"));
+                juego.setCategoria(resJuego.getInt("categoria"));
 
                 int precioAjolo = resJuego.getInt("precioAjoloCoins");
                 if(resJuego.wasNull()){
