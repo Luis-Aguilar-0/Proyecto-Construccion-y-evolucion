@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import logic.Juego;
 import logic.Usuario;
 import logic.ValidadorCorreo;
 
@@ -56,7 +57,7 @@ public class UsuarioDAO {
 
                 //manejo de valores null de la base de datos
                 byte[] imagenperfil = res.getBytes("fotoPerfil");//la foto se almacena como bytes
-                if (res.wasNull()) {//res.wasNull me dice si el valor anterior es null
+                if (res.wasNull()) {//res.wasNull me dice si el valor anterior es valido
                     usuario.setImagenPerfil(null);
                 } else {//si mi dato anterios de res no es null asigno la foto de perfil
                     usuario.setImagenPerfil(imagenperfil);
@@ -97,8 +98,7 @@ public class UsuarioDAO {
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd"); //formato de años-meses-dias
             String fechaNacimiento = formato.format(usuario.getFechaNacimiento()); //le da el formato adecuado a la variable
             s.executeUpdate("INSERT INTO usuario(nombre,email,password,ajoloCoins,saldo,fechaNacimiento) VALUES('"
-                    + usuario.getUsuario() + "','" + usuario.getEmail() + "','" + usuario.getPasword() + "','" + 0 + "','" + 0.0 + "','" + fechaNacimiento
-                    + "');");
+                    + usuario.getUsuario() + "','" + usuario.getEmail() + "','" + usuario.getPasword() + "','" + 0 + "','" + 0.0 + "','" + fechaNacimiento + "');");
             System.out.println("Usuario almacenado exitosamente en la base de datos!!!!!!!!!");
         } catch (SQLException e) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -211,6 +211,14 @@ public class UsuarioDAO {
             return false;
         }
     }
+
+
+    public List<Juego> getJuegos(){
+        return null;
+    }
+
+
+
     
 
 }

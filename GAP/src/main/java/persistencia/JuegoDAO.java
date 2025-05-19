@@ -56,9 +56,6 @@ public class JuegoDAO {
                 juego.setImagenes(imagenes);
 
                 listaJuegos.add(juego);//se añaden los juegos a la lista
-
-
-
             }
             return listaJuegos;
 
