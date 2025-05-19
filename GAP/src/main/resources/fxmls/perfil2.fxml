@@ -6,6 +6,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -89,7 +90,7 @@
             <children>
                <HBox alignment="CENTER" prefHeight="211.0" prefWidth="832.0">
                   <children>
-                     <ImageView fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="imgPerfil3" fitHeight="64.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                         <image>
                            <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                         </image>
@@ -183,7 +184,7 @@
             </VBox>
             <VBox layoutX="277.0" layoutY="151.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar1" mnemonicParsing="false" prefHeight="35.0" prefWidth="66.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditarUsuario" mnemonicParsing="false" onMouseClicked="#editarUsuario" prefHeight="35.0" prefWidth="66.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
             <VBox layoutX="60.0" layoutY="208.0" prefHeight="38.0" prefWidth="239.0">
@@ -202,7 +203,7 @@
             </VBox>
             <VBox layoutX="277.0" layoutY="240.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar2" mnemonicParsing="false" prefHeight="35.0" prefWidth="64.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditarCorreo" mnemonicParsing="false" onMouseClicked="#editarCorreo" prefHeight="35.0" prefWidth="64.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
             <VBox layoutX="61.0" layoutY="305.0" prefHeight="38.0" prefWidth="216.0">
@@ -212,20 +213,20 @@
             </VBox>
             <VBox layoutX="61.0" layoutY="347.0" prefHeight="23.0" prefWidth="199.0">
                <children>
-                  <TextField fx:id="txtContrasenha">
+                  <PasswordField fx:id="txtContrasenha">
                      <styleClass>
                         <String fx:value="textfield-perfil" />
                         <String fx:value="quantum-purple-btn" />
                      </styleClass>
-                  </TextField>
+                  </PasswordField>
                </children>
             </VBox>
             <VBox layoutX="277.0" layoutY="343.0" prefHeight="41.0" prefWidth="66.0">
                <children>
-                  <Button fx:id="btnEditar3" mnemonicParsing="false" prefHeight="34.0" prefWidth="67.0" styleClass="quantum-purple-btn" text="Editar" />
+                  <Button fx:id="btnEditarContrasenha" mnemonicParsing="false" onMouseClicked="#editarContrasenha" prefHeight="34.0" prefWidth="67.0" styleClass="quantum-purple-btn" text="Editar" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="484.0" layoutY="153.0" prefHeight="386.0" prefWidth="361.0" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox fx:id="contenImage1" alignment="CENTER" layoutX="494.0" layoutY="145.33333333333334" prefHeight="206.0" prefWidth="255.0" AnchorPane.bottomAnchor="217.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="145.0">
                <children>
                   <ImageView fx:id="imgPerfil2" fitHeight="206.0" fitWidth="255.0" pickOnBounds="true" styleClass="quantum-purple-btn">
                      <image>
@@ -234,15 +235,7 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox alignment="CENTER" layoutX="462.0" layoutY="392.0" prefHeight="328.0" prefWidth="307.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="462.0" AnchorPane.rightAnchor="-8.0" AnchorPane.topAnchor="200.0">
-               <children>
-                  <Button fx:id="btnElegirImagen" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="300.0" styleClass="quantum-purple-btn" stylesheets="@../styles/Perfil.css" text="Elegir imagen de perfil">
-                     <VBox.margin>
-                        <Insets left="30.0" right="70.0" />
-                     </VBox.margin>
-                  </Button>
-               </children>
-            </VBox>
+            <Button fx:id="btnElegirImagen" layoutX="558.0" layoutY="384.0" mnemonicParsing="false" onMouseClicked="#elegirImagen" styleClass="quantum-purple-btn" text="Elegir imagen" />
          </children>
       </AnchorPane>
       </center>

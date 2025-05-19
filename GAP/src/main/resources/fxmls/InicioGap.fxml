@@ -254,7 +254,7 @@
    <top>
       <AnchorPane prefHeight="102.0" prefWidth="698.0" BorderPane.alignment="TOP_CENTER">
          <children>
-            <ImageView fitHeight="110.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgInicio" fitHeight="110.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>

@@ -119,6 +119,7 @@ public class RegistroController implements Initializable {
          * dia_box.setStyle("-fx-background-color: #cc74f9;");
          * });
          */
+
         registrar_bttn.setOnAction(event -> {
             String dia = dia_box.getValue();
             String mes = mes_box.getValue();

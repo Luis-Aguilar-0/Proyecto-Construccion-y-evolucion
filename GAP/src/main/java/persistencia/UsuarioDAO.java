@@ -1,6 +1,7 @@
 package persistencia;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,12 +12,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import logic.Usuario;
+import logic.ValidadorCorreo;
 
 public class UsuarioDAO {
 
     private Connection conexionBase; //establece la conexion activa con la base de datos
     private ResultSet res; //me permite acceder al resultado de una consulta en la base de datos
     private Statement consulta;
+    ValidadorCorreo validadorCorreo;
 
     public UsuarioDAO() throws SQLException {
 
@@ -141,23 +144,73 @@ public class UsuarioDAO {
         return null; //me regresa null si no existe el usuario en la base de datos
     }
 
-    private boolean isEmail(String cadena) {
-        for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) == '@') {
-                return true;
-            }
-        }
-        return false;//regresa
 
-    }
-
+    /**
+     * Tenemos dos tipos de consutas se ejecutara una u otra dependiendo de si se ingrese en la pantalla de login
+     * el correo electronico o el nombre del usuario
+     * Me regresa una cadena.
+     * Si se ingreso el correo electronico me regresa la cadena:
+     *  "Select * from usuario where email like '" + cadena + "'"
+     * Si se ingreso el nombre del usuario me regresa la cadena:
+     * "select * from usuario where nombre like '" + cadena + "'"
+     * 
+     */
     private String tipoConsulta(String cadena) {
-        if (isEmail(cadena)) {
+        if (ValidadorCorreo.validarCorreo(cadena)) { //si es un correo se busca en la base por el correo
             return "Select * from usuario where email like '" + cadena + "'";
-        } else {
+        } else {//se busca por el nombre en la base de datos
             return "select * from usuario where nombre like '" + cadena + "'";
         }
 
     }
+
+    public boolean updateEmail(int id, String nuevoEmail) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
+            stmt.setString(1, nuevoEmail);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updatePasword(int id, String nuevaContrasenha) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET password = ? WHERE id = ?")) {
+            stmt.setString(1, nuevaContrasenha);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateNombre(int id, String nuevoNombre) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nombre = ? WHERE id = ?")) {
+            stmt.setString(1, nuevoNombre);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean updateFotoPerfil(int id, byte[] imagenPerfil) {
+        try (Connection conn = Conexion.gConnection();
+             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET fotoPerfil = ? WHERE id = ?")) {
+            stmt.setBytes(1, imagenPerfil);
+            stmt.setInt(2, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
 
 }
