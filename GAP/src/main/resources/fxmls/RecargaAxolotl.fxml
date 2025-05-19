@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/recargaaxolotl.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.RecargaAxolotlController">
+   <children>
+      <HBox alignment="CENTER_RIGHT" prefHeight="105.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="regreso_bttn" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" styleClass="boton_menu" text="🡰">
+               <HBox.margin>
+                  <Insets right="90.0" />
+               </HBox.margin>
+            </Button>
+            <Label alignment="CENTER" prefHeight="60.0" prefWidth="224.0" styleClass="label_axolo" text="Recarga de AxoloCoins">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="124.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox prefHeight="355.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="301.0" prefWidth="246.0" spacing="20.0" styleClass="mi-vbox">
+               <children>
+                  <RadioButton fx:id="magic_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="159.0" text=" Paquete Magico 100Ax">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="paqueteSelectro" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="legend_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="Paquete Legendario 1000Ax" toggleGroup="$paqueteSelectro" />
+                  <RadioButton fx:id="god_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="Paquete Dios 10000Ax" toggleGroup="$paqueteSelectro" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

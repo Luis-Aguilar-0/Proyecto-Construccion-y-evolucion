@@ -13,11 +13,12 @@ public class Juego {
     private String desarrollador;
     private Date fechaLanzamiento;
     private String[] imagenes = new String[4]; // se almacenan solo las direccines en forma de string
+    private int categoria;
 
     public Juego() {
     }
 
-    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,Date fechaLanzamiento_, String[] imagenes_, double precio_, Integer precionAjoloCoins_) {
+    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,Date fechaLanzamiento_, String[] imagenes_, double precio_, Integer precionAjoloCoins_, int categoria_) {
         this.idJuego = id_;
         this.nombreJuego = nombre;
         this.rMininos = rMinimos_;
@@ -30,6 +31,7 @@ public class Juego {
         this.imagenes[3] = imagenes_[3];
         this.precio = precio_;
         this.precioAjoloCoins = precionAjoloCoins_;
+        this.categoria = categoria_;
     }
 
     public int getIdJuego() {
@@ -104,4 +106,11 @@ public class Juego {
         this.imagenes = imagenes;
     }
 
+    public int getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
+    }
 }

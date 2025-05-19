@@ -21,3 +21,52 @@
     -fx-text-fill: black;
     -fx-cursor: hand;
 }
+
+.barra_busqueda {
+    -fx-background-color: #A0F87B;
+    -fx-effect: dropshadow(gaussian, #00000099, 5, 0.5, 0, 2); /*Sombra suave*/
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #3B2A5E; /* Fondo del área visible */
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: #6A1B9A; /* Fondo de las barras */
+    -fx-padding: 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #D1C4E9; /* "Thumb", el botón que se arrastra */
+    -fx-background-insets: 2;
+    -fx-background-radius: 8;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #AB47BC; /* Botones con flechas */
+    -fx-font-size: 13px;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white;
+}
+
+.mi-vbox {
+    -fx-border-color: #F87BF0;         /* Color del borde */
+    -fx-border-width: 2px;             /* Grosor del borde */
+    -fx-padding: 10px;                 /* Espacio interno entre el contenido y el borde */
+}
+
+.ImageView:hover{
+    -fx-opacity: 0.7; /* Más transparente al pasar el cursor */
+    -fx-effect: innershadow(gaussian, gray, 10, 0.5, 0, 0); /* Efecto gris leve */
+    -fx-cursor: hand;
+}

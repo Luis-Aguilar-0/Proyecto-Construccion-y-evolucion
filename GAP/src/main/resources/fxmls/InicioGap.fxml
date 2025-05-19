@@ -119,12 +119,12 @@
                                           </ImageView>
                                           <ImageView fx:id="img4Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/PortadaCyberpunk.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaCyberpunk2077.jpg" />
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="img5Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
                                              <image>
-                                                <Image url="@../imagenes/imagesJuegos/PortadaHowarts.jpg" />
+                                                <Image url="@../imagenes/imagesJuegos/PortadaHogwarts.jpg" />
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="img6Xbox" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="ImageView">
@@ -261,12 +261,12 @@
             </ImageView>
             <HBox alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="20.0" stylesheets="@../styles/iniciogap.css">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Recarga">
+                  <Button fx:id="recarga_bttn" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Recarga">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Ofertas">
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="boton">
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>

@@ -78,7 +78,7 @@ public class BilbliotecaPerfilController implements Initializable {
         usuario.setJuegos(PathsImages.games);
 
             //obtienes los juegos del uusario  //primer juego  //la imagenes del juego
-        String[] imagenes = usuario.getJuegos().get(14).getImagenes();
+        String[] imagenes = usuario.getJuegos().get(0).getImagenes();
 
 
         Image imagen = new Image(getClass().getResource(imagenes[0]).toExternalForm());

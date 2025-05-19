@@ -71,7 +71,7 @@
     -fx-background-color: black; /* Para quitar el color gris del botón */
     -fx-background-image: url("/Imagenes/ImagesPerfil/bibliotecainicio.png");
     -fx-background-repeat: no-repeat;
-    -fx-background-size: contain; /* O usa 'cover' si quieres que llene todo */
+    -fx-background-size: contain; /* O usar 'cover' si quieres que llene todo */
     -fx-background-position: center;
     -fx-pref-width: 50px;  /* Ajusta a tu gusto */
     -fx-pref-height: 50px;

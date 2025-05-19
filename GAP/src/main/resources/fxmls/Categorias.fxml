@@ -1,36 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/categorias.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.CategoriasController">
    <left>
-      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="116.0" spacing="20.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="116.0" spacing="15.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="accion_btn" mnemonicParsing="false" onAction="#mostrasPlataformas" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Acción" />
-            <Button mnemonicParsing="false" onAction="#mostrarPuzles" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Estrategia" />
-            <Button mnemonicParsing="false" onAction="#mostrarAccion" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Narrativa" />
-            <Button mnemonicParsing="false" onAction="#mostrarEstrategia" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Plataforma" />
-            <Button mnemonicParsing="false" onAction="#mostrarTerror" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Puzles" />
-            <Button mnemonicParsing="false" onAction="#mostrarNarrativa" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Terror" />
+            <Button fx:id="accion_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Acción" />
+            <Button fx:id="estrategia_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Estrategia" />
+            <Button fx:id="narrativa_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Narrativa" />
+            <Button fx:id="plataforma_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Plataforma" />
+            <Button fx:id="puzles_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Puzles" />
+            <Button fx:id="terror_btn" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" styleClass="boton_menu" text="Terror" />
          </children>
       </VBox>
    </left>
-   <center>
-      <FlowPane fx:id="contenedorJuegos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+   <top>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="600.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="195.0" prefWidth="142.0">
-               <children>
-                  <ImageView fx:id="imagen1" fitHeight="150.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </VBox>
+            <Button fx:id="regreso_bttn" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" styleClass="boton_menu" text="🡰" />
+            <TextField fx:id="busqueda_tf" prefHeight="25.0" prefWidth="383.0" styleClass="barra_busqueda">
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </TextField>
+            <Button fx:id="search_bttn" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0">
+               <styleClass>
+                  <String fx:value="boton_menu" />
+                  <String fx:value="boton_busqueda" />
+               </styleClass>
+               <graphic>
+                  <ImageView fitHeight="15.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/imagesPerfil/busqueda.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
-         <padding>
-            <Insets left="20.0" top="20.0" />
-         </padding></FlowPane>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="root" BorderPane.alignment="CENTER">
+         <content>
+            <GridPane fx:id="GridPane_j" prefHeight="342.0" prefWidth="480.0">
+              </GridPane>
+         </content>
+      </ScrollPane>
    </center>
 </BorderPane>
