@@ -26,42 +26,9 @@ public class App extends Application {
         stage.show();
 
     }
-
-
     
-/* 
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-//evento tareas temporizador
-    private static Parent loadFXML(String fxml) throws IOException {
-        String fxmlPath;
-
-        switch (fxml) {
-            case "Login":
-                fxmlPath = PathsFXMLS.LOGIN;
-                break;
-            case "Perfil":
-                fxmlPath = PathsFXMLS.PERFIL;
-                break;
-            case "OlvidoContrasena":
-                fxmlPath = PathsFXMLS.OLVIDO_CONTRASENA;
-                break;
-            default:
-                throw new IOException("Archivo FXML no encontrado: " + fxml);
-        }
-
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxmlPath));
-        return fxmlLoader.load();
-    }
- 
-*/
-
+    
     public static void main(String[] args) {
         launch();
-
-        
     }
 }

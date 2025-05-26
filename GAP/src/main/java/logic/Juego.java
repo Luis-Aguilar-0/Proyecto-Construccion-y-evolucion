@@ -104,4 +104,11 @@ public class Juego {
         this.imagenes = imagenes;
     }
 
+    @Override
+    public String toString() {
+        return "idJuego=" + idJuego + ", " + nombreJuego;
+    }
+
+    
+
 }

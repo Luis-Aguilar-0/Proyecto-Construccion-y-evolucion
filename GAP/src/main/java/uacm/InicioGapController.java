@@ -159,6 +159,11 @@ public class InicioGapController implements Initializable{
            
         }
     }
+
+    private void cerrarVentana(Button boton){
+        Stage ventanaActual = (Stage) boton.getScene().getWindow();
+        ventanaActual.close();
+    } 
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -210,7 +215,7 @@ public class InicioGapController implements Initializable{
         img6Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", "Mario Kart 8"));
         
         categorias_btn.setOnAction(eh -> abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml"));
-        botonBiblioteca.setOnAction(eh -> abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"));
+        botonBiblioteca.setOnAction(eh -> { cerrarVentana(botonBiblioteca); abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } );
         verPerfil_Item.setOnAction(eh -> abrirVentana("/fxmls/Perfil2.fxml", "Categorias"));
         cerrarSesion_Item.setOnAction(eh -> abrirVentana("/fxmls/CerrarSesion.fxml", "Categorias"));
     }
