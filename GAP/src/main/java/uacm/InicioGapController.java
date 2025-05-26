@@ -227,6 +227,11 @@ public class InicioGapController implements Initializable{
             e.printStackTrace();
         }
     }
+
+    private void cerrarVentana(Button boton){
+        Stage ventanaActual = (Stage) boton.getScene().getWindow();
+        ventanaActual.close();
+    } 
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -283,7 +288,8 @@ public class InicioGapController implements Initializable{
         });
         
         botonBiblioteca.setOnAction(eh -> {
-            //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca");
+            cerrarVentana(botonBiblioteca);
+            //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } ;
             cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
         });
         

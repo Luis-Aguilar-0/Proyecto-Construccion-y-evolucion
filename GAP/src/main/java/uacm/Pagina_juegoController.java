@@ -61,12 +61,12 @@ public class Pagina_juegoController implements Initializable {
             imagenPrimcipal.setImage(imgRight.getImage());
         });
 
-        System.out.println("Intentando establecer el texto del Label");
-        lb_rMinimos.setWrapText(true);
-
-        lb_rMinimos.setText("Los requisitos minimos son 10Gb ram \n como minimo una tarjeta grafica de 16GB ram cvavacvagsfdgafdgasfdSFASDFASDF " );
+       
        
 
     }
+    
+    
+    
 
 }
