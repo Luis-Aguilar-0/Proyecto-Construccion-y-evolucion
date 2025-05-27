@@ -26,7 +26,7 @@ public class Conexion {
     private static void configura(){
         propiedades.put("user","laac");
         propiedades.put("password","slt-");//cambiar 1600 por 1433 para que la usen los demas
-        propiedades.put("url","jdbc:sqlserver://localhost:1433;databaseName=gapbd;encrypt=false;trustServerCertificate=true;");
+        propiedades.put("url","jdbc:sqlserver://localhost:1600;databaseName=gapbd;encrypt=false;trustServerCertificate=true;");
 
     }
 

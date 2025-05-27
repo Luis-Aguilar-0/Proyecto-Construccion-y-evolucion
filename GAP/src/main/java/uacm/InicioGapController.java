@@ -1,11 +1,11 @@
 package uacm;
 
-import java.io.ByteArrayInputStream;
+import java.io.ByteArrayInputStream; 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,16 +17,18 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageView; 
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import logic.Usuario;                 
+import persistencia.Sesion;           
 
 /**
  *
  * @author Frncs.Fox
  */
-public class InicioGapController implements Initializable{
+public class InicioGapController implements Initializable {
     @FXML
     private ImageView imgInicio;
     @FXML
@@ -52,7 +54,7 @@ public class InicioGapController implements Initializable{
 
     private final double speed_scroll = 0.1;
     @FXML
-    private MenuButton menuPerfil_btn;
+    private MenuButton menuPerfil_btn; 
     @FXML
     private Button categorias_btn;
     @FXML
@@ -97,22 +99,47 @@ public class InicioGapController implements Initializable{
     private MenuItem cerrarSesion_Item;
     @FXML
     private Button recarga_bttn;
-    
+
+    // metoodo para cargar la imagen de perfil en el MenuButton 
+    private void cargarImagenPerfilDelMenu() {
+        Usuario usuarioLogueado = Sesion.getUsuario();
+        ImageView imageViewParaMenu;
+        Image imagenAMostrar = null;
+
+        // Ruta de la imagen predeterminada
+        String rutaImagenPredeterminada = "/imagenes/imagesPerfil/perfilgato.jpg"; 
+
+        if (usuarioLogueado != null && usuarioLogueado.getImagenPerfil() != null) {
+            try {
+                // Intenta cargar la imagen de perfil del usuario desde el byte[]
+                imagenAMostrar = new Image(new ByteArrayInputStream(usuarioLogueado.getImagenPerfil()));
+            } catch (Exception e) {
+                System.err.println("Error al cargar imagen de perfil del usuario: " + e.getMessage());
+                // Si hay un error se usa la otra imagen
+            }
+        }
+        
+        imageViewParaMenu = new ImageView(imagenAMostrar);
+        imageViewParaMenu.setFitWidth(80);  
+        imageViewParaMenu.setFitHeight(80); 
+        imageViewParaMenu.setPreserveRatio(true);
+
+        menuPerfil_btn.setGraphic(imageViewParaMenu);
+    }
+
     @FXML
-    private void moverIzquierdaPlay(){
+    private void moverIzquierdaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() - speed_scroll;
-        
         carrucel_scPn_play.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
+    }
+
     @FXML
-    private void moverDerechaPlay(){
+    private void moverDerechaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() + speed_scroll;
-        
         carrucel_scPn_play.setHvalue(Math.min(nuevaPosicion, 1));
     }
-    
-    @FXML
+
+     @FXML
     private void moverIzquierdaBox(){
         double nuevaPosicion = carrucel_scPn_box.getHvalue() - speed_scroll;
         
@@ -139,7 +166,7 @@ public class InicioGapController implements Initializable{
         
         carrucel_scPn_nin.setHvalue(Math.min(nuevaPosicion, 1));
     }
-        
+
     public void abrirVentana(String rutaFXML, MouseEvent event, String tituloVentana) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -157,7 +184,7 @@ public class InicioGapController implements Initializable{
             e.printStackTrace();
         }
     }
-    
+
     private void abrirVentana2(String rutaFXML) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -172,54 +199,28 @@ public class InicioGapController implements Initializable{
         }
     }
     
-    /*public void cambiarVentana1(String rutaFXML, ActionEvent event, String tituloVentana) {
+    public void cambiarVentana2(String rutaFXML, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
             Parent root = loader.load();
 
             Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle(tituloVentana);
             nuevaVentana.setScene(new Scene(root));
             nuevaVentana.show();
 
-            // Obtener la ventana actual de manera correcta cuando proviene de un MenuItem
-            Window ventanaActual = ((MenuItem) event.getSource()).getParentPopup().getOwnerWindow();
-            if (ventanaActual instanceof Stage) {
-                ((Stage) ventanaActual).close();
-            }
+            Object fuente = event.getSource();
+            Stage ventanaActual = null;
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
-    
-    public void cambiarVentana2(String rutaFXML, ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));//carga el archivo con la ruta parametro
-            Parent root = loader.load();//carga la interfaz y se almacena en root
-
-            Stage nuevaVentana = new Stage();//crea una nueva ventana donde se mostrara la nueva escena
-            nuevaVentana.setScene(new Scene(root));//crea una escena con el contenido cargado en root y la asigana nuevaVentana
-            nuevaVentana.show();//muestra la nueva ventana en pantalla
-
-            // Identificar el tipo de origen del evento para cerrar la ventana correcta
-            Object fuente = event.getSource();//obtiene la fuente del evento, el evento que genero la accion
-            Stage ventanaActual = null;//variable para almacenar la ventana que se va a cerrar
-
-            if (fuente instanceof Node) {//si la fuente del evento es un Node(un boton)
-                //se obtiene la ventana donde esta
-                ventanaActual = (Stage) ((Node) fuente).getScene().getWindow();//se usan los metodos para acceder a la ventana actual y se convierte a stage
-            } else if (fuente instanceof MenuItem) {//si la fuente del evento es un MenuItem
-                //se obtiene el menu que contiene el menuItem con getParentPopup() y getOwnerWindow() obtiene la ventana (Window) en la que se mostró ese menú.
-                Window ventanaMenu = ((MenuItem) fuente).getParentPopup().getOwnerWindow();//se le asigna a una variable de tipo window
-                if (ventanaMenu instanceof Stage) { //verifica que la ventana dueña sea una Stage
-                    //entonces la guarda en la variable ventanaActual.
+            if (fuente instanceof Node) {
+                ventanaActual = (Stage) ((Node) fuente).getScene().getWindow();
+            } else if (fuente instanceof MenuItem) {
+                Window ventanaMenu = ((MenuItem) fuente).getParentPopup().getOwnerWindow();
+                if (ventanaMenu instanceof Stage) {
                     ventanaActual = (Stage) ventanaMenu;
                 }
             }
 
-            if (ventanaActual != null) {//si la ventana actual es válida
-                //se cierra usando close().
+            if (ventanaActual != null) {
                 ventanaActual.close();
             }
 
@@ -227,32 +228,19 @@ public class InicioGapController implements Initializable{
             e.printStackTrace();
         }
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //cargarImagenPerfil();
-        
+        cargarImagenPerfilDelMenu();
+
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
-        
         btnDerecha_play.setOnAction(e -> moverDerechaPlay());
-        
         btnIzquierda_box.setOnAction(e -> moverIzquierdaBox());
-        
         btnDerecha_box.setOnAction(e -> moverDerechaBox());
-        
         btnIzquierda_nin.setOnAction(e -> moverIzquierdaNin());
-        
         btnDerecha_nin.setOnAction(e -> moverDerechaNin());
-        
-        Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfilgato.jpg");
-        
-        ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(70);
-        imageView.setFitHeight(70);
-        imageView.setPreserveRatio(true);
-        
-        menuPerfil_btn.setGraphic(imageView);
-        
+
+
         //Juegos Playstation
         img1Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us"));
         img2Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "God Of War"));
@@ -278,17 +266,14 @@ public class InicioGapController implements Initializable{
         img6Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Kart 8"));
         
         categorias_btn.setOnAction(eh -> {
-            //abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml");
             cambiarVentana2("/fxmls/Categorias.fxml", eh);
         });
         
         botonBiblioteca.setOnAction(eh -> {
-            //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca");
             cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
         });
         
         verPerfil_Item.setOnAction(eh -> {
-            //abrirVentana("/fxmls/Perfil2.fxml", "Categorias");
             cambiarVentana2("/fxmls/Perfil2.fxml", eh);
         });
         
