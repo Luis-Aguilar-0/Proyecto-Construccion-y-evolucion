@@ -1,0 +1,153 @@
+
+.root {
+    -fx-background-color: #3B2A5E; 
+    -fx-font-family: "Yu Gothic UI Semibold", sans-serif;
+}
+
+.label-titulo-billetera {
+    -fx-text-fill: #e626ff; 
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(230, 38, 255, 0.7), 15, 0.3, 0, 0);
+    -fx-padding: 10px;
+}
+
+.label-subtitulo-billetera {
+    -fx-text-fill: #ffadf4; 
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.label-saldo-valor {
+    -fx-text-fill: #00ffd5; 
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 213, 0.6), 10, 0.2, 0, 0);
+}
+
+.seccion-container {
+    -fx-background-color: rgba(90, 50, 130, 0.3); 
+    -fx-background-radius: 15px;
+    -fx-border-color: #8a2be2; /* Borde lila */
+    -fx-border-width: 1px;
+    -fx-border-radius: 15px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 5);
+}
+
+.boton-accion-billetera {
+    -fx-background-color: linear-gradient(to bottom, #8a2be2 0%, #6a00ff 100%);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-color: #ff00ff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(106,0,255,0.7), 20, 0.5, 0, 1);
+}
+
+.boton-accion-billetera:hover {
+    -fx-background-color: linear-gradient(to bottom, #6a00ff 0%, #8a2be2 100%);
+    -fx-border-color: #00ffd5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 213, 0.8), 25, 0.4, 0, 2);
+}
+
+
+.tarjeta-item {
+    -fx-background-color: rgba(255, 255, 255, 0.05); 
+    -fx-padding: 10px;
+    -fx-background-radius: 8px;
+    -fx-border-color: #A057B4;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.label-texto-normal {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+
+.label-texto-secundario {
+    -fx-text-fill: #cccccc; 
+    -fx-font-size: 12px;
+}
+
+.boton-eliminar-tarjeta {
+    -fx-background-color: #800000; 
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px 10px;
+    -fx-cursor: hand;
+}
+
+.boton-eliminar-tarjeta:hover {
+    -fx-background-color: #A00000;
+}
+
+.scroll-pane-tarjetas {
+    -fx-background-color: transparent; 
+    -fx-border-color: transparent;
+}
+
+.scroll-pane-tarjetas .viewport {
+    -fx-background-color: rgba(0,0,0,0.2); 
+}
+
+.scroll-pane-tarjetas .scroll-bar:vertical,
+.scroll-pane-tarjetas .scroll-bar:horizontal {
+    -fx-background-color: #6A1B9A;
+    -fx-padding: 0;
+}
+
+.scroll-pane-tarjetas .thumb {
+    -fx-background-color: #D1C4E9;
+    -fx-background-insets: 2;
+    -fx-background-radius: 8;
+}
+
+.vbox-lista-tarjetas {
+    -fx-padding: 5px; 
+}
+
+
+
+.boton-accion-billetera {
+    -fx-background-color: linear-gradient(to bottom, #8a2be2 0%, #6a00ff 100%);
+    -fx-text-fill: white; 
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-border-color: #ff00ff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-padding: 10px 20px; 
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(106,0,255,0.7), 20, 0.5, 0, 1);
+    -fx-pref-height: 50px; 
+    -fx-min-width: 200px; 
+    -fx-alignment: CENTER; 
+}
+
+.boton-accion-billetera:hover {
+    -fx-background-color: linear-gradient(to bottom, #6a00ff 0%, #8a2be2 100%);
+    -fx-border-color: #00ffd5;
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 213, 0.8), 25, 0.4, 0, 2);
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: #3B2A5E; 
+}
+
+.vbox-principal-billetera {
+    -fx-background-color: #3B2A5E;
+}
+
+
+.tarjeta-item .label-texto-normal {
+    -fx-pref-width: 200px; 
+    -fx-wrap-text: true; 
+}

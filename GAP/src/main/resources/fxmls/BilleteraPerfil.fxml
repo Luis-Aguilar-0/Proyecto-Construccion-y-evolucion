@@ -3,92 +3,73 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #3B2A5E;" stylesheets="@../styles/AgregarTarjeta.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.BilleteraPerfilController">
-   <children>
-      <HBox prefHeight="487.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Pane prefHeight="195.0" prefWidth="640.0" styleClass="pane-agregarTarjeta" stylesheets="@../styles/Perfil.css">
-               <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </HBox.margin>
-            </Pane>
-         </children>
-      </HBox>
-      <VBox alignment="CENTER" layoutX="73.0" layoutY="76.9000015258789" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <HBox alignment="CENTER" prefHeight="101.0" prefWidth="640.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <Label fx:id="lbTarjetas" alignment="CENTER" contentDisplay="CENTER" styleClass="label-titulo-perfil" text="Billetera">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="30.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="69.0" prefHeight="39.0" prefWidth="640.0">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <Label fx:id="lbSaldo" alignment="CENTER" contentDisplay="CENTER" prefHeight="49.0" prefWidth="110.0" styleClass="label-titulo-perfil" text="Saldo">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="60.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="lbSaldoCuenta" alignment="CENTER" contentDisplay="CENTER" layoutX="132.0" layoutY="33.0" styleClass="label-titulo-perfil" text="Tarjeta de Credito">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets left="130.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="74.0" prefWidth="587.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="191.0" styleClass="label-agregarTarjeta" text="0 Axolopoints">
-                     <HBox.margin>
-                        <Insets right="270.0" />
-                     </HBox.margin>
-                  </Label>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="165.0" prefHeight="157.0" prefWidth="640.0">
-               <children>
-                  <Button fx:id="btnAgregarSaldo" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="243.0" styleClass="boton-perfil" text="Agregar Axolopoints">
-                     <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button fx:id="btnAgregarTarjeta" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="57.0" prefWidth="200.0" styleClass="boton-perfil" text="Agregar Tarjeta">
-                     <HBox.margin>
-                        <Insets left="80.0" top="20.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-   </children>
-</AnchorPane>
+<AnchorPane fx:id="anchorPaneRaizBilletera" prefHeight="726.0" prefWidth="800.0" styleClass="root" stylesheets="@../styles/billetera.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.BilleteraPerfilController">
+       <children>
+           <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="2.333333333333333" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="-1.6666666666666856" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.333333333333333">
+               <content>
+                   <VBox alignment="TOP_CENTER" minHeight="480" spacing="20.0" style="-fx-background-color: #3B2A5E;"> <padding>
+                           <Insets bottom="30.0" left="40.0" right="40.0" top="20.0" /> </padding>
+   
+                       <Label styleClass="label-titulo-billetera" text="Billetera GAP">
+                           <font>
+                               <Font name="Yu Gothic UI Semibold" size="30.0" /> </font>
+                           <VBox.margin>
+                               <Insets bottom="10.0" /> </VBox.margin>
+                       </Label>
+   
+                       <VBox alignment="CENTER_LEFT" spacing="15.0" styleClass="seccion-container">
+                           <padding>
+                               <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                           </padding>
+                           <children>
+                               <Label fx:id="lbSaldo" styleClass="label-subtitulo-billetera" text="Saldo Disponible en Axolocoins" />
+                               <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                   <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                           <Image url="@../imagenes/imagesPerfil/axolotl_coin_icon.png" />
+                                       </image>
+                                   </ImageView>
+                                   <Label fx:id="lbSaldoCuenta" styleClass="label-saldo-valor" text="0 AC">
+                                       <font>
+                                           <Font name="Yu Gothic UI Bold" size="28.0" /> </font>
+                                   </Label>
+                               </HBox>
+                               <Button fx:id="btnAgregarSaldo" maxWidth="Infinity" mnemonicParsing="false" prefHeight="45.0" styleClass="boton-accion-billetera" text="RECARGAR AXOLOCOINS" />
+                           </children>
+                       </VBox>
+   
+                       <VBox fx:id="vBoxTarjetas" alignment="CENTER_LEFT" spacing="15.0" styleClass="seccion-container" VBox.vgrow="ALWAYS">
+                           <padding>
+                               <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                           </padding>
+                           <children>
+                               <Label fx:id="lbTarjetas" styleClass="label-subtitulo-billetera" text="Mis Metodos de Pago:" />
+                               <ScrollPane fx:id="scrollPaneTarjetas" fitToWidth="true" prefHeight="120.0" styleClass="scroll-pane-tarjetas" VBox.vgrow="ALWAYS"> <content>
+                                       <VBox fx:id="vboxTarjetas" spacing="10.0" styleClass="vbox-lista-tarjetas">
+                                           <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="tarjeta-item">
+                                               <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                        <Image url="@../imagenes/imagesPerfil/credit-card.png" />
+                                                   </image>
+                                               </ImageView>
+                                               <Label styleClass="label-texto-normal" text="**** **** **** 1234" HBox.hgrow="ALWAYS" />
+                                               <Label styleClass="label-texto-secundario-tarjeta" text="Exp: 12/27" /> <Button styleClass="boton-eliminar-tarjeta-pequeno" text="X" /> </HBox>
+                                       </VBox>
+                                   </content>
+                               </ScrollPane>
+                               <Button fx:id="btnAgregarTarjeta" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#abrirVentanaAgregarTarjeta" prefHeight="45.0" styleClass="boton-accion-billetera" text="AGREGAR NUEVA TARJETA" />
+                           </children>
+                       </VBox>
+                   </VBox>
+               </content>
+           </ScrollPane>
+       </children>
+   </AnchorPane>
