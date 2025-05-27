@@ -25,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import logic.Juego;
 import persistencia.JuegoDAO;
+import persistencia.Sesion;
 
 /**
  * FXML Controller class
@@ -104,7 +105,9 @@ public class CategoriasController implements Initializable {
             
             //evento para abrir la pagina de cada juego
             imageView.setOnMouseClicked(eh -> {
+                Sesion.setJuegoPagina(juego);//se recupera el juego para cargar su informacion
                 cambiarVentana("/fxmls/Pagina_juego.fxml", eh, juego.getNombreJuego());
+
             });
 
             // Crear etiquetas para cada juego
