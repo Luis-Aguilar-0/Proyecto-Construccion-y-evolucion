@@ -227,7 +227,7 @@ public class UsuarioDAO {
                     "j.imagenTres" +
                     " from usuario_juego uj join juegos j on j.idJuego = uj.idJuego where uj.idUsuario = " + idUsuario);
             while (res.next()) {
-                System.out.println("Juego encontrado: " + res.getString("nombreJuego"));
+                //System.out.println("Juego encontrado: " + res.getString("nombreJuego"));
                 Juego game = new Juego();
                 game.setIdJuego(res.getInt("idJuego"));
                 game.setNombreJuego(res.getString("nombreJuego"));

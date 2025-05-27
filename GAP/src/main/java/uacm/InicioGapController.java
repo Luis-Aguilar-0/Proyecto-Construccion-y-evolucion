@@ -3,6 +3,7 @@ package uacm;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 
@@ -21,12 +22,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import logic.Juego;
+import uacm.utilities.PathsImages;
+import persistencia.Sesion;
 
 /**
  *
  * @author Frncs.Fox
  */
-public class InicioGapController implements Initializable{
+public class InicioGapController implements Initializable {
+
     @FXML
     private ImageView imgInicio;
     @FXML
@@ -97,49 +102,49 @@ public class InicioGapController implements Initializable{
     private MenuItem cerrarSesion_Item;
     @FXML
     private Button recarga_bttn;
-    
+
     @FXML
-    private void moverIzquierdaPlay(){
+    private void moverIzquierdaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() - speed_scroll;
-        
+
         carrucel_scPn_play.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
+    }
+
     @FXML
-    private void moverDerechaPlay(){
+    private void moverDerechaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() + speed_scroll;
-        
+
         carrucel_scPn_play.setHvalue(Math.min(nuevaPosicion, 1));
     }
-    
+
     @FXML
-    private void moverIzquierdaBox(){
+    private void moverIzquierdaBox() {
         double nuevaPosicion = carrucel_scPn_box.getHvalue() - speed_scroll;
-        
+
         carrucel_scPn_box.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
+    }
+
     @FXML
-    private void moverDerechaBox(){
+    private void moverDerechaBox() {
         double nuevaPosicion = carrucel_scPn_box.getHvalue() + speed_scroll;
-        
+
         carrucel_scPn_box.setHvalue(Math.min(nuevaPosicion, 1));
     }
-    
+
     @FXML
-    private void moverIzquierdaNin(){
+    private void moverIzquierdaNin() {
         double nuevaPosicion = carrucel_scPn_nin.getHvalue() - speed_scroll;
-        
+
         carrucel_scPn_nin.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
+    }
+
     @FXML
-    private void moverDerechaNin(){
+    private void moverDerechaNin() {
         double nuevaPosicion = carrucel_scPn_nin.getHvalue() + speed_scroll;
-        
+
         carrucel_scPn_nin.setHvalue(Math.min(nuevaPosicion, 1));
     }
-        
+
     public void abrirVentana(String rutaFXML, MouseEvent event, String tituloVentana) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -157,7 +162,7 @@ public class InicioGapController implements Initializable{
             e.printStackTrace();
         }
     }
-    
+
     private void abrirVentana2(String rutaFXML) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -171,7 +176,7 @@ public class InicioGapController implements Initializable{
             ex.printStackTrace();
         }
     }
-    
+
     /*public void cambiarVentana1(String rutaFXML, ActionEvent event, String tituloVentana) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -192,7 +197,6 @@ public class InicioGapController implements Initializable{
             e.printStackTrace();
         }
     }*/
-    
     public void cambiarVentana2(String rutaFXML, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));//carga el archivo con la ruta parametro
@@ -228,82 +232,161 @@ public class InicioGapController implements Initializable{
         }
     }
 
-    private void cerrarVentana(Button boton){
+    private void cerrarVentana(Button boton) {
         Stage ventanaActual = (Stage) boton.getScene().getWindow();
         ventanaActual.close();
-    } 
-    
+    }
+
+    private Juego getJuegoPorNombre(String nombre) {
+        List<Juego> juegos = PathsImages.games; //obtengo los juegos
+
+        for (Juego j : juegos) {
+            if (j.getNombreJuego().equalsIgnoreCase(nombre)) {
+                return j;
+            }
+        }
+        return null;
+    }
+
+    private void paginaJuego(Juego juego) {
+        if (juego != null) {
+            System.out.println(juego);
+            Sesion.setJuegoPagina(juego);
+
+        } else {
+            System.out.println(juego);
+        }
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //cargarImagenPerfil();
-        
+
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
-        
+
         btnDerecha_play.setOnAction(e -> moverDerechaPlay());
-        
+
         btnIzquierda_box.setOnAction(e -> moverIzquierdaBox());
-        
+
         btnDerecha_box.setOnAction(e -> moverDerechaBox());
-        
+
         btnIzquierda_nin.setOnAction(e -> moverIzquierdaNin());
-        
+
         btnDerecha_nin.setOnAction(e -> moverDerechaNin());
-        
+
         Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfilgato.jpg");
-        
+
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(70);
         imageView.setFitHeight(70);
         imageView.setPreserveRatio(true);
-        
+
         menuPerfil_btn.setGraphic(imageView);
-        
+        //God Of War Ragnarök
         //Juegos Playstation
-        img1Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us"));
-        img2Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "God Of War"));
-        img3Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Uncharted"));
-        img4Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon"));
-        img5Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man"));
-        img6Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Returnal"));
-        
+        img1Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("The Last of Us Part I"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us");
+        });
+
+        img2Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("God Of War Ragnarök"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "God Of War");
+        });
+
+        img3Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("UNCHARTED: Colección Legado de ladrones"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Uncharted");
+        });
+        img4Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Horizon: Zero Dawn"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon");
+        });
+        img5Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Marvel s Spider-Man: Miles Morales"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man");
+        });
+        img6Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Returnal"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Returnal");
+        });
+
         //Juegos XBox
-        img1Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mortal Kombat 1"));
-        img2Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Grand Theft Auto"));
-        img3Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Elden Ring"));
-        img4Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Cyber Punk"));
-        img5Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Howarts Legacy"));
-        img6Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Battlefield V"));
-        
+        img1Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Mortal Kombat 1"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mortal Kombat 1");
+        });
+        img2Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Grand Theft Auto V"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Grand Theft Auto");
+        });
+        img3Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("ELDEN RING"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Elden Ring");
+        });
+        img4Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Cyberpunk 2077"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Cyber Punk");
+        });
+        img5Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Hogwarts Legacy"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Hogwarts Legacy");
+        });
+        img6Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Battlefield V"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Battlefield V");
+        });
+
         //Juegos Nintendo
-        img1Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Party"));
-        img2Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Zelda: Tears of the kindom"));
-        img3Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Pokemon Purpura"));
-        img4Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Mario Odyssey"));
-        img5Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Smash Bros"));
-        img6Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Kart 8"));
-        
+        img1Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Mario Party Jamboree"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Party");
+        });
+        img2Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("The Legend of Zelda: Tears of the Kingdom"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Zelda: Tears of the kindom");
+        });
+        img3Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Pokémon Violet"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Pokémon Purpura");
+        });
+        img4Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Mario Odyssey"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Mario Odyssey");
+        });
+        img5Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Smash Bros. Ultimate"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Smash Bros");
+        });
+        img6Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Mario Kart 8 Deluxe"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Kart 8");
+        });
+
         categorias_btn.setOnAction(eh -> {
             //abrirVentana("/fxmls/Categorias.fxml", "Categorias.fxml");
             cambiarVentana2("/fxmls/Categorias.fxml", eh);
         });
-        
+
         botonBiblioteca.setOnAction(eh -> {
             cerrarVentana(botonBiblioteca);
             //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } ;
             cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
         });
-        
+
         verPerfil_Item.setOnAction(eh -> {
             //abrirVentana("/fxmls/Perfil2.fxml", "Categorias");
             cambiarVentana2("/fxmls/Perfil2.fxml", eh);
         });
-        
+
         cerrarSesion_Item.setOnAction(eh -> {
             abrirVentana2("/fxmls/CerrarSesion.fxml");
         });
-        
+
         recarga_bttn.setOnAction(eh -> {
             cambiarVentana2("/fxmls/RecargaAxolotl.fxml", eh);
         });
+
     }
 }
