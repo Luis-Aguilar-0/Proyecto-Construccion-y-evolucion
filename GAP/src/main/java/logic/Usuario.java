@@ -1,6 +1,7 @@
 package logic;
 
 import java.sql.Date;
+import java.util.ArrayList; 
 import java.util.List;
 
 /**
@@ -10,26 +11,27 @@ import java.util.List;
 public class Usuario {
 
     // En esta clase ira todo lo relacionado con el cliente
-    // atributos
     private int id;
     private String usuario;
     private String email;
     private String pasword;
-    private double saldo; // cuanto dinero se ha gastado en comprar juegos
-    private Integer ajoloCoins;// sirve para comprar juegos en la plataforma
+    private double saldo; 
+    private Integer ajoloCoins;
     private byte[] imagenPerfil;
-    private Integer idTarjetaCredito;
     private List<Juego> juegos;
-    private Tarjeta tarjetaUser;
+    private List<Tarjeta> tarjetasGuardadas; 
     private Date fechaNacimiento;
+    private Integer idTarjetaCredito; 
 
     // contructores
     public Usuario() {
+        this.juegos = new ArrayList<>();
+        this.tarjetasGuardadas = new ArrayList<>();
     }
 
     public Usuario(int id_, String usuario_, String email_, String pasword_, double saldo_, Integer ajoloCoins_,
-            byte[] imagenPerfil_, Integer idTarjetaCredito_) {
-
+                   byte[] imagenPerfil_) {
+        this(); 
         this.id = id_;
         this.usuario = usuario_;
         this.email = email_;
@@ -37,10 +39,8 @@ public class Usuario {
         this.saldo = saldo_;
         this.ajoloCoins = ajoloCoins_;
         this.imagenPerfil = imagenPerfil_;
-        this.idTarjetaCredito = idTarjetaCredito_;
-
     }
-    
+
     /**
      * Constructor usado cuando se crea registra un nuevo usuario en la base de datos
      * @param usuario
@@ -49,6 +49,7 @@ public class Usuario {
      * @param fechaNacimiento
      */
     public Usuario(String usuario, String email, String pasword, Date fechaNacimiento) {
+        this(); 
         this.usuario = usuario;
         this.email = email;
         this.pasword = pasword;
@@ -56,9 +57,9 @@ public class Usuario {
         this.ajoloCoins = 0;
         this.saldo = 0.0;
     }
-    
-    
+
     public Usuario(String usuario, String email, String pasword) {
+        this(); 
         this.usuario = usuario;
         this.email = email;
         this.pasword = pasword;
@@ -71,14 +72,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public Integer getIdTarjetaCredito() {
-        return idTarjetaCredito;
-    }
-
-    public void setIdTarjetaCredito(Integer idTarjetaCredito) {
-        this.idTarjetaCredito = idTarjetaCredito;
     }
 
     public String getUsuario() {
@@ -129,26 +122,15 @@ public class Usuario {
         this.imagenPerfil = imagenPerfil;
     }
 
-    @Override
-    public String toString() {
-        return "Cliente [usuario=" + usuario + ", email=" + email + ", pasword=" + pasword + ", saldo=" + saldo
-                + ", imagenPerfil=" + imagenPerfil + "]";
-    }
-
     public List<Juego> getJuegos() {
+        if (this.juegos == null) {
+            this.juegos = new ArrayList<>();
+        }
         return juegos;
     }
 
     public void setJuegos(List<Juego> juegos) {
         this.juegos = juegos;
-    }
-
-    public Tarjeta getTarjetaUser() {
-        return tarjetaUser;
-    }
-
-    public void setTarjetaUser(Tarjeta tarjetaUser) {
-        this.tarjetaUser = tarjetaUser;
     }
 
     public Date getFechaNacimiento() {
@@ -159,4 +141,72 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public void setIdTarjetaCredito(Integer idTarjetaCredito) {
+        this.idTarjetaCredito = idTarjetaCredito;
+    }
+
+    public Integer getIdTarjetaCredito() {
+        return idTarjetaCredito;
+    }
+
+    //  Metodos para gestionar la lista de tarjetas guardadas
+    /**
+     * Obtiene la lista de tarjetas de credito/debito guardadas por el usuario
+     * @return Una lista de objetos Tarjeta. La lista estara vacía si no hay tarjetas
+     */
+    public List<Tarjeta> getTarjetasGuardadas() {
+        if (this.tarjetasGuardadas == null) {
+            this.tarjetasGuardadas = new ArrayList<>();
+        }
+        return tarjetasGuardadas;
+    }
+
+    /**
+     * Establece la lista de tarjetas de credito - debito para el usuario
+     * Si la lista proporcionada es null, se inicializa como una lista vacia
+     * @param tarjetasGuardadas La nueva lista de tarjetas.
+     */
+    public void setTarjetasGuardadas(List<Tarjeta> tarjetasGuardadas) {
+        this.tarjetasGuardadas = (tarjetasGuardadas != null) ? tarjetasGuardadas : new ArrayList<>();
+    }
+
+    /**
+     * Agrega una tarjeta a la lista de tarjetas guardadas del usuario
+     * si no existe ya una tarjeta con el mismo ID
+     * @param tarjeta La tarjeta a agregar
+     */
+    public void agregarTarjetaGuardada(Tarjeta tarjeta) {
+        if (this.tarjetasGuardadas == null) {
+            this.tarjetasGuardadas = new ArrayList<>();
+        }
+        if (tarjeta != null) {
+            boolean existe = false;
+            for (Tarjeta tExistente : this.tarjetasGuardadas) {
+                if (tExistente.getIdTarjeta() == tarjeta.getIdTarjeta()) {
+                    existe = true;
+                    break;
+                }
+            }
+            if (!existe) {
+                this.tarjetasGuardadas.add(tarjeta);
+            }
+        }
+    }
+
+    /**
+     * Remueve una tarjeta de la lista de tarjetas guardadas del usuario
+     * basandose en ID
+     * @param idTarjetaAEliminar El ID de la tarjeta que se desea eliminar
+     */
+    public void removerTarjetaGuardada(int idTarjetaAEliminar) {
+        if (this.tarjetasGuardadas != null) {
+            this.tarjetasGuardadas.removeIf(tarjeta -> tarjeta.getIdTarjeta() == idTarjetaAEliminar);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente [usuario=" + usuario + ", email=" + email + ", pasword=" + pasword + ", saldo=" + saldo
+                + ", imagenPerfil=" + imagenPerfil + "]";
+    }
 }

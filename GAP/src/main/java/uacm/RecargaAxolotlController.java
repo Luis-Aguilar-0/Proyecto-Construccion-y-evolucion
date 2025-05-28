@@ -90,7 +90,7 @@ public class RecargaAxolotlController implements Initializable {
     }
     
     private boolean validarTarjeta(){
-        return u != null && u.getTarjetaUser() != null;
+        return u != null && u.getTarjetasGuardadas()!= null;
     }
     
     /**

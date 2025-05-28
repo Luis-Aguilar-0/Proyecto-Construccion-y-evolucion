@@ -23,9 +23,9 @@ values(
 		,'Dodge Roll'--desarrollador
 		,'2016-04-05'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Accion/PortadaEnterTheGungeon.jpg'--portada
-		,'/imagenes/imagenesJuegos/EnterTheGungeonUno'--imagenes
-		,'/imagenes/imagenesJuegos/EnterTheGungeonDos'
-		,'/imagenes/imagenesJuegos/EnterTheGungeonTres'
+		,'/imagenes/imagenesJuegos/EnterTheGungeonUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/EnterTheGungeonDos.jpg'
+		,'/imagenes/imagenesJuegos/EnterTheGungeonTres.jpg'
 		,0 --categoría
 		,'Enter the Gungeon es un juego de mazmorras y disparos que sigue los pasos de una banda de inadaptados que solo quieren disparar, saquear,esquivar y destrozar todo en su camino a la absolución personal por llegar al tesoro final de la Armazmorra legendaria: el arma que puede matar el pasado.'
 		), --descripcion
@@ -37,9 +37,9 @@ values(
 		,'Supergiant Games'--desarrollador
 		,'2018-12-06'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Accion/PortadaHades.jpg'--portada
-		,'/imagenes/imagenesJuegos/HadesUno'--imagenes
-		,'/imagenes/imagenesJuegos/HadesDos'
-		,'/imagenes/imagenesJuegos/HadesTres'
+		,'/imagenes/imagenesJuegos/HadesUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/HadesDos.jpg'
+		,'/imagenes/imagenesJuegos/HadesTres.jpg'
 		,0 --categoría
 		,'Hades es un juego de estilo roguelike de dioses y mazmorras que combina los mejores aspectos de los aclamados títulos anteriores de Supergiant, como la acción vertiginosa de Bastion, la rica atmósfera y profundidad de Transistor y la narrativa enfocada en los personajes de Pyre. Como el Príncipe inmortal del Inframundo, blandirás los poderes y las armas míticas del Olimpo para liberarte de las garras del mismísimo dios de los muertos, mientras te fortaleces y revelas más partes de la historia con cada intento de escape.') --descripcion
 
@@ -51,9 +51,9 @@ values(
 		,'Hopoo Games'--desarrollador
 		,'2013-11-08'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Accion/PortadaRiskOfRain.jpg'--portada
-		,'/imagenes/imagenesJuegos/RiskOfRainUno'--imagenes
-		,'/imagenes/imagenesJuegos/RiskOfRainDos'
-		,'/imagenes/imagenesJuegos/RiskOfRainTres'
+		,'/imagenes/imagenesJuegos/RiskOfRainUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/RiskOfRainDos.jpg'
+		,'/imagenes/imagenesJuegos/RiskOfRainTres.jpg'
 		,0 --categoría
 		,'Risk of Rain es un juego de plataformas de acción con elementos roguelike. Descubra una miríada de etapas elegidas al azar, desde el bosque desolado hasta la tundra congelada.') --descripcion
 
@@ -65,9 +65,9 @@ values(
 		,'Megacrit'--desarrollador
 		,'2019-01-23'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Accion/PortadaSlayTheSpire.jpg'--portada
-		,'/imagenes/imagenesJuegos/SlayTheSpireUno'--imagenes
-		,'/imagenes/imagenesJuegos/SlayTheSpireDos'
-		,'/imagenes/imagenesJuegos/SlayTheSpireTres'
+		,'/imagenes/imagenesJuegos/SlayTheSpireUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/SlayTheSpireDos.jpg'
+		,'/imagenes/imagenesJuegos/SlayTheSpireTres.jpg'
 		,0 --categoría
 		,'Slay the Spire fusiona juegos de cartas y roguelites juntos: crea una baraja única, encuentra criaturas extrañas, descubre reliquias de inmenso poder y Slay the Spire') --descripcion
 
@@ -79,9 +79,9 @@ values(
 		,'BlitWorks.Mossmouth'--desarrollador
 		,'2020-09-15'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Accion/PortadaSpelunky2.jpg'--portada
-		,'/imagenes/imagenesJuegos/Spelunky2Uno'--imagenes
-		,'/imagenes/imagenesJuegos/Spelunky2Dos'
-		,'/imagenes/imagenesJuegos/Spelunky2Tres'
+		,'/imagenes/imagenesJuegos/Spelunky2Uno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/Spelunky2Dos.jpg'
+		,'/imagenes/imagenesJuegos/Spelunky2Tres.jpg'
 		,0 --categoría
 		,'Spelunky 2 es la secuela del juego de exploración de cuevas/caza de tesoros Spelunky. Sigue a Ana Spelunky y sus amigas en una emocionante nueva aventura mientras viajan más profundo de lo que podrían haber imaginado'); --descripcion
 
@@ -95,9 +95,9 @@ values(
 		,'Wube Software'--desarrollador
 		,'2020-08-14'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Estrategia/PortadaFactorio.jpg'--portada
-		,'/imagenes/imagenesJuegos/FactorioUno'--imagenes
-		,'/imagenes/imagenesJuegos/FactorioDos'
-		,'/imagenes/imagenesJuegos/FactorioTres'
+		,'/imagenes/imagenesJuegos/FactorioUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/FactorioDos.jpg'
+		,'/imagenes/imagenesJuegos/FactorioTres.jpg'
 		,1 --categoría
 		,'Factorio es un juego sobre la construcción de fábricas en un planeta alienígena. Estarás extrayendo recursos, investigando tecnologías, construyendo infraestructura, automatizando la producción y luchando contra enemigos alienígenas.'
 		), --descripcion
@@ -109,9 +109,9 @@ values(
 		,'Mediatonic'--desarrollador
 		,'2020-08-04'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Estrategia/PortadaFallGuys.jpg'--portada
-		,'/imagenes/imagenesJuegos/FallGuysUno'--imagenes
-		,'/imagenes/imagenesJuegos/FallGuysDos'
-		,'/imagenes/imagenesJuegos/FallGuysTres'
+		,'/imagenes/imagenesJuegos/FallGuysUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/FallGuysDos.jpg'
+		,'/imagenes/imagenesJuegos/FallGuysTres.jpg'
 		,1 --categoría
 		,'Fall Guys es un party royale gratuito, multiplataforma y multijugador masivo. Compite a tropezones en absurdas carreras de obstáculos con tus amigos. Esquiva todo en tu camino a la victoria en el panteón de la torpeza. ¿Novato o profesional? ¿En solitario o en grupo? Fall Guys está lleno de risas y diversión en constante evolución. ¿Prefieres ser el agente del caos? Construye tu circuito de obstáculos y compártelo 		con tus amigos y la comunidad.'
 		), -- descripcion
@@ -123,9 +123,9 @@ values(
 		,'Subset Games'--desarrollador
 		,'2012-09-14'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Estrategia/PortadaFTL.jpg'--portada
-		,'/imagenes/imagenesJuegos/FTLUno'--imagenes
-		,'/imagenes/imagenesJuegos/FTLDos'
-		,'/imagenes/imagenesJuegos/FTLTres'
+		,'/imagenes/imagenesJuegos/FTLUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/FTLDos.jpg'
+		,'/imagenes/imagenesJuegos/FTLTres.jpg'
 		,1 --categoría
 		,'Esta especie de "roguelike de simulación de naves espaciales" te permite llevar tu nave y tu tripulación en una aventura a través de una galaxia generada al azar llena de gloria y amarga derrota. Da órdenes a tu tripulación, gestiona la distribución de energía del barco y elige objetivos de armas en el fragor de la batalla.'
 		), --descripción
@@ -137,9 +137,9 @@ values(
 		,'Monomi Park'--desarrollador
 		,'2016-01-14'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Estrategia/PortadaSlimeRancher.jpg'--portada
-		,'/imagenes/imagenesJuegos/SlimeRancherUno'--imagenes
-		,'/imagenes/imagenesJuegos/SlimeRancherDos'
-		,'/imagenes/imagenesJuegos/SlimeRancherTres'
+		,'/imagenes/imagenesJuegos/SlimeRancherUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/SlimeRancherDos.jpg'
+		,'/imagenes/imagenesJuegos/SlimeRancherTres.jpg'
 		,1 --categoría
 		,'Slime Rancher es una encantadora experiencia sandbox en primera persona. Juega como Beatrix LeBeau, una intrépida y joven ranchera que se prepara para una vida a mil años luz de la Tierra en la "Lejana, Lejana Pradera" (Far, Far Range). Cada día presentará nuevos desafíos y riesgosas oportunidades mientras intentas acumular una gran fortuna en el negocio de los ranchos de slimes. Colecciona slimes coloridos, siembra cultivos, cosecha recursos y explora la naturaleza indómita a través del dominio de tu vacpack multiuso.'
 		), --descripción
@@ -151,9 +151,9 @@ values(
 		,'ConcernedApe.Sickhead Games'--desarrollador
 		,'2016-02-26'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Estrategia/PortadaStardewValley.jpg'--portada
-		,'/imagenes/imagenesJuegos/StardewValleyUno'--imagenes
-		,'/imagenes/imagenesJuegos/StardewValleyDos'
-		,'/imagenes/imagenesJuegos/StardewValleyTres'
+		,'/imagenes/imagenesJuegos/StardewValleyUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/StardewValleyDos.jpg'
+		,'/imagenes/imagenesJuegos/StardewValleyTres.jpg'
 		,1 --categoría
 		,'Acabas de heredar la vieja parcela agrícola de tu abuelo de Stardew Valley. Decides partir hacia una nueva vida con unas herramientas usadas y algunas monedas. ¿Te ves capaz de vivir de la tierra y convertir estos campos descuidados en un hogar próspero?'
 		); --descripción
@@ -168,9 +168,9 @@ values(
 		,'Giant Squid'--desarrollador
 		,'2016-08-02'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Narrativa/PortadaAbzu.jpg'--portada
-		,'/imagenes/imagenesJuegos/AbzuUno'--imagenes
-		,'/imagenes/imagenesJuegos/AbzuDos'
-		,'/imagenes/imagenesJuegos/AbzuTres'
+		,'/imagenes/imagenesJuegos/AbzuUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/AbzuDos.jpg'
+		,'/imagenes/imagenesJuegos/AbzuTres.jpg'
 		,2 --categoría
 		,'ABZU es el proyecto de desarrollo debut del desarrollador Giant Squid y el Director Creativo Matt Nava, quien fue uno de los principales contribuyentes a los hermosos y aclamados títulos Flower and Journey.') --descripción
 
@@ -182,9 +182,9 @@ values(
 		,'Nomada Studio'--desarrollador
 		,'2018-12-13'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Narrativa/PortadaGris.jpg'--portada
-		,'/imagenes/imagenesJuegos/GrisUno'--imagenes
-		,'/imagenes/imagenesJuegos/GrisDos'
-		,'/imagenes/imagenesJuegos/GrisTres'
+		,'/imagenes/imagenesJuegos/GrisUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/GrisDos.jpg'
+		,'/imagenes/imagenesJuegos/GrisTres.jpg'
 		,2 --categoría
 		,'Gris es una muchacha llena de esperanzas y perdida en su propio mundo, enfrentada a una experiencia dolorosa de su vida. En el sereno y evocador Gris interactivo. Los jugadores explorarán un mundo meticuloso diseñado que cobra vida con arte delicado, animación detallada y una elegante partitura original.') --descripción
 
@@ -196,9 +196,9 @@ values(
 		,'Thatgamecompany (TGC).Tricky Pixels'--desarrollador
 		,'2012-03-13'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Narrativa/PortadaJourney.jpg'--portada
-		,'/imagenes/imagenesJuegos/JourneyUno'--imagenes
-		,'/imagenes/imagenesJuegos/JourneyDos'
-		,'/imagenes/imagenesJuegos/JourneyTres'
+		,'/imagenes/imagenesJuegos/JourneyUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/JourneyDos.jpg'
+		,'/imagenes/imagenesJuegos/JourneyTres.jpg'
 		,2 --categoría
 		,'Explora el antiguo y misterioso mundo de Journey mientras vuelas sobre ruinas y planeas a lo largo del desierto para descubrir sus secretos. Juega solo o en compañía de un viajero y exploren juntos este inmenso mundo. Gracias a sus increíbles gráficos y su banda sonora nominada al Grammy, Journey te ofrece una experiencia impresionante como ninguna otra.') --descripción
 
@@ -210,9 +210,9 @@ values(
 		,'Finji Games.Infinite Fall'--desarrollador
 		,'2017-01-10'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Narrativa/PortadaNightInTheWoods.jpg'--portada
-		,'/imagenes/imagenesJuegos/NightInTheWoodsUno'--imagenes
-		,'/imagenes/imagenesJuegos/NightInTheWoodsDos'
-		,'/imagenes/imagenesJuegos/NightInTheWoodsTres'
+		,'/imagenes/imagenesJuegos/NightInTheWoodsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/NightInTheWoodsDos.jpg'
+		,'/imagenes/imagenesJuegos/NightInTheWoodsTres.jpg'
 		,2 --categoría
 		,'Night in the Woods es un juego de aventura sobre un personaje que ha abandonado la universidad y vuelve a casa, donde se encuentra con los 		amigos y el pueblo que había dejado atrás. Rompe cosas, toca el bajo, relájate y pasa el rato, visita distintos lugares y descubre cosas que 		no deberías saber. Vuelve a Possum Springs, tu hogar.') --descripción
 
@@ -224,9 +224,9 @@ values(
 		,'Mobius Digital.Annapurna Interactive'--desarrollador
 		,'2020-06-10'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Narrativa/PortadaOuterWilds.jpg'--portada
-		,'/imagenes/imagenesJuegos/OuterWildsUno'--imagenes
-		,'/imagenes/imagenesJuegos/OuterWildsDos'
-		,'/imagenes/imagenesJuegos/OuterWildsTres'
+		,'/imagenes/imagenesJuegos/OuterWildsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/OuterWildsDos.jpg'
+		,'/imagenes/imagenesJuegos/OuterWildsTres.jpg'
 		,1 --categoría
 		,'Eres la nueva incorporación de Outer Wilds Ventures, un programa espacial incipiente que busca respuestas en un sistema solar extraño y en constante evolución.
 		Los misterios del sistema solar...
@@ -244,9 +244,9 @@ values(
 		,'Nicalis.Inc./Studio Pixel'--desarrollador
 		,'2007-12-31'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaCaveStory.jpg'--portada
-		,'/imagenes/imagenesJuegos/CaveStoryUno'--imagenes
-		,'/imagenes/imagenesJuegos/CaveStoryDos'
-		,'/imagenes/imagenesJuegos/CaveStoryTres'
+		,'/imagenes/imagenesJuegos/CaveStoryUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/CaveStoryDos.jpg'
+		,'/imagenes/imagenesJuegos/CaveStoryTres.jpg'
 		,3 --categoría
 		,'Podría decirse que es el juego indie más conocido de todos los tiempos. Cave Story+ ofrece una historia original con personalidad propia, misterio y diversión a toda velocidad. ¡Corre, salta, dispara, vuela y explora en esta gigantesca aventura con el sabor de los clásicos de 8 y 16 bits!') --descripción
 
@@ -258,9 +258,9 @@ values(
 		,'Maddy Makes Games'--desarrollador
 		,'2018-01-25'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaCeleste.jpg'--portada
-		,'/imagenes/imagenesJuegos/CelesteUno'--imagenes
-		,'/imagenes/imagenesJuegos/CelesteDos'
-		,'/imagenes/imagenesJuegos/CelesteTres'
+		,'/imagenes/imagenesJuegos/CelesteUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/CelesteDos.jpg'
+		,'/imagenes/imagenesJuegos/CelesteTres.jpg'
 		,3 --categoría
 		,'Ayuda a Madeline a sobrevivir contra sus demonios internos en su travesía rumbo a la cima de la montaña Celeste, en este juego de plataformas súper intenso de los creadores de TowerFall. Enfréntate a cientos de desafíos diseñados a mano, descubre secretos enigmáticos y revela los misterios de la montaña.') --descripción
 
@@ -272,9 +272,9 @@ values(
 		,'Motion Twin'--desarrollador
 		,'2018-08-07'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaDeadCells.jpg'--portada
-		,'/imagenes/imagenesJuegos/DeadCellsUno'--imagenes
-		,'/imagenes/imagenesJuegos/DeadCellsDos'
-		,'/imagenes/imagenesJuegos/DeadCellsTres'
+		,'/imagenes/imagenesJuegos/DeadCellsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/DeadCellsDos.jpg'
+		,'/imagenes/imagenesJuegos/DeadCellsTres.jpg'
 		,3 --categoría
 		,'Dead Cells es un roguelite de acción y plataformas inspirado en los metroidvania. Explorarás un castillo en constante cambio y expansión, si es que logras abrirte paso entre los guardianes en combates 2D de estilo Dark Souls. Sin puntos de control. Mata, muere, aprende y repite. No hay puntos de control. Esto se trata de matar, morir, aprender y repetir.
 		Dead Cells te pone al mando de un experimento alquímico fallido que intenta averiguar qué está sucediendo en una isla extensa, cambiante y aparentemente maldita. Aunque seas inmortal, estarás lisiado y deberás poseer otros cuerpos para moverte, explorar… y luchar.') --			descripción
@@ -287,9 +287,9 @@ values(
 		,'Polytron Corporation.Inc'--desarrollador
 		,'2012-04-13'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaFez.jpg'--portada
-		,'/imagenes/imagenesJuegos/FezUno'--imagenes
-		,'/imagenes/imagenesJuegos/FezDos'
-		,'/imagenes/imagenesJuegos/FezTres'
+		,'/imagenes/imagenesJuegos/FezUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/FezDos.jpg'
+		,'/imagenes/imagenesJuegos/FezTres.jpg'
 		,3 --categoría
 		,'Gomez es una criatura 2D que vive en un mundo 2D. ¿O no? Cuando descubre la existencia de una misteriosa tercera dimensión, Gomez comienza un viaje que lo llevará al final del tiempo y el espacio. Usa tu habilidad para manejar estructuras 3D desde 4 perspectivas 2D clásicas distintas.') --descripción
 
@@ -301,9 +301,9 @@ values(
 		,'Team Cherry'--desarrollador
 		,'2017-02-24'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaHollowKnight.jpg'--portada
-		,'/imagenes/imagenesJuegos/HollowKnightUno'--imagenes
-		,'/imagenes/imagenesJuegos/HollowKnightDos'
-		,'/imagenes/imagenesJuegos/HollowKnightTres'
+		,'/imagenes/imagenesJuegos/HollowKnightUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/HollowKnightDos.jpg'
+		,'/imagenes/imagenesJuegos/HollowKnightTres.jpg'
 		,3 --categoría
 		,'Bajo la deteriorada ciudad de Petrópolis yace un antiguo reino en ruinas. A muchos les atrae la vida bajo la superficie y van en busca de riquezas, gloria o respuestas a viejos enigmas.
 		Hollow Knight es una aventura de acción clásica en 2D ambientada en un vasto mundo interconectado. Explora cavernas tortuosas, ciudades antiguas y páramos mortales. Combate contra criaturas corrompidas, haz amistad con extraños insectos y resuelve los antiguos misterios que yacen en el corazón de reino.') --descripción
@@ -316,9 +316,9 @@ values(
 		,'Moon Studios GmbH'--desarrollador
 		,'2015-03-11'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaOriAndTheBlind.jpg'--portada
-		,'/imagenes/imagenesJuegos/OriAndTheBlindUno'--imagenes
-		,'/imagenes/imagenesJuegos/OriAndTheBlindDos'
-		,'/imagenes/imagenesJuegos/OriAndTheBlindTres'
+		,'/imagenes/imagenesJuegos/OriAndTheBlindUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/OriAndTheBlindDos.jpg'
+		,'/imagenes/imagenesJuegos/OriAndTheBlindTres.jpg'
 		,3 --categoría
 		,'El bosque de Nibel está muriendo. Después de que una fuerte tormenta pusiera en marcha una serie de devastadores acontecimientos, un inesperado héroe deberá partir en busca del valor y enfrentarse a su oscuro archienemigo; solo así salvará su hogar. Ori and the Blind Forest narra la historia de un joven huérfano destinado a convertirse en leyenda a través de un juego de acción y plataformas preciosista creado por Moon Studios para PC. Gráficos e ilustraciones pintados a mano, personajes animados al detalle y una banda sonora totalmente orquestada dan vida a Ori and the Blind Forest, que explora una conmovedora historia sobre el amor y el sacrificio, y la esperanza que reside en todos nosotros.') --descripción
 
@@ -330,9 +330,9 @@ values(
 		,'Yacht Club Games'--desarrollador
 		,'2014-01-26'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaShovelKnight.jpg'--portada
-		,'/imagenes/imagenesJuegos/ShovelKnightUno'--imagenes
-		,'/imagenes/imagenesJuegos/ShovelKnightDos'
-		,'/imagenes/imagenesJuegos/ShovelKnightTres'
+		,'/imagenes/imagenesJuegos/ShovelKnightUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/ShovelKnightDos.jpg'
+		,'/imagenes/imagenesJuegos/ShovelKnightTres.jpg'
 		,3 --categoría
 		,'Shovel Knight es un fantástico juego de aventura y acción clásica con una jugabilidad fuera de serie, personajes memorables y estética retro en 8 bits. ¡Una rompedora mezcla de novedad y clasicismo! Encarna al ""Caballero de la Pala"" que da nombre al juego. Pequeño, pero con una grandiosa y doble misión: derrotar a la malvada Hechicera y recuperar a su amada. Esgrime una afilada Pala: un arma multiusos cuya técnica se ha perdido en el cavar de los tiempos. Siempre honesto y servicial, Shovel Knight es un firme defensor del Código de la Palería: ¡Troncha sin piedad y cava sin parar!') --descripción
 
@@ -344,9 +344,9 @@ values(
 		,'BlitWorks.Team Meat'--desarrollador
 		,'2010-10-20'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Plataforma/PortadaSuperMeatBoy.jpg'--portada
-		,'/imagenes/imagenesJuegos/SuperMeatBoyUno'--imagenes
-		,'/imagenes/imagenesJuegos/SuperMeatBoyDos'
-		,'/imagenes/imagenesJuegos/SuperMeatBoyTres'
+		,'/imagenes/imagenesJuegos/SuperMeatBoyUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/SuperMeatBoyDos.jpg'
+		,'/imagenes/imagenesJuegos/SuperMeatBoyTres.jpg'
 		,3 --categoría
 		,'Super Meat Boy es un juego de plataforma difícil en el que se juega como un chico sin piel que necesita salvar a su novia hecha de vendajes de un feto maligno dentro un tarro que usa un sombrero de copa y un monóculo.') --descripción
 
@@ -360,9 +360,9 @@ values(
 		,'Number None Inc.'--desarrollador
 		,'2008-08-06'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaBraid.jpg'--portada
-		,'/imagenes/imagenesJuegos/BraidUno'--imagenes
-		,'/imagenes/imagenesJuegos/BraidDos'
-		,'/imagenes/imagenesJuegos/BraidTres'
+		,'/imagenes/imagenesJuegos/BraidUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/BraidDos.jpg'
+		,'/imagenes/imagenesJuegos/BraidTres.jpg'
 		,4 --categoría
 		,'Braid es un juego de rompecabezas con toques plataformeros, presentado con un estilo pictórico, donde puedes manipular el flujo del tiempo de unas maneras inusuales y extrañas. Desde una casa en la ciudad, comenzarás una aventura hacia una serie de mundos y resolverás rompecabezas para rescatar una princesa raptada. En cada mundo, tendrás un poder diferente que afecta a la manera en la que el tiempo se comporta, y es precisamente la extrañeza del tiempo la que crea los rompecabezas. Los distintos comportamientos del tiempo incluyen: la posibilidad de rebobinar hacia atrás, objetos inmunes al rebobinado, tiempo que está unido al espacio, realidades paralelas, dilatación del tiempo, y quizá más.') --descripción
 
@@ -374,9 +374,9 @@ values(
 		,'Playdead'--desarrollador
 		,'2016-06-29'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaInside.jpg'--portada
-		,'/imagenes/imagenesJuegos/InsideUno'--imagenes
-		,'/imagenes/imagenesJuegos/InsideDos'
-		,'/imagenes/imagenesJuegos/InsideTres'
+		,'/imagenes/imagenesJuegos/InsideUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/InsideDos.jpg'
+		,'/imagenes/imagenesJuegos/InsideTres.jpg'
 		,4 --categoría
 		,'Descubre INSIDE, el indie de aventuras de Playdead, un juego de plataformas siniestro con historia que combina acción intensa con puzles desafiantes. Fue alabado por la crítica por su siniestro estilo artístico, su banda sonora ambiental y su estremecedor ambiente.') --			descripción
 
@@ -388,9 +388,9 @@ values(
 		,'Playdead.Double Eleven Studios'--desarrollador
 		,'2010-07-21'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaLimbo.jpg'--portada
-		,'/imagenes/imagenesJuegos/LimboUno'--imagenes
-		,'/imagenes/imagenesJuegos/LimboDos'
-		,'/imagenes/imagenesJuegos/LimboTres'
+		,'/imagenes/imagenesJuegos/LimboUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/LimboDos.jpg'
+		,'/imagenes/imagenesJuegos/LimboTres.jpg'
 		,4 --categoría
 		,'Limbo es un laureado juego indie de aventuras que recibió elogios por su atractiva función de puzles y sus inmersivos gráficos y música. Sus sombríos y neblinosos entornos y su espeluznante historia te acompañarán allá a donde vayas.') --descripción
 
@@ -402,9 +402,9 @@ values(
 		,'Thekla Inc.'--desarrollador
 		,'2016-01-26'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaTheWitness.jpg'--portada
-		,'/imagenes/imagenesJuegos/TheWitnessUno'--imagenes
-		,'/imagenes/imagenesJuegos/TheWitnessDos'
-		,'/imagenes/imagenesJuegos/TheWitnessTres'
+		,'/imagenes/imagenesJuegos/TheWitnessUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/TheWitnessDos.jpg'
+		,'/imagenes/imagenesJuegos/TheWitnessTres.jpg'
 		,4 --categoría
 		,'Despiertas a solas, en una extraña isla repleta de rompecabezas. Estos rompecabezas te desafiarán y sorprenderán. No recuerdas quién eres ni cómo llegaste aquí, pero puedes hacer una cosa: explorar la isla con la esperanza de descubrir pistas, recuperar la memoria y encontrar el camino de vuelta a casa. The Witness te respeta porque eres un jugador inteligente y considera que tu tiempo es oro. Hay más de 500 rompecabezas, sin pistas, y cada uno de ellos aporta algo nuevo al conjunto. Es decir, es un juego lleno de ideas.') --descripción
 
@@ -416,9 +416,9 @@ values(
 		,'Witch Beam'--desarrollador
 		,'2021-11-01'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaUnpacking.jpg'--portada
-		,'/imagenes/imagenesJuegos/UnpackingUno'--imagenes
-		,'/imagenes/imagenesJuegos/UnpackingDos'
-		,'/imagenes/imagenesJuegos/UnpackingTres'
+		,'/imagenes/imagenesJuegos/UnpackingUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/UnpackingDos.jpg'
+		,'/imagenes/imagenesJuegos/UnpackingTres.jpg'
 		,4 --categoría
 		,'Unpacking es un juego relajante acerca del sentimiento familiar de sacar pertenencias de cajas para colocarlas en un nuevo hogar. Mitad juego de bloques, mitad juego de decoración, podrás crear habitaciones agradables mientras descubres pistas de la vida que estás desempacando. A lo largo de ocho mudanzas, tendrás la oportunidad de experimentar una sensación de intimidad con un personaje que no ves y con una historia que no te cuentan.') --descripción
 
@@ -430,9 +430,9 @@ values(
 		,'SIE San Diego Studio.Giant Sparrow'--desarrollador
 		,'2017-04-25'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Puzles/PortadaWhatRemains.jpg'--portada
-		,'/imagenes/imagenesJuegos/WhatRemainsUno'--imagenes
-		,'/imagenes/imagenesJuegos/WhatRemainsDos'
-		,'/imagenes/imagenesJuegos/WhatRemainsTres'
+		,'/imagenes/imagenesJuegos/WhatRemainsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/WhatRemainsDos.jpg'
+		,'/imagenes/imagenesJuegos/WhatRemainsTres.jpg'
 		,4 --categoría
 		,'What Remains of Edith Finch es una colección de historias sobre una familia en el estado de Washington. En el papel de Edith, explorarás la casa de los Finch en busca de historias mientras explora su pasado familiar e intenta descubrir por qué es la última Finch viva.');--descripcion
 
@@ -447,9 +447,9 @@ values(
 		,'Frictional Games'--desarrollador
 		,'2010-09-08'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Terror/PortadaAmnesia.jpg'--portada
-		,'/imagenes/imagenesJuegos/AmnesiaUno'--imagenes
-		,'/imagenes/imagenesJuegos/AmnesiaDos'
-		,'/imagenes/imagenesJuegos/AmnesiaTres'
+		,'/imagenes/imagenesJuegos/AmnesiaUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/AmnesiaDos.jpg'
+		,'/imagenes/imagenesJuegos/AmnesiaTres.jpg'
 		,5 --categoría
 		,'Amnesia: The Dark Descent, un horror de supervivencia en primera persona. Un juego sobre inmersión, descubrimiento y vivir una pesadilla, una experiencia que te enfriará hasta la médula.') --descripción
 
@@ -461,9 +461,9 @@ values(
 		,'Tarsier Studios'--desarrollador
 		,'2021-02-11'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Terror/PortadaLittleNightmares2.jpg'--portada
-		,'/imagenes/imagenesJuegos/LittleNightmares2Uno'--imagenes
-		,'/imagenes/imagenesJuegos/LittleNightmares2Dos'
-		,'/imagenes/imagenesJuegos/LittleNightmares2Tres'
+		,'/imagenes/imagenesJuegos/LittleNightmares2Uno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/LittleNightmares2Dos.jpg'
+		,'/imagenes/imagenesJuegos/LittleNightmares2Tres.jpg'
 		,5 --categoría
 		,'Little Nightmares II sigue la historia de Mono, un niño atrapado en un mundo distorsionado por la transmisión de un zumbido de una lejana Torre de Señales.') --descripción
 
@@ -475,9 +475,9 @@ values(
 		,'Red Barrels'--desarrollador
 		,'2013-09-04'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Terror/PortadaOutlast.jpg'--portada
-		,'/imagenes/imagenesJuegos/OutlastUno'--imagenes
-		,'/imagenes/imagenesJuegos/OutlastDos'
-		,'/imagenes/imagenesJuegos/OutlastTres'
+		,'/imagenes/imagenesJuegos/OutlastUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/OutlastDos.jpg'
+		,'/imagenes/imagenesJuegos/OutlastTres.jpg'
 		,5 --categoría
 		,'El infierno es un experimento al que no sobrevivirás en Outlast, un juego de terror y supervivencia en primera persona desarrollado por Red Barrels. Como el periodista de investigación Miles Upshur, explora el manicomio de Mount Massive y sobrevive el mayor tiempo posible para descubrir su terrible secreto... si te animas') --descripción
 
@@ -489,9 +489,9 @@ values(
 		,'Kinetic Games'--desarrollador
 		,'2020-09-17'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/Terror/PortadaPhasmophobia.jpg'--portada
-		,'/imagenes/imagenesJuegos/PhasmophobiaUno'--imagenes
-		,'/imagenes/imagenesJuegos/PhasmophobiaDos'
-		,'/imagenes/imagenesJuegos/PhasmophobiaTres'
+		,'/imagenes/imagenesJuegos/PhasmophobiaUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/PhasmophobiaDos.jpg'
+		,'/imagenes/imagenesJuegos/PhasmophobiaTres.jpg'
 		,5 --categoría
 		,'Phasmophobia es un horror psicológico cooperativo en línea de 4 jugadores donde usted y los miembros de su equipo de investigadores paranormales ingresarán a lugares embrujados llenos de actividad paranormal y reunirán tanta evidencia de lo paranormal como puedan.'); --descripción
 
@@ -504,10 +504,10 @@ values(
 		,1299.00
 		,'CD PROJEKT RED'
 		,'2020-12-09'
-		,'/imagenes/imagesJuegos/PortadaCyberpunk2077'
-		,'/imagenes/imagenesJuegos/Cyberpunk2077Uno'
-		,'/imagenes/imagenesJuegos/Cyberpunk2077Dos'
-		,'/imagenes/imagenesJuegos/Cyberpunk2077Tres'
+		,'/imagenes/imagesJuegos/PortadaCyberpunk2077.jpg'
+		,'/imagenes/imagenesJuegos/Cyberpunk2077Uno.jpg'
+		,'/imagenes/imagenesJuegos/Cyberpunk2077Dos.jpg'
+		,'/imagenes/imagenesJuegos/Cyberpunk2077Tres.jpg'
 		,1
 		,'Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro sombrío de Night City, una peligrosa megalópolis obsesionada con el poder, el glamur y las incesantes modificaciones corporales.')
 		
@@ -518,10 +518,10 @@ values(
 		,819.00
 		,'FromSoftware, Inc.'
 		,'2022-02-24'
-		,'/imagenes/imagesJuegos/PortadaEldenRing'
-		,'/imagenes/imagenesJuegos/EldenRingUno'
-		,'/imagenes/imagenesJuegos/EldenRingDos'
-		,'/imagenes/imagenesJuegos/EldenRingTres'
+		,'/imagenes/imagesJuegos/PortadaEldenRing.jpg'
+		,'/imagenes/imagenesJuegos/EldenRingUno.jpg'
+		,'/imagenes/imagenesJuegos/EldenRingDos.jpg'
+		,'/imagenes/imagenesJuegos/EldenRingTres.jpg'
 		,1
 		,'EL NUEVO JUEGO DE ROL Y ACCIÓN DE AMBIENTACIÓN FANTÁSTICA. Álzate, Sinluz, y que la gracia te guíe para abrazar el poder del Círculo de Elden y encumbrarte como señor del Círculo en las Tierras Intermedias.')
 
@@ -533,9 +533,9 @@ values(
 		,'Rockstar North.Rockstar Games'--desarrollador
 		,'2013-09-17'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaGrandTheft.jpg'--portada
-		,'/imagenes/imagenesJuegos/GrandTheftUno'--imagenes
-		,'/imagenes/imagenesJuegos/GrandTheftDos'
-		,'/imagenes/imagenesJuegos/GrandTheftTres'
+		,'/imagenes/imagenesJuegos/GrandTheftUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/GrandTheftDos.jpg'
+		,'/imagenes/imagenesJuegos/GrandTheftTres.jpg'
 		,0 --categoría
 		,'Un joven estafador callejero, un ladrón de bancos retirado y un psicópata aterrador se ven enredados con algunos de los elementos más aterradores y desquiciados del submundo criminal, el Gobierno de EE. UU. y la industria del entretenimiento. Tendrán que llevar a cabo una serie de peligrosos golpes para sobrevivir en una ciudad implacable en la que no pueden confiar en nadie, y mucho menos los unos en los otros.
 		Los jugadores actuales de juegos de PC pueden transferir tanto el progreso del modo historia de GTAV como los personajes y el progreso de GTA Online con una migración única de la versión heredada de GTAV a GTAV Enhanced.') --descripción
@@ -548,9 +548,9 @@ values(
 		,'Avalanche Software'--desarrollador
 		,'2023-02-10'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaHogwarts.jpg'--portada
-		,'/imagenes/imagenesJuegos/HowartsUno'--imagenes
-		,'/imagenes/imagenesJuegos/HowartsDos'
-		,'/imagenes/imagenesJuegos/HowartsTres'
+		,'/imagenes/imagenesJuegos/HowartsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/HowartsDos.jpg'
+		,'/imagenes/imagenesJuegos/HowartsTres.jpg'
 		,0 --categoría
 		,'Hogwarts Legacy es un RPG de acción en un mundo abierto ambientado en el universo de los libros de Harry Potter. Embárcate en una aventura 		que te llevará por lugares nuevos y conocidos, mientras descubres animales mágicos, personalizas tu personaje, elaboras pociones, dominas 		hechizos, mejoras tus talentos y te conviertes en el mago que siempre has querido ser.
 		Disfruta de Hogwarts en el siglo XIX. Tu personaje es un estudiante que tiene la clave de un antiguo secreto que amenaza con destruir el 		mundo mágico. Haz aliados, lucha contra magos tenebrosos y decide el destino del mundo mágico. Crea tu propio legado. Escribe tu propia 		historia.') --descripción
@@ -563,9 +563,9 @@ values(
 		,'NetherRealm Studios.Saber Interactive.Shiver Entertainment'--desarrollador
 		,'2023-09-14'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaMortalKombat.jpg'--portada
-		,'/imagenes/imagenesJuegos/MortalKombatUno'--imagenes
-		,'/imagenes/imagenesJuegos/MortalKombatDos'
-		,'/imagenes/imagenesJuegos/MortalKombatTres'
+		,'/imagenes/imagenesJuegos/MortalKombatUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/MortalKombatDos.jpg'
+		,'/imagenes/imagenesJuegos/MortalKombatTres.jpg'
 		,0 --categoría
 		,'¡Lo llevamos en la sangre!
 		Descubre el nuevo universo de Mortal Kombat, creado por el Dios del Fuego Liu Kang. ¡Mortal Kombat 1 marca el comienzo de una nueva era para la icónica franquicia, con un sistema de lucha, modos de juego y Fatalities nuevos!') --descripción
@@ -578,9 +578,9 @@ values(
 		,'Criterion Games.DICE (Digital Illusions CE)'--desarrollador
 		,'2018-11-20'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaBattlefield.jpg'--portada
-		,'/imagenes/imagenesJuegos/BattlefieldUno'--imagenes
-		,'/imagenes/imagenesJuegos/BattlefieldDos'
-		,'/imagenes/imagenesJuegos/BattlefieldTres'
+		,'/imagenes/imagenesJuegos/BattlefieldUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/BattlefieldDos.jpg'
+		,'/imagenes/imagenesJuegos/BattlefieldTres.jpg'
 		,0 --categoría
 		,'Tormenta de fuego: Battle Royale, reimaginado para Battlefield
 		Domina el mapa más grande de Battlefield hasta el momento con armas y vehículos de combate épicos mientras se acerca un círculo de fuego letal. Busca recursos, pelea y sobrevive para ser el último escuadrón que quede en pie.
@@ -597,9 +597,9 @@ values(
 		,'Santa Monica Studio'--desarrollador
 		,'2022-11-09'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaGodOfWar.jpg'--portada
-		,'/imagenes/imagenesJuegos/GodOfWarUno'--imagenes
-		,'/imagenes/imagenesJuegos/GodOfWarDos'
-		,'/imagenes/imagenesJuegos/GodOfWarTres'
+		,'/imagenes/imagenesJuegos/GodOfWarUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/GodOfWarDos.jpg'
+		,'/imagenes/imagenesJuegos/GodOfWarTres.jpg'
 		,0 --categoría
 		,'Desde Santa Monica Studio llega la secuela del aclamado por la crítica God of War (2018). Embárcate en un viaje épico y sincero, en el que Kratos y Atreus luchan por resistir y soltar. Llega a PC gracias a Jetpack Interactive.
 		Contra el trasfondo de los nueve reinos nórdicos desgarrados en polos opuestos por la furia de los aesir, se esfuerzan al máximo para evitar el fin del mundo. Pero a pesar de todo su esfuerzo, el Fimbulvetr avanza a toda velocidad.') --descripción
@@ -612,9 +612,9 @@ values(
 		,'Guerrilla Games.Nixxes Software'--desarrollador
 		,'2017-02-28'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaHorizon.jpg'--portada
-		,'/imagenes/imagenesJuegos/HorizonUno'--imagenes
-		,'/imagenes/imagenesJuegos/HorizonDos'
-		,'/imagenes/imagenesJuegos/HorizonTres'
+		,'/imagenes/imagenesJuegos/HorizonUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/HorizonDos.jpg'
+		,'/imagenes/imagenesJuegos/HorizonTres.jpg'
 		,0 --categoría
 		,'Explora un mundo vasto y vibrante plagado de temibles máquinas y misteriosas ruinas de una civilización extinta, ahora remasterizado con impresionantes gráficos y nuevas funcionalidades para PC.
 		Empuña el arco y la lanza de Aloy, una joven cazadora de máquinas y paria de su tribu, mientras descubre sus orígenes, la verdad sobre su misterioso mundo, y su destino para salvarlo de una inminente catástrofe. En sus viajes, Aloy conocerá tribus únicas, asentamientos llenos de vida, y personajes y compañeros de lo más interesantes.') --descripción
@@ -627,9 +627,9 @@ values(
 		,'XDev Studios Europe.Housemarque'--desarrollador
 		,'2021-04-30'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaReturnal.jpg'--portada
-		,'/imagenes/imagenesJuegos/ReturnalUno'--imagenes
-		,'/imagenes/imagenesJuegos/ReturnalDos'
-		,'/imagenes/imagenesJuegos/ReturnalTres'
+		,'/imagenes/imagenesJuegos/ReturnalUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/ReturnalDos.jpg'
+		,'/imagenes/imagenesJuegos/ReturnalTres.jpg'
 		,0 --categoría
 		,'Rompe el ciclo con este premiado juego de disparos en tercera persona que trae la acción del infierno de balas a la PC. La odisea roguelike de Selene llega con una serie de impresionantes mejoras gráficas y de rendimiento para garantizar una travesía inolvidable.
 		Tras estrellarse en este mundo que cambia de forma, Selene debe atravesar el estéril paisaje de una antigua civilización para hallar una salida. Aislada y sola, se encuentra luchando con uñas y dientes por sobrevivir. Al ser derrotada una y otra vez, se ve obligada a reiniciar su travesía cada vez que muere.') --descripción
@@ -642,9 +642,9 @@ values(
 		,'XDev Studios Europe.Housemarque'--desarrollador
 		,'2021-04-30'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaSpiderMan.jpg'--portada
-		,'/imagenes/imagenesJuegos/SpiderManUno'--imagenes
-		,'/imagenes/imagenesJuegos/SpiderManDos'
-		,'/imagenes/imagenesJuegos/SpiderManTres'
+		,'/imagenes/imagenesJuegos/SpiderManUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/SpiderManDos.jpg'
+		,'/imagenes/imagenesJuegos/SpiderManTres.jpg'
 		,0 --categoría
 		,'Luego de los eventos de Marvels Spider-Man Remasterizado, el adolescente Miles Morales intenta adaptarse a la vida en su nuevo hogar intentando seguir los pasos de su mentor, Peter Parker, como el nuevo Spider-Man. Pero cuando una terrible lucha de poder amenaza con destruir su hogar, el aspirante a héroe comprende que un gran poder conlleva una gran responsabilidad. Para lograr salvar la ciudad de Nueva York de Marvel, Miles deberá cargar con la responsabilidad de ser Spider-Man.') --descripción
 
@@ -656,9 +656,9 @@ values(
 		,'Naughty Dog Software'--desarrollador
 		,'2013-06-14'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaTheLastOfUs.jpg'--portada
-		,'/imagenes/imagenesJuegos/TheLastOfUsUno'--imagenes
-		,'/imagenes/imagenesJuegos/TheLastOfUsDos'
-		,'/imagenes/imagenesJuegos/TheLastOfUsTres'
+		,'/imagenes/imagenesJuegos/TheLastOfUsUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/TheLastOfUsDos.jpg'
+		,'/imagenes/imagenesJuegos/TheLastOfUsTres.jpg'
 		,0 --categoría
 		,'Experimenta la emocionante historia y los inolvidables personajes de The Last of Us™, ganador de más de 200 premios Juego del Año.
 		En una civilización devastada donde se enfrentan infectados e insensibilizados sobrevivientes, alguien contrata a Joel, el cansado protagonista, para que escabulla en secreto a Ellie, de 14 años, fuera de una zona militar de cuarentena. Sin embargo, lo que comienza como un pequeño trabajo se convierte en un viaje brutal a través del país.') --descripción
@@ -671,9 +671,9 @@ values(
 		,'Naughty Dog Software.Iron Galaxy Studios'--desarrollador
 		,'2022-01-28'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaUncharted.jpg'--portada
-		,'/imagenes/imagenesJuegos/UnchartedUno'--imagenes
-		,'/imagenes/imagenesJuegos/UnchartedDos'
-		,'/imagenes/imagenesJuegos/UnchartedTres'
+		,'/imagenes/imagenesJuegos/UnchartedUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/UnchartedDos.jpg'
+		,'/imagenes/imagenesJuegos/UnchartedTres.jpg'
 		,0 --categoría
 		,'Ganador de más de 150 premios "Game of the Year".
 		Varios años después de su última aventura, el cazafortunas retirado Nathan Drake debe volver al mundo de los ladrones. El destino llama a su puerta cuando Sam, el hermano de Drake que se presumía muerto, regresa en busca de ayuda para salvar su propia vida y tentar a Drake con una aventura irresistible. En la aventura más importante de su vida, Drake pondrá a prueba sus límites físicos, su determinación y, en última instancia, lo que está dispuesto a sacrificar para salvar a sus seres queridos. Sam y Drake salen en busca del tesoro perdido del capitán Henry Avery y emprenden camino hacia Libertalia, una presunta colonia pirata utópica ubicada en lo profundo de los bosques de Madagascar. Ambos emprenden un viaje alrededor del mundo, en el que pasan por islas selváticas, ciudades remotas y picos nevados en busca del tesoro de Avery.'); --descripción
@@ -688,9 +688,9 @@ values(
 		,'Nintendo Entertainment Analysis & Development (EAD)'--desarrollador
 		,'2017-04-28'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaMarioKart.jpg'--portada
-		,'/imagenes/imagenesJuegos/MarioKartUno'--imagenes
-		,'/imagenes/imagenesJuegos/MarioKartDos'
-		,'/imagenes/imagenesJuegos/MarioKartTres'
+		,'/imagenes/imagenesJuegos/MarioKartUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/MarioKartDos.jpg'
+		,'/imagenes/imagenesJuegos/MarioKartTres.jpg'
 		,3 --categoría
 		,'¡Acelera a través de las pistas del Reino Champiñón bajo el agua, en el cielo, de cabeza y sin gravedad, y llega a la meta para obtener la victoria! Prepara motores en el modo multijugador local*, en los torneos en línea** del juego, en el modo batalla que ha sido mejorado ¡y más!') --descripción
 
@@ -702,9 +702,9 @@ values(
 		,'Nintendo Entertainment Planning & Development (EPD)'--desarrollador
 		,'2023-05-12'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaZeldaTK.jpg'--portada
-		,'/imagenes/imagenesJuegos/ZeldaTKUno'--imagenes
-		,'/imagenes/imagenesJuegos/ZeldaTKDos'
-		,'/imagenes/imagenesJuegos/ZeldaTKTres'
+		,'/imagenes/imagenesJuegos/ZeldaTKUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/ZeldaTKDos.jpg'
+		,'/imagenes/imagenesJuegos/ZeldaTKTres.jpg'
 		,2 --categoría
 		,'Una épica aventura a través de la superficie y los cielos de Hyrule te espera en The Legend of Zelda™: Tears of the Kingdom, disponible exclusivamente para la consola Nintendo Switch.
 		En esta secuela del juego The Legend of Zelda: Breath of the Wild, decidirás tu propio camino a través de los extensos paisajes de Hyrule y las islas que flotan en los vastos cielos. ¿Podrás aprovechar el poder de las nuevas habilidades de Link para luchar contra las malévolas fuerzas que amenazan al reino?') --descripción
@@ -717,9 +717,9 @@ values(
 		,'1-Up Studio.Nintendo Entertainment Planning & Development (EPD)'--desarrollador
 		,'2017-10-27'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaMarioOdyssey.jpg'--portada
-		,'/imagenes/imagenesJuegos/MarioOdysseyUno'--imagenes
-		,'/imagenes/imagenesJuegos/MarioOdysseyDos'
-		,'/imagenes/imagenesJuegos/MarioOdysseyTres'
+		,'/imagenes/imagenesJuegos/MarioOdysseyUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/MarioOdysseyDos.jpg'
+		,'/imagenes/imagenesJuegos/MarioOdysseyTres.jpg'
 		,3 --categoría
 		,'Explora increíbles lugares lejos del reino Champiñón al unirte a Mario y su nuevo amigo Cappy en una increíble aventura al mejor estilo trotamundos en 3D. Usa asombrosas habilidades como: el poder de capturar y controlar objetos, animales y enemigos; para conseguir energilunas necesarias para recargar la nave Odyssey y salvar a la princesa Peach de los planes de boda de Bowser.
 		Los nuevos movimientos de Mario como el salto gorra, lanzar la gorra y captura, te harán pensar de nuevo en su tradicional corre y brinca, y esto gracias al héroe con forma de sombrero, Cappy. Utiliza los enemigos, objetos y animales capturados para avanzar en el juego y descubrir grandes cantidades de objetos ocultos coleccionables.') --descripción
@@ -732,9 +732,9 @@ values(
 		,'Nintendo Cube'--desarrollador
 		,'2024-10-17'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaMarioParty.jpg'--portada
-		,'/imagenes/imagenesJuegos/MarioPartyUno'--imagenes
-		,'/imagenes/imagenesJuegos/MarioPartyDos'
-		,'/imagenes/imagenesJuegos/MarioPartyTres'
+		,'/imagenes/imagenesJuegos/MarioPartyUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/MarioPartyDos.jpg'
+		,'/imagenes/imagenesJuegos/MarioPartyTres.jpg'
 		,4 --categoría
 		,'¡La serie Mario Party está de regreso y ofrece aún más diversión! Con más de 110 minijuegos, nuevos modos en línea* y sin conexión** y una gran cantidad de opciones de personalización, ¡hay algo increíble para todos!') --descripción
 
@@ -746,9 +746,9 @@ values(
 		,'Game Freak'--desarrollador
 		,'2022-11-18'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaPokemonViolet.jpg'--portada
-		,'/imagenes/imagenesJuegos/PokemonVioletUno'--imagenes
-		,'/imagenes/imagenesJuegos/PokemonVioletDos'
-		,'/imagenes/imagenesJuegos/PokemonVioletTres'
+		,'/imagenes/imagenesJuegos/PokemonVioletUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/PokemonVioletDos.jpg'
+		,'/imagenes/imagenesJuegos/PokemonVioletTres.jpg'
 		,1 --categoría
 		,'Bienvenidos al mundo abierto de la región de Paldea
 		Atrapa, combate y entrena Pokémon en la región de Paldea, una vasta tierra llena de lagos, cimas montañosas, páramos, poblaciones pequeñas y grandes ciudades. Explora un mundo completamente abierto a tu propio paso y recorre a través de la tierra, el agua y el aire a lomos del Pokémon legendario Koraidon, que puede cambiar de forma en Pokémon Scarlet, o sobre el Pokémon legendario Miraidon, que puede cambiar de forma en Pokémon Violet. Elige entre Sprigatito, Fuecoco o Quaxly para que sea tu primer compañero Pokémon antes de lanzarte en tu aventura a través de Paldea') --descripción
@@ -761,9 +761,9 @@ values(
 		,'Bandai Namco Games.Sora Ltd'--desarrollador
 		,'2018-12-07'--fecha de lanzamiento fortato yyyy-mm-dd
 		,'/imagenes/imagesJuegos/PortadaSuperSmash.jpg'--portada
-		,'/imagenes/imagenesJuegos/SuperSmashUno'--imagenes
-		,'/imagenes/imagenesJuegos/SuperSmashDos'
-		,'/imagenes/imagenesJuegos/SuperSmashTres'
+		,'/imagenes/imagenesJuegos/SuperSmashUno.jpg'--imagenes
+		,'/imagenes/imagenesJuegos/SuperSmashDos.jpg'
+		,'/imagenes/imagenesJuegos/SuperSmashTres.jpg'
 		,0 --categoría
 		,'¡Un auténtico duelo de titanes de los videojuegos que podrás jugar cuando quieras y donde quieras! Lanza a tus rivales del escenario usando uno de los nuevos personajes como Simon Belmont o King K. Rool que se unen a Inkling, Ridley y a todos los combatientes presentes en la historia de Super Smash Bros. Disfruta de la velocidad mejorada y combate en los nuevos escenarios basados en las series de Castlevania, Super Mario Odyssey y otras.'); --descripción
 

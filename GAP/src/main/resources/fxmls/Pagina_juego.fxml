@@ -41,7 +41,7 @@
       <Button fx:id="btn_Comprar" contentDisplay="CENTER" layoutX="658.0" layoutY="426.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" styleClass="buttons" text="Comprar" textAlignment="CENTER" />
       <Pane fx:id="paneImagenPrincipal" layoutX="73.0" layoutY="61.0" prefHeight="250.0" prefWidth="560.0" style="-fx-background-color: #643B81;">
          <children>
-            <ImageView fx:id="imagenPrimcipal" fitHeight="250.0" fitWidth="475.0" layoutX="60.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagenPrimcipal" fitHeight="250.0" fitWidth="475.0" layoutX="60.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="false" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../imagenes/imagenesJuegos/game2-uno.jpeg" />
                </image>
@@ -49,14 +49,17 @@
          </children>
       </Pane>
       <Label fx:id="lb_rMinimos" layoutX="657.0" layoutY="146.0" prefHeight="80.0" prefWidth="224.0" styleClass="tex" />
-      <Label fx:id="lb_rRecomendados" layoutX="657.0" layoutY="260.0" prefHeight="80.0" prefWidth="224.0" text="Label" />
-      <Label fx:id="lb_infoJuego" layoutX="657.0" layoutY="460.0" prefHeight="116.0" prefWidth="224.0" text="Label" />
-      <Label fx:id="lb_descripsion" layoutX="72.0" layoutY="463.0" prefHeight="128.0" prefWidth="560.0" text="Label" />
-      <Button layoutX="657.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Inicio" />
+      <Label fx:id="lb_rRecomendados" layoutX="657.0" layoutY="260.0" prefHeight="80.0" prefWidth="224.0" styleClass="tex" />
+      <Label fx:id="lb_infoJuego" layoutX="657.0" layoutY="460.0" prefHeight="116.0" prefWidth="224.0" styleClass="tex" />
+      <Label fx:id="lb_descripsion" layoutX="72.0" layoutY="463.0" prefHeight="128.0" prefWidth="560.0" styleClass="tex" />
+      <Button fx:id="bt_inicio" layoutX="657.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" styleClass="buttons" text="Inicio" />
       <ImageView fitHeight="72.0" fitWidth="78.0" layoutX="799.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="lb_precio" layoutX="658.0" layoutY="348.0" prefHeight="30.0" prefWidth="118.0" text="Precio" textFill="WHITE" />
+      <Label fx:id="lb_precioAjoloCoins" layoutX="788.0" layoutY="348.0" prefHeight="30.0" prefWidth="106.0" text="AjoloCois" textFill="WHITE" />
+      <Button fx:id="bt_carrito" layoutX="658.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" styleClass="buttons" text="Carrito" />
    </children>
 </AnchorPane>
