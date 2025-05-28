@@ -1,10 +1,15 @@
 package uacm;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -12,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import logic.Juego;
 
 public class Pagina_juegoController implements Initializable {
     @FXML
@@ -42,7 +49,7 @@ public class Pagina_juegoController implements Initializable {
     private Button btn_Comprar;
     @FXML
     private AnchorPane anchoPane_paginaJuego;
-
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
@@ -66,6 +73,23 @@ public class Pagina_juegoController implements Initializable {
 
         lb_rMinimos.setText("Los requisitos minimos son 10Gb ram \n como minimo una tarjeta grafica de 16GB ram cvavacvagsfdgafdgasfdSFASDFASDF " );
        
+        btn_Comprar.setOnAction(eh -> {
+           try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PayPage.fxml"));
+            Parent root = loader.load();
+
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setScene(new Scene(root));
+            
+            PayPageController controller = loader.getController();
+            controller.cargarJuegoDesdePagina(juego);
+            
+            nuevaVentana.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } 
+        });
 
     }
 

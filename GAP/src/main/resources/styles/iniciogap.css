@@ -207,3 +207,14 @@
     -fx-text-fill: white;               /* Color del texto (blanco) */
     -fx-border-color: white;           /* Borde blanco (opcional) */
 }
+
+.label_axolo {
+    -fx-background-color: #A057B4;
+    -fx-text-fill: white;            /* color del texto */
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";      /* o cualquier fuente elegante */
+    -fx-padding: 10 20 10 20;        /* espacio interno */
+    -fx-background-radius: 10px;     /* bordes redondeados */
+    -fx-effect: dropshadow(gaussian, #005eff, 6, 0.5, 0, 2);
+}

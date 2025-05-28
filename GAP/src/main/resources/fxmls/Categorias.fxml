@@ -57,7 +57,7 @@
       <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" styleClass="root" BorderPane.alignment="CENTER">
          <content>
             <GridPane fx:id="GridPane_j" prefHeight="342.0" prefWidth="480.0">
-              </GridPane>
+            </GridPane>
          </content>
       </ScrollPane>
    </center>

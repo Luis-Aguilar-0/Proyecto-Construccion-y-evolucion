@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
@@ -21,6 +22,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import logic.Usuario;
+import persistencia.Sesion;
 
 /**
  *
@@ -97,6 +100,8 @@ public class InicioGapController implements Initializable{
     private MenuItem cerrarSesion_Item;
     @FXML
     private Button recarga_bttn;
+    @FXML
+    private Label label_coins;
     
     @FXML
     private void moverIzquierdaPlay(){
@@ -228,9 +233,40 @@ public class InicioGapController implements Initializable{
         }
     }
     
+    private void cargarImagenPerfil() {
+        Usuario u = Sesion.getUsuario();
+        if (u != null && u.getImagenPerfil() != null) {
+            Image image = new Image(new ByteArrayInputStream(u.getImagenPerfil()));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            imageView.setPreserveRatio(true);
+
+            menuPerfil_btn.setGraphic(imageView);
+        }else{
+            Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfil4.png");
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            imageView.setPreserveRatio(true);
+
+            menuPerfil_btn.setGraphic(imageView);
+        }
+    }
+    
+    private void mostrarCoins(){
+        Usuario u = Sesion.getUsuario();
+        if(u != null && u.getAjoloCoins() != 0){
+            label_coins.setText(u.getAjoloCoins().toString() + "Ax");
+        }else{
+            label_coins.setText("0Ax");
+        }
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //cargarImagenPerfil();
+        cargarImagenPerfil();
+        mostrarCoins();
         
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
         
@@ -243,15 +279,6 @@ public class InicioGapController implements Initializable{
         btnIzquierda_nin.setOnAction(e -> moverIzquierdaNin());
         
         btnDerecha_nin.setOnAction(e -> moverDerechaNin());
-        
-        Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfilgato.jpg");
-        
-        ImageView imageView = new ImageView(image);
-        imageView.setFitWidth(70);
-        imageView.setFitHeight(70);
-        imageView.setPreserveRatio(true);
-        
-        menuPerfil_btn.setGraphic(imageView);
         
         //Juegos Playstation
         img1Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us"));
@@ -299,5 +326,7 @@ public class InicioGapController implements Initializable{
         recarga_bttn.setOnAction(eh -> {
             cambiarVentana2("/fxmls/RecargaAxolotl.fxml", eh);
         });
+        
+        
     }
 }

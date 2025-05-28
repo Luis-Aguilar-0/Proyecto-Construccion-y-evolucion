@@ -212,5 +212,19 @@ public class UsuarioDAO {
         }
     }
     
+    public boolean updateAjolocoins(int idUsuario, int cantidadSumar){
+        try(Connection conn = Conexion.gConnection();
+                PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
+            
+            stmt.setInt(1, cantidadSumar);//cuantos axolocoins se quieren sumar
+            stmt.setInt(2, idUsuario);//a que usuario 
+            
+            return stmt.executeUpdate() > 0;// Devuelve true si se actualizó al menos una fila
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 
 }

@@ -266,16 +266,17 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="boton">
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Button>
                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Carrito">
                      <HBox.margin>
-                        <Insets left="20.0" />
+                        <Insets left="7.0" />
                      </HBox.margin>
                   </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="boton_menu" text="Favoritos">
+                     <HBox.margin>
+                        <Insets left="7.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Label fx:id="label_coins" alignment="CENTER" prefHeight="40.0" prefWidth="81.0" styleClass="label_axolo" />
                </children>
                <styleClass>
                   <String fx:value="neon-box" />
