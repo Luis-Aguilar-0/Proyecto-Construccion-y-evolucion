@@ -26,6 +26,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import logic.Usuario;
@@ -201,7 +202,13 @@ public class Perfil2Controller implements Initializable {
             stage.setTitle("Cerrar Sesión");
             stage.setScene(new Scene(root));
             stage.setResizable(false);
-            stage.show();
+
+            // Hace la ventana modal
+            stage.initModality(Modality.APPLICATION_MODAL);
+            // bloquea solo la ventana actual
+            stage.initOwner(imgSalir.getScene().getWindow());
+
+            stage.showAndWait(); // Espera hasta que se cierre
 
             CerrarSesionController cerrarCtrl = loader.getController();
             cerrarCtrl.setPerfil2Controller(this);
@@ -212,7 +219,21 @@ public class Perfil2Controller implements Initializable {
         }
     }
 
+@FXML private void AbrirCarrito(MouseEvent event) {
+        try {
+            Parent root = FXMLLoader.load(
+                getClass().getResource("/fxmls/Carrito.fxml")
+            );
+            Stage carritoStage = new Stage();
+            carritoStage.setTitle("Carrito de Compras");
+            carritoStage.setScene(new Scene(root));
+            carritoStage.show();
+            ((Stage) imgCarrito.getScene().getWindow()).close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @FXML private void irInicio(MouseEvent event) {
         // Cierra la ventana de perfil si está abierta
         if (perfilStage != null) perfilStage.close();
@@ -225,8 +246,6 @@ public class Perfil2Controller implements Initializable {
             inicio.setTitle("Inicio GAP");
             inicio.setScene(new Scene(root));
             inicio.show();
-
-            // Cierra ventana actual directamente
             ((Stage) irInicio.getScene().getWindow()).close();
 
         } catch (IOException e) {
@@ -298,7 +317,7 @@ private void abrirExito() {
     try {
         Parent root = FXMLLoader.load(getClass().getResource("/fxmls/Exito.fxml"));
         Stage stage = new Stage();
-        stage.setTitle("¡Éxito!");
+        stage.setTitle("¡Exito!");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();

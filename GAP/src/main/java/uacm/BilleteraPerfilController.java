@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,7 +29,6 @@ import logic.Tarjeta;
 import logic.Usuario;
 import persistencia.Sesion;
 import persistencia.TarjetaDAO;
-
 public class BilleteraPerfilController {
     @FXML private AnchorPane anchorPaneRaizBilletera;
     @FXML private Label lbSaldo;
@@ -81,6 +81,23 @@ public class BilleteraPerfilController {
             stageAgregarTarjeta.setTitle("Agregar Tarjeta de Crédito");
             stageAgregarTarjeta.showAndWait();
             cargarYMostrarTarjetasGuardadas();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    void abrirVentanaRecargarAxolocoins(MouseEvent event) { 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/RecargaAxolotl.fxml"));
+            Parent root = loader.load();
+            Stage stageRecarga = new Stage();
+            stageRecarga.setTitle("Recargar Axolocoins");
+            stageRecarga.setScene(new Scene(root));
+            stageRecarga.show();
+            Node origen = (Node) event.getSource();
+            Stage ventanaActual = (Stage) origen.getScene().getWindow();
+            ventanaActual.close();
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

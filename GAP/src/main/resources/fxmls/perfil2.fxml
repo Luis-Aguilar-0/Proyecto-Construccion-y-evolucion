@@ -100,7 +100,7 @@
                      </ImageView>
                      <Pane fx:id="panBusquedaPerfil1" prefHeight="130.0" prefWidth="546.0" style="-fx-background-color: #3B2A5E;" stylesheets="@../styles/Perfil.css">
                         <children>
-                           <ImageView fx:id="imgCarrito" fitHeight="38.0" fitWidth="44.0" layoutX="459.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+                           <ImageView fx:id="imgCarrito" fitHeight="38.0" fitWidth="44.0" layoutX="459.0" layoutY="-3.0" onMouseClicked="#AbrirCarrito" pickOnBounds="true" preserveRatio="true">
                               <image>
                                  <Image url="@../imagenes/imagesPerfil/carrito.png" />
                               </image>
