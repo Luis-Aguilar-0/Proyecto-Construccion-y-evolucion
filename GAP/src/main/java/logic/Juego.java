@@ -14,11 +14,13 @@ public class Juego {
     private Date fechaLanzamiento;
     private String[] imagenes = new String[4]; // se almacenan solo las direccines en forma de string
     private int categoria;
+    private String descripcion;
+
 
     public Juego() {
     }
 
-    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,Date fechaLanzamiento_, String[] imagenes_, double precio_, Integer precionAjoloCoins_, int categoria_) {
+    public Juego(int id_, String nombre, String rMinimos_, String rRecomendados_, String desarrollador_,Date fechaLanzamiento_, String[] imagenes_, double precio_, Integer precionAjoloCoins_, int categoria_, String descripcion_) {
         this.idJuego = id_;
         this.nombreJuego = nombre;
         this.rMininos = rMinimos_;
@@ -32,6 +34,7 @@ public class Juego {
         this.precio = precio_;
         this.precioAjoloCoins = precionAjoloCoins_;
         this.categoria = categoria_;
+        this.descripcion = descripcion_;
     }
 
     public int getIdJuego() {
@@ -106,6 +109,15 @@ public class Juego {
         this.imagenes = imagenes;
     }
 
+    @Override
+    public String toString() {
+        return "idJuego=" + idJuego + ", " + nombreJuego;
+    }
+    public String getPortada() {
+        return imagenes[0]; //obtener portada del juego(1era imagen)
+    }
+    
+
     public int getCategoria() {
         return categoria;
     }
@@ -113,4 +125,14 @@ public class Juego {
     public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    
 }

@@ -60,7 +60,7 @@ public class BilleteraPerfilController {
         cargarSaldoUsuario();
         cargarYMostrarTarjetasGuardadas();
     }
-
+        // Actualizar el saldo en la etiqueta lbSaldo
     private void cargarSaldoUsuario() {
         Usuario usuarioActual = Sesion.getUsuario();
         if (usuarioActual != null && lbSaldoCuenta != null) {
@@ -109,7 +109,7 @@ public class BilleteraPerfilController {
 
         Usuario usuarioActual = Sesion.getUsuario();
         if (usuarioActual == null) {
-            mostrarMensajeEnVBox("Error: No hay usuario en sesión.");
+            mostrarMensajeEnVBox("Error: No hay usuario en sesion.");
             return;
         }
 
@@ -117,12 +117,15 @@ public class BilleteraPerfilController {
             mostrarMensajeEnVBox("Error: Servicio de tarjetas no disponible.");
             return;
         }
-
         try {
+            //obtener id de la tarjeta del usuario actual
             List<Tarjeta> tarjetasDelUsuario = tarjetaDAO.obtenerTarjetasPorUsuario(usuarioActual.getId());
+            //se actualiza la lista de tarjetas guardadas del usuario actual
             usuarioActual.setTarjetasGuardadas(tarjetasDelUsuario != null ? tarjetasDelUsuario : new ArrayList<>());
-
+            //si el usuario tiene tarjetas guardadas, 
             if (!usuarioActual.getTarjetasGuardadas().isEmpty()) {
+                // Iterar sobre las tarjetas guardadas y crear la UI para cada una
+                //usar un VBox para contener las tarjetas
                 for (Tarjeta tarjeta : usuarioActual.getTarjetasGuardadas()) {
                     HBox tarjetaUI = crearTarjetaUI(tarjeta, usuarioActual.getId());
                     vboxTarjetas.getChildren().add(tarjetaUI);
@@ -136,7 +139,7 @@ public class BilleteraPerfilController {
             mostrarMensajeEnVBox("Error al cargar tus métodos de pago.");
         }
     }
-
+    // // Método para crear la UI de una tarjeta
     private HBox crearTarjetaUI(Tarjeta tarjeta, int idUsuario) {
         HBox hbox = new HBox(15);
         hbox.setAlignment(Pos.CENTER_LEFT);
@@ -147,10 +150,12 @@ public class BilleteraPerfilController {
         imgIcono.setFitHeight(30.0);
         imgIcono.setFitWidth(45.0);
         imgIcono.setPreserveRatio(true);
-
+        // Llama a determinarTipoTarjeta para obtener la ruta del archivo del icono (Visa, Mastercard, etc.)
+        // basndose en los primeros dígitos del número de tarjeta.
         String iconoPath = determinarTipoTarjeta(tarjeta.getNumTarjeta());
-
+        // Carga la imagen del icono desde el recurso
         try (InputStream stream = getClass().getResourceAsStream(iconoPath)) {
+            // Verifica si el stream no es nulo antes de crear la imagen
             if (stream != null) {
                 Image cardImage = new Image(stream);
                 if (!cardImage.isError()) {

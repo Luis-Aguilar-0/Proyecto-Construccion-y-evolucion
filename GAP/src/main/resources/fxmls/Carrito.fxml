@@ -36,7 +36,7 @@
                             <Font name="Yu Gothic UI Semibold" size="18.0" />
                          </font>
                       </Label>
-                      <Label fx:id="lblTotalItems" styleClass="cart-summary-value" text="0">
+                      <Label fx:id="lblTotalJuegos" styleClass="cart-summary-value" text="0">
                          <font>
                             <Font name="Yu Gothic UI Semibold" size="18.0" />
                          </font>
@@ -50,7 +50,7 @@
                             <Font name="Yu Gothic UI Semibold" size="22.0" />
                          </font>
                       </Label>
-                      <Label fx:id="lblTotalPriceMXN" styleClass="cart-total-value" text="\$0.00">
+                      <Label fx:id="lblPrecioTotalMXN" styleClass="cart-total-value" text="\$0.00">
                          <font>
                             <Font name="Yu Gothic UI Semibold" size="22.0" />
                          </font>
@@ -64,7 +64,7 @@
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTotalPrice1" styleClass="cart-total-value" text="0.00 AX">
+                  <Label fx:id="lblPrecioTotalAxolocoins" styleClass="cart-total-value" text="0.00 AX">
                      <font>
                         <Font name="Yu Gothic UI Semibold" size="22.0" />
                      </font>
@@ -73,12 +73,12 @@
             </HBox>
                 <HBox alignment="CENTER_RIGHT" spacing="25.0">
                    <children>
-                      <Button fx:id="btnContinueShopping" mnemonicParsing="false" onAction="#handleSeguirComprando" styleClass="cart-action-button-secondary" text="Ir a Categorias">
+                      <Button fx:id="btnIrCategorias" mnemonicParsing="false" onAction="#handleSeguirComprando" styleClass="cart-action-button-secondary" text="Ir a Categorias">
                          <font>
                             <Font name="Yu Gothic UI Semibold" size="16.0" />
                          </font>
                       </Button>
-                      <Button fx:id="btnProceedToPayment" mnemonicParsing="false" styleClass="cart-action-button-primary" text="Proceder al Pago">
+                      <Button fx:id="btnIrPago" mnemonicParsing="false" styleClass="cart-action-button-primary" text="Proceder al Pago">
                          <font>
                             <Font name="Yu Gothic UI Semibold" size="16.0" />
                          </font>

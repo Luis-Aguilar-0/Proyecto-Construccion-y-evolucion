@@ -3,6 +3,7 @@ package uacm;
 import java.io.ByteArrayInputStream; 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -13,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
@@ -21,14 +23,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import logic.Usuario;                 
-import persistencia.Sesion;           
+import logic.Juego;
+import logic.Usuario;
+import persistencia.Sesion;
+import uacm.utilities.PathsImages;
 
 /**
  *
  * @author Frncs.Fox
  */
 public class InicioGapController implements Initializable {
+
     @FXML
     private ImageView imgInicio;
     @FXML
@@ -51,7 +56,8 @@ public class InicioGapController implements Initializable {
     private Button btnDerecha_nin;
     @FXML
     private Button btnIzquierda_nin;
-
+    @FXML
+    private Button bt_carrito;
     private final double speed_scroll = 0.1;
     @FXML
     private MenuButton menuPerfil_btn; 
@@ -99,74 +105,46 @@ public class InicioGapController implements Initializable {
     private MenuItem cerrarSesion_Item;
     @FXML
     private Button recarga_bttn;
-
-    // metoodo para cargar la imagen de perfil en el MenuButton 
-    private void cargarImagenPerfilDelMenu() {
-        Usuario usuarioLogueado = Sesion.getUsuario();
-        ImageView imageViewParaMenu;
-        Image imagenAMostrar = null;
-
-        // Ruta de la imagen predeterminada
-        String rutaImagenPredeterminada = "/imagenes/imagesPerfil/perfilgato.jpg"; 
-
-        if (usuarioLogueado != null && usuarioLogueado.getImagenPerfil() != null) {
-            try {
-                // Intenta cargar la imagen de perfil del usuario desde el byte[]
-                imagenAMostrar = new Image(new ByteArrayInputStream(usuarioLogueado.getImagenPerfil()));
-            } catch (Exception e) {
-                System.err.println("Error al cargar imagen de perfil del usuario: " + e.getMessage());
-                // Si hay un error se usa la otra imagen
-            }
-        }
-        
-        imageViewParaMenu = new ImageView(imagenAMostrar);
-        imageViewParaMenu.setFitWidth(80);  
-        imageViewParaMenu.setFitHeight(80); 
-        imageViewParaMenu.setPreserveRatio(true);
-
-        menuPerfil_btn.setGraphic(imageViewParaMenu);
-    }
-
+    @FXML
+    private Label label_coins;
+     private List<Juego> todosLosJuegos;
     @FXML
     private void moverIzquierdaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() - speed_scroll;
         carrucel_scPn_play.setHvalue(Math.max(nuevaPosicion, 0));
     }
-
     @FXML
     private void moverDerechaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() + speed_scroll;
         carrucel_scPn_play.setHvalue(Math.min(nuevaPosicion, 1));
     }
-
      @FXML
     private void moverIzquierdaBox(){
         double nuevaPosicion = carrucel_scPn_box.getHvalue() - speed_scroll;
-        
+
         carrucel_scPn_box.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
-    @FXML
-    private void moverDerechaBox(){
-        double nuevaPosicion = carrucel_scPn_box.getHvalue() + speed_scroll;
-        
-        carrucel_scPn_box.setHvalue(Math.min(nuevaPosicion, 1));
-    }
-    
-    @FXML
-    private void moverIzquierdaNin(){
-        double nuevaPosicion = carrucel_scPn_nin.getHvalue() - speed_scroll;
-        
-        carrucel_scPn_nin.setHvalue(Math.max(nuevaPosicion, 0));
-    }    
-    
-    @FXML
-    private void moverDerechaNin(){
-        double nuevaPosicion = carrucel_scPn_nin.getHvalue() + speed_scroll;
-        
-        carrucel_scPn_nin.setHvalue(Math.min(nuevaPosicion, 1));
     }
 
+    @FXML
+    private void moverDerechaBox() {
+        double nuevaPosicion = carrucel_scPn_box.getHvalue() + speed_scroll;
+
+        carrucel_scPn_box.setHvalue(Math.min(nuevaPosicion, 1));
+    }
+
+    @FXML
+    private void moverIzquierdaNin() {
+        double nuevaPosicion = carrucel_scPn_nin.getHvalue() - speed_scroll;
+
+        carrucel_scPn_nin.setHvalue(Math.max(nuevaPosicion, 0));
+    }
+
+    @FXML
+    private void moverDerechaNin() {
+        double nuevaPosicion = carrucel_scPn_nin.getHvalue() + speed_scroll;
+
+        carrucel_scPn_nin.setHvalue(Math.min(nuevaPosicion, 1));
+    }
     public void abrirVentana(String rutaFXML, MouseEvent event, String tituloVentana) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -184,7 +162,7 @@ public class InicioGapController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    
     private void abrirVentana2(String rutaFXML) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -228,61 +206,239 @@ public class InicioGapController implements Initializable {
             e.printStackTrace();
         }
     }
+      @FXML
+    public void irCarrito(ActionEvent event) { 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Carrito.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Carrito de Compras");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Obtener la fuente del evento, el boton
+            Node source = (Node) event.getSource(); 
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void cargarImagenPerfil() {
+        Usuario u = Sesion.getUsuario();
+        if (u != null && u.getImagenPerfil() != null) {
+            Image image = new Image(new ByteArrayInputStream(u.getImagenPerfil()));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            imageView.setPreserveRatio(true);
+
+            menuPerfil_btn.setGraphic(imageView);
+        }else{
+            Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfil4.png");
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(70);
+            imageView.setFitHeight(70);
+            imageView.setPreserveRatio(true);
+
+            menuPerfil_btn.setGraphic(imageView);
+        }
+    }
+    
+    private void mostrarCoins(){
+        Usuario u = Sesion.getUsuario();
+        if(u != null && u.getAjoloCoins() != 0){
+            label_coins.setText(u.getAjoloCoins().toString() + "Ax");
+        }else{
+            label_coins.setText("0Ax");
+        }
+    }    
+    
+    private void cerrarVentana(Button boton) {
+        Stage ventanaActual = (Stage) boton.getScene().getWindow();
+        ventanaActual.close();
+    }
+    
+    private Juego getJuegoPorNombre(String nombre) {
+        List<Juego> juegos = PathsImages.games; //obtengo los juegos
+
+        for (Juego j : juegos) {
+            if (j.getNombreJuego().equalsIgnoreCase(nombre)) {
+                return j;
+            }
+        }
+        return null;
+    }
+    
+    private void paginaJuego(Juego juego) {
+        if (juego != null) {
+            System.out.println(juego);
+            Sesion.setJuegoPagina(juego);
+
+        } else {
+            System.out.println(juego);
+        }
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cargarImagenPerfilDelMenu();
-
+        cargarImagenPerfil();
+        mostrarCoins();
+        
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
+
         btnDerecha_play.setOnAction(e -> moverDerechaPlay());
+
         btnIzquierda_box.setOnAction(e -> moverIzquierdaBox());
+
         btnDerecha_box.setOnAction(e -> moverDerechaBox());
+
         btnIzquierda_nin.setOnAction(e -> moverIzquierdaNin());
+
         btnDerecha_nin.setOnAction(e -> moverDerechaNin());
-
-
+        
         //Juegos Playstation
-        img1Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us"));
-        img2Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "God Of War"));
-        img3Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Uncharted"));
-        img4Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon"));
-        img5Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man"));
-        img6Play.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Returnal"));
-        
+        img1Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("The Last of Us Part I"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us");
+        });
+
+        img2Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("God Of War Ragnarök"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "God Of War");
+        });
+
+        img3Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("UNCHARTED: Colección Legado de ladrones"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Uncharted");
+        });
+        img4Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Horizon: Zero Dawn"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon");
+        });
+        img5Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Marvel s Spider-Man: Miles Morales"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man");
+        });
+        img6Play.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Returnal"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Returnal");
+        });
+
         //Juegos XBox
-        img1Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mortal Kombat 1"));
-        img2Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Grand Theft Auto"));
-        img3Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Elden Ring"));
-        img4Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Cyber Punk"));
-        img5Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Howarts Legacy"));
-        img6Xbox.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Battlefield V"));
-        
+        img1Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Mortal Kombat 1"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mortal Kombat 1");
+        });
+        img2Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Grand Theft Auto V"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Grand Theft Auto");
+        });
+        img3Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("ELDEN RING"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Elden Ring");
+        });
+        img4Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Cyberpunk 2077"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Cyber Punk");
+        });
+        img5Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Hogwarts Legacy"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Hogwarts Legacy");
+        });
+        img6Xbox.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Battlefield V"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Battlefield V");
+        });
+
         //Juegos Nintendo
-        img1Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Party"));
-        img2Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Zelda: Tears of the kindom"));
-        img3Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Pokemon Purpura"));
-        img4Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Mario Odyssey"));
-        img5Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Smash Bros"));
-        img6Nin.setOnMouseClicked(eh -> abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Kart 8"));
-        
+        img1Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Mario Party Jamboree"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Party");
+        });
+        img2Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("The Legend of Zelda: Tears of the Kingdom"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Zelda: Tears of the kindom");
+        });
+        img3Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Pokémon Violet"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Pokémon Purpura");
+        });
+        img4Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Mario Odyssey"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Mario Odyssey");
+        });
+        img5Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Super Smash Bros. Ultimate"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Super Smash Bros");
+        });
+        img6Nin.setOnMouseClicked(eh -> {
+            paginaJuego(getJuegoPorNombre("Mario Kart 8 Deluxe"));
+            abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Kart 8");
+        });
+
         categorias_btn.setOnAction(eh -> {
             cambiarVentana2("/fxmls/Categorias.fxml", eh);
         });
-        
+
         botonBiblioteca.setOnAction(eh -> {
+            cerrarVentana(botonBiblioteca);
+            //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } ;
             cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
         });
-        
+
         verPerfil_Item.setOnAction(eh -> {
             cambiarVentana2("/fxmls/Perfil2.fxml", eh);
         });
-        
+
         cerrarSesion_Item.setOnAction(eh -> {
             abrirVentana2("/fxmls/CerrarSesion.fxml");
         });
-        
+
         recarga_bttn.setOnAction(eh -> {
             cambiarVentana2("/fxmls/RecargaAxolotl.fxml", eh);
         });
+        
+        
     }
+
+     // MÉTODO NUEVO: Específico para abrir Pagina_juego.fxml y pasarle el objeto Juego
+    public void abrirPaginaJuegoConDatos(MouseEvent event, Juego juegoSeleccionado) {
+        if (juegoSeleccionado == null) {
+            System.err.println("InicioGapController: No se puede abrir la página del juego, juegoSeleccionado es null.");
+            // Opcional: Mostrar una alerta al usuario
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Pagina_juego.fxml"));
+            Parent root = loader.load();
+
+            Pagina_juegoController controller = loader.getController();
+            if (controller != null) {
+                controller.setJuego(juegoSeleccionado); // Aquí se pasa el objeto Juego
+            } else {
+                System.err.println("Error crítico: No se pudo obtener el controlador para Pagina_juego.fxml");
+            }
+
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle(juegoSeleccionado.getNombreJuego());
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+
+            // Por defecto, no cerramos la ventana de InicioGap.
+            // Si quieres cerrarla, descomenta la siguiente línea:
+            // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            System.err.println("Error al cargar FXML /fxmls/Pagina_juego.fxml: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error inesperado al abrir la página del juego '" + juegoSeleccionado.getNombreJuego() + "': " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    
 }
+

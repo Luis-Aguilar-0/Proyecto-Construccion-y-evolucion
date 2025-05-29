@@ -16,8 +16,8 @@ import logic.ValidadorCorreo;
 
 public class UsuarioDAO {
 
-    private Connection conexionBase; //establece la conexion activa con la base de datos
-    private ResultSet res; //me permite acceder al resultado de una consulta en la base de datos
+    private Connection conexionBase; // establece la conexion activa con la base de datos
+    private ResultSet res; // me permite acceder al resultado de una consulta en la base de datos
     private Statement consulta;
 
     public UsuarioDAO() throws SQLException {
@@ -38,22 +38,23 @@ public class UsuarioDAO {
     public List<Usuario> cargaUsuarios() {
         List<Usuario> listaUsuarios = new ArrayList<>();
         try {
-            consulta = conexionBase.createStatement();//consulta me permite realizar consultas a la base 
-            res = consulta.executeQuery("SELECT * FROM usuario");//consuta que se realiza en la base
+
+            consulta = conexionBase.createStatement();// consulta me permite realizar consultas a la base
+            res = consulta.executeQuery("SELECT * FROM usuario");// consuta que se realiza en la base
             while (res.next()) {
                 Usuario usuario = new Usuario();
-                //obteniendo los valores que guardan en la variable res
+                // obteniendo los valores que guardan en la variable res
                 usuario.setId(res.getInt("id"));
                 usuario.setUsuario(res.getString("nombre"));
                 usuario.setEmail(res.getString("email"));
                 usuario.setPasword(res.getString("password"));
                 usuario.setAjoloCoins(res.getInt("ajoloCoins"));
 
-                
+
                 byte[] imagenperfil = res.getBytes("fotoPerfil");//la foto se almacena como bytes
                 if (res.wasNull()) {//res.wasNull me dice si el valor anterior es valido
                     usuario.setImagenPerfil(null);
-                } else {//si mi dato anterios de res no es null asigno la foto de perfil
+                } else {// si mi dato anterios de res no es null asigno la foto de perfil
                     usuario.setImagenPerfil(imagenperfil);
                 }
                 
@@ -63,6 +64,8 @@ public class UsuarioDAO {
                 usuario.setFechaNacimiento(res.getDate("fechaNacimiento"));
                 
                 listaUsuarios.add(usuario);
+                listaUsuarios.add(usuario);// añadiendo los usuarios a la lista
+
             }
             return listaUsuarios;
 
@@ -104,6 +107,7 @@ public class UsuarioDAO {
     }
 
     public Usuario buscaUsuario(String cadena) {
+
         try {
             String sql = tipoConsulta(cadena);
             PreparedStatement pstmt = conexionBase.prepareStatement(sql);
@@ -118,11 +122,11 @@ public class UsuarioDAO {
                 buscado.setPasword(res.getString("password"));
                 buscado.setAjoloCoins(res.getInt("ajoloCoins"));
 
-                //manejo de valores null de la base de datos
-                byte[] imagenperfil = res.getBytes("fotoPerfil");//la foto se almacena como bytes
-                if (res.wasNull()) {//res.wasNull me dice si el valor anterior es null
+                // manejo de valores null de la base de datos
+                byte[] imagenperfil = res.getBytes("fotoPerfil");// la foto se almacena como bytes
+                if (res.wasNull()) {// res.wasNull me dice si el valor anterior es null
                     buscado.setImagenPerfil(null);
-                } else {//si mi dato anterios de res no es null asigno la foto de perfil
+                } else {// si mi dato anterios de res no es null asigno la foto de perfil
                     buscado.setImagenPerfil(imagenperfil);
                 }
                 
@@ -139,11 +143,12 @@ public class UsuarioDAO {
             throw new RuntimeException("Error al buscar usuario: " + e.getMessage(), e);
         }
 
-        return null; //me regresa null si no existe el usuario en la base de datos
+        return null; // me regresa null si no existe el usuario en la base de datos
     }
 
     /**
-     * Tenemos dos tipos de consutas se ejecutara una u otra dependiendo de si se ingrese en la pantalla de login
+     * Tenemos dos tipos de consutas se ejecutara una u otra dependiendo de si se
+     * ingrese en la pantalla de login
      * el correo electronico o el nombre del usuario
      * Me regresa una cadena con PreparedStatement.
      * Si se ingreso el correo electronico me regresa la cadena:
@@ -161,8 +166,9 @@ public class UsuarioDAO {
     }
 
     public boolean updateEmail(int id, String nuevoEmail) {
-        try (Connection conn = Conexion.gConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
+        try (
+                Connection conn = Conexion.gConnection();
+                PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
             stmt.setString(1, nuevoEmail);
             stmt.setInt(2, id);
             return stmt.executeUpdate() > 0;
@@ -175,7 +181,7 @@ public class UsuarioDAO {
 
     public boolean updatePasword(int id, String nuevaContrasenha) {
         try (Connection conn = Conexion.gConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET password = ? WHERE id = ?")) {
+                PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET password = ? WHERE id = ?")) {
             stmt.setString(1, nuevaContrasenha);
             stmt.setInt(2, id);
             return stmt.executeUpdate() > 0;
@@ -188,7 +194,7 @@ public class UsuarioDAO {
 
     public boolean updateNombre(int id, String nuevoNombre) {
         try (Connection conn = Conexion.gConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nombre = ? WHERE id = ?")) {
+                PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nombre = ? WHERE id = ?")) {
             stmt.setString(1, nuevoNombre);
             stmt.setInt(2, id);
             return stmt.executeUpdate() > 0;
@@ -201,7 +207,7 @@ public class UsuarioDAO {
 
     public boolean updateFotoPerfil(int id, byte[] imagenPerfil) {
         try (Connection conn = Conexion.gConnection();
-             PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET fotoPerfil = ? WHERE id = ?")) {
+                PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET fotoPerfil = ? WHERE id = ?")) {
             stmt.setBytes(1, imagenPerfil);
             stmt.setInt(2, id);
             return stmt.executeUpdate() > 0;
@@ -211,8 +217,55 @@ public class UsuarioDAO {
             return false;
         }
     }
-
-    public List<Juego> getJuegos(){
-        return null;
+    
+    public boolean updateAjolocoins(int idUsuario, int cantidadSumar){
+        try(Connection conn = Conexion.gConnection();
+                PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
+            
+            stmt.setInt(1, cantidadSumar);//cuantos axolocoins se quieren sumar
+            stmt.setInt(2, idUsuario);//a que usuario 
+            
+            return stmt.executeUpdate() > 0;// Devuelve true si se actualizó al menos una fila
+            
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
     }
+
+    public List<Juego> JuegosUsuario(int idUsuario) {
+        
+        List<Juego> lisJuegos = new ArrayList<>();
+        try {
+            consulta = conexionBase.createStatement();
+            // obtengo los valores del juego
+            res = consulta.executeQuery("select j.idJuego, j.nombreJuego," +
+                    "j.portada," +
+                    "j.imagenUno,j.imagenDos," +
+                    "j.imagenTres" +
+                    " from usuario_juego uj join juegos j on j.idJuego = uj.idJuego where uj.idUsuario = " + idUsuario);
+            while (res.next()) {
+                //System.out.println("Juego encontrado: " + res.getString("nombreJuego"));
+                Juego game = new Juego();
+                game.setIdJuego(res.getInt("idJuego"));
+                game.setNombreJuego(res.getString("nombreJuego"));
+                String[] imagenes = new String[4];
+                imagenes[0] = res.getString("portada");
+                imagenes[1] = res.getString("imagenUno");
+                imagenes[2] = res.getString("imagenDos");
+                imagenes[3] = res.getString("imagenTres");
+                game.setImagenes(imagenes);
+                lisJuegos.add(game);
+                
+            }
+
+            return lisJuegos;
+            
+        } catch (SQLException e) {
+          throw  new RuntimeException();
+        }
+   
+
+    }
+
 }

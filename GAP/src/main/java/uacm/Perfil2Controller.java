@@ -62,21 +62,20 @@ public class Perfil2Controller implements Initializable {
     @FXML private TextField txtCorreo;
     @FXML private PasswordField txtContrasenha;
 
-    private final UsuarioDAO usuarioDAO; // DAO para operaciones en BD
-
-    // Guarda los nodos hijos originales del panel principal para restablecer la vista
+    private final UsuarioDAO usuarioDAO; // variable usuarioDAO para usa la tabla usuario
+    // lista para guardar los nodos originales del panel (labels,botones,etc) perfil
     private List<javafx.scene.Node> nodosOriginalesPerfil;
 
-    // Raíces para los paneles de Biblioteca y Billetera
+    //aqui se guardan los fxml biblioteca y billetera
+    // para poder mostrarlos cuando se les llama rapidamente
     private Parent panBiblioteca;
     private Parent panBilletera;
 
-    // Referencia al Stage de perfil para poder cerrarlo desde aquí
+    //  Referencia al Stage de perfil, para poder cerrarlo desde CerrarSesion
     private Stage perfilStage;
 
     
      // Constructor inicializa DAO
-     
     public Perfil2Controller() {
         try {
             this.usuarioDAO = new UsuarioDAO(); // Carga la conexión y prepara statements
@@ -85,25 +84,24 @@ public class Perfil2Controller implements Initializable {
         }
     }
 
-    /**
-     * Se ejecuta tras cargar el FXML:
-     * 1. Captura los nodos originales de panPrincipalPerfil para volver a mostrarlos.
-     * 2. Carga las vistas secundarias (Biblioteca y Billetera) sin mostrarlas.
-     * 3. Muestra el panel de perfil y carga datos de sesión.
-     */
+    // inicializa metodos
+    // Se llama automaticamente al cargar el FXML
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // .getChildren() devuelve ObservableList de nodos
+        // .getChildren() obtiene nodos hijos del panel principal
+        // que se usa para restaurar la vista original del perfil y los guarda 
+        // en la lista nodosOriginalesPerfil
         nodosOriginalesPerfil = new ArrayList<>(panPrincipalPerfil.getChildren());
 
         cargarPanes();       // Prepara las vistas de Biblioteca y Billetera
-        muestraPerfil();     // Pone de nuevo los nodos originales
+        muestraPerfil();     // Pone de nuevo los nodos originales 
         cargarDatosSesion();  // llena campos con datos del usuario en Sesión
 
     }
       private void cargarPanes() {
         try {
             // ---- Biblioteca ----
+            // Carga el FXML de BibliotecaPerfilDos.fxml y obtiene su controlador
             FXMLLoader loaderBiblio = new FXMLLoader(
                 getClass().getResource("/fxmls/BibliotecaPerfilDos.fxml")
             );
@@ -163,18 +161,23 @@ public class Perfil2Controller implements Initializable {
         fileChooser.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("Imágenes", "*.png", "*.jpg", "*.jpeg", "*.gif")
         );
-
+        // Abre el diálogo para seleccionar un archivo
+        // y guarda la referencia en archivo
+        // Si el usuario cancela, archivo será null
         File archivo = fileChooser.showOpenDialog(btnElegirImagen.getScene().getWindow());
 
         if (archivo != null) {
             try {
+                //leer el archivo seleccionado y convertirlo a bytes
+                // Si el archivo es demasiado grande, muestra un mensaje de error
                 byte[] bytes = Files.readAllBytes(archivo.toPath());
                 Usuario u = Sesion.getUsuario();
                 if (bytes.length > 5_000_000) {
-                    mostrarAlerta("La imagen es demasiado grande (máximo 5MB)");
+                    mostrarAlerta("La imagen es demasiado grande (maximo 5MB)");
                     return;
                 }
-
+                // Actualiza la imagen del usuario en la base de datos
+                // y en la sesion actual
                 if (usuarioDAO.updateFotoPerfil(u.getId(), bytes)) {
                     u.setImagenPerfil(bytes);
                     Image nuevaImg = new Image(new ByteArrayInputStream(bytes));
@@ -194,26 +197,32 @@ public class Perfil2Controller implements Initializable {
 
     @FXML private void mostrarCerrarSesion(MouseEvent event) {
         try {
+            // Carga el FXML de CerrarSesion.fxml y crea una nueva ventana
+            // Crea un FXMLLoader para cargar el FXML de Cerrar Sesión
             FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/fxmls/CerrarSesion.fxml")
             );
+            // Carga el contenido del FXML
+            // y crea un Parent que representa la raíz de la escena
             Parent root = loader.load();
+            // Crea una nueva Stage para mostrar el diálogo de Cerrar Sesión
+            // y establece su título y escena
             Stage stage = new Stage();
             stage.setTitle("Cerrar Sesión");
+            // Establece la escena con el contenido cargado
             stage.setScene(new Scene(root));
             stage.setResizable(false);
-
             // Hace la ventana modal
             stage.initModality(Modality.APPLICATION_MODAL);
             // bloquea solo la ventana actual
             stage.initOwner(imgSalir.getScene().getWindow());
-
             stage.showAndWait(); // Espera hasta que se cierre
-
+            // Obtiene el controlador del FXML cargado
+            // y le pasa la referencia al controlador de Perfil2Controller
             CerrarSesionController cerrarCtrl = loader.getController();
             cerrarCtrl.setPerfil2Controller(this);
+            // Pasa la referencia al Stage de perfil para que pueda cerrarse
             cerrarCtrl.setPerfilStage((Stage) imgSalir.getScene().getWindow());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -259,11 +268,12 @@ public class Perfil2Controller implements Initializable {
      */
     private void cargarDatosSesion() {
         if (Sesion.isLoggedUsuario()) {
-            Usuario u = Sesion.getUsuario(); // Devuelve objeto Usuario de Sesion
-
+            Usuario u = Sesion.getUsuario(); // Devuelve el usuario actual de la sesión
+            // Asigna los datos del usuario a los campos de texto
             txtUsuario.setText(u.getUsuario());
             txtCorreo.setText(u.getEmail());         
             txtContrasenha.setText(u.getPasword()); 
+            // Carga la imagen de perfil si existe
             if (u.getImagenPerfil() != null) {
                 Image nuevaImg = new Image(new ByteArrayInputStream(u.getImagenPerfil()));
                 imgPerfil2.setImage(nuevaImg);
@@ -275,10 +285,15 @@ public class Perfil2Controller implements Initializable {
 
 
     @FXML private void editarUsuario(MouseEvent event) {
+        // Obtiene el usuario actual de la sesión
+        // y actualiza su nombre de usuario con el texto del campo txtUsuario
         Usuario u = Sesion.getUsuario();
+        // Obtiene el texto del campo de usuario, elimina espacios al inicio y final
         String nuevo = txtUsuario.getText().trim();
+        // Si el campo está vacío, no hace nada
         if (nuevo.isEmpty()) return; 
-
+        // Llama al método updateNombre del usuarioDAO para actualizar el nombre
+        // y verifica si la operación fue exitosa
         boolean exito = usuarioDAO.updateNombre(u.getId(), nuevo);
         if (exito) {
             abrirExito();        
@@ -288,10 +303,15 @@ public class Perfil2Controller implements Initializable {
 }
 
     @FXML private void editarCorreo(MouseEvent event) {
+        // Obtiene el usuario actual de la sesión
+        // y actualiza su correo electrónico con el texto del campo txtCorreo
         Usuario u = Sesion.getUsuario();
+        // Obtiene el texto del campo de correo, elimina espacios al inicio y final
         String nuevo = txtCorreo.getText().trim();
+        // Si el campo está vacío, no hace nada
         if (nuevo.isEmpty()) return;
-
+        // Llama al método updateEmail del usuarioDAO para actualizar el correo
+        // y verifica si la operación fue exitosa
         boolean exito = usuarioDAO.updateEmail(u.getId(), nuevo);
         if (exito) {
             abrirExito();

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -171,6 +172,8 @@ public class LoginController implements Initializable {
             if (email.equalsIgnoreCase(us.getEmail()) && password.equals(us.getPasword())) {
 
                 Sesion.setUsuario(us);// guardar el usario de la sesion tras comprobar que son correctos
+                Sesion.setJuegosUsuario( usuarioDAO.JuegosUsuario(us.getId() ) );//guarda los juegos del usuario
+                
                 lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
 
@@ -189,9 +192,10 @@ public class LoginController implements Initializable {
             // se ejecuta si se ingresa un usuario
         } else {
             // verifica si el usuario y el password son correctos
-            if (user.equalsIgnoreCase(us.getUsuario()) && password.equals(us.getPasword())) {
+            if (user.equals(us.getUsuario()) && password.equals(us.getPasword())) {
 
                 Sesion.setUsuario(us);
+                Sesion.setJuegosUsuario( usuarioDAO.JuegosUsuario(us.getId() ) );//guarda los juegos del usuario
                 lb_camposVacios.setText("Bienvenido");
                 lb_camposVacios.setVisible(true);
 
@@ -245,7 +249,7 @@ public class LoginController implements Initializable {
                     exe.printStackTrace();
                 }
             }
-            case "OlvidoContrasena" -> {// interfaz olbido contraseña
+            case "OlvidoContrasena" -> {// interfaz olvido contraseña
                 Stage stageOlvidoContra = new Stage();
                 Parent root;
                 try {
