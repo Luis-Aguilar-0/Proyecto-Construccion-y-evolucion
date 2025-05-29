@@ -48,13 +48,13 @@
          <children>
             <VBox alignment="CENTER" prefHeight="301.0" prefWidth="246.0" spacing="20.0" styleClass="mi-vbox">
                <children>
-                  <RadioButton fx:id="magic_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="159.0" text="Magic Pack 125Ax">
+                  <RadioButton fx:id="magic_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="159.0" text="Magic Pack 100Ax">
                      <toggleGroup>
                         <ToggleGroup fx:id="paqueteSelectro" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="legend_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="Legendary Pack 525Ax" toggleGroup="$paqueteSelectro" />
-                  <RadioButton fx:id="god_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="God Pack 1000Ax" toggleGroup="$paqueteSelectro" />
+                  <RadioButton fx:id="legend_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="Legendary Pack 600Ax" toggleGroup="$paqueteSelectro" />
+                  <RadioButton fx:id="god_radioBttn" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="God Pack 1300Ax" toggleGroup="$paqueteSelectro" />
                </children>
             </VBox>
             <ScrollPane prefHeight="301.0" prefWidth="429.0" styleClass="root">

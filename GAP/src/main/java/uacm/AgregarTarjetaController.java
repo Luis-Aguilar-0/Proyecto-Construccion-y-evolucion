@@ -117,6 +117,7 @@ public class AgregarTarjetaController {
                     if (asociacionExitosa) {
                         nuevaTarjeta.setIdTarjeta(idNuevaTarjeta);
                         usuarioActual.agregarTarjetaGuardada(nuevaTarjeta);
+                        
                         mostrarVentanaExitoYSalir();
                     } else {
                         mostrarAlertaEnLabel("Error: No se pudo asociar la tarjeta al perfil.");

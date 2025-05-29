@@ -2,8 +2,11 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +25,9 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 import logic.Juego;
+import logic.Usuario;
 import persistencia.Sesion;
+import persistencia.TarjetaDAO;
 
 public class Pagina_juegoController implements Initializable {
     @FXML
@@ -61,6 +66,8 @@ public class Pagina_juegoController implements Initializable {
     private Button bt_carrito;
     @FXML
     private Button bt_inicio;
+    
+    private TarjetaDAO tarjeta;
 
 
     private void mostrarInfo(Juego juego){
@@ -126,9 +133,9 @@ public class Pagina_juegoController implements Initializable {
             Scene scene = new Scene(root);
             satgeNew.setScene(scene);
             satgeNew.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
            e.printStackTrace();
-        };
+        }
 
     }
 
@@ -141,7 +148,6 @@ public class Pagina_juegoController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
 
         Juego juego = Sesion.getJuegoPagina();// recuperamos el juego
-
         mostrarInfo(juego);
 
         // cambio de imagenes

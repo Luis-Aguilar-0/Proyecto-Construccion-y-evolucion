@@ -299,7 +299,7 @@ public class InicioGapController implements Initializable {
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon");
         });
         img5Play.setOnMouseClicked(eh -> {
-            paginaJuego(getJuegoPorNombre("Marvel s Spider-Man: Miles Morales"));
+            paginaJuego(getJuegoPorNombre("Marvels Spider-Man: Miles Morales"));
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man");
         });
         img6Play.setOnMouseClicked(eh -> {

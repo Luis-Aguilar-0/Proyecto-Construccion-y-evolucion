@@ -19,6 +19,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import logic.Tarjeta;
 import logic.Usuario;
 import persistencia.Sesion;
 import persistencia.UsuarioDAO;
@@ -90,7 +91,7 @@ public class RecargaAxolotlController implements Initializable {
     }
     
     private boolean validarTarjeta(){
-        return u != null && u.getTarjetasGuardadas()!= null;
+        return u != null && u.getTarjetasGuardadas().isEmpty() == false;
     }
     
     /**
@@ -104,6 +105,9 @@ public class RecargaAxolotlController implements Initializable {
         
         try {
             this.usuarioDAO = new UsuarioDAO();
+            // Actualizar el usuario desde la base de datos para asegurar datos frescos
+            Usuario us = usuarioDAO.obtenerPorId(Sesion.getUsuario().getId());
+            Sesion.setUsuario(us);
         } catch (SQLException ex) {
             throw new RuntimeException("Error al inicializar UsuarioDAO", ex);
         }
@@ -136,34 +140,34 @@ public class RecargaAxolotlController implements Initializable {
                 text_paquetes.setText("""
                                         ¡Descubre el poder del Paquete Mágico!
                                     
-                                    Obtén 125 AxoloCoins y desbloquea diversión sin límites con nuestros juegos más encantadores. Usa este poder para explorar mundos, ganar recompensas y vivir la magia del juego.
+                                    Obtén 100 AxoloCoins y desbloquea diversión sin límites con nuestros juegos más encantadores. Usa este poder para explorar mundos, ganar recompensas y vivir la magia del juego.
                                       
-                                                                $150.00MX""");
-                nombrePaquete_label.setText("  Magic Pack:                                  125Ax");
-                precioPaquete_label.setText("  Total a pagar:                     $150.00MX");
-                compra = 125;
+                                                                $75.00MX""");
+                nombrePaquete_label.setText("  Magic Pack:                                  100Ax");
+                precioPaquete_label.setText("  Total a pagar:                     $75.00MX");
+                compra = 100;
             } else if (newToggle == legend_radioBttn) {
                 pane_text.setPrefHeight(200);
                 text_paquetes.setText("""
                                                             ¡Gran eleccion!
                                       
-                                      El paquete Legendary te da 525Ax (AxoloCoins), ideal para quienes quieren conquistar cada nivel sin límites. Desbloquea recompensas legendarias con 525 AxoloCoins y lleva tu experiencia al siguiente nivel.
+                                      El paquete Legendary te da 600Ax (AxoloCoins), ideal para quienes quieren conquistar cada nivel sin límites. Desbloquea recompensas legendarias con 525 AxoloCoins y lleva tu experiencia al siguiente nivel.
                                       
-                                                                    $499.00MX""");
-                nombrePaquete_label.setText("  Legendary Pack:                        525Ax");
-                precioPaquete_label.setText("  Total a pagar:                     $499.00MX");
-                compra = 525;
+                                                                    $375.00MX""");
+                nombrePaquete_label.setText("  Legendary Pack:                        600Ax");
+                precioPaquete_label.setText("  Total a pagar:                     $375.00MX");
+                compra = 600;
             } else if (newToggle == god_radioBttn) {
                 pane_text.setPrefHeight(200);
                 text_paquetes.setText("""
                                                 ¡Que te pareceria mas potencia!
                                       
-                                      Con 1000Ax (AxoloCoins), el paquete God te coloca en la cima del poder. ¡Juega sin límites y conquista todo! Da el salto definitivo. Con 1000Ax, el paquete God te transforma en el jugador que todos quieren ser.
+                                      Con 1300Ax (AxoloCoins), el paquete God te coloca en la cima del poder. ¡Juega sin límites y conquista todo! Da el salto definitivo. Con 1000Ax, el paquete God te transforma en el jugador que todos quieren ser.
                                       
-                                                                    $899.00MX""");
-                nombrePaquete_label.setText("  God Pack:                                  1000Ax");
-                precioPaquete_label.setText("  Total a pagar:                     $899.00MX");
-                compra = 1000;
+                                                                    $750.00MX""");
+                nombrePaquete_label.setText("  God Pack:                                  1300Ax");
+                precioPaquete_label.setText("  Total a pagar:                     $750.00MX");
+                compra = 1300;
             }
         });
         

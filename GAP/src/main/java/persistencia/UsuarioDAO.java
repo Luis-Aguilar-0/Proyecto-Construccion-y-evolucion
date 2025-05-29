@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -147,6 +148,43 @@ public class UsuarioDAO {
         return null; // me regresa null si no existe el usuario en la base de datos
     }
 
+    public Usuario obtenerPorId(int id) {
+        String sql = "SELECT * FROM usuario WHERE id = ?";
+        try (Connection conn = Conexion.gConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, id);
+            res = stmt.executeQuery();
+
+            if (res.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId(res.getInt("id"));
+                usuario.setUsuario(res.getString("nombre"));
+                usuario.setEmail(res.getString("email"));
+                usuario.setPasword(res.getString("password"));
+                usuario.setAjoloCoins(res.getInt("ajoloCoins"));
+
+                byte[] imagenperfil = res.getBytes("fotoPerfil");
+                if (res.wasNull()) {
+                    usuario.setImagenPerfil(null);
+                } else {
+                    usuario.setImagenPerfil(imagenperfil);
+                }
+
+                usuario.setSaldo(res.getInt("saldo"));
+                usuario.setFechaNacimiento(res.getDate("fechaNacimiento"));
+
+                return usuario;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error en obtenerPorId: " + e.getMessage());
+            e.printStackTrace();
+            throw new RuntimeException("Error al obtener usuario por ID", e);
+        }
+        return null; // Si no se encontró el usuario
+    }
+
+    
     /**
      * Tenemos dos tipos de consutas se ejecutara una u otra dependiendo de si se
      * ingrese en la pantalla de login
@@ -221,7 +259,7 @@ public class UsuarioDAO {
     
     public boolean updateAjolocoins(int idUsuario, int cantidadSumar){
         try(Connection conn = Conexion.gConnection();
-                PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
+            PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
             
             stmt.setInt(1, cantidadSumar);//cuantos axolocoins se quieren sumar
             stmt.setInt(2, idUsuario);//a que usuario 
@@ -234,6 +272,27 @@ public class UsuarioDAO {
         }
     }
 
+    public boolean asignarJuegoUsuario(int idUsuario, int idJuego){
+        String sql = "INSERT INTO usuario_juego (idUsuario, idJuego) VALUES(?, ?)";
+        
+        try(Connection conn = Conexion.gConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql)){
+            
+            stmt.setInt(1, idUsuario);
+            stmt.setInt(2, idJuego);
+            
+            stmt.executeUpdate();
+            return true;
+            
+        }catch(SQLIntegrityConstraintViolationException e){
+            System.out.println("El usuario ya tiene este juego registrado");
+            return false;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public List<Juego> JuegosUsuario(int idUsuario) {
         
         List<Juego> lisJuegos = new ArrayList<>();
