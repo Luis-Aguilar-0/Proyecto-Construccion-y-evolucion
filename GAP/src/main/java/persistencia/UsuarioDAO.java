@@ -269,6 +269,19 @@ public class UsuarioDAO {
         }
     }
     
+    public boolean setAjolocoins(int idUsuario, int nuevoValor) {
+        try (Connection conn = Conexion.gConnection(); PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET ajoloCoins = ? WHERE id = ?")) {
+
+            stmt.setInt(1, nuevoValor); // asignar nuevo valor directamente
+            stmt.setInt(2, idUsuario);
+            return stmt.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
     public boolean updateContrasena(int idUsuario, String contraseña){
         try{
             Connection conexion = Conexion.gConnection();

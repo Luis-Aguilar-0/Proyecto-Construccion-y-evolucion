@@ -3,8 +3,10 @@ package uacm;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -28,6 +31,12 @@ public class CarritoController implements Initializable {
     @FXML private Label lblTotalJuegos;
     @FXML private Label lblPrecioTotalMXN;
     @FXML private Label lblPrecioTotalAxolocoins; // Nueva etiqueta para el total de Axolocoins
+    @FXML
+    private ScrollPane scrollPaneCartItems;
+    @FXML
+    private VBox summaryPane;
+    @FXML
+    private Button btnIrPago;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -39,6 +48,24 @@ public class CarritoController implements Initializable {
         });
         
         refrescarVistaCarrito();
+        
+        btnIrPago.setOnAction(eh -> {
+            try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PayPage.fxml"));
+            Parent root = loader.load();
+
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setScene(new Scene(root));
+            
+            PayPageController controller = loader.getController();
+            controller.cargarJuegosDesdeCarrito();
+            
+            nuevaVentana.show();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } 
+        });
     }
 
     private void refrescarVistaCarrito() {
@@ -108,7 +135,6 @@ public class CarritoController implements Initializable {
         navegarPara(event, "/fxmls/Categorias.fxml", "Categorías de Juegos");
     }
 
-    @FXML
     private void handleProcederAlPago(ActionEvent event) {
         System.out.println("Botón 'Proceder al Pago' presionado.");
         // Lógica para el pago
@@ -144,6 +170,11 @@ public class CarritoController implements Initializable {
         }
     }
 
+    public void vaciarCarrito() {
+        GestorCarrito.limpiar();  // Llama al método de limpieza del carrito
+        refrescarVistaCarrito();  // Actualiza la UI para reflejar el cambio
+    }
+    
     private void navegarPara(ActionEvent event, String fxmlFile, String stageTitle) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxmlFile));
