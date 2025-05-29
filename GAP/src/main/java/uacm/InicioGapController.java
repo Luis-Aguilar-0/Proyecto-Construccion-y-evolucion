@@ -56,7 +56,8 @@ public class InicioGapController implements Initializable {
     private Button btnDerecha_nin;
     @FXML
     private Button btnIzquierda_nin;
-
+    @FXML
+    private Button bt_carrito;
     private final double speed_scroll = 0.1;
     @FXML
     private MenuButton menuPerfil_btn; 
@@ -106,7 +107,7 @@ public class InicioGapController implements Initializable {
     private Button recarga_bttn;
     @FXML
     private Label label_coins;
-    
+     private List<Juego> todosLosJuegos;
     @FXML
     private void moverIzquierdaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() - speed_scroll;
@@ -205,7 +206,25 @@ public class InicioGapController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+      @FXML
+    public void irCarrito(ActionEvent event) { 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Carrito.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Carrito de Compras");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Obtener la fuente del evento, el boton
+            Node source = (Node) event.getSource(); 
+            Stage currentStage = (Stage) source.getScene().getWindow();
+            currentStage.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void cargarImagenPerfil() {
         Usuario u = Sesion.getUsuario();
         if (u != null && u.getImagenPerfil() != null) {
@@ -384,4 +403,43 @@ public class InicioGapController implements Initializable {
         
         
     }
+
+     // MÉTODO NUEVO: Específico para abrir Pagina_juego.fxml y pasarle el objeto Juego
+    public void abrirPaginaJuegoConDatos(MouseEvent event, Juego juegoSeleccionado) {
+        if (juegoSeleccionado == null) {
+            System.err.println("InicioGapController: No se puede abrir la página del juego, juegoSeleccionado es null.");
+            // Opcional: Mostrar una alerta al usuario
+            return;
+        }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Pagina_juego.fxml"));
+            Parent root = loader.load();
+
+            Pagina_juegoController controller = loader.getController();
+            if (controller != null) {
+                controller.setJuego(juegoSeleccionado); // Aquí se pasa el objeto Juego
+            } else {
+                System.err.println("Error crítico: No se pudo obtener el controlador para Pagina_juego.fxml");
+            }
+
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle(juegoSeleccionado.getNombreJuego());
+            nuevaVentana.setScene(new Scene(root));
+            nuevaVentana.show();
+
+            // Por defecto, no cerramos la ventana de InicioGap.
+            // Si quieres cerrarla, descomenta la siguiente línea:
+            // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            System.err.println("Error al cargar FXML /fxmls/Pagina_juego.fxml: " + e.getMessage());
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.err.println("Error inesperado al abrir la página del juego '" + juegoSeleccionado.getNombreJuego() + "': " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    
 }
+

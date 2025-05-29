@@ -37,12 +37,12 @@
                                            <Image url="@../imagenes/imagesPerfil/axolotl_coin_icon.png" />
                                        </image>
                                    </ImageView>
-                                   <Label fx:id="lbSaldoCuenta" styleClass="label-saldo-valor" text="0 AC">
+                                   <Label fx:id="lbSaldoCuenta" styleClass="label-saldo-valor" text="0 AX">
                                        <font>
                                            <Font name="Yu Gothic UI Bold" size="28.0" /> </font>
                                    </Label>
                                </HBox>
-                               <Button fx:id="btnAgregarSaldo" maxWidth="Infinity" mnemonicParsing="false" prefHeight="45.0" styleClass="boton-accion-billetera" text="RECARGAR AXOLOCOINS" />
+                               <Button fx:id="btnAgregarSaldo" maxWidth="Infinity" mnemonicParsing="false" onMouseClicked="#abrirVentanaRecargarAxolocoins" prefHeight="45.0" styleClass="boton-accion-billetera" text="RECARGAR AXOLOCOINS" />
                            </children>
                        </VBox>
    

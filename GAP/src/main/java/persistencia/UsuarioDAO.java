@@ -86,7 +86,6 @@ public class UsuarioDAO {
      */
     public void agregarUsuarioBD(Usuario usuario) {
         try {
-            // MEJORADO: Usando PreparedStatement para evitar SQL injection
             String sql = "INSERT INTO usuario(nombre, email, password, ajoloCoins, saldo, fechaNacimiento) VALUES(?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conexionBase.prepareStatement(sql);
             

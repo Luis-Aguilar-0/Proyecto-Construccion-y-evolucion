@@ -37,7 +37,7 @@
       <Text layoutX="657.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tex" text="Requisitos del juego" />
       <Text layoutX="657.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tex" text="Minimos" />
       <Text layoutX="657.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="tex" text="Recomendados" />
-      <Button fx:id="btn_agregaraAlCarrito" contentDisplay="CENTER" layoutX="657.0" layoutY="387.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" styleClass="buttons" text="Agregar al carrito" />
+      <Button fx:id="btn_agregaraAlCarrito" contentDisplay="CENTER" layoutX="657.0" layoutY="387.0" mnemonicParsing="false" onAction="#AgregarAlCarrito" prefHeight="30.0" prefWidth="224.0" styleClass="buttons" text="Agregar al carrito" />
       <Button fx:id="btn_Comprar" contentDisplay="CENTER" layoutX="658.0" layoutY="426.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="224.0" styleClass="buttons" text="Comprar" textAlignment="CENTER" />
       <Pane fx:id="paneImagenPrincipal" layoutX="73.0" layoutY="61.0" prefHeight="250.0" prefWidth="560.0" style="-fx-background-color: #643B81;">
          <children>
@@ -60,7 +60,7 @@
       </ImageView>
       <Label fx:id="lb_precio" layoutX="658.0" layoutY="348.0" prefHeight="30.0" prefWidth="106.0" text="Precio" textFill="WHITE" />
       <Label fx:id="lb_precioAjoloCoins" layoutX="781.0" layoutY="348.0" prefHeight="30.0" prefWidth="113.0" text="AjoloCois" textFill="WHITE" />
-      <Button fx:id="bt_carrito" layoutX="658.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" styleClass="buttons" text="Carrito" />
+      <Button fx:id="bt_carrito" layoutX="658.0" layoutY="64.0" mnemonicParsing="false" onAction="#irCarrito" prefHeight="25.0" prefWidth="125.0" styleClass="buttons" text="Carrito" />
       <Button fx:id="regreso_bttn" layoutX="20.0" layoutY="31.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" styleClass="buttons" text="🡰" />
    </children>
 </AnchorPane>

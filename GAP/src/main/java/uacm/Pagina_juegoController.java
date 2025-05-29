@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.animation.PauseTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,6 +20,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import logic.GestorCarrito;
 import logic.Juego;
 import persistencia.Sesion;
 
@@ -56,6 +60,7 @@ public class Pagina_juegoController implements Initializable {
     private Label lb_precioAjoloCoins;
     @FXML
     private Button bt_carrito;
+    
     @FXML
     private Button bt_inicio;
     @FXML
@@ -63,42 +68,22 @@ public class Pagina_juegoController implements Initializable {
 
 
     private void mostrarInfo(Juego juego){
-        
-        // // Asignando las imagenes del juego
-        // Image imagenCentro = new Image(getClass().getResource(juego.getImagenes()[1]).toExternalForm());
-        // imgCentro.setImage(imagenCentro);
-        // Image imagenDerecha = new Image(getClass().getResource(juego.getImagenes()[2]).toExternalForm());
-        // imgRight.setImage(imagenDerecha);
-        // Image imagenIzquierda = new Image(getClass().getResource(juego.getImagenes()[3]).toExternalForm());
-        // imgLeft.setImage(imagenIzquierda);
-        // Asiganando las imagenes
         for(int i = 0; i < juego.getImagenes().length;i++){
-
             Image imagenJuego = new Image(getClass().getResource(juego.getImagenes()[i]).toExternalForm());
             if(i == 0) imagenPrimcipal.setImage(imagenJuego); 
             if(i == 1) imgCentro.setImage(imagenJuego);
             if(i == 2) imgRight.setImage(imagenJuego);
             if(i == 3) imgLeft.setImage(imagenJuego);
-
         }
-        
-        // Asignando titulo del juego
         txt_tituloJuego.setText(juego.getNombreJuego());
-
-        // Asignando los requistos del juego
-        lb_rMinimos.setWrapText(true);// Permite ajustar le label si el texto no se muestra por completo
+        lb_rMinimos.setWrapText(true);
         lb_rRecomendados.setWrapText(true);
         lb_descripsion.setWrapText(true);
         lb_rMinimos.setText(fortatoTexto(juego.getrMininos()));
         lb_rRecomendados.setText(fortatoTexto(juego.getrRecomendados()));
         lb_descripsion.setText(fortatoTexto(juego.getDescripcion()));
-
-        // Asignando otra info como ditribuidor, fecha de lanzamiento etc...
         String info = "Desarrollador: " + "\n" +juego.getDesarrollador() + "\n" + "Fecha de lanzamiento: " + "\n" + juego.getFechaLanzamiento().toString();
         lb_infoJuego.setText(info);
-        
-        // Asignando precios
-        //lb_precio.setWrapText(true);
         double precio = juego.getPrecio();
         lb_precio.setText("Precio: $"+String.format("%.2f", precio));
         lb_precioAjoloCoins.setText(juego.getPrecioAjoloCoins().toString() + " Ax");
@@ -107,8 +92,7 @@ public class Pagina_juegoController implements Initializable {
 
     private String fortatoTexto(String texto){
         String resultado = "";
-        String[] textoSeparado = texto.split("\\.");// Separa la cadena cuando encuentra un " . "
-        
+        String[] textoSeparado = texto.split("\\.");
         for(String tex : textoSeparado){
             resultado += tex + "\n";
         }
@@ -116,7 +100,6 @@ public class Pagina_juegoController implements Initializable {
     }
 
     private void cargaIntefaz(String interfaz){
-
         try {
             Stage satgeNew = new Stage();
             Parent root;
@@ -128,7 +111,6 @@ public class Pagina_juegoController implements Initializable {
         } catch (Exception e) {
            e.printStackTrace();
         };
-
     }
 
     private void cerrarVentana(Button boton){
@@ -138,12 +120,9 @@ public class Pagina_juegoController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
-        Juego juego = Sesion.getJuegoPagina();// recuperamos el juego
-
+        Juego juego = Sesion.getJuegoPagina();
         mostrarInfo(juego);
 
-        // cambio de imagenes
         imgLeft.setOnMouseClicked(event -> {
             imagenPrimcipal.setImage(imgLeft.getImage());
         });
@@ -153,6 +132,7 @@ public class Pagina_juegoController implements Initializable {
         imgRight.setOnMouseClicked(event -> {
             imagenPrimcipal.setImage(imgRight.getImage());
         });
+
        
         btn_Comprar.setOnAction(eh -> {
            try {
@@ -172,7 +152,6 @@ public class Pagina_juegoController implements Initializable {
             } 
         });
 
-        //boton inicio
         bt_inicio.setOnMouseClicked(event ->{
             cerrarVentana(bt_inicio);
             cargaIntefaz("/fxmls/InicioGap.fxml"); 
@@ -189,5 +168,41 @@ public class Pagina_juegoController implements Initializable {
             }
         });
     }
-
+    
+    @FXML
+    public void irCarrito() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Carrito.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Carrito de Compras");
+            stage.setScene(new Scene(root));
+            stage.show();
+            // Cerrar la ventana actual
+            Stage currentStage = (Stage) bt_carrito.getScene().getWindow();
+            currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void AgregarAlCarrito(ActionEvent event) {
+        Juego juego = Sesion.getJuegoPagina();
+        if (juego != null) {
+            GestorCarrito.agregarJuego(juego);
+            System.out.println("'" + juego.getNombreJuego() + "' añadido al carrito via Pagina_juegoController.");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Exito.fxml"));
+                Parent root = loader.load();
+                Stage exitoStage = new Stage();
+                exitoStage.setScene(new Scene(root));
+                exitoStage.show();
+                PauseTransition delay = new PauseTransition(Duration.seconds(2));
+                delay.setOnFinished(e -> exitoStage.close());
+                delay.play(); 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } 
+    }
 }

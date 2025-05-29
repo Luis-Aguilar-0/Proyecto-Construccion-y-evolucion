@@ -113,7 +113,9 @@ public class Juego {
     public String toString() {
         return "idJuego=" + idJuego + ", " + nombreJuego;
     }
-
+    public String getPortada() {
+        return imagenes[0]; //obtener portada del juego(1era imagen)
+    }
     
 
     public int getCategoria() {

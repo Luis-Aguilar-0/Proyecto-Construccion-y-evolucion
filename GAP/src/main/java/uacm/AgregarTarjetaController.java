@@ -40,10 +40,12 @@ public class AgregarTarjetaController {
     @FXML
     public void initialize() {
         try {
+            // Inicializar el DAO de tarjetas
             tarjetaDAO = new TarjetaDAO();
         } catch (SQLException e) {
             e.printStackTrace();
-            mostrarAlertaEnLabel("Error crítico: No se pudo conectar al servicio de tarjetas.");
+            mostrarAlertaEnLabel("Error critico: No se pudo conectar al servicio de tarjetas.");
+            // Deshabilitar el botón de guardar tarjeta si no se pudo inicializar el DAO
             if (btnGuardarTarjeta != null) btnGuardarTarjeta.setDisable(true);
         }
     }
@@ -66,15 +68,15 @@ public class AgregarTarjetaController {
             mostrarAlertaEnLabel("Error: El CVV debe contener 3 o 4 dígitos.");
             return;
         }
-
+         //Validar y parsear la fecha de expiración.
         YearMonth ymExp;
         try {
             if (!expiracionStr.matches("(0[1-9]|1[0-2])\\/([0-9]{2})")) {
                 mostrarAlertaEnLabel("Error: Formato de fecha debe ser MM/AA (ej. 12/27).");
                 return;
             }
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-            ymExp = YearMonth.parse(expiracionStr, formatter);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");// Formateador para "MM/yy"
+            ymExp = YearMonth.parse(expiracionStr, formatter);// Convierte el String a YearMonth.
             if (ymExp.isBefore(YearMonth.now())) {
                 mostrarAlertaEnLabel("Error: La tarjeta ha expirado.");
                 return;
@@ -83,35 +85,43 @@ public class AgregarTarjetaController {
             mostrarAlertaEnLabel("Error: Fecha de expiración inválida (use MM/AA).");
             return;
         }
-
+        // Validar que el número de tarjeta y CVV sean numéricos
         long numeroTarjeta;
         int cvv;
         try {
             numeroTarjeta = Long.parseLong(numeroTarjetaStr);
             cvv = Integer.parseInt(cvvStr);
         } catch (NumberFormatException e) {
-            mostrarAlertaEnLabel("Error: Número de tarjeta o CVV tienen formato numérico incorrecto.");
+            mostrarAlertaEnLabel("Error: Número de tarjeta o CVV tienen formato numerico incorrecto.");
             return;
         }
-
+        // Convertir YearMonth a Date para la base de datos
+        // Usamos el último día del mes para la fecha de expiración
         Date fechaExpiracionSql = Date.valueOf(ymExp.atEndOfMonth());
-
+        // Crear nueva tarjeta con los datos validos
         Tarjeta nuevaTarjeta = new Tarjeta();
         nuevaTarjeta.setNumTarjeta(numeroTarjeta);
         nuevaTarjeta.setTipoTarjeta("Crédito/Débito");
         nuevaTarjeta.setFechaExpiracion(fechaExpiracionSql);
         nuevaTarjeta.setCodSeguridad(cvv);
-
+        //verificar si el DAO de tarjetas está inicializado
         if (tarjetaDAO == null) {
             mostrarAlertaEnLabel("Error de sistema: Servicio de tarjetas no disponible.");
             return;
         }
+        // Intentar guardar la tarjeta en la base de datos y asociarla al usuario actual
         try {
-            int idNuevaTarjeta = tarjetaDAO.agregarTarjeta(nuevaTarjeta);
-            if (idNuevaTarjeta != -1) {
-                Usuario usuarioActual = Sesion.getUsuario();
+              // Este método en TarjetaDAO devuelve el ID generado por la BD si tiene éxito.
+            int idNuevaTarjeta = tarjetaDAO.agregarTarjeta(nuevaTarjeta);   
+            if (idNuevaTarjeta != -1) {// Si idNuevaTarjeta es -1, hubo un error en agregarTarjeta.
+                Usuario usuarioActual = Sesion.getUsuario();// Obtener el usuario actual de la sesión
+                // Verificar si el usuario actual no es nulo antes de asociar la tarjeta
                 if (usuarioActual != null) {
+                    // Asociar la tarjeta al usuario actual
+                    // El método asociarTarjetaAUsuario devuelve true si la asociación fue exitosa.
                     boolean asociacionExitosa = tarjetaDAO.asociarTarjetaAUsuario(usuarioActual.getId(), idNuevaTarjeta);
+                    // Si la asociación fue exitosa, actualizar la tarjeta en el usuario actual
+                    // y mostrar la ventana de éxito.
                     if (asociacionExitosa) {
                         nuevaTarjeta.setIdTarjeta(idNuevaTarjeta);
                         usuarioActual.agregarTarjetaGuardada(nuevaTarjeta);
@@ -127,6 +137,8 @@ public class AgregarTarjetaController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            // Verificar si el error es por clave primaria duplicada
+            // y mostrar un mensaje específico si es así.
             if (e.getMessage().contains("Violation of PRIMARY KEY constraint") &&
                 e.getMessage().contains("PK_usuario_tarjetas_guardadas")) {
                 mostrarAlertaEnLabel("Error: Esta tarjeta ya está registrada en tu perfil.");
@@ -135,12 +147,14 @@ public class AgregarTarjetaController {
             }
         }
     }
-
+    // Método para mostrar mensajes de alerta en un Label
     private void mostrarAlertaEnLabel(String mensaje) {
+        // Verifica si lbMensaje no es nulo antes de intentar usarlo
         if (lbMensaje != null) {
             lbMensaje.setText(mensaje);
             lbMensaje.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
         } else {
+            // Si lbMensaje es nulo, muestra un Alert como alternativa
             Alert fallbackAlert = new Alert(Alert.AlertType.INFORMATION);
             fallbackAlert.setTitle("Información");
             fallbackAlert.setHeaderText(null);
@@ -148,18 +162,16 @@ public class AgregarTarjetaController {
             fallbackAlert.showAndWait();
         }
     }
-
+    // Método para mostrar una ventana de éxito y cerrar la ventana actual
     private void mostrarVentanaExitoYSalir() {
         try {
             if (lbMensaje != null) lbMensaje.setText("");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Exito.fxml"));
             Parent root = loader.load();
-
             Stage exitoStage = new Stage();
             exitoStage.initStyle(StageStyle.UNDECORATED);
             exitoStage.setScene(new Scene(root));
             exitoStage.show();
-
             PauseTransition delay = new PauseTransition(Duration.seconds(2));
             delay.setOnFinished(e -> {
                 exitoStage.close();

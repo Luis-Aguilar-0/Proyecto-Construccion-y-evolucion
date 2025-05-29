@@ -23,7 +23,6 @@ public class App extends Application {
         stage.setTitle("AjoloTienda");//añade un titulo a la barra de titulo
         stage.setScene(scene);
         stage.show();
-
     }
     
     public static void main(String[] args) {

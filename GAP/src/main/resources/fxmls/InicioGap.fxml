@@ -266,7 +266,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Carrito">
+                  <Button fx:id="bt_Carrito" mnemonicParsing="false" onAction="#irCarrito" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Carrito">
                      <HBox.margin>
                         <Insets left="7.0" />
                      </HBox.margin>
