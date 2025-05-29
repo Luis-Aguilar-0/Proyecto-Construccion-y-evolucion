@@ -3,6 +3,8 @@ package uacm;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
@@ -23,7 +25,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import logic.GestorCarrito;
 import logic.Juego;
+import logic.Usuario;
 import persistencia.Sesion;
+import persistencia.TarjetaDAO;
 
 public class Pagina_juegoController implements Initializable {
     @FXML
@@ -108,9 +112,10 @@ public class Pagina_juegoController implements Initializable {
             Scene scene = new Scene(root);
             satgeNew.setScene(scene);
             satgeNew.show();
-        } catch (Exception e) {
+        } catch (IOException e) {
            e.printStackTrace();
-        };
+        }
+
     }
 
     private void cerrarVentana(Button boton){

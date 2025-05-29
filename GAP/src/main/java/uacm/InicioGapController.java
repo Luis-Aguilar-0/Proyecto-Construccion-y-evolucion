@@ -319,7 +319,7 @@ public class InicioGapController implements Initializable {
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Horizon");
         });
         img5Play.setOnMouseClicked(eh -> {
-            paginaJuego(getJuegoPorNombre("Marvel s Spider-Man: Miles Morales"));
+            paginaJuego(getJuegoPorNombre("Marvels Spider-Man: Miles Morales"));
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Spider Man");
         });
         img6Play.setOnMouseClicked(eh -> {
@@ -405,7 +405,7 @@ public class InicioGapController implements Initializable {
     }
 
      // MÉTODO NUEVO: Específico para abrir Pagina_juego.fxml y pasarle el objeto Juego
-    public void abrirPaginaJuegoConDatos(MouseEvent event, Juego juegoSeleccionado) {
+    /*public void abrirPaginaJuegoConDatos(MouseEvent event, Juego juegoSeleccionado) {
         if (juegoSeleccionado == null) {
             System.err.println("InicioGapController: No se puede abrir la página del juego, juegoSeleccionado es null.");
             // Opcional: Mostrar una alerta al usuario
@@ -438,7 +438,7 @@ public class InicioGapController implements Initializable {
             System.err.println("Error inesperado al abrir la página del juego '" + juegoSeleccionado.getNombreJuego() + "': " + e.getMessage());
             e.printStackTrace();
         }
-    }
+    }*/
 
     
 }

@@ -259,7 +259,7 @@
                   <Image url="@../imagenes/imagesPerfil/Logo-final.jpg" />
                </image>
             </ImageView>
-            <HBox alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="20.0" stylesheets="@../styles/iniciogap.css">
+            <HBox alignment="CENTER" layoutX="115.0" layoutY="20.0" prefHeight="71.0" prefWidth="466.0" spacing="60.0" stylesheets="@../styles/iniciogap.css">
                <children>
                   <Button fx:id="recarga_bttn" mnemonicParsing="false" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Recarga">
                      <HBox.margin>
@@ -267,11 +267,6 @@
                      </HBox.margin>
                   </Button>
                   <Button fx:id="bt_Carrito" mnemonicParsing="false" onAction="#irCarrito" prefHeight="40.0" prefWidth="90.0" styleClass="boton_menu" text="Carrito">
-                     <HBox.margin>
-                        <Insets left="7.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="boton_menu" text="Favoritos">
                      <HBox.margin>
                         <Insets left="7.0" />
                      </HBox.margin>
