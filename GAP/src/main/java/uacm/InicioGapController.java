@@ -266,6 +266,7 @@ public class InicioGapController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarImagenPerfil();
         mostrarCoins();
+        Sesion.setPantallaOrigen("/fxmls/InicioGap.fxml");
         
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
 

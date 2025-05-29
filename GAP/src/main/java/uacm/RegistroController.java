@@ -1,10 +1,14 @@
 package uacm;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -152,8 +156,10 @@ public class RegistroController implements Initializable {
                         
                     } else {
                         if (usuarioDAO.buscaUsuario(nombre) != null) {
+                            mensaje_label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
                             mensaje_label.setText("Ya existe un usuario con ese nombre, cambialo porfavor");
                         } else if (usuarioDAO.buscaUsuario(correo) != null) {
+                            mensaje_label.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
                             mensaje_label.setText("Ya existe un usuario con ese correo, cambialo porfavor");
                         }
 
@@ -161,6 +167,10 @@ public class RegistroController implements Initializable {
 
                 } catch (SQLException e) {
                     throw new RuntimeException();
+                } catch (IOException ex) {
+                    Logger.getLogger(RegistroController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (URISyntaxException ex) {
+                    Logger.getLogger(RegistroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
                 System.out.println(dia + "/" + mes + "/" + anio);

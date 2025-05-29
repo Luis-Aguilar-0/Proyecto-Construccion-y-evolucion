@@ -2,7 +2,6 @@ package uacm;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -19,8 +18,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
-import javafx.util.converter.IntegerStringConverter;
 import logic.Juego;
 import persistencia.Sesion;
 
@@ -61,6 +58,8 @@ public class Pagina_juegoController implements Initializable {
     private Button bt_carrito;
     @FXML
     private Button bt_inicio;
+    @FXML
+    private Button regreso_bttn;
 
 
     private void mostrarInfo(Juego juego){
@@ -102,7 +101,7 @@ public class Pagina_juegoController implements Initializable {
         //lb_precio.setWrapText(true);
         double precio = juego.getPrecio();
         lb_precio.setText("Precio: $"+String.format("%.2f", precio));
-        // lb_precioAjoloCoins.setText("cero");
+        lb_precioAjoloCoins.setText(juego.getPrecioAjoloCoins().toString() + " Ax");
 
     }
 
@@ -154,11 +153,6 @@ public class Pagina_juegoController implements Initializable {
         imgRight.setOnMouseClicked(event -> {
             imagenPrimcipal.setImage(imgRight.getImage());
         });
-
-        System.out.println("Intentando establecer el texto del Label");
-        lb_rMinimos.setWrapText(true);
-
-        lb_rMinimos.setText("Los requisitos minimos son 10Gb ram \n como minimo una tarjeta grafica de 16GB ram cvavacvagsfdgafdgasfdSFASDFASDF " );
        
         btn_Comprar.setOnAction(eh -> {
            try {
@@ -182,6 +176,17 @@ public class Pagina_juegoController implements Initializable {
         bt_inicio.setOnMouseClicked(event ->{
             cerrarVentana(bt_inicio);
             cargaIntefaz("/fxmls/InicioGap.fxml"); 
+        });
+
+        regreso_bttn.setOnMouseClicked(event ->{
+            if(Sesion.getPantallaOrigen().equals("/fxmls/InicioGap.fxml")){
+                cerrarVentana(bt_inicio);
+                cargaIntefaz("/fxmls/InicioGap.fxml"); 
+            }
+            if(Sesion.getPantallaOrigen().equals("/fxmls/Categorias.fxml")){
+                cerrarVentana(regreso_bttn);
+                cargaIntefaz("/fxmls/Categorias.fxml");
+            }
         });
     }
 

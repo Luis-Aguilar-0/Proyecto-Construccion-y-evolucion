@@ -1,5 +1,12 @@
 package logic;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Date;
 import java.util.ArrayList; 
 import java.util.List;
@@ -48,15 +55,26 @@ public class Usuario {
      * @param pasword
      * @param fechaNacimiento
      */
-    public Usuario(String usuario, String email, String pasword, Date fechaNacimiento) {
-        this(); 
+    public Usuario(String usuario, String email, String pasword, Date fechaNacimiento) throws IOException, URISyntaxException {
         this.usuario = usuario;
         this.email = email;
         this.pasword = pasword;
         this.fechaNacimiento = fechaNacimiento;
-        this.ajoloCoins = 0;
+        this.ajoloCoins = 100; // Regalamos 100 ajoloCoins a cada usuario nuevo
         this.saldo = 0.0;
+        //obtenemos la direccion de la imgen de perfil por defecto
+        URL url = getClass().getResource("/imagenes/imagesPerfil/perfil4.png");
+        if (url != null) {
+            try {
+                System.out.println(url);
+                Path path = Paths.get(url.toURI());
+                this.imagenPerfil = Files.readAllBytes(path);
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
 
     public Usuario(String usuario, String email, String pasword) {
         this(); 
