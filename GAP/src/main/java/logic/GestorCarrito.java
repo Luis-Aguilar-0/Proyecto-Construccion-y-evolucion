@@ -39,4 +39,7 @@ public class GestorCarrito {
         return itemsEnCarrito.size();
     }
 
+    public static void limpiar() {
+        itemsEnCarrito.clear(); // o como se llame tu lista principal
+    }
 }
