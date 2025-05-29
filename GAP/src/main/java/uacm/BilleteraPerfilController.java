@@ -106,13 +106,11 @@ public class BilleteraPerfilController {
     private void cargarYMostrarTarjetasGuardadas() {
         if (vboxTarjetas == null) return;
         vboxTarjetas.getChildren().clear();
-
         Usuario usuarioActual = Sesion.getUsuario();
         if (usuarioActual == null) {
             mostrarMensajeEnVBox("Error: No hay usuario en sesion.");
             return;
         }
-
         if (tarjetaDAO == null) {
             mostrarMensajeEnVBox("Error: Servicio de tarjetas no disponible.");
             return;

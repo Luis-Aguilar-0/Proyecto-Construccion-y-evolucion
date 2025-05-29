@@ -63,6 +63,9 @@ public class Pagina_juegoController implements Initializable {
     
     @FXML
     private Button bt_inicio;
+    @FXML
+    private Button regreso_bttn;
+
 
     private void mostrarInfo(Juego juego){
         for(int i = 0; i < juego.getImagenes().length;i++){
@@ -83,7 +86,8 @@ public class Pagina_juegoController implements Initializable {
         lb_infoJuego.setText(info);
         double precio = juego.getPrecio();
         lb_precio.setText("Precio: $"+String.format("%.2f", precio));
-        // lb_precioAjoloCoins.setText("cero");
+        lb_precioAjoloCoins.setText(juego.getPrecioAjoloCoins().toString() + " Ax");
+
     }
 
     private String fortatoTexto(String texto){
@@ -129,6 +133,7 @@ public class Pagina_juegoController implements Initializable {
             imagenPrimcipal.setImage(imgRight.getImage());
         });
 
+       
         btn_Comprar.setOnAction(eh -> {
            try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/PayPage.fxml"));
@@ -151,6 +156,17 @@ public class Pagina_juegoController implements Initializable {
             cerrarVentana(bt_inicio);
             cargaIntefaz("/fxmls/InicioGap.fxml"); 
         });
+
+        regreso_bttn.setOnMouseClicked(event ->{
+            if(Sesion.getPantallaOrigen().equals("/fxmls/InicioGap.fxml")){
+                cerrarVentana(bt_inicio);
+                cargaIntefaz("/fxmls/InicioGap.fxml"); 
+            }
+            if(Sesion.getPantallaOrigen().equals("/fxmls/Categorias.fxml")){
+                cerrarVentana(regreso_bttn);
+                cargaIntefaz("/fxmls/Categorias.fxml");
+            }
+        });
     }
     
     @FXML
@@ -162,7 +178,6 @@ public class Pagina_juegoController implements Initializable {
             stage.setTitle("Carrito de Compras");
             stage.setScene(new Scene(root));
             stage.show();
-
             // Cerrar la ventana actual
             Stage currentStage = (Stage) bt_carrito.getScene().getWindow();
             currentStage.close();

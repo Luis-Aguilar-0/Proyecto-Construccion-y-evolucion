@@ -130,7 +130,6 @@ public class UsuarioDAO {
                     buscado.setImagenPerfil(imagenperfil);
                 }
                 
-                
                 buscado.setSaldo(res.getInt("saldo")); 
                 buscado.setFechaNacimiento(res.getDate("fechaNacimiento"));
                 
@@ -138,7 +137,6 @@ public class UsuarioDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Error en buscaUsuario: " + e.getMessage());
             e.printStackTrace();
             throw new RuntimeException("Error al buscar usuario: " + e.getMessage(), e);
         }
@@ -167,8 +165,8 @@ public class UsuarioDAO {
 
     public boolean updateEmail(int id, String nuevoEmail) {
         try (
-                Connection conn = Conexion.gConnection();
-                PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
+            Connection conn = Conexion.gConnection();
+            PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET email = ? WHERE id = ?")) {
             stmt.setString(1, nuevoEmail);
             stmt.setInt(2, id);
             return stmt.executeUpdate() > 0;
@@ -220,7 +218,7 @@ public class UsuarioDAO {
     
     public boolean updateAjolocoins(int idUsuario, int cantidadSumar){
         try(Connection conn = Conexion.gConnection();
-                PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
+            PreparedStatement stmt = conn.prepareStatement( "UPDATE usuario SET ajoloCoins = ajoloCoins + ? WHERE id = ?")){
             
             stmt.setInt(1, cantidadSumar);//cuantos axolocoins se quieren sumar
             stmt.setInt(2, idUsuario);//a que usuario 
@@ -231,6 +229,23 @@ public class UsuarioDAO {
             e.printStackTrace();
             return false;
         }
+    }
+    
+    public boolean updateContrasena(int idUsuario, String contraseña){
+        try{
+            Connection conexion = Conexion.gConnection();
+            PreparedStatement stmt = conexion.prepareStatement("UPDATE usuario SET password = ? where id = ?");
+            stmt.setString(1, contraseña);
+            stmt.setInt(2, idUsuario);
+            
+            
+            return stmt.executeUpdate() > 0;
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();
+            return false;
+        }
+       
     }
 
     public List<Juego> JuegosUsuario(int idUsuario) {
@@ -264,8 +279,6 @@ public class UsuarioDAO {
         } catch (SQLException e) {
           throw  new RuntimeException();
         }
-   
-
     }
 
 }

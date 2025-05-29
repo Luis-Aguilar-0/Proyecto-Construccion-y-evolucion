@@ -324,7 +324,6 @@ public class Perfil2Controller implements Initializable {
         Usuario u = Sesion.getUsuario();
         String nuevo = txtContrasenha.getText().trim();
         if (nuevo.isEmpty()) return;
-
         boolean exito = usuarioDAO.updatePasword(u.getId(), nuevo);
         if (exito) {
                 abrirExito();

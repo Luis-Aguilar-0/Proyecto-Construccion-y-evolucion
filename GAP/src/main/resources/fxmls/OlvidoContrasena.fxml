@@ -27,6 +27,7 @@
             <TextField fx:id="txt_nuevaContra" layoutX="150.0" layoutY="115.0" prefHeight="25.0" prefWidth="161.0" styleClass="tex-color" stylesheets="@../styles/olvidocontrasena.css" />
             <Line endX="100.0" layoutX="50.0" layoutY="140.0" startX="260.0" stroke="#643b81" />
             <Button fx:id="btn_actualizaContra" layoutX="259.0" layoutY="190.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="283.0" styleClass="buttons" stylesheets="@../styles/general.css" text="Actualizar contaseña" />
+            <Label fx:id="lb_cambioExitoso" alignment="CENTER" layoutX="134.0" layoutY="260.0" prefHeight="17.0" prefWidth="332.0" text="Label" />
          </children>
       </Pane>
    </children>

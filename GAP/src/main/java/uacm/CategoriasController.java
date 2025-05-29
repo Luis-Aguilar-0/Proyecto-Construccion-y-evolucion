@@ -179,6 +179,8 @@ public class CategoriasController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
+        Sesion.setPantallaOrigen("/fxmls/Categorias.fxml");
         
         regreso_bttn.setOnAction(eh ->{
             try{

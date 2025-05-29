@@ -7,6 +7,7 @@ public class Sesion {
     private static Usuario usuarioActual;//copia del usuario que ha iniciado sesion
     private static List<Juego> juegos;
     private static Juego juego;
+    private static String pantallaOrigen;
 
     public static void setUsuario(Usuario u) {//se llama al usuario tras haber inciado sesion
         usuarioActual = u;
@@ -28,6 +29,12 @@ public class Sesion {
       }
       public static void setJuegoPagina(Juego juego_){
         juego = juego_;
+      }
+      public static String getPantallaOrigen(){
+        return pantallaOrigen;
+      }
+      public static void setPantallaOrigen(String origen){
+        pantallaOrigen = origen;
       }
 
        /** Indica si hay alguien logueado */

@@ -19,7 +19,7 @@ public class App extends Application {
         Parent root = loader.load();
        
         scene = new Scene(root,900,600);
-        stage.setResizable(true);//permite ajustar el tamaño de la interfaz con le mause
+        stage.setResizable(false);//permite ajustar el tamaño de la interfaz con le mause
         stage.setTitle("AjoloTienda");//añade un titulo a la barra de titulo
 
         stage.setScene(scene);

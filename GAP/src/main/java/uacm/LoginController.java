@@ -65,8 +65,6 @@ public class LoginController implements Initializable {
         // conexion a la base de datos
         try {
             usuarioDAO = new UsuarioDAO(); // ceacion del objeto para la conexion a la base de datos
-
-            System.out.println("conexion a la tabla juego");
             juegoDAO = new JuegoDAO();
 
             // obtencion de los juegos
@@ -108,7 +106,6 @@ public class LoginController implements Initializable {
             paswor_fileUno.setVisible(false);
             // mostramos la contraseña
             tx_vistaContra.setVisible(true);
-            System.out.println("la tarea esta echa");
 
             timer.schedule(tareaUno, 5000);// cuando se pulsa el boton el timer espera cinco segundo y ejecuta la tarea
 
@@ -121,7 +118,7 @@ public class LoginController implements Initializable {
 
         // ajustando el tamaño de la scena cuando se modifica el tamaño de la scene
         // ajuste en el eje x estos parametros representan en ancho del pane
-        anchoPane.widthProperty().addListener((anchoPane, anchoAnterior, nuevoAncho) -> {
+        anchoPane.widthProperty().addListener((anchoPane,anchoAnterior, nuevoAncho) -> {
             // se resta el nuevo ancho con el ancho del pane que yo define
             pn_login.setLayoutX((nuevoAncho.doubleValue() - pn_login.getPrefWidth()) / 2);// se divide entre dos para
                                                                                           // que este centrado

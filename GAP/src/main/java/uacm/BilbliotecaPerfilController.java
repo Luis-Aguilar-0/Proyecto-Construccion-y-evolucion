@@ -1,5 +1,6 @@
 package uacm;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -62,13 +63,18 @@ public class BilbliotecaPerfilController implements Initializable {
     private AnchorPane aC_panelJuegos;
     @FXML
     private AnchorPane apane_principal;
+    @FXML
+    private ImageView im_imgenPerfil;
+    @FXML
+    private ImageView imgCarrito;
+
 
     private int numPaginas = 0;
     private int indexPagina = 0; //me dice en que pagina estoy parado
     private List<ImageView> listaImageViews = new ArrayList<ImageView>();
     private List<List<Juego>> pagGames = new ArrayList<>();
 
-    @FXML
+
     private void mostrarPerfil() {
         if (perfil2Controller != null) {
             perfil2Controller.muestraPerfil();
@@ -92,6 +98,17 @@ public class BilbliotecaPerfilController implements Initializable {
         usuario.setJuegos(Sesion.getJuegosUsuario());
         //usuario.setJuegos(PathsImages.games);
 
+        // Asignamos la foto de perfil 
+        if(usuario.getImagenPerfil() != null){
+            Image imagenPerfil = new Image(new ByteArrayInputStream(usuario.getImagenPerfil()));
+            im_imgenPerfil.setImage(imagenPerfil);
+            im_imgenPerfil.setVisible(true);
+        }else{
+            Image image = new Image(getClass().getResource("/imagenes/imagesPerfil/perfil4.png").toExternalForm());
+            im_imgenPerfil.setImage(image);
+            im_imgenPerfil.setVisible(true);
+        }
+        
         if (usuario.getJuegos() != null) {//verifica si el usuario tien juegos
             // obtenemos el numero de juegos que tiene el usuario
             int numJuegos = usuario.getJuegos().size();
@@ -179,6 +196,16 @@ public class BilbliotecaPerfilController implements Initializable {
                     exe.printStackTrace();
                 }
         });
+        
+        //ajustando el tamaño de la pantalla
+        apane_principal.widthProperty().addListener((anchoPane,anchoAnterior,anchoNuevo)->{
+            sC_panel.setLayoutX((anchoNuevo.doubleValue()- sC_panel.getPrefHeight()) /2);
+        });
+        
+         apane_principal.widthProperty().addListener((anchoPane,anchoAnterior,anchoNuevo)->{
+             sC_panel.setLayoutY((anchoNuevo.doubleValue() - sC_panel.getPrefHeight()) /2);
+         });
+        
 
     }
 
