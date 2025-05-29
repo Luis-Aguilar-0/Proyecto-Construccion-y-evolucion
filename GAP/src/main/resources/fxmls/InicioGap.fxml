@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="698.0" stylesheets="@../styles/iniciogap.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.InicioGapController">
+<BorderPane fx:id="id_borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="698.0" stylesheets="@../styles/iniciogap.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uacm.InicioGapController">
    <center>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/iniciogap.css" BorderPane.alignment="CENTER">
         <content>
@@ -281,7 +281,7 @@
             <MenuButton fx:id="menuPerfil_btn" layoutX="590.0" layoutY="9.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="101.0" styleClass="boton_menu">
               <items>
                 <MenuItem fx:id="verPerfil_Item" mnemonicParsing="false" text="Ver Perfil" />
-                <MenuItem fx:id="cerrarSesion_Item" mnemonicParsing="false" text="Cerrar Sesion" />
+                <MenuItem fx:id="cerrarSesion_Item" mnemonicParsing="false" onAction="#cerrarVentana" text="Cerrar Sesion" />
               </items>
             </MenuButton>
          </children>

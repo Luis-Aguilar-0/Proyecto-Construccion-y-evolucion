@@ -1,5 +1,8 @@
 package persistencia;
 import java.util.List;
+
+import javafx.fxml.FXMLLoader;
+import javafx.stage.Stage;
 import logic.Juego;
 import logic.Usuario;
 // funcion? guarda en memoria el usuario que ha iniciado sesion
@@ -8,6 +11,7 @@ public class Sesion {
     private static List<Juego> juegos;
     private static Juego juego;
     private static String pantallaOrigen;
+    private static FXMLLoader ventana;
 
     public static void setUsuario(Usuario u) {//se llama al usuario tras haber inciado sesion
         usuarioActual = u;
@@ -35,6 +39,12 @@ public class Sesion {
       }
       public static void setPantallaOrigen(String origen){
         pantallaOrigen = origen;
+      }
+      public static void setStage(FXMLLoader ventana_){
+        ventana = ventana_;
+      }
+      public static FXMLLoader getVentana(){
+        return ventana;
       }
 
        /** Indica si hay alguien logueado */

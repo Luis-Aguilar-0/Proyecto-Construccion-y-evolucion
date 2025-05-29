@@ -1,12 +1,13 @@
 package uacm;
 
-import java.io.ByteArrayInputStream; 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,8 +20,10 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView; 
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import logic.Juego;
@@ -60,7 +63,7 @@ public class InicioGapController implements Initializable {
     private Button bt_carrito;
     private final double speed_scroll = 0.1;
     @FXML
-    private MenuButton menuPerfil_btn; 
+    private MenuButton menuPerfil_btn;
     @FXML
     private Button categorias_btn;
     @FXML
@@ -107,19 +110,23 @@ public class InicioGapController implements Initializable {
     private Button recarga_bttn;
     @FXML
     private Label label_coins;
-     private List<Juego> todosLosJuegos;
+    @FXML
+    private BorderPane id_borderPane;
+
     @FXML
     private void moverIzquierdaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() - speed_scroll;
         carrucel_scPn_play.setHvalue(Math.max(nuevaPosicion, 0));
     }
+
     @FXML
     private void moverDerechaPlay() {
         double nuevaPosicion = carrucel_scPn_play.getHvalue() + speed_scroll;
         carrucel_scPn_play.setHvalue(Math.min(nuevaPosicion, 1));
     }
-     @FXML
-    private void moverIzquierdaBox(){
+
+    @FXML
+    private void moverIzquierdaBox() {
         double nuevaPosicion = carrucel_scPn_box.getHvalue() - speed_scroll;
 
         carrucel_scPn_box.setHvalue(Math.max(nuevaPosicion, 0));
@@ -145,6 +152,7 @@ public class InicioGapController implements Initializable {
 
         carrucel_scPn_nin.setHvalue(Math.min(nuevaPosicion, 1));
     }
+
     public void abrirVentana(String rutaFXML, MouseEvent event, String tituloVentana) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -162,7 +170,7 @@ public class InicioGapController implements Initializable {
             e.printStackTrace();
         }
     }
-    
+
     private void abrirVentana2(String rutaFXML) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -176,7 +184,7 @@ public class InicioGapController implements Initializable {
             ex.printStackTrace();
         }
     }
-    
+
     public void cambiarVentana2(String rutaFXML, ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -206,8 +214,9 @@ public class InicioGapController implements Initializable {
             e.printStackTrace();
         }
     }
-      @FXML
-    public void irCarrito(ActionEvent event) { 
+
+    @FXML
+    public void irCarrito(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Carrito.fxml"));
             Parent root = loader.load();
@@ -216,7 +225,7 @@ public class InicioGapController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             // Obtener la fuente del evento, el boton
-            Node source = (Node) event.getSource(); 
+            Node source = (Node) event.getSource();
             Stage currentStage = (Stage) source.getScene().getWindow();
             currentStage.close();
 
@@ -235,7 +244,7 @@ public class InicioGapController implements Initializable {
             imageView.setPreserveRatio(true);
 
             menuPerfil_btn.setGraphic(imageView);
-        }else{
+        } else {
             Image image = new Image("file:src/main/resources/imagenes/imagesPerfil/perfil4.png");
             ImageView imageView = new ImageView(image);
             imageView.setFitWidth(70);
@@ -245,23 +254,23 @@ public class InicioGapController implements Initializable {
             menuPerfil_btn.setGraphic(imageView);
         }
     }
-    
-    private void mostrarCoins(){
+
+    private void mostrarCoins() {
         Usuario u = Sesion.getUsuario();
-        if(u != null && u.getAjoloCoins() != 0){
-            label_coins.setText(u.getAjoloCoins().toString() + "Ax");
-        }else{
-            label_coins.setText("0Ax");
+        if (u != null && u.getAjoloCoins() != 0) {
+            label_coins.setText(u.getAjoloCoins().toString() + " Ax");
+        } else {
+            label_coins.setText("0 Ax");
         }
-    }    
-    
+    }
+    //cierra la el stage actual
     private void cerrarVentana(Button boton) {
         Stage ventanaActual = (Stage) boton.getScene().getWindow();
         ventanaActual.close();
     }
-    
+    //busca el jugo por su nobre en la  lista statica 
     private Juego getJuegoPorNombre(String nombre) {
-        List<Juego> juegos = PathsImages.games; //obtengo los juegos
+        List<Juego> juegos = PathsImages.games; // obtengo los juegos
 
         for (Juego j : juegos) {
             if (j.getNombreJuego().equalsIgnoreCase(nombre)) {
@@ -270,23 +279,49 @@ public class InicioGapController implements Initializable {
         }
         return null;
     }
-    
+    //Me permite guardar el juego que se cargara en la pagina de juego
     private void paginaJuego(Juego juego) {
         if (juego != null) {
-            System.out.println(juego);
             Sesion.setJuegoPagina(juego);
-
         } else {
             System.out.println(juego);
         }
     }
-    
+
+    @FXML
+    private void cerrarVentana(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/CerrarSesion.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+             stage.setTitle("Cerrar Sesión");
+           
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            
+            stage.initModality(Modality.APPLICATION_MODAL);
+            
+            stage.initOwner(id_borderPane.getScene().getWindow());
+           
+
+            CerrarSesionController cerrarCtrl = loader.getController();
+            cerrarCtrl.setInicioGAPController(this);
+            // Pasa la referencia al Stage de perfil para que pueda cerrarse
+            cerrarCtrl.setPerfilStage((Stage) id_borderPane.getScene().getWindow());
+
+             stage.showAndWait(); // Espera hasta que se cierre
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarImagenPerfil();
         mostrarCoins();
         Sesion.setPantallaOrigen("/fxmls/InicioGap.fxml");
-        
+
         btnIzquierda_play.setOnAction(e -> moverIzquierdaPlay());
 
         btnDerecha_play.setOnAction(e -> moverDerechaPlay());
@@ -298,8 +333,9 @@ public class InicioGapController implements Initializable {
         btnIzquierda_nin.setOnAction(e -> moverIzquierdaNin());
 
         btnDerecha_nin.setOnAction(e -> moverDerechaNin());
-        
-        //Juegos Playstation
+
+        // Abre la pagina de cada juego mostrado en pantalla
+        // Juegos Playstation
         img1Play.setOnMouseClicked(eh -> {
             paginaJuego(getJuegoPorNombre("The Last of Us Part I"));
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "The Last Of Us");
@@ -327,7 +363,7 @@ public class InicioGapController implements Initializable {
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Returnal");
         });
 
-        //Juegos XBox
+        // Juegos XBox
         img1Xbox.setOnMouseClicked(eh -> {
             paginaJuego(getJuegoPorNombre("Mortal Kombat 1"));
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mortal Kombat 1");
@@ -353,7 +389,7 @@ public class InicioGapController implements Initializable {
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Battlefield V");
         });
 
-        //Juegos Nintendo
+        // Juegos Nintendo
         img1Nin.setOnMouseClicked(eh -> {
             paginaJuego(getJuegoPorNombre("Super Mario Party Jamboree"));
             abrirVentana("/fxmls/Pagina_juego.fxml", eh, "Mario Party");
@@ -385,8 +421,8 @@ public class InicioGapController implements Initializable {
 
         botonBiblioteca.setOnAction(eh -> {
             cerrarVentana(botonBiblioteca);
-            //abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } ;
-            cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
+            // abrirVentana("/fxmls/BibliotecaPerfil.fxml", "Biblioteca"); } ;
+            //cambiarVentana2("/fxmls/BibliotecaPerfil.fxml", eh);
         });
 
         verPerfil_Item.setOnAction(eh -> {
@@ -394,52 +430,61 @@ public class InicioGapController implements Initializable {
         });
 
         cerrarSesion_Item.setOnAction(eh -> {
-            abrirVentana2("/fxmls/CerrarSesion.fxml");
+            cerrarVentana(eh);
+            //abrirVentana2("/fxmls/CerrarSesion.fxml");
         });
 
         recarga_bttn.setOnAction(eh -> {
             cambiarVentana2("/fxmls/RecargaAxolotl.fxml", eh);
         });
-        
-        
+
     }
 
-     // MÉTODO NUEVO: Específico para abrir Pagina_juego.fxml y pasarle el objeto Juego
-    /*public void abrirPaginaJuegoConDatos(MouseEvent event, Juego juegoSeleccionado) {
-        if (juegoSeleccionado == null) {
-            System.err.println("InicioGapController: No se puede abrir la página del juego, juegoSeleccionado es null.");
-            // Opcional: Mostrar una alerta al usuario
-            return;
-        }
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Pagina_juego.fxml"));
-            Parent root = loader.load();
+    // MÉTODO NUEVO: Específico para abrir Pagina_juego.fxml y pasarle el objeto
+    // Juego
+    /*
+     * public void abrirPaginaJuegoConDatos(MouseEvent event, Juego
+     * juegoSeleccionado) {
+     * if (juegoSeleccionado == null) {
+     * System.err.
+     * println("InicioGapController: No se puede abrir la página del juego, juegoSeleccionado es null."
+     * );
+     * // Opcional: Mostrar una alerta al usuario
+     * return;
+     * }
+     * try {
+     * FXMLLoader loader = new
+     * FXMLLoader(getClass().getResource("/fxmls/Pagina_juego.fxml"));
+     * Parent root = loader.load();
+     * 
+     * Pagina_juegoController controller = loader.getController();
+     * if (controller != null) {
+     * controller.setJuego(juegoSeleccionado); // Aquí se pasa el objeto Juego
+     * } else {
+     * System.err.
+     * println("Error crítico: No se pudo obtener el controlador para Pagina_juego.fxml"
+     * );
+     * }
+     * 
+     * Stage nuevaVentana = new Stage();
+     * nuevaVentana.setTitle(juegoSeleccionado.getNombreJuego());
+     * nuevaVentana.setScene(new Scene(root));
+     * nuevaVentana.show();
+     * 
+     * // Por defecto, no cerramos la ventana de InicioGap.
+     * // Si quieres cerrarla, descomenta la siguiente línea:
+     * // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+     * 
+     * } catch (IOException e) {
+     * System.err.println("Error al cargar FXML /fxmls/Pagina_juego.fxml: " +
+     * e.getMessage());
+     * e.printStackTrace();
+     * } catch (Exception e) {
+     * System.err.println("Error inesperado al abrir la página del juego '" +
+     * juegoSeleccionado.getNombreJuego() + "': " + e.getMessage());
+     * e.printStackTrace();
+     * }
+     * }
+     */
 
-            Pagina_juegoController controller = loader.getController();
-            if (controller != null) {
-                controller.setJuego(juegoSeleccionado); // Aquí se pasa el objeto Juego
-            } else {
-                System.err.println("Error crítico: No se pudo obtener el controlador para Pagina_juego.fxml");
-            }
-
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle(juegoSeleccionado.getNombreJuego());
-            nuevaVentana.setScene(new Scene(root));
-            nuevaVentana.show();
-
-            // Por defecto, no cerramos la ventana de InicioGap.
-            // Si quieres cerrarla, descomenta la siguiente línea:
-            // ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
-
-        } catch (IOException e) {
-            System.err.println("Error al cargar FXML /fxmls/Pagina_juego.fxml: " + e.getMessage());
-            e.printStackTrace();
-        } catch (Exception e) {
-            System.err.println("Error inesperado al abrir la página del juego '" + juegoSeleccionado.getNombreJuego() + "': " + e.getMessage());
-            e.printStackTrace();
-        }
-    }*/
-
-    
 }
-

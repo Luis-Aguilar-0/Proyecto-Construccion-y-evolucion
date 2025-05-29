@@ -29,18 +29,30 @@ import logic.Tarjeta;
 import logic.Usuario;
 import persistencia.Sesion;
 import persistencia.TarjetaDAO;
+
 public class BilleteraPerfilController {
-    @FXML private AnchorPane anchorPaneRaizBilletera;
-    @FXML private Label lbSaldo;
-    @FXML private VBox vBoxTarjetas;
-    @FXML private Label lbTarjetas;
-    @FXML private ScrollPane scrollPaneHistorial;
-    @FXML private VBox vboxHistorial;
-    @FXML private Button btnAgregarSaldo;
-    @FXML private Button btnAgregarTarjeta;
-    @FXML private Label lbSaldoCuenta;
-    @FXML private VBox vboxTarjetas;
-    @FXML private ScrollPane scrollPaneTarjetas;
+    @FXML
+    private AnchorPane anchorPaneRaizBilletera;
+    @FXML
+    private Label lbSaldo;
+    @FXML
+    private VBox vBoxTarjetas;
+    @FXML
+    private Label lbTarjetas;
+    @FXML
+    private ScrollPane scrollPaneHistorial;
+    @FXML
+    private VBox vboxHistorial;
+    @FXML
+    private Button btnAgregarSaldo;
+    @FXML
+    private Button btnAgregarTarjeta;
+    @FXML
+    private Label lbSaldoCuenta;
+    @FXML
+    private VBox vboxTarjetas;
+    @FXML
+    private ScrollPane scrollPaneTarjetas;
 
     private Perfil2Controller perfil2Controller;
     private TarjetaDAO tarjetaDAO;
@@ -55,12 +67,14 @@ public class BilleteraPerfilController {
             tarjetaDAO = new TarjetaDAO();
         } catch (SQLException e) {
             e.printStackTrace();
-            if (btnAgregarTarjeta != null) btnAgregarTarjeta.setDisable(true);
+            if (btnAgregarTarjeta != null)
+                btnAgregarTarjeta.setDisable(true);
         }
         cargarSaldoUsuario();
         cargarYMostrarTarjetasGuardadas();
     }
-        // Actualizar el saldo en la etiqueta lbSaldo
+
+    // Actualizar el saldo en la etiqueta lbSaldo
     private void cargarSaldoUsuario() {
         Usuario usuarioActual = Sesion.getUsuario();
         if (usuarioActual != null && lbSaldoCuenta != null) {
@@ -85,8 +99,9 @@ public class BilleteraPerfilController {
             e.printStackTrace();
         }
     }
+
     @FXML
-    void abrirVentanaRecargarAxolocoins(MouseEvent event) { 
+    void abrirVentanaRecargarAxolocoins(MouseEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/RecargaAxolotl.fxml"));
             Parent root = loader.load();
@@ -97,14 +112,15 @@ public class BilleteraPerfilController {
             Node origen = (Node) event.getSource();
             Stage ventanaActual = (Stage) origen.getScene().getWindow();
             ventanaActual.close();
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     private void cargarYMostrarTarjetasGuardadas() {
-        if (vboxTarjetas == null) return;
+        if (vboxTarjetas == null)
+            return;
         vboxTarjetas.getChildren().clear();
         Usuario usuarioActual = Sesion.getUsuario();
         if (usuarioActual == null) {
@@ -116,14 +132,11 @@ public class BilleteraPerfilController {
             return;
         }
         try {
-            //obtener id de la tarjeta del usuario actual
+            // obtener id de la tarjeta del usuario actual
             List<Tarjeta> tarjetasDelUsuario = tarjetaDAO.obtenerTarjetasPorUsuario(usuarioActual.getId());
-            //se actualiza la lista de tarjetas guardadas del usuario actual
+            // se actualiza la lista de tarjetas guardadas del usuario actual
             usuarioActual.setTarjetasGuardadas(tarjetasDelUsuario != null ? tarjetasDelUsuario : new ArrayList<>());
-            //si el usuario tiene tarjetas guardadas, 
             if (!usuarioActual.getTarjetasGuardadas().isEmpty()) {
-                // Iterar sobre las tarjetas guardadas y crear la UI para cada una
-                //usar un VBox para contener las tarjetas
                 for (Tarjeta tarjeta : usuarioActual.getTarjetasGuardadas()) {
                     HBox tarjetaUI = crearTarjetaUI(tarjeta, usuarioActual.getId());
                     vboxTarjetas.getChildren().add(tarjetaUI);
@@ -137,7 +150,7 @@ public class BilleteraPerfilController {
             mostrarMensajeEnVBox("Error al cargar tus métodos de pago.");
         }
     }
-    // // Método para crear la UI de una tarjeta
+
     private HBox crearTarjetaUI(Tarjeta tarjeta, int idUsuario) {
         HBox hbox = new HBox(15);
         hbox.setAlignment(Pos.CENTER_LEFT);
@@ -148,12 +161,8 @@ public class BilleteraPerfilController {
         imgIcono.setFitHeight(30.0);
         imgIcono.setFitWidth(45.0);
         imgIcono.setPreserveRatio(true);
-        // Llama a determinarTipoTarjeta para obtener la ruta del archivo del icono (Visa, Mastercard, etc.)
-        // basndose en los primeros dígitos del número de tarjeta.
         String iconoPath = determinarTipoTarjeta(tarjeta.getNumTarjeta());
-        // Carga la imagen del icono desde el recurso
         try (InputStream stream = getClass().getResourceAsStream(iconoPath)) {
-            // Verifica si el stream no es nulo antes de crear la imagen
             if (stream != null) {
                 Image cardImage = new Image(stream);
                 if (!cardImage.isError()) {
@@ -167,13 +176,16 @@ public class BilleteraPerfilController {
         }
 
         String numTarjetaStr = String.valueOf(tarjeta.getNumTarjeta());
-        String numTarjetaOfuscado = "**** **** **** " + (numTarjetaStr.length() > 4 ? numTarjetaStr.substring(numTarjetaStr.length() - 4) : numTarjetaStr);
+        String numTarjetaOfuscado = "**** **** **** "
+                + (numTarjetaStr.length() > 4 ? numTarjetaStr.substring(numTarjetaStr.length() - 4) : numTarjetaStr);
         Label lblNumTarjeta = new Label(numTarjetaOfuscado);
         lblNumTarjeta.getStyleClass().add("label-texto-normal");
         HBox.setHgrow(lblNumTarjeta, javafx.scene.layout.Priority.ALWAYS);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
-        String fechaExpStr = (tarjeta.getFechaExpiracion() != null) ? tarjeta.getFechaExpiracion().toLocalDate().format(formatter) : "N/A";
+        String fechaExpStr = (tarjeta.getFechaExpiracion() != null)
+                ? tarjeta.getFechaExpiracion().toLocalDate().format(formatter)
+                : "N/A";
         Label lblExp = new Label("Exp: " + fechaExpStr);
         lblExp.getStyleClass().add("label-texto-secundario-tarjeta");
         lblExp.setMinWidth(Label.USE_PREF_SIZE);
@@ -215,7 +227,8 @@ public class BilleteraPerfilController {
     }
 
     private void mostrarMensajeEnVBox(String mensaje) {
-        if (vboxTarjetas == null) return;
+        if (vboxTarjetas == null)
+            return;
         vboxTarjetas.getChildren().clear();
         Label lblMensaje = new Label(mensaje);
         lblMensaje.getStyleClass().add("label-texto-normal");

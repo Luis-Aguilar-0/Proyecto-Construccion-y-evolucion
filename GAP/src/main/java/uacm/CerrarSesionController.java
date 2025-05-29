@@ -22,6 +22,8 @@ public class CerrarSesionController {
     // Variable para guardar una referencia al controlador de la pantalla de Perfil.
     private Perfil2Controller perfil2Controller;
 
+    private InicioGapController inicioGAPController;
+
     // Método para establecer el controlador de la pantalla de Perfil.
     public void setPerfil2Controller(Perfil2Controller controller) {
         this.perfil2Controller = controller;
@@ -29,6 +31,10 @@ public class CerrarSesionController {
     // Método para obtener el controlador de la pantalla de Perfil.
     public void setPerfilStage(Stage perfilStage) {
         this.perfilStage = perfilStage;
+    }
+
+    public void setInicioGAPController(InicioGapController controller) {
+        this.inicioGAPController = controller;
     }
 
     @FXML

@@ -3,9 +3,6 @@ package uacm;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,9 +22,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import logic.GestorCarrito;
 import logic.Juego;
-import logic.Usuario;
 import persistencia.Sesion;
-import persistencia.TarjetaDAO;
 
 public class Pagina_juegoController implements Initializable {
     @FXML
@@ -64,7 +59,6 @@ public class Pagina_juegoController implements Initializable {
     private Label lb_precioAjoloCoins;
     @FXML
     private Button bt_carrito;
-    
     @FXML
     private Button bt_inicio;
     @FXML
@@ -72,6 +66,8 @@ public class Pagina_juegoController implements Initializable {
 
 
     private void mostrarInfo(Juego juego){
+
+        // Asignando las imagenes del juego
         for(int i = 0; i < juego.getImagenes().length;i++){
             Image imagenJuego = new Image(getClass().getResource(juego.getImagenes()[i]).toExternalForm());
             if(i == 0) imagenPrimcipal.setImage(imagenJuego); 
@@ -79,24 +75,28 @@ public class Pagina_juegoController implements Initializable {
             if(i == 2) imgRight.setImage(imagenJuego);
             if(i == 3) imgLeft.setImage(imagenJuego);
         }
+
+        // Asignando informacion del juego
         txt_tituloJuego.setText(juego.getNombreJuego());
+
         lb_rMinimos.setWrapText(true);
         lb_rRecomendados.setWrapText(true);
         lb_descripsion.setWrapText(true);
+
         lb_rMinimos.setText(fortatoTexto(juego.getrMininos()));
         lb_rRecomendados.setText(fortatoTexto(juego.getrRecomendados()));
         lb_descripsion.setText(fortatoTexto(juego.getDescripcion()));
         String info = "Desarrollador: " + "\n" +juego.getDesarrollador() + "\n" + "Fecha de lanzamiento: " + "\n" + juego.getFechaLanzamiento().toString();
         lb_infoJuego.setText(info);
-        double precio = juego.getPrecio();
+        double precio = juego.getPrecio();// Precio en pesos mexicanos
         lb_precio.setText("Precio: $"+String.format("%.2f", precio));
-        lb_precioAjoloCoins.setText(juego.getPrecioAjoloCoins().toString() + " Ax");
+        lb_precioAjoloCoins.setText(juego.getPrecioAjoloCoins().toString() + " Ax");// Precio en axoloCoins
 
     }
 
     private String fortatoTexto(String texto){
         String resultado = "";
-        String[] textoSeparado = texto.split("\\.");
+        String[] textoSeparado = texto.split("\\.");//se para el texto cuando en cuentra un "."
         for(String tex : textoSeparado){
             resultado += tex + "\n";
         }
@@ -125,9 +125,11 @@ public class Pagina_juegoController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Juego juego = Sesion.getJuegoPagina();
+
+        Juego juego = Sesion.getJuegoPagina();//obtengo el juego que se mostrara la informacion
         mostrarInfo(juego);
 
+        //Eventos en imagenes, me permiten cambiar la imagen principal
         imgLeft.setOnMouseClicked(event -> {
             imagenPrimcipal.setImage(imgLeft.getImage());
         });
@@ -190,12 +192,12 @@ public class Pagina_juegoController implements Initializable {
             e.printStackTrace();
         }
     }
+    
     @FXML
     private void AgregarAlCarrito(ActionEvent event) {
         Juego juego = Sesion.getJuegoPagina();
         if (juego != null) {
             GestorCarrito.agregarJuego(juego);
-            System.out.println("'" + juego.getNombreJuego() + "' añadido al carrito via Pagina_juegoController.");
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Exito.fxml"));
                 Parent root = loader.load();

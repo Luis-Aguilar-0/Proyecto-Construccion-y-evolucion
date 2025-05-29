@@ -74,21 +74,8 @@ public class BilbliotecaPerfilController implements Initializable {
     private List<ImageView> listaImageViews = new ArrayList<ImageView>();
     private List<List<Juego>> pagGames = new ArrayList<>();
 
-
-    private void mostrarPerfil() {
-        if (perfil2Controller != null) {
-            perfil2Controller.muestraPerfil();
-        }
-    }
-
-    private Perfil2Controller perfil2Controller;
-
-    // Método para recibir la referencia al controlador principal
-    public void setPerfil2Controller(Perfil2Controller controller) {
-        this.perfil2Controller = controller;
-    }
-
     // public PathsImages images;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -196,6 +183,26 @@ public class BilbliotecaPerfilController implements Initializable {
                     exe.printStackTrace();
                 }
         });
+
+        imgCarrito.setOnMouseClicked(event ->{
+
+            Stage cerrarVentana = (Stage) imgCarrito.getScene().getWindow();
+            cerrarVentana.close();
+
+            Stage ventana = new Stage();
+            Parent root;
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/Carrito.fxml"));
+                root = loader.load();
+                Scene scene = new Scene(root);
+                ventana.setScene(scene);
+                ventana.show();
+            } catch (IOException ex){
+               ex.printStackTrace();
+            }
+
+        });
         
         //ajustando el tamaño de la pantalla
         apane_principal.widthProperty().addListener((anchoPane,anchoAnterior,anchoNuevo)->{
@@ -221,7 +228,7 @@ public class BilbliotecaPerfilController implements Initializable {
             Image imagen = new Image(getClass().getResource(pagGames.get(indexPagina).get(i).getImagenes()[0]).toExternalForm());// se obtiene la la portada y se crea una imagen
             listaImageViews.get(i).setImage(imagen);// se asignan las imagenes a las Imageviews
         }
-
+        //coloca el scroll en la parte superior
         sC_panel.setVvalue(0);
         Platform.runLater(() -> sC_panel.setVvalue(0));
     }

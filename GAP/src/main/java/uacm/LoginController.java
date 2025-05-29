@@ -223,6 +223,7 @@ public class LoginController implements Initializable {
                 Parent root;
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxmls/InicioGap.fxml"));
+                    Sesion.setStage(loader);
                     root = loader.load();
                     Scene scene = new Scene(root);
                     stagePP.setScene(scene);
