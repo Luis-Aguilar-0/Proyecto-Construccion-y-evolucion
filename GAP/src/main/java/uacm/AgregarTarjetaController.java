@@ -106,14 +106,12 @@ public class AgregarTarjetaController {
             mostrarAlertaEnLabel("Error de sistema: Servicio de tarjetas no disponible.");
             return;
         }
-
         try {
             int idNuevaTarjeta = tarjetaDAO.agregarTarjeta(nuevaTarjeta);
             if (idNuevaTarjeta != -1) {
                 Usuario usuarioActual = Sesion.getUsuario();
                 if (usuarioActual != null) {
                     boolean asociacionExitosa = tarjetaDAO.asociarTarjetaAUsuario(usuarioActual.getId(), idNuevaTarjeta);
-
                     if (asociacionExitosa) {
                         nuevaTarjeta.setIdTarjeta(idNuevaTarjeta);
                         usuarioActual.agregarTarjetaGuardada(nuevaTarjeta);

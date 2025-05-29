@@ -21,7 +21,6 @@ public class App extends Application {
         scene = new Scene(root,900,600);
         stage.setResizable(false);//permite ajustar el tamaño de la interfaz con le mause
         stage.setTitle("AjoloTienda");//añade un titulo a la barra de titulo
-
         stage.setScene(scene);
         stage.show();
 
